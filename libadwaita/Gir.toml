@@ -31,6 +31,10 @@ generate = [
     "Adw.Avatar",
     "Adw.Banner",
     "Adw.Bin",
+    "Adw.BreakpointBin",
+    "Adw.BreakpointConditionLengthType",
+    "Adw.BreakpointConditionLengthUnit",
+    "Adw.BreakpointConditionRatioType",
     "Adw.ButtonContent",
     "Adw.CarouselIndicatorDots",
     "Adw.CarouselIndicatorLines",
@@ -189,6 +193,37 @@ trait_name = "AdwApplicationExt"
 name = "Adw.ApplicationWindow"
 status = "generate"
 trait_name = "AdwApplicationWindowExt"
+
+[[object]]
+name = "Adw.Breakpoint"
+status = "generate"
+generate_builder = false
+    [[object.function]]
+    pattern = "(add_setters_valist|add_setters)"
+    ignore = true # C only functions, add_setters replaced by add_settersv
+    [[object.function]]
+    name = "add_settersv"
+    rename = "add_setters"
+    manual = true
+    [[object.function]]
+    name = "set_condition"
+        [[object.function.parameter]]
+        name = "condition"
+        const = true # iter shouldn't be mutable here
+
+[[object]]
+name = "Adw.BreakpointCondition"
+status = "generate"
+    [[object.function]]
+    name = "to_string"
+        [[object.function.parameter]]
+        name = "self"
+        const = true # iter shouldn't be mutable here
+    [[object.function]]
+    name = "parse"
+        [object.function.return]
+        nullable = true
+        nullable_return_is_error = "Invalid condition"
 
 [[object]]
 name = "Adw.CallbackAnimationTarget"

@@ -290,6 +290,48 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         },
     ),
     (
+        "AdwBreakpointBin",
+        Layout {
+            size: size_of::<AdwBreakpointBin>(),
+            alignment: align_of::<AdwBreakpointBin>(),
+        },
+    ),
+    (
+        "AdwBreakpointBinClass",
+        Layout {
+            size: size_of::<AdwBreakpointBinClass>(),
+            alignment: align_of::<AdwBreakpointBinClass>(),
+        },
+    ),
+    (
+        "AdwBreakpointClass",
+        Layout {
+            size: size_of::<AdwBreakpointClass>(),
+            alignment: align_of::<AdwBreakpointClass>(),
+        },
+    ),
+    (
+        "AdwBreakpointConditionLengthType",
+        Layout {
+            size: size_of::<AdwBreakpointConditionLengthType>(),
+            alignment: align_of::<AdwBreakpointConditionLengthType>(),
+        },
+    ),
+    (
+        "AdwBreakpointConditionLengthUnit",
+        Layout {
+            size: size_of::<AdwBreakpointConditionLengthUnit>(),
+            alignment: align_of::<AdwBreakpointConditionLengthUnit>(),
+        },
+    ),
+    (
+        "AdwBreakpointConditionRatioType",
+        Layout {
+            size: size_of::<AdwBreakpointConditionRatioType>(),
+            alignment: align_of::<AdwBreakpointConditionRatioType>(),
+        },
+    ),
+    (
         "AdwButtonContentClass",
         Layout {
             size: size_of::<AdwButtonContentClass>(),
@@ -779,6 +821,14 @@ const RUST_CONSTANTS: &[(&str, &str)] = &[
     ("(gint) ADW_ANIMATION_IDLE", "0"),
     ("(gint) ADW_ANIMATION_PAUSED", "1"),
     ("(gint) ADW_ANIMATION_PLAYING", "2"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO", "1"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MAX_HEIGHT", "3"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MAX_WIDTH", "1"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO", "0"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MIN_HEIGHT", "2"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_MIN_WIDTH", "0"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_PT", "1"),
+    ("(gint) ADW_BREAKPOINT_CONDITION_PX", "0"),
     ("(gint) ADW_CENTERING_POLICY_LOOSE", "0"),
     ("(gint) ADW_CENTERING_POLICY_STRICT", "1"),
     ("(gint) ADW_COLOR_SCHEME_DEFAULT", "0"),

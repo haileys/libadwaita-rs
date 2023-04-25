@@ -38,6 +38,20 @@ pub use self::banner::Banner;
 mod bin;
 pub use self::bin::Bin;
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod breakpoint;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::breakpoint::Breakpoint;
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod breakpoint_bin;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::breakpoint_bin::BreakpointBin;
+
 mod button_content;
 pub use self::button_content::ButtonContent;
 
@@ -224,11 +238,27 @@ pub use self::window::Window;
 mod window_title;
 pub use self::window_title::WindowTitle;
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod breakpoint_condition;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::breakpoint_condition::BreakpointCondition;
+
 mod spring_params;
 pub use self::spring_params::SpringParams;
 
 mod enums;
 pub use self::enums::AnimationState;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::enums::BreakpointConditionLengthType;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::enums::BreakpointConditionLengthUnit;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::enums::BreakpointConditionRatioType;
 pub use self::enums::CenteringPolicy;
 pub use self::enums::ColorScheme;
 pub use self::enums::Easing;
@@ -261,6 +291,9 @@ pub mod traits {
     pub use super::application::AdwApplicationExt;
     pub use super::application_window::AdwApplicationWindowExt;
     pub use super::bin::BinExt;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::breakpoint_bin::BreakpointBinExt;
     pub use super::combo_row::ComboRowExt;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
@@ -289,6 +322,9 @@ pub mod builders {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     pub use super::banner::BannerBuilder;
     pub use super::bin::BinBuilder;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::breakpoint_bin::BreakpointBinBuilder;
     pub use super::button_content::ButtonContentBuilder;
     pub use super::carousel::CarouselBuilder;
     pub use super::carousel_indicator_dots::CarouselIndicatorDotsBuilder;

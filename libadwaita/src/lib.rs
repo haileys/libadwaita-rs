@@ -114,6 +114,9 @@ macro_rules! skip_assert_initialized {
 mod auto;
 
 mod application;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod breakpoint;
 mod carousel;
 mod functions;
 #[cfg(any(feature = "v1_2", feature = "dox"))]

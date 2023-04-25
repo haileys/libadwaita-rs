@@ -34,6 +34,18 @@ impl ButtonContent {
         ButtonContentBuilder::new()
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_button_content_get_can_shrink")]
+    #[doc(alias = "get_can_shrink")]
+    pub fn can_shrink(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_button_content_get_can_shrink(
+                self.to_glib_none().0,
+            ))
+        }
+    }
+
     #[doc(alias = "adw_button_content_get_icon_name")]
     #[doc(alias = "get_icon_name")]
     pub fn icon_name(&self) -> glib::GString {
@@ -53,6 +65,15 @@ impl ButtonContent {
             from_glib(ffi::adw_button_content_get_use_underline(
                 self.to_glib_none().0,
             ))
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_button_content_set_can_shrink")]
+    pub fn set_can_shrink(&self, can_shrink: bool) {
+        unsafe {
+            ffi::adw_button_content_set_can_shrink(self.to_glib_none().0, can_shrink.into_glib());
         }
     }
 
@@ -80,6 +101,31 @@ impl ButtonContent {
                 self.to_glib_none().0,
                 use_underline.into_glib(),
             );
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "can-shrink")]
+    pub fn connect_can_shrink_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_can_shrink_trampoline<F: Fn(&ButtonContent) + 'static>(
+            this: *mut ffi::AdwButtonContent,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::can-shrink\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_can_shrink_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
         }
     }
 
@@ -172,6 +218,14 @@ impl ButtonContentBuilder {
     fn new() -> Self {
         Self {
             builder: glib::object::Object::builder(),
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn can_shrink(self, can_shrink: bool) -> Self {
+        Self {
+            builder: self.builder.property("can-shrink", can_shrink),
         }
     }
 

@@ -21,6 +21,12 @@ int main() {
     printf("%s;%zu;%zu\n", "AdwBannerClass", sizeof(AdwBannerClass), alignof(AdwBannerClass));
     printf("%s;%zu;%zu\n", "AdwBin", sizeof(AdwBin), alignof(AdwBin));
     printf("%s;%zu;%zu\n", "AdwBinClass", sizeof(AdwBinClass), alignof(AdwBinClass));
+    printf("%s;%zu;%zu\n", "AdwBreakpointBin", sizeof(AdwBreakpointBin), alignof(AdwBreakpointBin));
+    printf("%s;%zu;%zu\n", "AdwBreakpointBinClass", sizeof(AdwBreakpointBinClass), alignof(AdwBreakpointBinClass));
+    printf("%s;%zu;%zu\n", "AdwBreakpointClass", sizeof(AdwBreakpointClass), alignof(AdwBreakpointClass));
+    printf("%s;%zu;%zu\n", "AdwBreakpointConditionLengthType", sizeof(AdwBreakpointConditionLengthType), alignof(AdwBreakpointConditionLengthType));
+    printf("%s;%zu;%zu\n", "AdwBreakpointConditionLengthUnit", sizeof(AdwBreakpointConditionLengthUnit), alignof(AdwBreakpointConditionLengthUnit));
+    printf("%s;%zu;%zu\n", "AdwBreakpointConditionRatioType", sizeof(AdwBreakpointConditionRatioType), alignof(AdwBreakpointConditionRatioType));
     printf("%s;%zu;%zu\n", "AdwButtonContentClass", sizeof(AdwButtonContentClass), alignof(AdwButtonContentClass));
     printf("%s;%zu;%zu\n", "AdwCarouselClass", sizeof(AdwCarouselClass), alignof(AdwCarouselClass));
     printf("%s;%zu;%zu\n", "AdwCarouselIndicatorDotsClass", sizeof(AdwCarouselIndicatorDotsClass), alignof(AdwCarouselIndicatorDotsClass));
