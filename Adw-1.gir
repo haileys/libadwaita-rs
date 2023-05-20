@@ -203,12 +203,12 @@ style class `.about`.</doc>
                    version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1950">Creates a new `AdwAboutWindow`.</doc>
+             line="1917">Creates a new `AdwAboutWindow`.</doc>
         <source-position filename="src/adw-about-window.h" line="26"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1955">the newly created `AdwAboutWindow`</doc>
+               line="1922">the newly created `AdwAboutWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -217,7 +217,7 @@ style class `.about`.</doc>
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1965">Creates a new `AdwAboutWindow` using AppStream metadata.
+             line="1932">Creates a new `AdwAboutWindow` using AppStream metadata.
 
 This automatically sets the following properties with the following AppStream
 values:
@@ -241,14 +241,14 @@ description for that version.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1991">the newly created `AdwAboutWindow`</doc>
+               line="1958">the newly created `AdwAboutWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <parameter name="resource_path" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1967">The resource to use</doc>
+                 line="1934">The resource to use</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="release_notes_version"
@@ -257,7 +257,7 @@ description for that version.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1968">The version to retrieve release notes for</doc>
+                 line="1935">The version to retrieve release notes for</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -267,7 +267,7 @@ description for that version.</doc>
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3135">Adds a section to the Acknowledgements page.
+             line="3102">Adds a section to the Acknowledgements page.
 
 This can be used to acknowledge additional people and organizations for their
 non-development contributions - for example, backers in a crowdfunded
@@ -292,7 +292,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3137">an about window</doc>
+                 line="3104">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="name"
@@ -301,13 +301,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3138">the section name</doc>
+                 line="3105">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3139">the list of names</doc>
+                 line="3106">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -319,7 +319,7 @@ See also:
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3092">Adds an extra section to the Credits page.
+             line="3059">Adds an extra section to the Credits page.
 
 Extra sections are displayed below the standard categories.
 
@@ -342,7 +342,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3094">an about window</doc>
+                 line="3061">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="name"
@@ -351,13 +351,13 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3095">the section name</doc>
+                 line="3062">the section name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="people" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3096">the list of names</doc>
+                 line="3063">the list of names</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -369,7 +369,7 @@ See also:
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3361">Adds an extra section to the Legal page.
+             line="3328">Adds an extra section to the Legal page.
 
 Extra sections will be displayed below the application's own information.
 
@@ -417,13 +417,13 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3363">an about window</doc>
+                 line="3330">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3364">the name of the section</doc>
+                 line="3331">the name of the section</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="copyright"
@@ -432,13 +432,13 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3365">a copyright string</doc>
+                 line="3332">a copyright string</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3366">the type of license</doc>
+                 line="3333">the type of license</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
           <parameter name="license"
@@ -447,7 +447,7 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3367">custom license information</doc>
+                 line="3334">custom license information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -457,7 +457,7 @@ adw_about_window_add_legal_section (ADW_ABOUT_WINDOW (about),
               version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2648">Adds an extra link to the Details page.
+             line="2615">Adds an extra link to the Details page.
 
 Extra links are displayed under the comment and website.
 
@@ -472,19 +472,19 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2650">an about window</doc>
+                 line="2617">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2651">the link title</doc>
+                 line="2618">the link title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2652">the link URL</doc>
+                 line="2619">the link URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -497,19 +497,19 @@ See [property@AboutWindow:website].</doc>
                    value="application-icon"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2129">Gets the name of the application icon for @self.</doc>
+             line="2096">Gets the name of the application icon for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="39"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2135">the application icon name</doc>
+               line="2102">the application icon name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2131">an about window</doc>
+                 line="2098">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -522,19 +522,19 @@ See [property@AboutWindow:website].</doc>
                    value="application-name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2177">Gets the application name for @self.</doc>
+             line="2144">Gets the application name for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="33"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2183">the application name</doc>
+               line="2150">the application name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2179">an about window</doc>
+                 line="2146">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -546,12 +546,12 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="artists"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2914">Gets the list of artists of the application.</doc>
+             line="2881">Gets the list of artists of the application.</doc>
         <source-position filename="src/adw-about-window.h" line="122"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2920">The list of artists</doc>
+               line="2887">The list of artists</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -560,7 +560,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2916">an about window</doc>
+                 line="2883">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -572,19 +572,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="comments"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2454">Gets the comments about the application.</doc>
+             line="2421">Gets the comments about the application.</doc>
         <source-position filename="src/adw-about-window.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2460">the comments</doc>
+               line="2427">the comments</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2456">an about window</doc>
+                 line="2423">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -596,19 +596,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="copyright"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3176">Gets the copyright information for @self.</doc>
+             line="3143">Gets the copyright information for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="150"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3182">the copyright information</doc>
+               line="3149">the copyright information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3178">an about window</doc>
+                 line="3145">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -620,19 +620,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="debug-info"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2695">Gets the debug information for @self.</doc>
+             line="2662">Gets the debug information for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="98"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2701">the debug information</doc>
+               line="2668">the debug information</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2697">an about window</doc>
+                 line="2664">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -645,19 +645,19 @@ See [property@AboutWindow:website].</doc>
                    value="debug-info-filename"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2750">Gets the debug information filename for @self.</doc>
+             line="2717">Gets the debug information filename for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="104"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2756">the debug information filename</doc>
+               line="2723">the debug information filename</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2752">an about window</doc>
+                 line="2719">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -669,12 +669,12 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="designers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2856">Gets the list of designers of the application.</doc>
+             line="2823">Gets the list of designers of the application.</doc>
         <source-position filename="src/adw-about-window.h" line="116"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2862">The list of designers</doc>
+               line="2829">The list of designers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -683,7 +683,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2858">an about window</doc>
+                 line="2825">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -695,19 +695,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="developer-name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2225">Gets the developer name for @self.</doc>
+             line="2192">Gets the developer name for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2231">the developer_name</doc>
+               line="2198">the developer_name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2227">an about window</doc>
+                 line="2194">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -719,12 +719,12 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="developers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2798">Gets the list of developers of the application.</doc>
+             line="2765">Gets the list of developers of the application.</doc>
         <source-position filename="src/adw-about-window.h" line="110"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2804">The list of developers</doc>
+               line="2771">The list of developers</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -733,7 +733,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2800">an about window</doc>
+                 line="2767">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -745,12 +745,12 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="documenters"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2972">Gets the list of documenters of the application.</doc>
+             line="2939">Gets the list of documenters of the application.</doc>
         <source-position filename="src/adw-about-window.h" line="128"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2978">The list of documenters</doc>
+               line="2945">The list of documenters</doc>
           <array c:type="const char* const*">
             <type name="utf8"/>
           </array>
@@ -759,7 +759,7 @@ See [property@AboutWindow:website].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2974">an about window</doc>
+                 line="2941">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -771,19 +771,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="issue-url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2601">Gets the issue tracker URL for @self.</doc>
+             line="2568">Gets the issue tracker URL for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="87"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2607">the issue tracker URL</doc>
+               line="2574">the issue tracker URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2603">an about window</doc>
+                 line="2570">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -795,19 +795,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="license"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3296">Gets the license for @self.</doc>
+             line="3263">Gets the license for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="162"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3302">the license</doc>
+               line="3269">the license</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3298">an about window</doc>
+                 line="3265">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -819,19 +819,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="license-type"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3230">Gets the license type for @self.</doc>
+             line="3197">Gets the license type for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="156"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3236">the license type</doc>
+               line="3203">the license type</doc>
           <type name="Gtk.License" c:type="GtkLicense"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3232">an about window</doc>
+                 line="3199">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -843,19 +843,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="release-notes"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2385">Gets the release notes for @self.</doc>
+             line="2352">Gets the release notes for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2391">the release notes</doc>
+               line="2358">the release notes</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2387">an about window</doc>
+                 line="2354">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -868,19 +868,19 @@ See [property@AboutWindow:website].</doc>
                    value="release-notes-version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2328">Gets the version described by the application's release notes.</doc>
+             line="2295">Gets the version described by the application's release notes.</doc>
         <source-position filename="src/adw-about-window.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2334">the release notes version</doc>
+               line="2301">the release notes version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2330">an about window</doc>
+                 line="2297">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -892,19 +892,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="support-url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2554">Gets the URL of the support page for @self.</doc>
+             line="2521">Gets the URL of the support page for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="81"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2560">the support page URL</doc>
+               line="2527">the support page URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2556">an about window</doc>
+                 line="2523">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -917,19 +917,19 @@ See [property@AboutWindow:website].</doc>
                    value="translator-credits"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3030">Gets the translator credits string.</doc>
+             line="2997">Gets the translator credits string.</doc>
         <source-position filename="src/adw-about-window.h" line="134"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3036">The translator credits string</doc>
+               line="3003">The translator credits string</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3032">an about window</doc>
+                 line="2999">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -941,19 +941,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2278">Gets the version for @self.</doc>
+             line="2245">Gets the version for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2284">the version</doc>
+               line="2251">the version</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2280">an about window</doc>
+                 line="2247">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -965,19 +965,19 @@ See [property@AboutWindow:website].</doc>
         <attribute name="org.gtk.Method.get_property" value="website"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2504">Gets the application website URL for @self.</doc>
+             line="2471">Gets the application website URL for @self.</doc>
         <source-position filename="src/adw-about-window.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="2510">the website URL</doc>
+               line="2477">the website URL</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2506">an about window</doc>
+                 line="2473">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
         </parameters>
@@ -990,7 +990,7 @@ See [property@AboutWindow:website].</doc>
                    value="application-icon"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2147">Sets the name of the application icon for @self.
+             line="2114">Sets the name of the application icon for @self.
 
 The icon is displayed at the top of the main page.</doc>
         <source-position filename="src/adw-about-window.h" line="41"/>
@@ -1001,13 +1001,13 @@ The icon is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2149">an about window</doc>
+                 line="2116">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="application_icon" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2150">the application icon name</doc>
+                 line="2117">the application icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1020,7 +1020,7 @@ The icon is displayed at the top of the main page.</doc>
                    value="application-name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2195">Sets the application name for @self.
+             line="2162">Sets the application name for @self.
 
 The name is displayed at the top of the main page.</doc>
         <source-position filename="src/adw-about-window.h" line="35"/>
@@ -1031,13 +1031,13 @@ The name is displayed at the top of the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2197">an about window</doc>
+                 line="2164">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="application_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2198">the application name</doc>
+                 line="2165">the application name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1049,7 +1049,7 @@ The name is displayed at the top of the main page.</doc>
         <attribute name="org.gtk.Method.set_property" value="artists"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2932">Sets the list of artists of the application.
+             line="2899">Sets the list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -1072,7 +1072,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2934">an about window</doc>
+                 line="2901">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="artists"
@@ -1081,7 +1081,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2935">the list of artists</doc>
+                 line="2902">the list of artists</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1095,7 +1095,7 @@ See also:
         <attribute name="org.gtk.Method.set_property" value="comments"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2472">Sets the comments about the application.
+             line="2439">Sets the comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -1109,13 +1109,13 @@ detailed. It can also contain links and Pango markup.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2474">an about window</doc>
+                 line="2441">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="comments" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2475">the comments</doc>
+                 line="2442">the comments</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1127,7 +1127,7 @@ detailed. It can also contain links and Pango markup.</doc>
         <attribute name="org.gtk.Method.set_property" value="copyright"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3194">Sets the copyright information for @self.
+             line="3161">Sets the copyright information for @self.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -1145,13 +1145,13 @@ information for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3196">an about window</doc>
+                 line="3163">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="copyright" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3197">the copyright information</doc>
+                 line="3164">the copyright information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1163,7 +1163,7 @@ information for the application dependencies or other components.</doc>
         <attribute name="org.gtk.Method.set_property" value="debug-info"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2713">Sets the debug information for @self.
+             line="2680">Sets the debug information for @self.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -1182,13 +1182,13 @@ Debug information cannot contain markup or links.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2715">an about window</doc>
+                 line="2682">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="debug_info" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2716">the debug information</doc>
+                 line="2683">the debug information</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1200,7 +1200,7 @@ Debug information cannot contain markup or links.</doc>
         <attribute name="org.gtk.Method.set_property" value="debug-info"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2768">Sets the debug information filename for @self.
+             line="2735">Sets the debug information filename for @self.
 
 It will be used as the suggested filename when saving debug information to a
 file.
@@ -1214,13 +1214,13 @@ See [property@AboutWindow:debug-info].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2770">an about window</doc>
+                 line="2737">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="filename" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2771">the debug info filename</doc>
+                 line="2738">the debug info filename</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1232,7 +1232,7 @@ See [property@AboutWindow:debug-info].</doc>
         <attribute name="org.gtk.Method.set_property" value="designers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2874">Sets the list of designers of the application.
+             line="2841">Sets the list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1255,7 +1255,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2876">an about window</doc>
+                 line="2843">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="designers"
@@ -1264,7 +1264,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2877">the list of designers</doc>
+                 line="2844">the list of designers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1278,7 +1278,7 @@ See also:
         <attribute name="org.gtk.Method.set_property" value="developer-name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2243">Sets the developer name for @self.
+             line="2210">Sets the developer name for @self.
 
 The developer name is displayed on the main page, under the application name.
 
@@ -1294,13 +1294,13 @@ Credits page, with [property@AboutWindow:developers] and related properties.</do
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2245">an about window</doc>
+                 line="2212">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="developer_name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2246">the developer name</doc>
+                 line="2213">the developer name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1312,7 +1312,7 @@ Credits page, with [property@AboutWindow:developers] and related properties.</do
         <attribute name="org.gtk.Method.set_property" value="developers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2816">Sets the list of developers of the application.
+             line="2783">Sets the list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1335,7 +1335,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2818">an about window</doc>
+                 line="2785">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="developers"
@@ -1344,7 +1344,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2819">the list of developers</doc>
+                 line="2786">the list of developers</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1358,7 +1358,7 @@ See also:
         <attribute name="org.gtk.Method.set_property" value="documenters"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2990">Sets the list of documenters of the application.
+             line="2957">Sets the list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -1381,7 +1381,7 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2992">an about window</doc>
+                 line="2959">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="documenters"
@@ -1390,7 +1390,7 @@ See also:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2993">the list of documenters</doc>
+                 line="2960">the list of documenters</doc>
             <array c:type="const char**">
               <type name="utf8" c:type="char*"/>
             </array>
@@ -1404,7 +1404,7 @@ See also:
         <attribute name="org.gtk.Method.set_property" value="issue-url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2619">Sets the issue tracker URL for @self.
+             line="2586">Sets the issue tracker URL for @self.
 
 The issue tracker link is displayed on the main page.</doc>
         <source-position filename="src/adw-about-window.h" line="89"/>
@@ -1415,13 +1415,13 @@ The issue tracker link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2621">an about window</doc>
+                 line="2588">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="issue_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2622">the issue tracker URL</doc>
+                 line="2589">the issue tracker URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1433,7 +1433,7 @@ The issue tracker link is displayed on the main page.</doc>
         <attribute name="org.gtk.Method.set_property" value="license"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3314">Sets the license for @self.
+             line="3281">Sets the license for @self.
 
 This can be used to set a custom text for the license if it can't be set via
 [property@AboutWindow:license-type].
@@ -1456,13 +1456,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3316">an about window</doc>
+                 line="3283">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="license" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3317">the license</doc>
+                 line="3284">the license</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1474,7 +1474,7 @@ for the application dependencies or other components.</doc>
         <attribute name="org.gtk.Method.set_property" value="license-type"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3248">Sets the license for @self from a list of known licenses.
+             line="3215">Sets the license for @self from a list of known licenses.
 
 If the application's license is not in the list,
 [property@AboutWindow:license] can be used instead. The license type will be
@@ -1498,13 +1498,13 @@ for the application dependencies or other components.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3250">an about window</doc>
+                 line="3217">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="license_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3251">the license type</doc>
+                 line="3218">the license type</doc>
             <type name="Gtk.License" c:type="GtkLicense"/>
           </parameter>
         </parameters>
@@ -1516,7 +1516,7 @@ for the application dependencies or other components.</doc>
         <attribute name="org.gtk.Method.set_property" value="release-notes"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2403">Sets the release notes for @self.
+             line="2370">Sets the release notes for @self.
 
 Release notes are displayed on the the What's New page.
 
@@ -1548,13 +1548,13 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2405">an about window</doc>
+                 line="2372">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="release_notes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2406">the release notes</doc>
+                 line="2373">the release notes</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1567,7 +1567,7 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
                    value="release-notes-version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2346">Sets the version described by the application's release notes.
+             line="2313">Sets the version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -1587,13 +1587,13 @@ See [property@AboutWindow:release-notes].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2348">an about window</doc>
+                 line="2315">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2349">the release notes version</doc>
+                 line="2316">the release notes version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1605,7 +1605,7 @@ See [property@AboutWindow:release-notes].</doc>
         <attribute name="org.gtk.Method.set_property" value="support-url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2572">Sets the URL of the support page for @self.
+             line="2539">Sets the URL of the support page for @self.
 
 The support page link is displayed on the main page.</doc>
         <source-position filename="src/adw-about-window.h" line="83"/>
@@ -1616,13 +1616,13 @@ The support page link is displayed on the main page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2574">an about window</doc>
+                 line="2541">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="support_url" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2575">the support page URL</doc>
+                 line="2542">the support page URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1635,7 +1635,7 @@ The support page link is displayed on the main page.</doc>
                    value="translator-credits"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="3048">Sets the translator credits string.
+             line="3015">Sets the translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -1661,13 +1661,13 @@ See also:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3050">an about window</doc>
+                 line="3017">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="translator_credits" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="3051">the translator credits</doc>
+                 line="3018">the translator credits</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1679,7 +1679,7 @@ See also:
         <attribute name="org.gtk.Method.set_property" value="version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2296">Sets the version for @self.
+             line="2263">Sets the version for @self.
 
 The version is displayed on the main page.
 
@@ -1693,13 +1693,13 @@ also be displayed above the release notes on the What's New page.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2298">an about window</doc>
+                 line="2265">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="version" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2299">the version</doc>
+                 line="2266">the version</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1711,7 +1711,7 @@ also be displayed above the release notes on the What's New page.</doc>
         <attribute name="org.gtk.Method.set_property" value="website"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="2522">Sets the application website URL for @self.
+             line="2489">Sets the application website URL for @self.
 
 Website is displayed on the Details page, below comments, or on the main page
 if the Details page doesn't have any other content.
@@ -1725,13 +1725,13 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2524">an about window</doc>
+                 line="2491">an about window</doc>
             <type name="AboutWindow" c:type="AdwAboutWindow*"/>
           </instance-parameter>
           <parameter name="website" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="2525">the website URL</doc>
+                 line="2492">the website URL</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -1748,7 +1748,7 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
                    value="adw_about_window_set_application_icon"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1379">The name of the application icon.
+             line="1353">The name of the application icon.
 
 The icon is displayed at the top of the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1765,7 +1765,7 @@ The icon is displayed at the top of the main page.</doc>
                    value="adw_about_window_set_application_name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1393">The name of the application.
+             line="1367">The name of the application.
 
 The name is displayed at the top of the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -1782,7 +1782,7 @@ The name is displayed at the top of the main page.</doc>
                    value="adw_about_window_set_artists"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1656">The list of artists of the application.
+             line="1630">The list of artists of the application.
 
 It will be displayed on the Credits page.
 
@@ -1813,7 +1813,7 @@ See also:
                    value="adw_about_window_set_comments"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1503">The comments about the application.
+             line="1477">The comments about the application.
 
 Comments will be shown on the Details page, above links.
 
@@ -1833,7 +1833,7 @@ detailed. It can also contain links and Pango markup.</doc>
                    value="adw_about_window_set_copyright"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1737">The copyright information.
+             line="1711">The copyright information.
 
 This should be a short string of one or two lines, for example:
 `© 2022 Example`.
@@ -1857,7 +1857,7 @@ information for the application dependencies or other components.</doc>
                    value="adw_about_window_set_debug_info"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1565">The debug information.
+             line="1539">The debug information.
 
 Debug information will be shown on the Troubleshooting page. It's intended
 to be attached to issue reports when reporting issues against the
@@ -1882,7 +1882,7 @@ Debug information cannot contain markup or links.</doc>
                    value="adw_about_window_set_debug_info_filename"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1587">The debug information filename.
+             line="1561">The debug information filename.
 
 It will be used as the suggested filename when saving debug information to
 a file.
@@ -1902,7 +1902,7 @@ See [property@AboutWindow:debug-info].</doc>
                    value="adw_about_window_set_designers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1630">The list of designers of the application.
+             line="1604">The list of designers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1933,7 +1933,7 @@ See also:
                    value="adw_about_window_set_developer_name"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1407">The developer name.
+             line="1381">The developer name.
 
 The developer name is displayed on the main page, under the application
 name.
@@ -1957,7 +1957,7 @@ properties.</doc>
                    value="adw_about_window_set_developers"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1604">The list of developers of the application.
+             line="1578">The list of developers of the application.
 
 It will be displayed on the Credits page.
 
@@ -1988,7 +1988,7 @@ See also:
                    value="adw_about_window_set_documenters"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1682">The list of documenters of the application.
+             line="1656">The list of documenters of the application.
 
 It will be displayed on the Credits page.
 
@@ -2019,7 +2019,7 @@ See also:
                    value="adw_about_window_set_issue_url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1551">The URL for the application's issue tracker.
+             line="1525">The URL for the application's issue tracker.
 
 The issue tracker link is displayed on the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2036,7 +2036,7 @@ The issue tracker link is displayed on the main page.</doc>
                    value="adw_about_window_set_license"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1788">The license text.
+             line="1762">The license text.
 
 This can be used to set a custom text for the license if it can't be set
 via [property@AboutWindow:license-type].
@@ -2066,7 +2066,7 @@ information for the application dependencies or other components.</doc>
                    value="adw_about_window_set_license_type"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1758">The license type.
+             line="1732">The license type.
 
 Allows to set the application's license froma list of known licenses.
 
@@ -2098,7 +2098,7 @@ information for the application dependencies or other components.</doc>
                    value="adw_about_window_set_release_notes"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1468">The release notes of the application.
+             line="1442">The release notes of the application.
 
 Release notes are displayed on the the What's New page.
 
@@ -2136,7 +2136,7 @@ as the version; otherwise, [property@AboutWindow:version] is used.</doc>
                    value="adw_about_window_set_release_notes_version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1445">The version described by the application's release notes.
+             line="1419">The version described by the application's release notes.
 
 The release notes version is displayed on the What's New page, above the
 release notes.
@@ -2162,7 +2162,7 @@ See [property@AboutWindow:release-notes].</doc>
                    value="adw_about_window_set_support_url"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1537">The URL of the application's support page.
+             line="1511">The URL of the application's support page.
 
 The support page link is displayed on the main page.</doc>
         <type name="utf8" c:type="gchar*"/>
@@ -2179,7 +2179,7 @@ The support page link is displayed on the main page.</doc>
                    value="adw_about_window_set_translator_credits"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1708">The translator credits string.
+             line="1682">The translator credits string.
 
 It will be displayed on the Credits page.
 
@@ -2211,7 +2211,7 @@ See also:
                    value="adw_about_window_set_version"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1428">The version of the application.
+             line="1402">The version of the application.
 
 The version is displayed on the main page.
 
@@ -2231,7 +2231,7 @@ will also be displayed above the release notes on the What's New page.</doc>
                    value="adw_about_window_set_website"/>
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1520">The URL of the application's website.
+             line="1494">The URL of the application's website.
 
 Website is displayed on the Details page, below comments, or on the main
 page if the Details page doesn't have any other content.
@@ -2242,21 +2242,21 @@ Applications can add other links below, see [method@AboutWindow.add_link].</doc>
       <glib:signal name="activate-link" when="last" version="1.2">
         <doc xml:space="preserve"
              filename="src/adw-about-window.c"
-             line="1816">Emitted when a URL is activated.
+             line="1790">Emitted when a URL is activated.
 
 Applications may connect to it to override the default behavior, which is
 to call [func@Gtk.show_uri].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="1826">`TRUE` if the link has been activated</doc>
+               line="1800">`TRUE` if the link has been activated</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <parameter name="uri" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-about-window.c"
-                 line="1819">the URI to activate</doc>
+                 line="1793">the URI to activate</doc>
             <type name="utf8" c:type="gchar*"/>
           </parameter>
         </parameters>
@@ -7368,7 +7368,7 @@ See also [class@CarouselIndicatorDots].
                  c:type="AdwCenteringPolicy">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="121">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
+           line="137">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
       <member name="loose"
               value="0"
               c:identifier="ADW_CENTERING_POLICY_LOOSE"
@@ -7376,7 +7376,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="123">Keep the title centered when possible</doc>
+             line="139">Keep the title centered when possible</doc>
       </member>
       <member name="strict"
               value="1"
@@ -7385,7 +7385,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_STRICT">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="124">Keep the title centered at all cost</doc>
+             line="140">Keep the title centered at all cost</doc>
       </member>
     </enumeration>
     <class name="Clamp"
@@ -12002,7 +12002,7 @@ New values may be added to this enum over time.</doc>
            glib:type-struct="HeaderBarClass">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="31">A title bar widget.
+           line="33">A title bar widget.
 
 &lt;picture&gt;
   &lt;source srcset="header-bar-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -12013,8 +12013,22 @@ New values may be added to this enum over time.</doc>
 features compared to it. Refer to `GtkHeaderBar` for details. It is typically
 used as a top bar within [class@ToolbarView].
 
+## Navigation View Integration
+
+When placed inside an [class@NavigationPage], `AdwHeaderBar` will display the
+page title instead of window title.
+
+When used together with [class@NavigationView], it will also display a back
+button that can be used to go back to the previous page. Set
+[property@HeaderBar:show-back-button] to `FALSE` to disable that behavior if
+it's unwanted.
+
+## Centering Policy
+
 [property@HeaderBar:centering-policy] allows to enforce strict centering of
 the title widget, this is useful for [class@ViewSwitcherTitle].
+
+## Title Buttons
 
 [property@HeaderBar:show-start-title-buttons] and
 [property@HeaderBar:show-end-title-buttons] allow to easily create split
@@ -12094,12 +12108,12 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <constructor name="new" c:identifier="adw_header_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="575">Creates a new `AdwHeaderBar`.</doc>
+             line="652">Creates a new `AdwHeaderBar`.</doc>
         <source-position filename="src/adw-header-bar.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="580">the newly created `AdwHeaderBar`.</doc>
+               line="657">the newly created `AdwHeaderBar`.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -12110,19 +12124,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="centering-policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="867">Gets the policy for aligning the center widget.</doc>
-        <source-position filename="src/adw-header-bar.h" line="82"/>
+             line="999">Gets the policy for aligning the center widget.</doc>
+        <source-position filename="src/adw-header-bar.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="873">the centering policy</doc>
+               line="1005">the centering policy</doc>
           <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="869">a header bar</doc>
+                 line="1001">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12134,19 +12148,44 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="decoration-layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="821">Gets the decoration layout for @self.</doc>
-        <source-position filename="src/adw-header-bar.h" line="76"/>
+             line="953">Gets the decoration layout for @self.</doc>
+        <source-position filename="src/adw-header-bar.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="827">the decoration layout</doc>
+               line="959">the decoration layout</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="823">a header bar</doc>
+                 line="955">a header bar</doc>
+            <type name="HeaderBar" c:type="AdwHeaderBar*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_back_button"
+              c:identifier="adw_header_bar_get_show_back_button"
+              glib:get-property="show-back-button"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="show-back-button"/>
+        <doc xml:space="preserve"
+             filename="src/adw-header-bar.c"
+             line="898">Gets whether @self can show the back button.</doc>
+        <source-position filename="src/adw-header-bar.h" line="76"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-header-bar.c"
+               line="904">whether to show the back button</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-header-bar.c"
+                 line="900">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12158,19 +12197,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="show-end-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="767">Gets whether to show title buttons at the end of @self.</doc>
+             line="844">Gets whether to show title buttons at the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="773">`TRUE` if title buttons at the end are shown</doc>
+               line="850">`TRUE` if title buttons at the end are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="769">a header bar</doc>
+                 line="846">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12182,19 +12221,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="show-start-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="713">Gets whether to show title buttons at the start of @self.</doc>
+             line="790">Gets whether to show title buttons at the start of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="719">`TRUE` if title buttons at the start are shown</doc>
+               line="796">`TRUE` if title buttons at the start are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="715">a header bar</doc>
+                 line="792">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12206,19 +12245,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
         <attribute name="org.gtk.Method.get_property" value="show-title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="912">Gets whether the title widget should be shown.</doc>
-        <source-position filename="src/adw-header-bar.h" line="88"/>
+             line="1044">Gets whether the title widget should be shown.</doc>
+        <source-position filename="src/adw-header-bar.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="918">whether the title widget should be shown.</doc>
+               line="1050">whether the title widget should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="914">a header bar</doc>
+                 line="1046">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12229,19 +12268,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
         <attribute name="org.gtk.Method.get_property" value="title-widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="647">Gets the title widget widget of @self.</doc>
+             line="724">Gets the title widget widget of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="653">the title widget</doc>
+               line="730">the title widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="649">a header bar</doc>
+                 line="726">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12249,7 +12288,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="pack_end" c:identifier="adw_header_bar_pack_end">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="602">Adds @child to @self, packed with reference to the end of @self.</doc>
+             line="679">Adds @child to @self, packed with reference to the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12258,13 +12297,13 @@ Each of the boxes contains a `windowcontrols` subnode, see
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="604">a header bar</doc>
+                 line="681">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="605">the widget to be added to @self</doc>
+                 line="682">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12272,7 +12311,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="pack_start" c:identifier="adw_header_bar_pack_start">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="588">Adds @child to @self, packed with reference to the start of the @self.</doc>
+             line="665">Adds @child to @self, packed with reference to the start of the @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12281,13 +12320,13 @@ Each of the boxes contains a `windowcontrols` subnode, see
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="590">a header bar</doc>
+                 line="667">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="591">the widget to be added to @self</doc>
+                 line="668">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12295,7 +12334,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="remove" c:identifier="adw_header_bar_remove">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="616">Removes a child from @self.
+             line="693">Removes a child from @self.
 
 The child must have been added with [method@HeaderBar.pack_start],
 [method@HeaderBar.pack_end] or [property@HeaderBar:title-widget].</doc>
@@ -12307,13 +12346,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="618">a header bar</doc>
+                 line="695">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="619">the child to remove</doc>
+                 line="696">the child to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12325,8 +12364,8 @@ The child must have been added with [method@HeaderBar.pack_start],
                    value="centering-policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="883">Sets the policy for aligning the center widget.</doc>
-        <source-position filename="src/adw-header-bar.h" line="84"/>
+             line="1015">Sets the policy for aligning the center widget.</doc>
+        <source-position filename="src/adw-header-bar.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12334,13 +12373,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="885">a header bar</doc>
+                 line="1017">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="centering_policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="886">the centering policy</doc>
+                 line="1018">the centering policy</doc>
             <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
           </parameter>
         </parameters>
@@ -12352,7 +12391,7 @@ The child must have been added with [method@HeaderBar.pack_start],
                    value="decoration-layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="837">Sets the decoration layout for @self.
+             line="969">Sets the decoration layout for @self.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -12364,7 +12403,7 @@ icon).
 
 For example, “icon:minimize,maximize,close” specifies an icon at the start,
 and minimize, maximize and close buttons at the end.</doc>
-        <source-position filename="src/adw-header-bar.h" line="78"/>
+        <source-position filename="src/adw-header-bar.h" line="84"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12372,7 +12411,7 @@ and minimize, maximize and close buttons at the end.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="839">a header bar</doc>
+                 line="971">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="layout"
@@ -12381,8 +12420,39 @@ and minimize, maximize and close buttons at the end.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="840">a decoration layout</doc>
+                 line="972">a decoration layout</doc>
             <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_back_button"
+              c:identifier="adw_header_bar_set_show_back_button"
+              glib:set-property="show-back-button"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="show-back-button"/>
+        <doc xml:space="preserve"
+             filename="src/adw-header-bar.c"
+             line="916">Sets whether @self can show the back button.
+
+The back button will never be shown unless the header bar is placed inside an
+[class@NavigationView].</doc>
+        <source-position filename="src/adw-header-bar.h" line="78"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-header-bar.c"
+                 line="918">a header bar</doc>
+            <type name="HeaderBar" c:type="AdwHeaderBar*"/>
+          </instance-parameter>
+          <parameter name="show_back_button" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-header-bar.c"
+                 line="919">whether to show the back button</doc>
+            <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
       </method>
@@ -12393,7 +12463,7 @@ and minimize, maximize and close buttons at the end.</doc>
                    value="show-end-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="783">Sets whether to show title buttons at the end of @self.
+             line="860">Sets whether to show title buttons at the end of @self.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -12408,13 +12478,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="785">a header bar</doc>
+                 line="862">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="786">`TRUE` to show standard title buttons</doc>
+                 line="863">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12426,7 +12496,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
                    value="show-start-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="729">Sets whether to show title buttons at the start of @self.
+             line="806">Sets whether to show title buttons at the start of @self.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -12441,13 +12511,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="731">a header bar</doc>
+                 line="808">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="732">`TRUE` to show standard title buttons</doc>
+                 line="809">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12459,8 +12529,8 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
         <attribute name="org.gtk.Method.set_property" value="show-title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="930">Sets whether the title widget should be shown.</doc>
-        <source-position filename="src/adw-header-bar.h" line="90"/>
+             line="1062">Sets whether the title widget should be shown.</doc>
+        <source-position filename="src/adw-header-bar.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12468,13 +12538,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="932">a header bar</doc>
+                 line="1064">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="933">whether the title widget is visible</doc>
+                 line="1065">whether the title widget is visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12485,7 +12555,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
         <attribute name="org.gtk.Method.set_property" value="title-widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="663">Sets the title widget for @self.
+             line="740">Sets the title widget for @self.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -12509,7 +12579,7 @@ To use a different title, use [class@WindowTitle]:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="665">a header bar</doc>
+                 line="742">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="title_widget"
@@ -12518,7 +12588,7 @@ To use a different title, use [class@WindowTitle]:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="666">a widget to use for a title</doc>
+                 line="743">a widget to use for a title</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12535,7 +12605,7 @@ To use a different title, use [class@WindowTitle]:
                    value="adw_header_bar_set_centering_policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="472">The policy for aligning the center widget.</doc>
+             line="547">The policy for aligning the center widget.</doc>
         <type name="CenteringPolicy"/>
       </property>
       <property name="decoration-layout"
@@ -12550,7 +12620,7 @@ To use a different title, use [class@WindowTitle]:
                    value="adw_header_bar_set_decoration_layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="451">The decoration layout for buttons.
+             line="526">The decoration layout for buttons.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -12564,6 +12634,25 @@ For example, “icon:minimize,maximize,close” specifies an icon at the start,
 and minimize, maximize and close buttons at the end.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
+      <property name="show-back-button"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_back_button"
+                getter="get_show_back_button"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_header_bar_get_show_back_button"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_header_bar_set_show_back_button"/>
+        <doc xml:space="preserve"
+             filename="src/adw-header-bar.c"
+             line="511">Whether the header bar can show the back button.
+
+The back button will never be shown unless the header bar is placed inside an
+[class@NavigationView].</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
       <property name="show-end-title-buttons"
                 writable="1"
                 transfer-ownership="none"
@@ -12576,7 +12665,7 @@ and minimize, maximize and close buttons at the end.</doc>
                    value="adw_header_bar_set_show_end_title_buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="434">Whether to show title buttons at the end of the header bar.
+             line="494">Whether to show title buttons at the end of the header bar.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -12598,7 +12687,7 @@ closed).</doc>
                    value="adw_header_bar_set_show_start_title_buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="417">Whether to show title buttons at the start of the header bar.
+             line="477">Whether to show title buttons at the start of the header bar.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -12614,14 +12703,14 @@ closed).</doc>
                 transfer-ownership="none"
                 setter="set_show_title"
                 getter="get_show_title"
-                default-value="FALSE">
+                default-value="TRUE">
         <attribute name="org.gtk.Property.get"
                    value="adw_header_bar_get_show_title"/>
         <attribute name="org.gtk.Property.set"
                    value="adw_header_bar_set_show_title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="483">Whether the title widget should be shown.</doc>
+             line="558">Whether the title widget should be shown.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="title-widget"
@@ -12635,7 +12724,7 @@ closed).</doc>
                    value="adw_header_bar_set_title_widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="392">The title widget to display.
+             line="452">The title widget to display.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -15558,6 +15647,1366 @@ action, @response will be set to the value of
              line="13">Corresponds to end or bottom, depending on orientation and text direction</doc>
       </member>
     </enumeration>
+    <class name="NavigationPage"
+           c:symbol-prefix="navigation_page"
+           c:type="AdwNavigationPage"
+           version="1.4"
+           parent="Gtk.Widget"
+           glib:type-name="AdwNavigationPage"
+           glib:get-type="adw_navigation_page_get_type"
+           glib:type-struct="NavigationPageClass">
+      <doc xml:space="preserve"
+           filename="src/adw-navigation-view.c"
+           line="164">A page within [class@NavigationView].
+
+Each page has a child widget, a title and optionally a tag.
+
+The [signal@NavigationPage::showing], [signal@NavigationPage::shown],
+[signal@NavigationPage::hiding] and [signal@NavigationPage::hidden] signals
+can be used to track the page's visibility within its `AdwNavigationView`.
+
+## Header Bar Integration
+
+When placed inside `AdwNavigationPage`, [class@HeaderBar] will display the
+page title instead of window title.
+
+When used together with [class@NavigationView], it will also display a back
+button that can be used to go back to the previous page. Set
+[property@HeaderBar:show-back-button] to `FALSE` to disable that behavior if
+it's unwanted.
+
+## CSS Nodes
+
+`AdwNavigationPage` has a single CSS node with name
+`navigation-view-page`.
+
+## Accessibility
+
+`AdwNavigationPage` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.</doc>
+      <source-position filename="src/adw-navigation-view.h" line="51"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="adw_navigation_page_new"
+                   version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1885">Creates a new `AdwNavigationPage`.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="54"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="1892">the new created `AdwNavigationPage`</doc>
+          <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1887">the child widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1888">the page title</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_tag"
+                   c:identifier="adw_navigation_page_new_with_tag"
+                   version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1909">Creates a new `AdwNavigationPage` with provided tag.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="58"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="1917">the new created `AdwNavigationPage`</doc>
+          <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+        </return-value>
+        <parameters>
+          <parameter name="child" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1911">the child widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1912">the page title</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1913">the page tag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="hidden">
+        <source-position filename="src/adw-navigation-view.h" line="47"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="hiding">
+        <source-position filename="src/adw-navigation-view.h" line="46"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="showing">
+        <source-position filename="src/adw-navigation-view.h" line="44"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="shown">
+        <source-position filename="src/adw-navigation-view.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_can_pop"
+              c:identifier="adw_navigation_page_get_can_pop"
+              glib:get-property="can-pop"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="can-pop"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2133">Gets whether @self can be popped from navigation stack.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2139">whether the page can be popped from navigation stack</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2135">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_child"
+              c:identifier="adw_navigation_page_get_child"
+              glib:get-property="child"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="child"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1937">Gets the child widget of @self.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="63"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="1943">the child widget of @self</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1939">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_tag"
+              c:identifier="adw_navigation_page_get_tag"
+              glib:get-property="tag"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="tag"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1996">Gets the tag of @self.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2002">(nullable): the page tag</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1998">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_title"
+              c:identifier="adw_navigation_page_get_title"
+              glib:get-property="title"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="title"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2075">Gets the title of @self.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2081">the title of @self</doc>
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2077">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_can_pop"
+              c:identifier="adw_navigation_page_set_can_pop"
+              glib:set-property="can-pop"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="can-pop"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2155">Sets whether @self can be popped from navigation stack.
+
+Set it to `FALSE` to disable shortcuts and gestures, as well as remove the
+back button from [class@HeaderBar].
+
+Manually calling [method@NavigationView.pop] or using the `navigation.pop`
+action will still work.
+
+See [property@HeaderBar:show-back-button] for removing only the back button,
+but not shortcuts.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="83"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2157">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+          <parameter name="can_pop" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2158">whether the page can be popped from navigation stack</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_child"
+              c:identifier="adw_navigation_page_set_child"
+              glib:set-property="child"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="child"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1959">Sets the child widget of @self.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="65"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1961">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+          <parameter name="child"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1962">the child widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_tag"
+              c:identifier="adw_navigation_page_set_tag"
+              glib:set-property="tag"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="tag"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2018">Sets the tag for @self.
+
+The tag can be used to retrieve the page with
+[method@NavigationView.find_page], as well as with
+[method@NavigationView.push_by_tag], [method@NavigationView.pop_to_tag] or
+[method@NavigationView.replace_with_tags].
+
+Tags must be unique within each [class@NavigationView].
+
+The tag also must be set to use the `navigation.push` action.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="71"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2020">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+          <parameter name="tag"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2021">the page tag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_title"
+              c:identifier="adw_navigation_page_set_title"
+              glib:set-property="title"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="title"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2097">Sets the title of @self.
+
+It's displayed in [class@HeaderBar] instead of the window title, and used as
+the tooltip on the next page's back button, as well as by screen reader.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="77"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2099">a navigation page</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </instance-parameter>
+          <parameter name="title" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2100">the title</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="can-pop"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_can_pop"
+                getter="get_can_pop"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_page_get_can_pop"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_navigation_page_set_can_pop"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="512">Whether the page can be popped from navigation stack.
+
+Set it to `FALSE` to disable shortcuts and gestures, as well as remove the
+back button from [class@HeaderBar].
+
+Manually calling [method@NavigationView.pop] or using the `navigation.pop`
+action will still work.
+
+See [property@HeaderBar:show-back-button] for removing only the back
+button, but not shortcuts.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="child"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_child"
+                getter="get_child">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_page_get_child"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_navigation_page_set_child"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="464">The child widget.</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="tag"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_tag"
+                getter="get_tag"
+                default-value="NULL">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_page_get_tag"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_navigation_page_set_tag"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="476">The page tag.
+
+The tag can be used to retrieve the page with
+[method@NavigationView.find_page], as well as with
+[method@NavigationView.push_by_tag], [method@NavigationView.pop_to_tag] or
+[method@NavigationView.replace_with_tags].
+
+Tags must be unique within each [class@NavigationView].
+
+The tag also must be set to use the `navigation.push` action.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <property name="title"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_title"
+                getter="get_title">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_page_get_title"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_navigation_page_set_title"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="497">The page title.
+
+It's displayed in [class@HeaderBar] instead of the window title, and used
+as the tooltip on the next page's back button, as well as by screen reader.</doc>
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent_instance">
+        <type name="Gtk.Widget" c:type="GtkWidget"/>
+      </field>
+      <glib:signal name="hidden" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="607">Emitted when the navigation view transition has been completed and the page
+is fully hidden.
+
+It will always be preceded by [signal@NavigationPage::hiding] or
+[signal@NavigationPage::showing].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="hiding" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="583">Emitted when the page starts hiding at the beginning of the navigation view
+transition.
+
+It will always be followed by [signal@NavigationPage::hidden] or
+[signal@NavigationPage::shown].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="showing" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="535">Emitted when the page shows at the beginning of the navigation view
+transition.
+
+It will always be followed by [signal@NavigationPage::shown] or
+[signal@NavigationPage::hidden].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="shown" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="559">Emitted when the navigation view transition has been completed and the page
+is fully shown.
+
+It will always be preceded by [signal@NavigationPage::showing] or
+[signal@NavigationPage::hiding].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="NavigationPageClass"
+            c:type="AdwNavigationPageClass"
+            glib:is-gtype-struct-for="NavigationPage"
+            version="1.4">
+      <source-position filename="src/adw-navigation-view.h" line="51"/>
+      <field name="parent_class">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.h"
+             line="28">The parent class</doc>
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+      <field name="showing">
+        <callback name="showing">
+          <source-position filename="src/adw-navigation-view.h" line="44"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="shown">
+        <callback name="shown">
+          <source-position filename="src/adw-navigation-view.h" line="45"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="hiding">
+        <callback name="hiding">
+          <source-position filename="src/adw-navigation-view.h" line="46"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="hidden">
+        <callback name="hidden">
+          <source-position filename="src/adw-navigation-view.h" line="47"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="self" transfer-ownership="none">
+              <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="padding" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <class name="NavigationView"
+           c:symbol-prefix="navigation_view"
+           c:type="AdwNavigationView"
+           version="1.4"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="AdwNavigationView"
+           glib:get-type="adw_navigation_view_get_type"
+           glib:type-struct="NavigationViewClass">
+      <doc xml:space="preserve"
+           filename="src/adw-navigation-view.c"
+           line="20">A page-based navigation container.
+
+&lt;picture&gt;
+  &lt;source srcset="navigation-view-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="navigation-view.png" alt="navigation-view"&gt;
+&lt;/picture&gt;
+
+`AdwNavigationView` presents one child at a time, similar to
+[class@Gtk.Stack].
+
+`AdwNavigationView` can only contain [class@NavigationPage] children.
+
+It maintains a navigation stack that can be controlled with
+[method@NavigationView.push] and [method@NavigationView.pop].
+
+The whole navigation stack can be replaced using
+[method@NavigationView.replace].
+
+`AdwNavigationView` also provides a way to manage persistent pages using the
+[method@NavigationView.add] and [method@NavigationView.remove] methods.
+
+## Header Bar Integration
+
+When used inside `AdwNavigationView`, [class@HeaderBar] will automatically
+display a back button that can be used to go back to the previous page when
+possible.
+
+Set [property@HeaderBar:show-back-button] to `FALSE` to disable this behavior
+if it's unwanted.
+
+`AdwHeaderBar` will also display the title of the `AdwNavigationPage` it's
+placed into, so most applications shouldn't need to customize it at all.
+
+## Shortcuts and Gestures
+
+`AdwNavigationView` supports the following shortcuts for going to the
+previous page:
+
+- &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;←&lt;/kbd&gt;
+- Back mouse button
+
+Additionally, it supports interactive gestures:
+
+- One-finger swipe towards the right on touchscreens
+- Scrolling towards the right on touchpads (usually two-finger swipe)
+
+These gestures have transitions enabled regardless of the
+[property@NavigationView:animate-transitions] value.
+
+Applications can also enable shortcuts for pushing another page onto the
+navigation stack via connecting to the [signal@NavigationView::get-next-page]
+signal, in that case the following shortcuts are supported:
+
+- &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;→&lt;/kbd&gt;
+- Forward mouse button
+- Swipe/scrolling towards the left
+
+For right-to-left locales, the gestures and shortcuts are reversed.
+
+[property@NavigationPage:can-pop] can be used to disable them, along with the
+header bar back buttons.
+
+## Actions
+
+`AdwNavigationView` defines actions for controlling the navigation stack.
+actions for controlling the navigation stack:
+
+- `navigation.push` takes a string parameter specifying the tag of the page to
+push, and is equivalent to calling [method@NavigationView.push_by_tag].
+
+- `navigation.pop` doesn't take any parameters and pops the current page from
+the navigation stack, equivalent to calling [method@NavigationView.pop].
+
+## `AdwNavigationView` as `GtkBuildable`
+
+`AdwNavigationView` allows to add pages as children, equivalent to using the
+[method@NavigationView.add] method.
+
+Example of an `AdwNavigationView` UI definition:
+
+```xml
+&lt;object class="AdwNavigationView"&gt;
+  &lt;child&gt;
+    &lt;object class="AdwNavigationPage"&gt;
+      &lt;property name="title" translatable="yes"&gt;Page 1&lt;/property&gt;
+      &lt;property name="child"&gt;
+        &lt;object class="AdwToolbarView"&gt;
+          &lt;child type="top"&gt;
+            &lt;object class="AdwHeaderBar"/&gt;
+          &lt;/object&gt;
+          &lt;property name="content"&gt;
+            &lt;object class="GtkButton"&gt;
+              &lt;property name="label" translatable="yes"&gt;Open Page 2&lt;/property&gt;
+              &lt;property name="halign"&gt;center&lt;/property&gt;
+              &lt;property name="valign"&gt;center&lt;/property&gt;
+              &lt;property name="action-name"&gt;navigation.push&lt;/property&gt;
+              &lt;property name="action-target"&gt;'page-2'&lt;/property&gt;
+              &lt;style&gt;
+                &lt;class name="pill"/&gt;
+               &lt;/style&gt;
+            &lt;/object&gt;
+          &lt;/property&gt;
+        &lt;/object&gt;
+      &lt;/child&gt;
+    &lt;/object&gt;
+  &lt;/child&gt;
+  &lt;child&gt;
+    &lt;object class="AdwNavigationPage"&gt;
+      &lt;property name="title" translatable="yes"&gt;Page 2&lt;/property&gt;
+      &lt;property name="tag"&gt;page-2&lt;/property&gt;
+      &lt;property name="child"&gt;
+        &lt;object class="AdwToolbarView"&gt;
+          &lt;child type="top"&gt;
+            &lt;object class="AdwHeaderBar"/&gt;
+          &lt;/object&gt;
+          &lt;property name="content"&gt;
+            &lt;!-- ... --&gt;
+          &lt;/property&gt;
+        &lt;/object&gt;
+      &lt;/child&gt;
+    &lt;/object&gt;
+  &lt;/child&gt;
+&lt;/object&gt;
+```
+
+&lt;picture&gt;
+  &lt;source srcset="navigation-view-example-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="navigation-view-example.png" alt="navigation-view-example"&gt;
+&lt;/picture&gt;
+
+## CSS nodes
+
+`AdwNavigationView` has a single CSS node with the name `navigation-view`.
+
+## Accessibility
+
+`AdwNavigationView` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.</doc>
+      <source-position filename="src/adw-navigation-view.h" line="89"/>
+      <implements name="Swipeable"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="adw_navigation_view_new"
+                   version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2193">Creates a new `AdwNavigationView`.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="92"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2198">the new created `AdwNavigationView`</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="add" c:identifier="adw_navigation_view_add" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2208">Permanently adds @page to @self.
+
+Any page that has been added will stay in @self even after being popped from
+the navigation stack.
+
+Adding a page while no page is visible will automatically push it to the
+navigation stack.
+
+See [method@NavigationView.remove].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="95"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2210">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2211">the page to add</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="find_page"
+              c:identifier="adw_navigation_view_find_page"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2267">Finds a page in @self by its tag.
+
+See [property@NavigationPage:tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="103"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2276">the page with the given tag</doc>
+          <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2269">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2270">a page tag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_animate_transitions"
+              c:identifier="adw_navigation_view_get_animate_transitions"
+              glib:get-property="animate-transitions"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="animate-transitions"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2724">Gets whether @self animates page transitions.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="143"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2730">whether to animate page transitions</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2726">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_navigation_stack"
+              c:identifier="adw_navigation_view_get_navigation_stack"
+              glib:get-property="navigation-stack"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="navigation-stack"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2769">Returns a [iface@Gio.ListModel] that contains the pages in navigation stack.
+
+The pages are sorted from root page to visible page.
+
+This can be used to keep an up-to-date view.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="149"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2779">a list model for the navigation stack</doc>
+          <type name="Gio.ListModel" c:type="GListModel*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2771">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_previous_page"
+              c:identifier="adw_navigation_view_get_previous_page"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2685">Gets the previous page for @page.
+
+If @page is in the navigation stack, returns the page popping @page will
+reveal.
+
+If @page is the root page or is not in the navigation stack, returns `NULL`.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="139"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2697">the previous page</doc>
+          <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2687">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2688">a page in @self</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_visible_page"
+              c:identifier="adw_navigation_view_get_visible_page"
+              glib:get-property="visible-page"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="visible-page"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2655">Gets the currently visible page in @self.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="136"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2661">the currently visible page</doc>
+          <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2657">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pop" c:identifier="adw_navigation_view_pop" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2355">Pops the visible page from the navigation stack.
+
+Does nothing if the navigation stack contains less than two pages.
+
+If [method@NavigationView.add] hasn't been called, the page is automatically
+removed.
+
+[signal@NavigationView::popped] will be emitted for the current visible page.
+
+See [method@NavigationView.pop_to_page] and
+[method@NavigationView.pop_to_tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="115"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2371">`TRUE` if a page has been popped</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2357">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pop_to_page"
+              c:identifier="adw_navigation_view_pop_to_page"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2398">Pops pages from the navigation stack until @page is visible.
+
+@page must be in the navigation stack.
+
+If [method@NavigationView.add] hasn't been called for any of the popped pages,
+they are automatically removed.
+
+[signal@NavigationView::popped] will be be emitted for each of the popped
+pages.
+
+See [method@NavigationView.pop] and [method@NavigationView.pop_to_tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="118"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2415">`TRUE` if any pages have been popped</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2400">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2401">the page to pop to</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pop_to_tag"
+              c:identifier="adw_navigation_view_pop_to_tag"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2444">Pops pages from the navigation stack until page with the tag @tag is visible.
+
+The page must be in the navigation stack.
+
+If [method@NavigationView.add] hasn't been called for any of the popped pages,
+they are automatically removed.
+
+[signal@NavigationView::popped] will be emitted for each of the popped pages.
+
+See [method@NavigationView.pop_to_page] and [property@NavigationPage:tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="122"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="2460">`TRUE` if any pages have been popped</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2446">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2447">a page tag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="push"
+              c:identifier="adw_navigation_view_push"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2290">Pushes @page onto the navigation stack.
+
+If [method@NavigationView.add] hasn't been called, the page is automatically
+removed once it's popped.
+
+[signal@NavigationView::popped] will be emitted for @page.
+
+See [method@NavigationView.push_by_tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="107"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2292">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2293">the page to push</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="push_by_tag"
+              c:identifier="adw_navigation_view_push_by_tag"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2319">Pushes the page with the tag @tag onto the navigation stack.
+
+If [method@NavigationView.add] hasn't been called, the page is automatically
+removed once it's popped.
+
+[signal@NavigationView::popped] will be emitted for pushed page.
+
+See [method@NavigationView.push] and [property@NavigationPage:tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="111"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2321">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="tag" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2322">the page tag</doc>
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove"
+              c:identifier="adw_navigation_view_remove"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2242">Removes @page from @self.
+
+If @page is currently in the navigation stack, it will be removed once it's
+popped. Otherwise, it's removed immediately.
+
+See [method@NavigationView.add].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2244">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2245">the page to remove</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="replace"
+              c:identifier="adw_navigation_view_replace"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2484">Replaces the current navigation stack with @pages.
+
+The last page becomes the visible page.
+
+Replacing the navigation stack has no animation.
+
+If [method@NavigationView.add] hasn't been called for any pages that are no
+longer in the navigation stack, they are automatically removed.
+
+@n_pages can be 0, in that case no page will be visible after calling this
+method. This can be useful for removing all pages from @self.
+
+The [signal@NavigationView::replaced] signal will be emitted.
+
+See [method@NavigationView.replace_with_tags].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="126"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2486">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="pages" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2487">the new navigation stack</doc>
+            <array length="1" zero-terminated="0" c:type="AdwNavigationPage**">
+              <type name="NavigationPage" c:type="AdwNavigationPage*"/>
+            </array>
+          </parameter>
+          <parameter name="n_pages" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2488">the number of pages in @pages</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="replace_with_tags"
+              c:identifier="adw_navigation_view_replace_with_tags"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2599">Replaces the current navigation stack with pages with the tags @tags.
+
+The last page becomes the visible page.
+
+Replacing the navigation stack has no animation.
+
+If [method@NavigationView.add] hasn't been called for any pages that are no
+longer in the navigation stack, they are automatically removed.
+
+@n_tags can be 0, in that case no page will be visible after calling this
+method. This can be useful for removing all pages from @self.
+
+The [signal@NavigationView::replaced] signal will be emitted.
+
+See [method@NavigationView.replace] and [property@NavigationPage:tag].</doc>
+        <source-position filename="src/adw-navigation-view.h" line="131"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2601">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="tags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2602">tags of the pages in the
+  navigation stack</doc>
+            <array length="1" zero-terminated="0" c:type="const char* const*">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="n_tags" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2604">the number of tags</doc>
+            <type name="gint" c:type="int"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_animate_transitions"
+              c:identifier="adw_navigation_view_set_animate_transitions"
+              glib:set-property="animate-transitions"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="animate-transitions"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="2742">Sets whether @self should animate page transitions.
+
+Gesture-based transitions are always animated.</doc>
+        <source-position filename="src/adw-navigation-view.h" line="145"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2744">a navigation view</doc>
+            <type name="NavigationView" c:type="AdwNavigationView*"/>
+          </instance-parameter>
+          <parameter name="animate_transitions" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="2745">whether to animate page transitions</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="animate-transitions"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_animate_transitions"
+                getter="get_animate_transitions"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_view_get_animate_transitions"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_navigation_view_set_animate_transitions"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1590">Whether to animate page transitions.
+
+Gesture-based transitions are always animated.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="navigation-stack"
+                version="1.4"
+                transfer-ownership="none"
+                getter="get_navigation_stack">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_view_get_navigation_stack"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1604">A list model that contains the pages in navigation stack.
+
+The pages are sorted from root page to visible page.
+
+This can be used to keep an up-to-date view.</doc>
+        <type name="Gio.ListModel"/>
+      </property>
+      <property name="visible-page"
+                version="1.4"
+                transfer-ownership="none"
+                getter="get_visible_page">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_navigation_view_get_visible_page"/>
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1578">The currently visible page.</doc>
+        <type name="NavigationPage"/>
+      </property>
+      <glib:signal name="get-next-page" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1695">Emitted when a push shortcut or a gesture is triggered.
+
+To support the push shortcuts and gestures, the application is expected to
+return the page to push in the handler.
+
+This signal can be emitted multiple times for the gestures, for example
+when the gesture is cancelled by the user. As such, the application must
+not make any irreversible changes in the handler, such as removing the page
+from a forward stack.
+
+Instead, it should be done in the [signal@NavigationView::pushed] handler.</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-navigation-view.c"
+               line="1710">the page to push</doc>
+          <type name="NavigationPage"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="popped" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1644">Emitted after @page has been popped from the navigation stack.
+
+See [method@NavigationView.pop].
+
+When using [method@NavigationView.pop_to_page] or
+[method@NavigationView.pop_to_tag], this signal is emitted for each of the
+popped pages.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-navigation-view.c"
+                 line="1647">the popped page</doc>
+            <type name="NavigationPage"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="pushed" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1622">Emitted after a page has been pushed to the navigation stack.
+
+See [method@NavigationView.push].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="replaced" when="last" version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-navigation-view.c"
+             line="1673">Emitted after the navigation stack has been replaced.
+
+See [method@NavigationView.replace].</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="NavigationViewClass"
+            c:type="AdwNavigationViewClass"
+            glib:is-gtype-struct-for="NavigationView">
+      <source-position filename="src/adw-navigation-view.h" line="89"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
     <class name="PasswordEntryRow"
            c:symbol-prefix="password_entry_row"
            c:type="AdwPasswordEntryRow"
@@ -16744,7 +18193,7 @@ See also [func@Pango.parse_markup].</doc>
            glib:type-struct="PreferencesWindowClass">
       <doc xml:space="preserve"
            filename="src/adw-preferences-window.c"
-           line="25">A window to present an application's preferences.
+           line="26">A window to present an application's preferences.
 
 &lt;picture&gt;
   &lt;source srcset="preferences-window-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -16758,7 +18207,7 @@ gathered into pages and groups. The preferences are searchable by the user.
 
 `AdwPreferencesWindow` has a main CSS node with the name `window` and the
 style class `.preferences`.</doc>
-      <source-position filename="src/adw-preferences-window.h" line="37"/>
+      <source-position filename="src/adw-preferences-window.h" line="38"/>
       <implements name="Gtk.Accessible"/>
       <implements name="Gtk.Buildable"/>
       <implements name="Gtk.ConstraintTarget"/>
@@ -16768,20 +18217,20 @@ style class `.preferences`.</doc>
       <constructor name="new" c:identifier="adw_preferences_window_new">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="748">Creates a new `AdwPreferencesWindow`.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="40"/>
+             line="744">Creates a new `AdwPreferencesWindow`.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="41"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="753">the newly created `AdwPreferencesWindow`</doc>
+               line="749">the newly created `AdwPreferencesWindow`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
       <method name="add" c:identifier="adw_preferences_window_add">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="761">Adds a preferences page to @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="43"/>
+             line="757">Adds a preferences page to @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="44"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16789,13 +18238,13 @@ style class `.preferences`.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="763">a preferences window</doc>
+                 line="759">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="764">the page to add</doc>
+                 line="760">the page to add</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -16803,10 +18252,10 @@ style class `.preferences`.</doc>
       <method name="add_toast" c:identifier="adw_preferences_window_add_toast">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1071">Displays @toast.
+             line="1122">Displays @toast.
 
 See [method@ToastOverlay.add_toast].</doc>
-        <source-position filename="src/adw-preferences-window.h" line="80"/>
+        <source-position filename="src/adw-preferences-window.h" line="87"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16814,25 +18263,28 @@ See [method@ToastOverlay.add_toast].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1073">a preferences window</doc>
+                 line="1124">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="toast" transfer-ownership="full">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1074">a toast</doc>
+                 line="1125">a toast</doc>
             <type name="Toast" c:type="AdwToast*"/>
           </parameter>
         </parameters>
       </method>
       <method name="close_subpage"
-              c:identifier="adw_preferences_window_close_subpage">
+              c:identifier="adw_preferences_window_close_subpage"
+              deprecated="1"
+              deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1048">Closes the current subpage.
+             line="1052">Closes the current subpage.
 
 If there is no presented subpage, this does nothing.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="77"/>
+        <doc-deprecated xml:space="preserve">Use [method@PreferencesWindow.pop_subpage] instead.</doc-deprecated>
+        <source-position filename="src/adw-preferences-window.h" line="78"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16840,20 +18292,23 @@ If there is no presented subpage, this does nothing.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1050">a preferences window</doc>
+                 line="1054">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="get_can_navigate_back"
               c:identifier="adw_preferences_window_get_can_navigate_back"
-              glib:get-property="can-navigate-back">
+              glib:get-property="can-navigate-back"
+              deprecated="1"
+              deprecated-version="1.4">
         <attribute name="org.gtk.Method.get_property"
                    value="can-navigate-back"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
              line="993">Gets whether gestures and shortcuts for closing subpages are enabled.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="68"/>
+        <doc-deprecated xml:space="preserve">Use [method@NavigationPage.get_can_pop] instead.</doc-deprecated>
+        <source-position filename="src/adw-preferences-window.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
@@ -16875,19 +18330,19 @@ If there is no presented subpage, this does nothing.</doc>
         <attribute name="org.gtk.Method.get_property" value="search-enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="901">Gets whether search is enabled for @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="62"/>
+             line="897">Gets whether search is enabled for @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="907">whether search is enabled for @self.</doc>
+               line="903">whether search is enabled for @self.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="903">a preferences window</doc>
+                 line="899">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -16897,19 +18352,19 @@ If there is no presented subpage, this does nothing.</doc>
               glib:get-property="visible-page">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="818">Gets the currently visible page of @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="50"/>
+             line="814">Gets the currently visible page of @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="51"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="824">the visible page</doc>
+               line="820">the visible page</doc>
           <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="820">a preferences window</doc>
+                 line="816">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
@@ -16919,32 +18374,57 @@ If there is no presented subpage, this does nothing.</doc>
               glib:get-property="visible-page-name">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="859">Gets the name of currently visible page of @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="56"/>
+             line="855">Gets the name of currently visible page of @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="57"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-preferences-window.c"
-               line="865">the name of the visible page</doc>
+               line="861">the name of the visible page</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="861">a preferences window</doc>
+                 line="857">a preferences window</doc>
+            <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="pop_subpage"
+              c:identifier="adw_preferences_window_pop_subpage"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-preferences-window.c"
+             line="1100">TODO</doc>
+        <source-position filename="src/adw-preferences-window.h" line="84"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-preferences-window.c"
+               line="1106">TODO</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-preferences-window.c"
+                 line="1102">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
         </parameters>
       </method>
       <method name="present_subpage"
-              c:identifier="adw_preferences_window_present_subpage">
+              c:identifier="adw_preferences_window_present_subpage"
+              deprecated="1"
+              deprecated-version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="1013">Sets @subpage as the window's subpage and opens it.
+             line="1015">Sets @subpage as the window's subpage and opens it.
 
 The transition can be cancelled by the user, in which case visible child will
 change back to the previously visible child.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="74"/>
+        <doc-deprecated xml:space="preserve">Use [method@PreferencesWindow.push_subpage] instead.</doc-deprecated>
+        <source-position filename="src/adw-preferences-window.h" line="75"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16952,22 +18432,47 @@ change back to the previously visible child.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1015">a preferences window</doc>
+                 line="1017">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="subpage" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="1016">the subpage</doc>
+                 line="1018">the subpage</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="push_subpage"
+              c:identifier="adw_preferences_window_push_subpage"
+              version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-preferences-window.c"
+             line="1077">TODO</doc>
+        <source-position filename="src/adw-preferences-window.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-preferences-window.c"
+                 line="1079">a preferences window</doc>
+            <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
+          </instance-parameter>
+          <parameter name="page" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-preferences-window.c"
+                 line="1080">the subpage</doc>
+            <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
       </method>
       <method name="remove" c:identifier="adw_preferences_window_remove">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="791">Removes a page from @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="46"/>
+             line="787">Removes a page from @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="47"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16975,25 +18480,27 @@ change back to the previously visible child.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="793">a preferences window</doc>
+                 line="789">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="794">the page to remove</doc>
+                 line="790">the page to remove</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
       </method>
       <method name="set_can_navigate_back"
               c:identifier="adw_preferences_window_set_can_navigate_back"
-              glib:set-property="can-navigate-back">
+              glib:set-property="can-navigate-back"
+              deprecated="1"
+              deprecated-version="1.4">
         <attribute name="org.gtk.Method.set_property"
                    value="can-navigate-back"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="955">Sets whether gestures and shortcuts for closing subpages are enabled.
+             line="951">Sets whether gestures and shortcuts for closing subpages are enabled.
 
 The supported gestures are:
 
@@ -17005,7 +18512,10 @@ The keyboard back key is also supported, as well as the
 &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;←&lt;/kbd&gt; shortcut.
 
 For right-to-left locales, gestures and shortcuts are reversed.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="70"/>
+        <doc-deprecated xml:space="preserve">Use [method@NavigationPage.set_can_pop] instead.
+
+Has no effect for subpages added with [method@PreferencesWindow.push_subpage].</doc-deprecated>
+        <source-position filename="src/adw-preferences-window.h" line="71"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -17013,13 +18523,13 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="957">a preferences window</doc>
+                 line="953">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="can_navigate_back" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="958">the new value</doc>
+                 line="954">the new value</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -17030,8 +18540,8 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
         <attribute name="org.gtk.Method.set_property" value="search-enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="921">Sets whether search is enabled for @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="64"/>
+             line="917">Sets whether search is enabled for @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="65"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -17039,13 +18549,13 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="923">a preferences window</doc>
+                 line="919">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="search_enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="924">whether search is enabled</doc>
+                 line="920">whether search is enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -17055,8 +18565,8 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
               glib:set-property="visible-page">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="838">Makes @page the visible page of @self.</doc>
-        <source-position filename="src/adw-preferences-window.h" line="52"/>
+             line="834">Makes @page the visible page of @self.</doc>
+        <source-position filename="src/adw-preferences-window.h" line="53"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -17064,13 +18574,13 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="840">a preferences window</doc>
+                 line="836">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="841">a page of @self</doc>
+                 line="837">a page of @self</doc>
             <type name="PreferencesPage" c:type="AdwPreferencesPage*"/>
           </parameter>
         </parameters>
@@ -17080,10 +18590,10 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
               glib:set-property="visible-page-name">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="879">Makes the page with the given name visible.
+             line="875">Makes the page with the given name visible.
 
 See [property@ViewStack:visible-child].</doc>
-        <source-position filename="src/adw-preferences-window.h" line="58"/>
+        <source-position filename="src/adw-preferences-window.h" line="59"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -17091,18 +18601,20 @@ See [property@ViewStack:visible-child].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="881">a preferences window</doc>
+                 line="877">a preferences window</doc>
             <type name="PreferencesWindow" c:type="AdwPreferencesWindow*"/>
           </instance-parameter>
           <parameter name="name" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-preferences-window.c"
-                 line="882">the name of the page to make visible</doc>
+                 line="878">the name of the page to make visible</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
       <property name="can-navigate-back"
+                deprecated="1"
+                deprecated-version="1.4"
                 writable="1"
                 transfer-ownership="none"
                 setter="set_can_navigate_back"
@@ -17114,7 +18626,7 @@ See [property@ViewStack:visible-child].</doc>
                    value="adw_preferences_window_set_can_navigate_back"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="630">Whether gestures and shortcuts for closing subpages are enabled.
+             line="621">Whether gestures and shortcuts for closing subpages are enabled.
 
 The supported gestures are:
 
@@ -17126,6 +18638,10 @@ The keyboard back key is also supported, as well as the
 &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;←&lt;/kbd&gt; shortcut.
 
 For right-to-left locales, gestures and shortcuts are reversed.</doc>
+        <doc-deprecated xml:space="preserve">Use [property@NavigationPage:can-pop] instead.
+
+Has no effect for subpages added with
+[method@PreferencesWindow.push_subpage].</doc-deprecated>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="search-enabled"
@@ -17140,7 +18656,7 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
                    value="adw_preferences_window_set_search_enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.c"
-             line="620">Whether search is enabled.</doc>
+             line="611">Whether search is enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="visible-page"
@@ -17165,11 +18681,11 @@ For right-to-left locales, gestures and shortcuts are reversed.</doc>
     <record name="PreferencesWindowClass"
             c:type="AdwPreferencesWindowClass"
             glib:is-gtype-struct-for="PreferencesWindow">
-      <source-position filename="src/adw-preferences-window.h" line="37"/>
+      <source-position filename="src/adw-preferences-window.h" line="38"/>
       <field name="parent_class">
         <doc xml:space="preserve"
              filename="src/adw-preferences-window.h"
-             line="29">The parent class</doc>
+             line="30">The parent class</doc>
         <type name="WindowClass" c:type="AdwWindowClass"/>
       </field>
       <field name="padding" readable="0" private="1">
@@ -32684,7 +34200,7 @@ library are set up properly.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/adw-about-window.c"
-           line="3437">A convenience function for showing an application’s about window.</doc>
+           line="3404">A convenience function for showing an application’s about window.</doc>
       <source-position filename="src/adw-about-window.h" line="175"/>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
@@ -32696,19 +34212,19 @@ library are set up properly.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3439">the parent top-level window</doc>
+               line="3406">the parent top-level window</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3440">the name of the first property</doc>
+               line="3407">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3441">value of first property, followed by more pairs of property name and
+               line="3408">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>
@@ -32720,7 +34236,7 @@ library are set up properly.</doc>
               introspectable="0">
       <doc xml:space="preserve"
            filename="src/adw-about-window.c"
-           line="3468">A convenience function for showing an application’s about window from
+           line="3435">A convenience function for showing an application’s about window from
 AppStream metadata.
 
 See [ctor@AboutWindow.new_from_appdata] for details.</doc>
@@ -32735,13 +34251,13 @@ See [ctor@AboutWindow.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3470">the parent top-level window</doc>
+               line="3437">the parent top-level window</doc>
           <type name="Gtk.Window" c:type="GtkWindow*"/>
         </parameter>
         <parameter name="resource_path" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3471">The resource to use</doc>
+               line="3438">The resource to use</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="release_notes_version"
@@ -32750,19 +34266,19 @@ See [ctor@AboutWindow.new_from_appdata] for details.</doc>
                    allow-none="1">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3472">The version to retrieve release notes for</doc>
+               line="3439">The version to retrieve release notes for</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="first_property_name" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3473">the name of the first property</doc>
+               line="3440">the name of the first property</doc>
           <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="..." transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-about-window.c"
-               line="3474">value of first property, followed by more pairs of property name and
+               line="3441">value of first property, followed by more pairs of property name and
   value, `NULL`-terminated</doc>
           <varargs/>
         </parameter>

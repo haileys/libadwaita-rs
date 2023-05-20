@@ -568,6 +568,43 @@ impl ::std::fmt::Debug for AdwMessageDialogClass {
 
 #[derive(Copy, Clone)]
 #[repr(C)]
+pub struct AdwNavigationPageClass {
+    pub parent_class: gtk::GtkWidgetClass,
+    pub showing: Option<unsafe extern "C" fn(*mut AdwNavigationPage)>,
+    pub shown: Option<unsafe extern "C" fn(*mut AdwNavigationPage)>,
+    pub hiding: Option<unsafe extern "C" fn(*mut AdwNavigationPage)>,
+    pub hidden: Option<unsafe extern "C" fn(*mut AdwNavigationPage)>,
+    pub padding: [gpointer; 8],
+}
+
+impl ::std::fmt::Debug for AdwNavigationPageClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationPageClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
+            .field("showing", &self.showing)
+            .field("shown", &self.shown)
+            .field("hiding", &self.hiding)
+            .field("hidden", &self.hidden)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwNavigationViewClass {
+    pub parent_class: gtk::GtkWidgetClass,
+}
+
+impl ::std::fmt::Debug for AdwNavigationViewClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationViewClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
 pub struct AdwPasswordEntryRowClass {
     pub parent_class: AdwEntryRowClass,
 }
@@ -1410,6 +1447,33 @@ impl ::std::fmt::Debug for AdwMessageDialog {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         f.debug_struct(&format!("AdwMessageDialog @ {self:p}"))
             .field("parent_instance", &self.parent_instance)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwNavigationPage {
+    pub parent_instance: gtk::GtkWidget,
+}
+
+impl ::std::fmt::Debug for AdwNavigationPage {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationPage @ {self:p}"))
+            .field("parent_instance", &self.parent_instance)
+            .finish()
+    }
+}
+
+#[repr(C)]
+pub struct AdwNavigationView {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
+
+impl ::std::fmt::Debug for AdwNavigationView {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationView @ {self:p}"))
             .finish()
     }
 }
@@ -2780,6 +2844,9 @@ extern "C" {
     pub fn adw_header_bar_new() -> *mut gtk::GtkWidget;
     pub fn adw_header_bar_get_centering_policy(self_: *mut AdwHeaderBar) -> AdwCenteringPolicy;
     pub fn adw_header_bar_get_decoration_layout(self_: *mut AdwHeaderBar) -> *const c_char;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_header_bar_get_show_back_button(self_: *mut AdwHeaderBar) -> gboolean;
     pub fn adw_header_bar_get_show_end_title_buttons(self_: *mut AdwHeaderBar) -> gboolean;
     pub fn adw_header_bar_get_show_start_title_buttons(self_: *mut AdwHeaderBar) -> gboolean;
     #[cfg(any(feature = "v1_4", feature = "dox"))]
@@ -2794,6 +2861,12 @@ extern "C" {
         centering_policy: AdwCenteringPolicy,
     );
     pub fn adw_header_bar_set_decoration_layout(self_: *mut AdwHeaderBar, layout: *const c_char);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_header_bar_set_show_back_button(
+        self_: *mut AdwHeaderBar,
+        show_back_button: gboolean,
+    );
     pub fn adw_header_bar_set_show_end_title_buttons(self_: *mut AdwHeaderBar, setting: gboolean);
     pub fn adw_header_bar_set_show_start_title_buttons(self_: *mut AdwHeaderBar, setting: gboolean);
     #[cfg(any(feature = "v1_4", feature = "dox"))]
@@ -3065,6 +3138,132 @@ extern "C" {
     );
 
     //=========================================================================
+    // AdwNavigationPage
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_new(
+        child: *mut gtk::GtkWidget,
+        title: *const c_char,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_new_with_tag(
+        child: *mut gtk::GtkWidget,
+        title: *const c_char,
+        tag: *const c_char,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_get_can_pop(self_: *mut AdwNavigationPage) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_get_child(self_: *mut AdwNavigationPage) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_get_tag(self_: *mut AdwNavigationPage) -> *const c_char;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_get_title(self_: *mut AdwNavigationPage) -> *const c_char;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_set_can_pop(self_: *mut AdwNavigationPage, can_pop: gboolean);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_set_child(self_: *mut AdwNavigationPage, child: *mut gtk::GtkWidget);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_set_tag(self_: *mut AdwNavigationPage, tag: *const c_char);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_page_set_title(self_: *mut AdwNavigationPage, title: *const c_char);
+
+    //=========================================================================
+    // AdwNavigationView
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_add(self_: *mut AdwNavigationView, page: *mut AdwNavigationPage);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_find_page(
+        self_: *mut AdwNavigationView,
+        tag: *const c_char,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_get_animate_transitions(self_: *mut AdwNavigationView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_get_navigation_stack(
+        self_: *mut AdwNavigationView,
+    ) -> *mut gio::GListModel;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_get_previous_page(
+        self_: *mut AdwNavigationView,
+        page: *mut AdwNavigationPage,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_get_visible_page(
+        self_: *mut AdwNavigationView,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_pop(self_: *mut AdwNavigationView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_pop_to_page(
+        self_: *mut AdwNavigationView,
+        page: *mut AdwNavigationPage,
+    ) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_pop_to_tag(
+        self_: *mut AdwNavigationView,
+        tag: *const c_char,
+    ) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_push(self_: *mut AdwNavigationView, page: *mut AdwNavigationPage);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_push_by_tag(self_: *mut AdwNavigationView, tag: *const c_char);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_remove(self_: *mut AdwNavigationView, page: *mut AdwNavigationPage);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_replace(
+        self_: *mut AdwNavigationView,
+        pages: *mut *mut AdwNavigationPage,
+        n_pages: c_int,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_replace_with_tags(
+        self_: *mut AdwNavigationView,
+        tags: *const *const c_char,
+        n_tags: c_int,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_view_set_animate_transitions(
+        self_: *mut AdwNavigationView,
+        animate_transitions: gboolean,
+    );
+
+    //=========================================================================
     // AdwPasswordEntryRow
     //=========================================================================
     #[cfg(any(feature = "v1_2", feature = "dox"))]
@@ -3192,9 +3391,18 @@ extern "C" {
     pub fn adw_preferences_window_get_visible_page_name(
         self_: *mut AdwPreferencesWindow,
     ) -> *const c_char;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_preferences_window_pop_subpage(self_: *mut AdwPreferencesWindow) -> gboolean;
     pub fn adw_preferences_window_present_subpage(
         self_: *mut AdwPreferencesWindow,
         subpage: *mut gtk::GtkWidget,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_preferences_window_push_subpage(
+        self_: *mut AdwPreferencesWindow,
+        page: *mut AdwNavigationPage,
     );
     pub fn adw_preferences_window_remove(
         self_: *mut AdwPreferencesWindow,

@@ -2,7 +2,11 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+use crate::NavigationPage;
 use crate::{PreferencesPage, Toast, Window};
 use glib::{
     prelude::*,
@@ -60,6 +64,7 @@ impl PreferencesWindowBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn can_navigate_back(self, can_navigate_back: bool) -> Self {
         Self {
             builder: self
@@ -445,9 +450,13 @@ pub trait PreferencesWindowExt: 'static {
     #[doc(alias = "adw_preferences_window_add_toast")]
     fn add_toast(&self, toast: Toast);
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_preferences_window_close_subpage")]
     fn close_subpage(&self);
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_preferences_window_get_can_navigate_back")]
     #[doc(alias = "get_can_navigate_back")]
     fn can_navigate_back(&self) -> bool;
@@ -464,12 +473,26 @@ pub trait PreferencesWindowExt: 'static {
     #[doc(alias = "get_visible_page_name")]
     fn visible_page_name(&self) -> Option<glib::GString>;
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_window_pop_subpage")]
+    fn pop_subpage(&self) -> bool;
+
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_preferences_window_present_subpage")]
     fn present_subpage(&self, subpage: &impl IsA<gtk::Widget>);
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_window_push_subpage")]
+    fn push_subpage(&self, page: &impl IsA<NavigationPage>);
 
     #[doc(alias = "adw_preferences_window_remove")]
     fn remove(&self, page: &impl IsA<PreferencesPage>);
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_preferences_window_set_can_navigate_back")]
     fn set_can_navigate_back(&self, can_navigate_back: bool);
 
@@ -482,6 +505,7 @@ pub trait PreferencesWindowExt: 'static {
     #[doc(alias = "adw_preferences_window_set_visible_page_name")]
     fn set_visible_page_name(&self, name: &str);
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "can-navigate-back")]
     fn connect_can_navigate_back_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
 
@@ -514,12 +538,14 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[allow(deprecated)]
     fn close_subpage(&self) {
         unsafe {
             ffi::adw_preferences_window_close_subpage(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[allow(deprecated)]
     fn can_navigate_back(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_window_get_can_navigate_back(
@@ -552,11 +578,33 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    fn pop_subpage(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_preferences_window_pop_subpage(
+                self.as_ref().to_glib_none().0,
+            ))
+        }
+    }
+
+    #[allow(deprecated)]
     fn present_subpage(&self, subpage: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_preferences_window_present_subpage(
                 self.as_ref().to_glib_none().0,
                 subpage.as_ref().to_glib_none().0,
+            );
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    fn push_subpage(&self, page: &impl IsA<NavigationPage>) {
+        unsafe {
+            ffi::adw_preferences_window_push_subpage(
+                self.as_ref().to_glib_none().0,
+                page.as_ref().to_glib_none().0,
             );
         }
     }
@@ -570,6 +618,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[allow(deprecated)]
     fn set_can_navigate_back(&self, can_navigate_back: bool) {
         unsafe {
             ffi::adw_preferences_window_set_can_navigate_back(
