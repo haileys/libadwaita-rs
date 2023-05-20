@@ -13,6 +13,9 @@ pub mod expander_row;
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
 mod message_dialog;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub mod navigation_page;
 pub mod preferences_group;
 pub mod preferences_page;
 pub mod preferences_row;
