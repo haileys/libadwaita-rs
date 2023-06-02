@@ -34,10 +34,6 @@ pub const ADW_BREAKPOINT_CONDITION_MAX_WIDTH: AdwBreakpointConditionLengthType =
 pub const ADW_BREAKPOINT_CONDITION_MIN_HEIGHT: AdwBreakpointConditionLengthType = 2;
 pub const ADW_BREAKPOINT_CONDITION_MAX_HEIGHT: AdwBreakpointConditionLengthType = 3;
 
-pub type AdwBreakpointConditionLengthUnit = c_int;
-pub const ADW_BREAKPOINT_CONDITION_PX: AdwBreakpointConditionLengthUnit = 0;
-pub const ADW_BREAKPOINT_CONDITION_PT: AdwBreakpointConditionLengthUnit = 1;
-
 pub type AdwBreakpointConditionRatioType = c_int;
 pub const ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO: AdwBreakpointConditionRatioType = 0;
 pub const ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO: AdwBreakpointConditionRatioType = 1;
@@ -104,6 +100,11 @@ pub type AdwLeafletTransitionType = c_int;
 pub const ADW_LEAFLET_TRANSITION_TYPE_OVER: AdwLeafletTransitionType = 0;
 pub const ADW_LEAFLET_TRANSITION_TYPE_UNDER: AdwLeafletTransitionType = 1;
 pub const ADW_LEAFLET_TRANSITION_TYPE_SLIDE: AdwLeafletTransitionType = 2;
+
+pub type AdwLengthUnit = c_int;
+pub const ADW_LENGTH_UNIT_PX: AdwLengthUnit = 0;
+pub const ADW_LENGTH_UNIT_PT: AdwLengthUnit = 1;
+pub const ADW_LENGTH_UNIT_SP: AdwLengthUnit = 2;
 
 pub type AdwNavigationDirection = c_int;
 pub const ADW_NAVIGATION_DIRECTION_BACK: AdwNavigationDirection = 0;
@@ -585,6 +586,20 @@ impl ::std::fmt::Debug for AdwNavigationPageClass {
             .field("shown", &self.shown)
             .field("hiding", &self.hiding)
             .field("hidden", &self.hidden)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwNavigationSplitViewClass {
+    pub parent_class: gtk::GtkWidgetClass,
+}
+
+impl ::std::fmt::Debug for AdwNavigationSplitViewClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationSplitViewClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
             .finish()
     }
 }
@@ -1466,6 +1481,19 @@ impl ::std::fmt::Debug for AdwNavigationPage {
 }
 
 #[repr(C)]
+pub struct AdwNavigationSplitView {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
+
+impl ::std::fmt::Debug for AdwNavigationSplitView {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwNavigationSplitView @ {self:p}"))
+            .finish()
+    }
+}
+
+#[repr(C)]
 pub struct AdwNavigationView {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1906,13 +1934,6 @@ extern "C" {
     pub fn adw_breakpoint_condition_length_type_get_type() -> GType;
 
     //=========================================================================
-    // AdwBreakpointConditionLengthUnit
-    //=========================================================================
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    pub fn adw_breakpoint_condition_length_unit_get_type() -> GType;
-
-    //=========================================================================
     // AdwBreakpointConditionRatioType
     //=========================================================================
     #[cfg(any(feature = "v1_4", feature = "dox"))]
@@ -1954,6 +1975,27 @@ extern "C" {
     // AdwLeafletTransitionType
     //=========================================================================
     pub fn adw_leaflet_transition_type_get_type() -> GType;
+
+    //=========================================================================
+    // AdwLengthUnit
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_length_unit_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_length_unit_from_px(
+        unit: AdwLengthUnit,
+        value: c_double,
+        settings: *mut gtk::GtkSettings,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_length_unit_to_px(
+        unit: AdwLengthUnit,
+        value: c_double,
+        settings: *mut gtk::GtkSettings,
+    ) -> c_double;
 
     //=========================================================================
     // AdwNavigationDirection
@@ -2013,7 +2055,7 @@ extern "C" {
     pub fn adw_breakpoint_condition_new_length(
         type_: AdwBreakpointConditionLengthType,
         value: c_double,
-        unit: AdwBreakpointConditionLengthUnit,
+        unit: AdwLengthUnit,
     ) -> *mut AdwBreakpointCondition;
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
@@ -2608,9 +2650,15 @@ extern "C" {
     pub fn adw_clamp_get_child(self_: *mut AdwClamp) -> *mut gtk::GtkWidget;
     pub fn adw_clamp_get_maximum_size(self_: *mut AdwClamp) -> c_int;
     pub fn adw_clamp_get_tightening_threshold(self_: *mut AdwClamp) -> c_int;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_get_unit(self_: *mut AdwClamp) -> AdwLengthUnit;
     pub fn adw_clamp_set_child(self_: *mut AdwClamp, child: *mut gtk::GtkWidget);
     pub fn adw_clamp_set_maximum_size(self_: *mut AdwClamp, maximum_size: c_int);
     pub fn adw_clamp_set_tightening_threshold(self_: *mut AdwClamp, tightening_threshold: c_int);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_set_unit(self_: *mut AdwClamp, unit: AdwLengthUnit);
 
     //=========================================================================
     // AdwClampLayout
@@ -2619,11 +2667,17 @@ extern "C" {
     pub fn adw_clamp_layout_new() -> *mut gtk::GtkLayoutManager;
     pub fn adw_clamp_layout_get_maximum_size(self_: *mut AdwClampLayout) -> c_int;
     pub fn adw_clamp_layout_get_tightening_threshold(self_: *mut AdwClampLayout) -> c_int;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_layout_get_unit(self_: *mut AdwClampLayout) -> AdwLengthUnit;
     pub fn adw_clamp_layout_set_maximum_size(self_: *mut AdwClampLayout, maximum_size: c_int);
     pub fn adw_clamp_layout_set_tightening_threshold(
         self_: *mut AdwClampLayout,
         tightening_threshold: c_int,
     );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_layout_set_unit(self_: *mut AdwClampLayout, unit: AdwLengthUnit);
 
     //=========================================================================
     // AdwClampScrollable
@@ -2633,6 +2687,9 @@ extern "C" {
     pub fn adw_clamp_scrollable_get_child(self_: *mut AdwClampScrollable) -> *mut gtk::GtkWidget;
     pub fn adw_clamp_scrollable_get_maximum_size(self_: *mut AdwClampScrollable) -> c_int;
     pub fn adw_clamp_scrollable_get_tightening_threshold(self_: *mut AdwClampScrollable) -> c_int;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_scrollable_get_unit(self_: *mut AdwClampScrollable) -> AdwLengthUnit;
     pub fn adw_clamp_scrollable_set_child(
         self_: *mut AdwClampScrollable,
         child: *mut gtk::GtkWidget,
@@ -2645,6 +2702,9 @@ extern "C" {
         self_: *mut AdwClampScrollable,
         tightening_threshold: c_int,
     );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_clamp_scrollable_set_unit(self_: *mut AdwClampScrollable, unit: AdwLengthUnit);
 
     //=========================================================================
     // AdwComboRow
@@ -3180,6 +3240,102 @@ extern "C" {
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
     pub fn adw_navigation_page_set_title(self_: *mut AdwNavigationPage, title: *const c_char);
+
+    //=========================================================================
+    // AdwNavigationSplitView
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_collapsed(self_: *mut AdwNavigationSplitView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_content(
+        self_: *mut AdwNavigationSplitView,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_max_sidebar_width(
+        self_: *mut AdwNavigationSplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_min_sidebar_width(
+        self_: *mut AdwNavigationSplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_show_content(
+        self_: *mut AdwNavigationSplitView,
+    ) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_sidebar(
+        self_: *mut AdwNavigationSplitView,
+    ) -> *mut AdwNavigationPage;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_sidebar_width_fraction(
+        self_: *mut AdwNavigationSplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_get_sidebar_width_unit(
+        self_: *mut AdwNavigationSplitView,
+    ) -> AdwLengthUnit;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_collapsed(
+        self_: *mut AdwNavigationSplitView,
+        collapsed: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_content(
+        self_: *mut AdwNavigationSplitView,
+        content: *mut AdwNavigationPage,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_max_sidebar_width(
+        self_: *mut AdwNavigationSplitView,
+        width: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_min_sidebar_width(
+        self_: *mut AdwNavigationSplitView,
+        width: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_show_content(
+        self_: *mut AdwNavigationSplitView,
+        show_content: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_sidebar(
+        self_: *mut AdwNavigationSplitView,
+        sidebar: *mut AdwNavigationPage,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_sidebar_width_fraction(
+        self_: *mut AdwNavigationSplitView,
+        fraction: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_navigation_split_view_set_sidebar_width_unit(
+        self_: *mut AdwNavigationSplitView,
+        unit: AdwLengthUnit,
+    );
 
     //=========================================================================
     // AdwNavigationView
@@ -3720,8 +3876,14 @@ extern "C" {
     pub fn adw_swipe_tracker_get_allow_long_swipes(self_: *mut AdwSwipeTracker) -> gboolean;
     pub fn adw_swipe_tracker_get_allow_mouse_drag(self_: *mut AdwSwipeTracker) -> gboolean;
     pub fn adw_swipe_tracker_get_enabled(self_: *mut AdwSwipeTracker) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_swipe_tracker_get_lower_overshoot(self_: *mut AdwSwipeTracker) -> gboolean;
     pub fn adw_swipe_tracker_get_reversed(self_: *mut AdwSwipeTracker) -> gboolean;
     pub fn adw_swipe_tracker_get_swipeable(self_: *mut AdwSwipeTracker) -> *mut AdwSwipeable;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_swipe_tracker_get_upper_overshoot(self_: *mut AdwSwipeTracker) -> gboolean;
     pub fn adw_swipe_tracker_set_allow_long_swipes(
         self_: *mut AdwSwipeTracker,
         allow_long_swipes: gboolean,
@@ -3731,7 +3893,13 @@ extern "C" {
         allow_mouse_drag: gboolean,
     );
     pub fn adw_swipe_tracker_set_enabled(self_: *mut AdwSwipeTracker, enabled: gboolean);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_swipe_tracker_set_lower_overshoot(self_: *mut AdwSwipeTracker, overshoot: gboolean);
     pub fn adw_swipe_tracker_set_reversed(self_: *mut AdwSwipeTracker, reversed: gboolean);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_swipe_tracker_set_upper_overshoot(self_: *mut AdwSwipeTracker, overshoot: gboolean);
     pub fn adw_swipe_tracker_shift_position(self_: *mut AdwSwipeTracker, delta: c_double);
 
     //=========================================================================
@@ -3758,6 +3926,10 @@ extern "C" {
     pub fn adw_tab_bar_get_autohide(self_: *mut AdwTabBar) -> gboolean;
     pub fn adw_tab_bar_get_end_action_widget(self_: *mut AdwTabBar) -> *mut gtk::GtkWidget;
     pub fn adw_tab_bar_get_expand_tabs(self_: *mut AdwTabBar) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_tab_bar_get_extra_drag_preferred_action(self_: *mut AdwTabBar)
+        -> gdk::GdkDragAction;
     #[cfg(any(feature = "v1_3", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     pub fn adw_tab_bar_get_extra_drag_preload(self_: *mut AdwTabBar) -> gboolean;
@@ -3816,6 +3988,11 @@ extern "C" {
     #[cfg(any(feature = "v1_3", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     pub fn adw_tab_overview_get_enable_search(self_: *mut AdwTabOverview) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_tab_overview_get_extra_drag_preferred_action(
+        self_: *mut AdwTabOverview,
+    ) -> gdk::GdkDragAction;
     #[cfg(any(feature = "v1_3", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     pub fn adw_tab_overview_get_extra_drag_preload(self_: *mut AdwTabOverview) -> gboolean;

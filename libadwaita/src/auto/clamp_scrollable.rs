@@ -3,6 +3,9 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+use crate::LengthUnit;
 use glib::{
     prelude::*,
     signal::{connect_raw, SignalHandlerId},
@@ -52,6 +55,14 @@ impl ClampScrollable {
         unsafe { ffi::adw_clamp_scrollable_get_tightening_threshold(self.to_glib_none().0) }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_clamp_scrollable_get_unit")]
+    #[doc(alias = "get_unit")]
+    pub fn unit(&self) -> LengthUnit {
+        unsafe { from_glib(ffi::adw_clamp_scrollable_get_unit(self.to_glib_none().0)) }
+    }
+
     #[doc(alias = "adw_clamp_scrollable_set_child")]
     pub fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
@@ -76,6 +87,15 @@ impl ClampScrollable {
                 self.to_glib_none().0,
                 tightening_threshold,
             );
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_clamp_scrollable_set_unit")]
+    pub fn set_unit(&self, unit: LengthUnit) {
+        unsafe {
+            ffi::adw_clamp_scrollable_set_unit(self.to_glib_none().0, unit.into_glib());
         }
     }
 
@@ -152,6 +172,31 @@ impl ClampScrollable {
             )
         }
     }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "unit")]
+    pub fn connect_unit_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_unit_trampoline<F: Fn(&ClampScrollable) + 'static>(
+            this: *mut ffi::AdwClampScrollable,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::unit\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_unit_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
 }
 
 impl Default for ClampScrollable {
@@ -193,6 +238,14 @@ impl ClampScrollableBuilder {
             builder: self
                 .builder
                 .property("tightening-threshold", tightening_threshold),
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn unit(self, unit: LengthUnit) -> Self {
+        Self {
+            builder: self.builder.property("unit", unit),
         }
     }
 

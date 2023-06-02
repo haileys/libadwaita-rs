@@ -60,6 +60,18 @@ impl TabBar {
         unsafe { from_glib(ffi::adw_tab_bar_get_expand_tabs(self.to_glib_none().0)) }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_tab_bar_get_extra_drag_preferred_action")]
+    #[doc(alias = "get_extra_drag_preferred_action")]
+    pub fn extra_drag_preferred_action(&self) -> gdk::DragAction {
+        unsafe {
+            from_glib(ffi::adw_tab_bar_get_extra_drag_preferred_action(
+                self.to_glib_none().0,
+            ))
+        }
+    }
+
     #[cfg(any(feature = "v1_3", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_tab_bar_get_extra_drag_preload")]
@@ -267,6 +279,36 @@ impl TabBar {
                 b"notify::expand-tabs\0".as_ptr() as *const _,
                 Some(transmute::<_, unsafe extern "C" fn()>(
                     notify_expand_tabs_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "extra-drag-preferred-action")]
+    pub fn connect_extra_drag_preferred_action_notify<F: Fn(&Self) + 'static>(
+        &self,
+        f: F,
+    ) -> SignalHandlerId {
+        unsafe extern "C" fn notify_extra_drag_preferred_action_trampoline<
+            F: Fn(&TabBar) + 'static,
+        >(
+            this: *mut ffi::AdwTabBar,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::extra-drag-preferred-action\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_extra_drag_preferred_action_trampoline::<F> as *const (),
                 )),
                 Box_::into_raw(f),
             )

@@ -123,6 +123,13 @@ pub use self::navigation_page::NavigationPage;
 
 #[cfg(any(feature = "v1_4", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod navigation_split_view;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::navigation_split_view::NavigationSplitView;
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
 mod navigation_view;
 #[cfg(any(feature = "v1_4", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
@@ -269,9 +276,6 @@ pub use self::enums::AnimationState;
 pub use self::enums::BreakpointConditionLengthType;
 #[cfg(any(feature = "v1_4", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-pub use self::enums::BreakpointConditionLengthUnit;
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
 pub use self::enums::BreakpointConditionRatioType;
 pub use self::enums::CenteringPolicy;
 pub use self::enums::ColorScheme;
@@ -280,6 +284,9 @@ pub use self::enums::FlapFoldPolicy;
 pub use self::enums::FlapTransitionType;
 pub use self::enums::FoldThresholdPolicy;
 pub use self::enums::LeafletTransitionType;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::enums::LengthUnit;
 pub use self::enums::NavigationDirection;
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
@@ -363,6 +370,9 @@ pub mod builders {
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
     pub use super::navigation_page::NavigationPageBuilder;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::navigation_split_view::NavigationSplitViewBuilder;
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
     pub use super::navigation_view::NavigationViewBuilder;

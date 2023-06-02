@@ -3,9 +3,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-use crate::{
-    BreakpointConditionLengthType, BreakpointConditionLengthUnit, BreakpointConditionRatioType,
-};
+use crate::{BreakpointConditionLengthType, BreakpointConditionRatioType, LengthUnit};
 use glib::translate::*;
 use std::fmt;
 
@@ -39,7 +37,7 @@ impl BreakpointCondition {
     pub fn new_length(
         type_: BreakpointConditionLengthType,
         value: f64,
-        unit: BreakpointConditionLengthUnit,
+        unit: LengthUnit,
     ) -> BreakpointCondition {
         assert_initialized_main_thread!();
         unsafe {

@@ -318,13 +318,6 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         },
     ),
     (
-        "AdwBreakpointConditionLengthUnit",
-        Layout {
-            size: size_of::<AdwBreakpointConditionLengthUnit>(),
-            alignment: align_of::<AdwBreakpointConditionLengthUnit>(),
-        },
-    ),
-    (
         "AdwBreakpointConditionRatioType",
         Layout {
             size: size_of::<AdwBreakpointConditionRatioType>(),
@@ -514,6 +507,13 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         },
     ),
     (
+        "AdwLengthUnit",
+        Layout {
+            size: size_of::<AdwLengthUnit>(),
+            alignment: align_of::<AdwLengthUnit>(),
+        },
+    ),
+    (
         "AdwMessageDialog",
         Layout {
             size: size_of::<AdwMessageDialog>(),
@@ -546,6 +546,13 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         Layout {
             size: size_of::<AdwNavigationPageClass>(),
             alignment: align_of::<AdwNavigationPageClass>(),
+        },
+    ),
+    (
+        "AdwNavigationSplitViewClass",
+        Layout {
+            size: size_of::<AdwNavigationSplitViewClass>(),
+            alignment: align_of::<AdwNavigationSplitViewClass>(),
         },
     ),
     (
@@ -848,8 +855,6 @@ const RUST_CONSTANTS: &[(&str, &str)] = &[
     ("(gint) ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO", "0"),
     ("(gint) ADW_BREAKPOINT_CONDITION_MIN_HEIGHT", "2"),
     ("(gint) ADW_BREAKPOINT_CONDITION_MIN_WIDTH", "0"),
-    ("(gint) ADW_BREAKPOINT_CONDITION_PT", "1"),
-    ("(gint) ADW_BREAKPOINT_CONDITION_PX", "0"),
     ("(gint) ADW_CENTERING_POLICY_LOOSE", "0"),
     ("(gint) ADW_CENTERING_POLICY_STRICT", "1"),
     ("(gint) ADW_COLOR_SCHEME_DEFAULT", "0"),
@@ -899,6 +904,9 @@ const RUST_CONSTANTS: &[(&str, &str)] = &[
     ("(gint) ADW_LEAFLET_TRANSITION_TYPE_OVER", "0"),
     ("(gint) ADW_LEAFLET_TRANSITION_TYPE_SLIDE", "2"),
     ("(gint) ADW_LEAFLET_TRANSITION_TYPE_UNDER", "1"),
+    ("(gint) ADW_LENGTH_UNIT_PT", "1"),
+    ("(gint) ADW_LENGTH_UNIT_PX", "0"),
+    ("(gint) ADW_LENGTH_UNIT_SP", "2"),
     ("(gint) ADW_LINEAR", "0"),
     ("(gint) ADW_NAVIGATION_DIRECTION_BACK", "0"),
     ("(gint) ADW_NAVIGATION_DIRECTION_FORWARD", "1"),
