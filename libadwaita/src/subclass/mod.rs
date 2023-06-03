@@ -20,6 +20,9 @@ pub mod preferences_group;
 pub mod preferences_page;
 pub mod preferences_row;
 pub mod preferences_window;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub mod spin_row;
 pub mod swipeable;
 pub mod window;
 
