@@ -25,7 +25,6 @@ int main() {
     printf("%s;%zu;%zu\n", "AdwBreakpointBinClass", sizeof(AdwBreakpointBinClass), alignof(AdwBreakpointBinClass));
     printf("%s;%zu;%zu\n", "AdwBreakpointClass", sizeof(AdwBreakpointClass), alignof(AdwBreakpointClass));
     printf("%s;%zu;%zu\n", "AdwBreakpointConditionLengthType", sizeof(AdwBreakpointConditionLengthType), alignof(AdwBreakpointConditionLengthType));
-    printf("%s;%zu;%zu\n", "AdwBreakpointConditionLengthUnit", sizeof(AdwBreakpointConditionLengthUnit), alignof(AdwBreakpointConditionLengthUnit));
     printf("%s;%zu;%zu\n", "AdwBreakpointConditionRatioType", sizeof(AdwBreakpointConditionRatioType), alignof(AdwBreakpointConditionRatioType));
     printf("%s;%zu;%zu\n", "AdwButtonContentClass", sizeof(AdwButtonContentClass), alignof(AdwButtonContentClass));
     printf("%s;%zu;%zu\n", "AdwCarouselClass", sizeof(AdwCarouselClass), alignof(AdwCarouselClass));
@@ -53,11 +52,13 @@ int main() {
     printf("%s;%zu;%zu\n", "AdwLeafletClass", sizeof(AdwLeafletClass), alignof(AdwLeafletClass));
     printf("%s;%zu;%zu\n", "AdwLeafletPageClass", sizeof(AdwLeafletPageClass), alignof(AdwLeafletPageClass));
     printf("%s;%zu;%zu\n", "AdwLeafletTransitionType", sizeof(AdwLeafletTransitionType), alignof(AdwLeafletTransitionType));
+    printf("%s;%zu;%zu\n", "AdwLengthUnit", sizeof(AdwLengthUnit), alignof(AdwLengthUnit));
     printf("%s;%zu;%zu\n", "AdwMessageDialog", sizeof(AdwMessageDialog), alignof(AdwMessageDialog));
     printf("%s;%zu;%zu\n", "AdwMessageDialogClass", sizeof(AdwMessageDialogClass), alignof(AdwMessageDialogClass));
     printf("%s;%zu;%zu\n", "AdwNavigationDirection", sizeof(AdwNavigationDirection), alignof(AdwNavigationDirection));
     printf("%s;%zu;%zu\n", "AdwNavigationPage", sizeof(AdwNavigationPage), alignof(AdwNavigationPage));
     printf("%s;%zu;%zu\n", "AdwNavigationPageClass", sizeof(AdwNavigationPageClass), alignof(AdwNavigationPageClass));
+    printf("%s;%zu;%zu\n", "AdwNavigationSplitViewClass", sizeof(AdwNavigationSplitViewClass), alignof(AdwNavigationSplitViewClass));
     printf("%s;%zu;%zu\n", "AdwNavigationViewClass", sizeof(AdwNavigationViewClass), alignof(AdwNavigationViewClass));
     printf("%s;%zu;%zu\n", "AdwPasswordEntryRowClass", sizeof(AdwPasswordEntryRowClass), alignof(AdwPasswordEntryRowClass));
     printf("%s;%zu;%zu\n", "AdwPreferencesGroup", sizeof(AdwPreferencesGroup), alignof(AdwPreferencesGroup));

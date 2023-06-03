@@ -268,135 +268,6 @@ impl From<BreakpointConditionLengthType> for glib::Value {
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
-#[doc(alias = "AdwBreakpointConditionLengthUnit")]
-pub enum BreakpointConditionLengthUnit {
-    #[doc(alias = "ADW_BREAKPOINT_CONDITION_PX")]
-    Px,
-    #[doc(alias = "ADW_BREAKPOINT_CONDITION_PT")]
-    Pt,
-    #[doc(hidden)]
-    __Unknown(i32),
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl fmt::Display for BreakpointConditionLengthUnit {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(
-            f,
-            "BreakpointConditionLengthUnit::{}",
-            match *self {
-                Self::Px => "Px",
-                Self::Pt => "Pt",
-                _ => "Unknown",
-            }
-        )
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-#[doc(hidden)]
-impl IntoGlib for BreakpointConditionLengthUnit {
-    type GlibType = ffi::AdwBreakpointConditionLengthUnit;
-
-    #[inline]
-    fn into_glib(self) -> ffi::AdwBreakpointConditionLengthUnit {
-        match self {
-            Self::Px => ffi::ADW_BREAKPOINT_CONDITION_PX,
-            Self::Pt => ffi::ADW_BREAKPOINT_CONDITION_PT,
-            Self::__Unknown(value) => value,
-        }
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-#[doc(hidden)]
-impl FromGlib<ffi::AdwBreakpointConditionLengthUnit> for BreakpointConditionLengthUnit {
-    #[inline]
-    unsafe fn from_glib(value: ffi::AdwBreakpointConditionLengthUnit) -> Self {
-        skip_assert_initialized!();
-
-        match value {
-            ffi::ADW_BREAKPOINT_CONDITION_PX => Self::Px,
-            ffi::ADW_BREAKPOINT_CONDITION_PT => Self::Pt,
-            value => Self::__Unknown(value),
-        }
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl StaticType for BreakpointConditionLengthUnit {
-    #[inline]
-    fn static_type() -> Type {
-        unsafe { from_glib(ffi::adw_breakpoint_condition_length_unit_get_type()) }
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl glib::HasParamSpec for BreakpointConditionLengthUnit {
-    type ParamSpec = glib::ParamSpecEnum;
-    type SetValue = Self;
-    type BuilderFn = fn(&str, Self) -> glib::ParamSpecEnumBuilder<Self>;
-
-    fn param_spec_builder() -> Self::BuilderFn {
-        |name, default_value| Self::ParamSpec::builder_with_default(name, default_value)
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl glib::value::ValueType for BreakpointConditionLengthUnit {
-    type Type = Self;
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-unsafe impl<'a> FromValue<'a> for BreakpointConditionLengthUnit {
-    type Checker = glib::value::GenericValueTypeChecker<Self>;
-
-    #[inline]
-    unsafe fn from_value(value: &'a glib::Value) -> Self {
-        skip_assert_initialized!();
-        from_glib(glib::gobject_ffi::g_value_get_enum(value.to_glib_none().0))
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl ToValue for BreakpointConditionLengthUnit {
-    #[inline]
-    fn to_value(&self) -> glib::Value {
-        let mut value = glib::Value::for_value_type::<Self>();
-        unsafe {
-            glib::gobject_ffi::g_value_set_enum(value.to_glib_none_mut().0, self.into_glib());
-        }
-        value
-    }
-
-    #[inline]
-    fn value_type(&self) -> glib::Type {
-        Self::static_type()
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-impl From<BreakpointConditionLengthUnit> for glib::Value {
-    #[inline]
-    fn from(v: BreakpointConditionLengthUnit) -> Self {
-        skip_assert_initialized!();
-        ToValue::to_value(&v)
-    }
-}
-
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
-#[non_exhaustive]
 #[doc(alias = "AdwBreakpointConditionRatioType")]
 pub enum BreakpointConditionRatioType {
     #[doc(alias = "ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO")]
@@ -1461,6 +1332,156 @@ impl ToValue for LeafletTransitionType {
 impl From<LeafletTransitionType> for glib::Value {
     #[inline]
     fn from(v: LeafletTransitionType) -> Self {
+        skip_assert_initialized!();
+        ToValue::to_value(&v)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
+#[non_exhaustive]
+#[doc(alias = "AdwLengthUnit")]
+pub enum LengthUnit {
+    #[doc(alias = "ADW_LENGTH_UNIT_PX")]
+    Px,
+    #[doc(alias = "ADW_LENGTH_UNIT_PT")]
+    Pt,
+    #[doc(alias = "ADW_LENGTH_UNIT_SP")]
+    Sp,
+    #[doc(hidden)]
+    __Unknown(i32),
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl LengthUnit {
+    #[doc(alias = "adw_length_unit_from_px")]
+    pub fn from_px(self, value: f64, settings: Option<&gtk::Settings>) -> f64 {
+        assert_initialized_main_thread!();
+        unsafe { ffi::adw_length_unit_from_px(self.into_glib(), value, settings.to_glib_none().0) }
+    }
+
+    #[doc(alias = "adw_length_unit_to_px")]
+    pub fn to_px(self, value: f64, settings: Option<&gtk::Settings>) -> f64 {
+        assert_initialized_main_thread!();
+        unsafe { ffi::adw_length_unit_to_px(self.into_glib(), value, settings.to_glib_none().0) }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl fmt::Display for LengthUnit {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "LengthUnit::{}",
+            match *self {
+                Self::Px => "Px",
+                Self::Pt => "Pt",
+                Self::Sp => "Sp",
+                _ => "Unknown",
+            }
+        )
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl IntoGlib for LengthUnit {
+    type GlibType = ffi::AdwLengthUnit;
+
+    #[inline]
+    fn into_glib(self) -> ffi::AdwLengthUnit {
+        match self {
+            Self::Px => ffi::ADW_LENGTH_UNIT_PX,
+            Self::Pt => ffi::ADW_LENGTH_UNIT_PT,
+            Self::Sp => ffi::ADW_LENGTH_UNIT_SP,
+            Self::__Unknown(value) => value,
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl FromGlib<ffi::AdwLengthUnit> for LengthUnit {
+    #[inline]
+    unsafe fn from_glib(value: ffi::AdwLengthUnit) -> Self {
+        skip_assert_initialized!();
+
+        match value {
+            ffi::ADW_LENGTH_UNIT_PX => Self::Px,
+            ffi::ADW_LENGTH_UNIT_PT => Self::Pt,
+            ffi::ADW_LENGTH_UNIT_SP => Self::Sp,
+            value => Self::__Unknown(value),
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl StaticType for LengthUnit {
+    #[inline]
+    fn static_type() -> Type {
+        unsafe { from_glib(ffi::adw_length_unit_get_type()) }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::HasParamSpec for LengthUnit {
+    type ParamSpec = glib::ParamSpecEnum;
+    type SetValue = Self;
+    type BuilderFn = fn(&str, Self) -> glib::ParamSpecEnumBuilder<Self>;
+
+    fn param_spec_builder() -> Self::BuilderFn {
+        |name, default_value| Self::ParamSpec::builder_with_default(name, default_value)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::value::ValueType for LengthUnit {
+    type Type = Self;
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> FromValue<'a> for LengthUnit {
+    type Checker = glib::value::GenericValueTypeChecker<Self>;
+
+    #[inline]
+    unsafe fn from_value(value: &'a glib::Value) -> Self {
+        skip_assert_initialized!();
+        from_glib(glib::gobject_ffi::g_value_get_enum(value.to_glib_none().0))
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl ToValue for LengthUnit {
+    #[inline]
+    fn to_value(&self) -> glib::Value {
+        let mut value = glib::Value::for_value_type::<Self>();
+        unsafe {
+            glib::gobject_ffi::g_value_set_enum(value.to_glib_none_mut().0, self.into_glib());
+        }
+        value
+    }
+
+    #[inline]
+    fn value_type(&self) -> glib::Type {
+        Self::static_type()
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl From<LengthUnit> for glib::Value {
+    #[inline]
+    fn from(v: LengthUnit) -> Self {
         skip_assert_initialized!();
         ToValue::to_value(&v)
     }

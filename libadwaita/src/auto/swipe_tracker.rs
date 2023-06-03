@@ -65,6 +65,18 @@ impl SwipeTracker {
         unsafe { from_glib(ffi::adw_swipe_tracker_get_enabled(self.to_glib_none().0)) }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_swipe_tracker_get_lower_overshoot")]
+    #[doc(alias = "get_lower_overshoot")]
+    pub fn is_lower_overshoot(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_swipe_tracker_get_lower_overshoot(
+                self.to_glib_none().0,
+            ))
+        }
+    }
+
     #[doc(alias = "adw_swipe_tracker_get_reversed")]
     #[doc(alias = "get_reversed")]
     pub fn is_reversed(&self) -> bool {
@@ -75,6 +87,18 @@ impl SwipeTracker {
     #[doc(alias = "get_swipeable")]
     pub fn swipeable(&self) -> Swipeable {
         unsafe { from_glib_none(ffi::adw_swipe_tracker_get_swipeable(self.to_glib_none().0)) }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_swipe_tracker_get_upper_overshoot")]
+    #[doc(alias = "get_upper_overshoot")]
+    pub fn is_upper_overshoot(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_swipe_tracker_get_upper_overshoot(
+                self.to_glib_none().0,
+            ))
+        }
     }
 
     #[doc(alias = "adw_swipe_tracker_set_allow_long_swipes")]
@@ -104,10 +128,34 @@ impl SwipeTracker {
         }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_swipe_tracker_set_lower_overshoot")]
+    pub fn set_lower_overshoot(&self, overshoot: bool) {
+        unsafe {
+            ffi::adw_swipe_tracker_set_lower_overshoot(
+                self.to_glib_none().0,
+                overshoot.into_glib(),
+            );
+        }
+    }
+
     #[doc(alias = "adw_swipe_tracker_set_reversed")]
     pub fn set_reversed(&self, reversed: bool) {
         unsafe {
             ffi::adw_swipe_tracker_set_reversed(self.to_glib_none().0, reversed.into_glib());
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_swipe_tracker_set_upper_overshoot")]
+    pub fn set_upper_overshoot(&self, overshoot: bool) {
+        unsafe {
+            ffi::adw_swipe_tracker_set_upper_overshoot(
+                self.to_glib_none().0,
+                overshoot.into_glib(),
+            );
         }
     }
 
@@ -287,6 +335,31 @@ impl SwipeTracker {
         }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "lower-overshoot")]
+    pub fn connect_lower_overshoot_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_lower_overshoot_trampoline<F: Fn(&SwipeTracker) + 'static>(
+            this: *mut ffi::AdwSwipeTracker,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::lower-overshoot\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_lower_overshoot_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
+
     #[doc(alias = "reversed")]
     pub fn connect_reversed_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_reversed_trampoline<F: Fn(&SwipeTracker) + 'static>(
@@ -304,6 +377,31 @@ impl SwipeTracker {
                 b"notify::reversed\0".as_ptr() as *const _,
                 Some(transmute::<_, unsafe extern "C" fn()>(
                     notify_reversed_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "upper-overshoot")]
+    pub fn connect_upper_overshoot_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_upper_overshoot_trampoline<F: Fn(&SwipeTracker) + 'static>(
+            this: *mut ffi::AdwSwipeTracker,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::upper-overshoot\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_upper_overshoot_trampoline::<F> as *const (),
                 )),
                 Box_::into_raw(f),
             )
@@ -353,6 +451,14 @@ impl SwipeTrackerBuilder {
         }
     }
 
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn lower_overshoot(self, lower_overshoot: bool) -> Self {
+        Self {
+            builder: self.builder.property("lower-overshoot", lower_overshoot),
+        }
+    }
+
     pub fn reversed(self, reversed: bool) -> Self {
         Self {
             builder: self.builder.property("reversed", reversed),
@@ -364,6 +470,14 @@ impl SwipeTrackerBuilder {
             builder: self
                 .builder
                 .property("swipeable", swipeable.clone().upcast()),
+        }
+    }
+
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn upper_overshoot(self, upper_overshoot: bool) -> Self {
+        Self {
+            builder: self.builder.property("upper-overshoot", upper_overshoot),
         }
     }
 
