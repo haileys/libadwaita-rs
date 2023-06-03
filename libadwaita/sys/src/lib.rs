@@ -28,6 +28,20 @@ pub const ADW_ANIMATION_PAUSED: AdwAnimationState = 1;
 pub const ADW_ANIMATION_PLAYING: AdwAnimationState = 2;
 pub const ADW_ANIMATION_FINISHED: AdwAnimationState = 3;
 
+pub type AdwBreakpointConditionLengthType = c_int;
+pub const ADW_BREAKPOINT_CONDITION_MIN_WIDTH: AdwBreakpointConditionLengthType = 0;
+pub const ADW_BREAKPOINT_CONDITION_MAX_WIDTH: AdwBreakpointConditionLengthType = 1;
+pub const ADW_BREAKPOINT_CONDITION_MIN_HEIGHT: AdwBreakpointConditionLengthType = 2;
+pub const ADW_BREAKPOINT_CONDITION_MAX_HEIGHT: AdwBreakpointConditionLengthType = 3;
+
+pub type AdwBreakpointConditionLengthUnit = c_int;
+pub const ADW_BREAKPOINT_CONDITION_PX: AdwBreakpointConditionLengthUnit = 0;
+pub const ADW_BREAKPOINT_CONDITION_PT: AdwBreakpointConditionLengthUnit = 1;
+
+pub type AdwBreakpointConditionRatioType = c_int;
+pub const ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO: AdwBreakpointConditionRatioType = 0;
+pub const ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO: AdwBreakpointConditionRatioType = 1;
+
 pub type AdwCenteringPolicy = c_int;
 pub const ADW_CENTERING_POLICY_LOOSE: AdwCenteringPolicy = 0;
 pub const ADW_CENTERING_POLICY_STRICT: AdwCenteringPolicy = 1;
@@ -255,6 +269,48 @@ impl ::std::fmt::Debug for AdwBinClass {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         f.debug_struct(&format!("AdwBinClass @ {self:p}"))
             .field("parent_class", &self.parent_class)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwBreakpointBinClass {
+    pub parent_class: gtk::GtkWidgetClass,
+    pub padding: [gpointer; 4],
+}
+
+impl ::std::fmt::Debug for AdwBreakpointBinClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwBreakpointBinClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwBreakpointClass {
+    pub parent_class: gobject::GObjectClass,
+}
+
+impl ::std::fmt::Debug for AdwBreakpointClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwBreakpointClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
+            .finish()
+    }
+}
+
+#[repr(C)]
+pub struct AdwBreakpointCondition {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
+
+impl ::std::fmt::Debug for AdwBreakpointCondition {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwBreakpointCondition @ {self:p}"))
             .finish()
     }
 }
@@ -1099,6 +1155,33 @@ impl ::std::fmt::Debug for AdwBin {
 }
 
 #[repr(C)]
+pub struct AdwBreakpoint {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
+
+impl ::std::fmt::Debug for AdwBreakpoint {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwBreakpoint @ {self:p}"))
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct AdwBreakpointBin {
+    pub parent_instance: gtk::GtkWidget,
+}
+
+impl ::std::fmt::Debug for AdwBreakpointBin {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwBreakpointBin @ {self:p}"))
+            .field("parent_instance", &self.parent_instance)
+            .finish()
+    }
+}
+
+#[repr(C)]
 pub struct AdwButtonContent {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1752,6 +1835,27 @@ extern "C" {
     pub fn adw_animation_state_get_type() -> GType;
 
     //=========================================================================
+    // AdwBreakpointConditionLengthType
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_length_type_get_type() -> GType;
+
+    //=========================================================================
+    // AdwBreakpointConditionLengthUnit
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_length_unit_get_type() -> GType;
+
+    //=========================================================================
+    // AdwBreakpointConditionRatioType
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_ratio_type_get_type() -> GType;
+
+    //=========================================================================
     // AdwCenteringPolicy
     //=========================================================================
     pub fn adw_centering_policy_get_type() -> GType;
@@ -1827,6 +1931,53 @@ extern "C" {
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub fn adw_tab_view_shortcuts_get_type() -> GType;
+
+    //=========================================================================
+    // AdwBreakpointCondition
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_new_and(
+        condition_1: *mut AdwBreakpointCondition,
+        condition_2: *mut AdwBreakpointCondition,
+    ) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_new_length(
+        type_: AdwBreakpointConditionLengthType,
+        value: c_double,
+        unit: AdwBreakpointConditionLengthUnit,
+    ) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_new_or(
+        condition_1: *mut AdwBreakpointCondition,
+        condition_2: *mut AdwBreakpointCondition,
+    ) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_new_ratio(
+        type_: AdwBreakpointConditionRatioType,
+        width: c_int,
+        height: c_int,
+    ) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_copy(
+        self_: *mut AdwBreakpointCondition,
+    ) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_free(self_: *mut AdwBreakpointCondition);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_to_string(self_: *mut AdwBreakpointCondition) -> *mut c_char;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_condition_parse(str: *const c_char) -> *mut AdwBreakpointCondition;
 
     //=========================================================================
     // AdwSpringParams
@@ -2125,9 +2276,20 @@ extern "C" {
     //=========================================================================
     pub fn adw_application_window_get_type() -> GType;
     pub fn adw_application_window_new(app: *mut gtk::GtkApplication) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_application_window_add_breakpoint(
+        self_: *mut AdwApplicationWindow,
+        breakpoint: *mut AdwBreakpoint,
+    );
     pub fn adw_application_window_get_content(
         self_: *mut AdwApplicationWindow,
     ) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_application_window_get_current_breakpoint(
+        self_: *mut AdwApplicationWindow,
+    ) -> *mut AdwBreakpoint;
     pub fn adw_application_window_set_content(
         self_: *mut AdwApplicationWindow,
         content: *mut gtk::GtkWidget,
@@ -2200,13 +2362,93 @@ extern "C" {
     pub fn adw_bin_set_child(self_: *mut AdwBin, child: *mut gtk::GtkWidget);
 
     //=========================================================================
+    // AdwBreakpoint
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_new(condition: *mut AdwBreakpointCondition) -> *mut AdwBreakpoint;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_add_setter(
+        self_: *mut AdwBreakpoint,
+        object: *mut gobject::GObject,
+        property: *const c_char,
+        value: *const gobject::GValue,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_add_setters(
+        self_: *mut AdwBreakpoint,
+        first_object: *mut gobject::GObject,
+        first_property: *const c_char,
+        ...
+    );
+    //#[cfg(any(feature = "v1_4", feature = "dox"))]
+    //#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    //pub fn adw_breakpoint_add_setters_valist(self_: *mut AdwBreakpoint, first_object: *mut gobject::GObject, first_property: *const c_char, args: /*Unimplemented*/va_list);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_add_settersv(
+        self_: *mut AdwBreakpoint,
+        n_setters: c_int,
+        objects: *mut *mut gobject::GObject,
+        names: *mut *const c_char,
+        values: *mut *const gobject::GValue,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_get_condition(self_: *mut AdwBreakpoint) -> *mut AdwBreakpointCondition;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_set_condition(
+        self_: *mut AdwBreakpoint,
+        condition: *mut AdwBreakpointCondition,
+    );
+
+    //=========================================================================
+    // AdwBreakpointBin
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_add_breakpoint(
+        self_: *mut AdwBreakpointBin,
+        breakpoint: *mut AdwBreakpoint,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_get_child(self_: *mut AdwBreakpointBin) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_get_current_breakpoint(
+        self_: *mut AdwBreakpointBin,
+    ) -> *mut AdwBreakpoint;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_breakpoint_bin_set_child(self_: *mut AdwBreakpointBin, child: *mut gtk::GtkWidget);
+
+    //=========================================================================
     // AdwButtonContent
     //=========================================================================
     pub fn adw_button_content_get_type() -> GType;
     pub fn adw_button_content_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_button_content_get_can_shrink(self_: *mut AdwButtonContent) -> gboolean;
     pub fn adw_button_content_get_icon_name(self_: *mut AdwButtonContent) -> *const c_char;
     pub fn adw_button_content_get_label(self_: *mut AdwButtonContent) -> *const c_char;
     pub fn adw_button_content_get_use_underline(self_: *mut AdwButtonContent) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_button_content_set_can_shrink(self_: *mut AdwButtonContent, can_shrink: gboolean);
     pub fn adw_button_content_set_icon_name(self_: *mut AdwButtonContent, icon_name: *const c_char);
     pub fn adw_button_content_set_label(self_: *mut AdwButtonContent, label: *const c_char);
     pub fn adw_button_content_set_use_underline(
@@ -3093,6 +3335,9 @@ extern "C" {
     //=========================================================================
     pub fn adw_split_button_get_type() -> GType;
     pub fn adw_split_button_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_split_button_get_can_shrink(self_: *mut AdwSplitButton) -> gboolean;
     pub fn adw_split_button_get_child(self_: *mut AdwSplitButton) -> *mut gtk::GtkWidget;
     pub fn adw_split_button_get_direction(self_: *mut AdwSplitButton) -> gtk::GtkArrowType;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
@@ -3105,6 +3350,9 @@ extern "C" {
     pub fn adw_split_button_get_use_underline(self_: *mut AdwSplitButton) -> gboolean;
     pub fn adw_split_button_popdown(self_: *mut AdwSplitButton);
     pub fn adw_split_button_popup(self_: *mut AdwSplitButton);
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_split_button_set_can_shrink(self_: *mut AdwSplitButton, can_shrink: gboolean);
     pub fn adw_split_button_set_child(self_: *mut AdwSplitButton, child: *mut gtk::GtkWidget);
     pub fn adw_split_button_set_direction(self_: *mut AdwSplitButton, direction: gtk::GtkArrowType);
     #[cfg(any(feature = "v1_2", feature = "dox"))]
@@ -3878,7 +4126,13 @@ extern "C" {
     //=========================================================================
     pub fn adw_window_get_type() -> GType;
     pub fn adw_window_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_window_add_breakpoint(self_: *mut AdwWindow, breakpoint: *mut AdwBreakpoint);
     pub fn adw_window_get_content(self_: *mut AdwWindow) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_window_get_current_breakpoint(self_: *mut AdwWindow) -> *mut AdwBreakpoint;
     pub fn adw_window_set_content(self_: *mut AdwWindow, content: *mut gtk::GtkWidget);
 
     //=========================================================================

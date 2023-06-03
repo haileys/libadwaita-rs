@@ -3,8 +3,6 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
 use crate::Breakpoint;
 use glib::{
     prelude::*,
@@ -14,207 +12,61 @@ use glib::{
 use std::{boxed::Box as Box_, fmt, mem::transmute};
 
 glib::wrapper! {
-    #[doc(alias = "AdwWindow")]
-    pub struct Window(Object<ffi::AdwWindow, ffi::AdwWindowClass>) @extends gtk::Window, gtk::Widget, @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
+    #[doc(alias = "AdwBreakpointBin")]
+    pub struct BreakpointBin(Object<ffi::AdwBreakpointBin, ffi::AdwBreakpointBinClass>) @extends gtk::Widget, @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 
     match fn {
-        type_ => || ffi::adw_window_get_type(),
+        type_ => || ffi::adw_breakpoint_bin_get_type(),
     }
 }
 
-impl Window {
-    pub const NONE: Option<&'static Window> = None;
+impl BreakpointBin {
+    pub const NONE: Option<&'static BreakpointBin> = None;
 
-    #[doc(alias = "adw_window_new")]
-    pub fn new() -> Window {
+    #[doc(alias = "adw_breakpoint_bin_new")]
+    pub fn new() -> BreakpointBin {
         assert_initialized_main_thread!();
-        unsafe { gtk::Widget::from_glib_none(ffi::adw_window_new()).unsafe_cast() }
+        unsafe { gtk::Widget::from_glib_none(ffi::adw_breakpoint_bin_new()).unsafe_cast() }
     }
 
     // rustdoc-stripper-ignore-next
-    /// Creates a new builder-pattern struct instance to construct [`Window`] objects.
+    /// Creates a new builder-pattern struct instance to construct [`BreakpointBin`] objects.
     ///
-    /// This method returns an instance of [`WindowBuilder`](crate::builders::WindowBuilder) which can be used to create [`Window`] objects.
-    pub fn builder() -> WindowBuilder {
-        WindowBuilder::new()
+    /// This method returns an instance of [`BreakpointBinBuilder`](crate::builders::BreakpointBinBuilder) which can be used to create [`BreakpointBin`] objects.
+    pub fn builder() -> BreakpointBinBuilder {
+        BreakpointBinBuilder::new()
     }
 }
 
-impl Default for Window {
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl Default for BreakpointBin {
     fn default() -> Self {
         Self::new()
     }
 }
 
 // rustdoc-stripper-ignore-next
-/// A [builder-pattern] type to construct [`Window`] objects.
+/// A [builder-pattern] type to construct [`BreakpointBin`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 #[must_use = "The builder must be built to be used"]
-pub struct WindowBuilder {
-    builder: glib::object::ObjectBuilder<'static, Window>,
+pub struct BreakpointBinBuilder {
+    builder: glib::object::ObjectBuilder<'static, BreakpointBin>,
 }
 
-impl WindowBuilder {
+impl BreakpointBinBuilder {
     fn new() -> Self {
         Self {
             builder: glib::object::Object::builder(),
         }
     }
 
-    pub fn content(self, content: &impl IsA<gtk::Widget>) -> Self {
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn child(self, child: &impl IsA<gtk::Widget>) -> Self {
         Self {
-            builder: self.builder.property("content", content.clone().upcast()),
-        }
-    }
-
-    pub fn application(self, application: &impl IsA<gtk::Application>) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("application", application.clone().upcast()),
-        }
-    }
-
-    pub fn decorated(self, decorated: bool) -> Self {
-        Self {
-            builder: self.builder.property("decorated", decorated),
-        }
-    }
-
-    pub fn default_height(self, default_height: i32) -> Self {
-        Self {
-            builder: self.builder.property("default-height", default_height),
-        }
-    }
-
-    pub fn default_widget(self, default_widget: &impl IsA<gtk::Widget>) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("default-widget", default_widget.clone().upcast()),
-        }
-    }
-
-    pub fn default_width(self, default_width: i32) -> Self {
-        Self {
-            builder: self.builder.property("default-width", default_width),
-        }
-    }
-
-    pub fn deletable(self, deletable: bool) -> Self {
-        Self {
-            builder: self.builder.property("deletable", deletable),
-        }
-    }
-
-    pub fn destroy_with_parent(self, destroy_with_parent: bool) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("destroy-with-parent", destroy_with_parent),
-        }
-    }
-
-    pub fn display(self, display: &gdk::Display) -> Self {
-        Self {
-            builder: self.builder.property("display", display.clone()),
-        }
-    }
-
-    pub fn focus_visible(self, focus_visible: bool) -> Self {
-        Self {
-            builder: self.builder.property("focus-visible", focus_visible),
-        }
-    }
-
-    pub fn focus_widget(self, focus_widget: &impl IsA<gtk::Widget>) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("focus-widget", focus_widget.clone().upcast()),
-        }
-    }
-
-    pub fn fullscreened(self, fullscreened: bool) -> Self {
-        Self {
-            builder: self.builder.property("fullscreened", fullscreened),
-        }
-    }
-
-    #[cfg(any(feature = "gtk_v4_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_2")))]
-    pub fn handle_menubar_accel(self, handle_menubar_accel: bool) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("handle-menubar-accel", handle_menubar_accel),
-        }
-    }
-
-    pub fn hide_on_close(self, hide_on_close: bool) -> Self {
-        Self {
-            builder: self.builder.property("hide-on-close", hide_on_close),
-        }
-    }
-
-    pub fn icon_name(self, icon_name: impl Into<glib::GString>) -> Self {
-        Self {
-            builder: self.builder.property("icon-name", icon_name.into()),
-        }
-    }
-
-    pub fn maximized(self, maximized: bool) -> Self {
-        Self {
-            builder: self.builder.property("maximized", maximized),
-        }
-    }
-
-    pub fn mnemonics_visible(self, mnemonics_visible: bool) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("mnemonics-visible", mnemonics_visible),
-        }
-    }
-
-    pub fn modal(self, modal: bool) -> Self {
-        Self {
-            builder: self.builder.property("modal", modal),
-        }
-    }
-
-    pub fn resizable(self, resizable: bool) -> Self {
-        Self {
-            builder: self.builder.property("resizable", resizable),
-        }
-    }
-
-    pub fn startup_id(self, startup_id: impl Into<glib::GString>) -> Self {
-        Self {
-            builder: self.builder.property("startup-id", startup_id.into()),
-        }
-    }
-
-    pub fn title(self, title: impl Into<glib::GString>) -> Self {
-        Self {
-            builder: self.builder.property("title", title.into()),
-        }
-    }
-
-    #[cfg(any(feature = "gtk_v4_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_6")))]
-    pub fn titlebar(self, titlebar: &impl IsA<gtk::Widget>) -> Self {
-        Self {
-            builder: self.builder.property("titlebar", titlebar.clone().upcast()),
-        }
-    }
-
-    pub fn transient_for(self, transient_for: &impl IsA<gtk::Window>) -> Self {
-        Self {
-            builder: self
-                .builder
-                .property("transient-for", transient_for.clone().upcast()),
+            builder: self.builder.property("child", child.clone().upcast()),
         }
     }
 
@@ -403,34 +255,32 @@ impl WindowBuilder {
     }
 
     // rustdoc-stripper-ignore-next
-    /// Build the [`Window`].
+    /// Build the [`BreakpointBin`].
     #[must_use = "Building the object from the builder is usually expensive and is not expected to have side effects"]
-    pub fn build(self) -> Window {
+    pub fn build(self) -> BreakpointBin {
         self.builder.build()
     }
 }
 
-pub trait AdwWindowExt: 'static {
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_window_add_breakpoint")]
+pub trait BreakpointBinExt: 'static {
+    #[doc(alias = "adw_breakpoint_bin_add_breakpoint")]
     fn add_breakpoint(&self, breakpoint: Breakpoint);
 
-    #[doc(alias = "adw_window_get_content")]
-    #[doc(alias = "get_content")]
-    fn content(&self) -> Option<gtk::Widget>;
+    #[doc(alias = "adw_breakpoint_bin_get_child")]
+    #[doc(alias = "get_child")]
+    fn child(&self) -> Option<gtk::Widget>;
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_window_get_current_breakpoint")]
+    #[doc(alias = "adw_breakpoint_bin_get_current_breakpoint")]
     #[doc(alias = "get_current_breakpoint")]
     fn current_breakpoint(&self) -> Option<Breakpoint>;
 
-    #[doc(alias = "adw_window_set_content")]
-    fn set_content(&self, content: Option<&impl IsA<gtk::Widget>>);
+    #[doc(alias = "adw_breakpoint_bin_set_child")]
+    fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>);
 
-    #[doc(alias = "content")]
-    fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "child")]
+    fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
 
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
@@ -438,57 +288,59 @@ pub trait AdwWindowExt: 'static {
     fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
 }
 
-impl<O: IsA<Window>> AdwWindowExt for O {
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
     fn add_breakpoint(&self, breakpoint: Breakpoint) {
         unsafe {
-            ffi::adw_window_add_breakpoint(
+            ffi::adw_breakpoint_bin_add_breakpoint(
                 self.as_ref().to_glib_none().0,
                 breakpoint.into_glib_ptr(),
             );
         }
     }
 
-    fn content(&self) -> Option<gtk::Widget> {
-        unsafe { from_glib_none(ffi::adw_window_get_content(self.as_ref().to_glib_none().0)) }
-    }
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    fn current_breakpoint(&self) -> Option<Breakpoint> {
+    fn child(&self) -> Option<gtk::Widget> {
         unsafe {
-            from_glib_none(ffi::adw_window_get_current_breakpoint(
+            from_glib_none(ffi::adw_breakpoint_bin_get_child(
                 self.as_ref().to_glib_none().0,
             ))
         }
     }
 
-    fn set_content(&self, content: Option<&impl IsA<gtk::Widget>>) {
+    fn current_breakpoint(&self) -> Option<Breakpoint> {
         unsafe {
-            ffi::adw_window_set_content(
+            from_glib_none(ffi::adw_breakpoint_bin_get_current_breakpoint(
                 self.as_ref().to_glib_none().0,
-                content.map(|p| p.as_ref()).to_glib_none().0,
+            ))
+        }
+    }
+
+    fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>) {
+        unsafe {
+            ffi::adw_breakpoint_bin_set_child(
+                self.as_ref().to_glib_none().0,
+                child.map(|p| p.as_ref()).to_glib_none().0,
             );
         }
     }
 
-    fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
-        unsafe extern "C" fn notify_content_trampoline<P: IsA<Window>, F: Fn(&P) + 'static>(
-            this: *mut ffi::AdwWindow,
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_child_trampoline<P: IsA<BreakpointBin>, F: Fn(&P) + 'static>(
+            this: *mut ffi::AdwBreakpointBin,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
             let f: &F = &*(f as *const F);
-            f(Window::from_glib_borrow(this).unsafe_cast_ref())
+            f(BreakpointBin::from_glib_borrow(this).unsafe_cast_ref())
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
             connect_raw(
                 self.as_ptr() as *mut _,
-                b"notify::content\0".as_ptr() as *const _,
+                b"notify::child\0".as_ptr() as *const _,
                 Some(transmute::<_, unsafe extern "C" fn()>(
-                    notify_content_trampoline::<Self, F> as *const (),
+                    notify_child_trampoline::<Self, F> as *const (),
                 )),
                 Box_::into_raw(f),
             )
@@ -499,15 +351,15 @@ impl<O: IsA<Window>> AdwWindowExt for O {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
     fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_current_breakpoint_trampoline<
-            P: IsA<Window>,
+            P: IsA<BreakpointBin>,
             F: Fn(&P) + 'static,
         >(
-            this: *mut ffi::AdwWindow,
+            this: *mut ffi::AdwBreakpointBin,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
             let f: &F = &*(f as *const F);
-            f(Window::from_glib_borrow(this).unsafe_cast_ref())
+            f(BreakpointBin::from_glib_borrow(this).unsafe_cast_ref())
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -523,8 +375,8 @@ impl<O: IsA<Window>> AdwWindowExt for O {
     }
 }
 
-impl fmt::Display for Window {
+impl fmt::Display for BreakpointBin {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        f.write_str("Window")
+        f.write_str("BreakpointBin")
     }
 }

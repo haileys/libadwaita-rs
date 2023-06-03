@@ -125,6 +125,403 @@ impl From<AnimationState> for glib::Value {
     }
 }
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
+#[non_exhaustive]
+#[doc(alias = "AdwBreakpointConditionLengthType")]
+pub enum BreakpointConditionLengthType {
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MIN_WIDTH")]
+    MinWidth,
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MAX_WIDTH")]
+    MaxWidth,
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MIN_HEIGHT")]
+    MinHeight,
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MAX_HEIGHT")]
+    MaxHeight,
+    #[doc(hidden)]
+    __Unknown(i32),
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl fmt::Display for BreakpointConditionLengthType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "BreakpointConditionLengthType::{}",
+            match *self {
+                Self::MinWidth => "MinWidth",
+                Self::MaxWidth => "MaxWidth",
+                Self::MinHeight => "MinHeight",
+                Self::MaxHeight => "MaxHeight",
+                _ => "Unknown",
+            }
+        )
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl IntoGlib for BreakpointConditionLengthType {
+    type GlibType = ffi::AdwBreakpointConditionLengthType;
+
+    #[inline]
+    fn into_glib(self) -> ffi::AdwBreakpointConditionLengthType {
+        match self {
+            Self::MinWidth => ffi::ADW_BREAKPOINT_CONDITION_MIN_WIDTH,
+            Self::MaxWidth => ffi::ADW_BREAKPOINT_CONDITION_MAX_WIDTH,
+            Self::MinHeight => ffi::ADW_BREAKPOINT_CONDITION_MIN_HEIGHT,
+            Self::MaxHeight => ffi::ADW_BREAKPOINT_CONDITION_MAX_HEIGHT,
+            Self::__Unknown(value) => value,
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl FromGlib<ffi::AdwBreakpointConditionLengthType> for BreakpointConditionLengthType {
+    #[inline]
+    unsafe fn from_glib(value: ffi::AdwBreakpointConditionLengthType) -> Self {
+        skip_assert_initialized!();
+
+        match value {
+            ffi::ADW_BREAKPOINT_CONDITION_MIN_WIDTH => Self::MinWidth,
+            ffi::ADW_BREAKPOINT_CONDITION_MAX_WIDTH => Self::MaxWidth,
+            ffi::ADW_BREAKPOINT_CONDITION_MIN_HEIGHT => Self::MinHeight,
+            ffi::ADW_BREAKPOINT_CONDITION_MAX_HEIGHT => Self::MaxHeight,
+            value => Self::__Unknown(value),
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl StaticType for BreakpointConditionLengthType {
+    #[inline]
+    fn static_type() -> Type {
+        unsafe { from_glib(ffi::adw_breakpoint_condition_length_type_get_type()) }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::HasParamSpec for BreakpointConditionLengthType {
+    type ParamSpec = glib::ParamSpecEnum;
+    type SetValue = Self;
+    type BuilderFn = fn(&str, Self) -> glib::ParamSpecEnumBuilder<Self>;
+
+    fn param_spec_builder() -> Self::BuilderFn {
+        |name, default_value| Self::ParamSpec::builder_with_default(name, default_value)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::value::ValueType for BreakpointConditionLengthType {
+    type Type = Self;
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> FromValue<'a> for BreakpointConditionLengthType {
+    type Checker = glib::value::GenericValueTypeChecker<Self>;
+
+    #[inline]
+    unsafe fn from_value(value: &'a glib::Value) -> Self {
+        skip_assert_initialized!();
+        from_glib(glib::gobject_ffi::g_value_get_enum(value.to_glib_none().0))
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl ToValue for BreakpointConditionLengthType {
+    #[inline]
+    fn to_value(&self) -> glib::Value {
+        let mut value = glib::Value::for_value_type::<Self>();
+        unsafe {
+            glib::gobject_ffi::g_value_set_enum(value.to_glib_none_mut().0, self.into_glib());
+        }
+        value
+    }
+
+    #[inline]
+    fn value_type(&self) -> glib::Type {
+        Self::static_type()
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl From<BreakpointConditionLengthType> for glib::Value {
+    #[inline]
+    fn from(v: BreakpointConditionLengthType) -> Self {
+        skip_assert_initialized!();
+        ToValue::to_value(&v)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
+#[non_exhaustive]
+#[doc(alias = "AdwBreakpointConditionLengthUnit")]
+pub enum BreakpointConditionLengthUnit {
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_PX")]
+    Px,
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_PT")]
+    Pt,
+    #[doc(hidden)]
+    __Unknown(i32),
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl fmt::Display for BreakpointConditionLengthUnit {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "BreakpointConditionLengthUnit::{}",
+            match *self {
+                Self::Px => "Px",
+                Self::Pt => "Pt",
+                _ => "Unknown",
+            }
+        )
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl IntoGlib for BreakpointConditionLengthUnit {
+    type GlibType = ffi::AdwBreakpointConditionLengthUnit;
+
+    #[inline]
+    fn into_glib(self) -> ffi::AdwBreakpointConditionLengthUnit {
+        match self {
+            Self::Px => ffi::ADW_BREAKPOINT_CONDITION_PX,
+            Self::Pt => ffi::ADW_BREAKPOINT_CONDITION_PT,
+            Self::__Unknown(value) => value,
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl FromGlib<ffi::AdwBreakpointConditionLengthUnit> for BreakpointConditionLengthUnit {
+    #[inline]
+    unsafe fn from_glib(value: ffi::AdwBreakpointConditionLengthUnit) -> Self {
+        skip_assert_initialized!();
+
+        match value {
+            ffi::ADW_BREAKPOINT_CONDITION_PX => Self::Px,
+            ffi::ADW_BREAKPOINT_CONDITION_PT => Self::Pt,
+            value => Self::__Unknown(value),
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl StaticType for BreakpointConditionLengthUnit {
+    #[inline]
+    fn static_type() -> Type {
+        unsafe { from_glib(ffi::adw_breakpoint_condition_length_unit_get_type()) }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::HasParamSpec for BreakpointConditionLengthUnit {
+    type ParamSpec = glib::ParamSpecEnum;
+    type SetValue = Self;
+    type BuilderFn = fn(&str, Self) -> glib::ParamSpecEnumBuilder<Self>;
+
+    fn param_spec_builder() -> Self::BuilderFn {
+        |name, default_value| Self::ParamSpec::builder_with_default(name, default_value)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::value::ValueType for BreakpointConditionLengthUnit {
+    type Type = Self;
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> FromValue<'a> for BreakpointConditionLengthUnit {
+    type Checker = glib::value::GenericValueTypeChecker<Self>;
+
+    #[inline]
+    unsafe fn from_value(value: &'a glib::Value) -> Self {
+        skip_assert_initialized!();
+        from_glib(glib::gobject_ffi::g_value_get_enum(value.to_glib_none().0))
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl ToValue for BreakpointConditionLengthUnit {
+    #[inline]
+    fn to_value(&self) -> glib::Value {
+        let mut value = glib::Value::for_value_type::<Self>();
+        unsafe {
+            glib::gobject_ffi::g_value_set_enum(value.to_glib_none_mut().0, self.into_glib());
+        }
+        value
+    }
+
+    #[inline]
+    fn value_type(&self) -> glib::Type {
+        Self::static_type()
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl From<BreakpointConditionLengthUnit> for glib::Value {
+    #[inline]
+    fn from(v: BreakpointConditionLengthUnit) -> Self {
+        skip_assert_initialized!();
+        ToValue::to_value(&v)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
+#[non_exhaustive]
+#[doc(alias = "AdwBreakpointConditionRatioType")]
+pub enum BreakpointConditionRatioType {
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO")]
+    MinAspectRatio,
+    #[doc(alias = "ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO")]
+    MaxAspectRatio,
+    #[doc(hidden)]
+    __Unknown(i32),
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl fmt::Display for BreakpointConditionRatioType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "BreakpointConditionRatioType::{}",
+            match *self {
+                Self::MinAspectRatio => "MinAspectRatio",
+                Self::MaxAspectRatio => "MaxAspectRatio",
+                _ => "Unknown",
+            }
+        )
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl IntoGlib for BreakpointConditionRatioType {
+    type GlibType = ffi::AdwBreakpointConditionRatioType;
+
+    #[inline]
+    fn into_glib(self) -> ffi::AdwBreakpointConditionRatioType {
+        match self {
+            Self::MinAspectRatio => ffi::ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO,
+            Self::MaxAspectRatio => ffi::ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO,
+            Self::__Unknown(value) => value,
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[doc(hidden)]
+impl FromGlib<ffi::AdwBreakpointConditionRatioType> for BreakpointConditionRatioType {
+    #[inline]
+    unsafe fn from_glib(value: ffi::AdwBreakpointConditionRatioType) -> Self {
+        skip_assert_initialized!();
+
+        match value {
+            ffi::ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO => Self::MinAspectRatio,
+            ffi::ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO => Self::MaxAspectRatio,
+            value => Self::__Unknown(value),
+        }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl StaticType for BreakpointConditionRatioType {
+    #[inline]
+    fn static_type() -> Type {
+        unsafe { from_glib(ffi::adw_breakpoint_condition_ratio_type_get_type()) }
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::HasParamSpec for BreakpointConditionRatioType {
+    type ParamSpec = glib::ParamSpecEnum;
+    type SetValue = Self;
+    type BuilderFn = fn(&str, Self) -> glib::ParamSpecEnumBuilder<Self>;
+
+    fn param_spec_builder() -> Self::BuilderFn {
+        |name, default_value| Self::ParamSpec::builder_with_default(name, default_value)
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl glib::value::ValueType for BreakpointConditionRatioType {
+    type Type = Self;
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> FromValue<'a> for BreakpointConditionRatioType {
+    type Checker = glib::value::GenericValueTypeChecker<Self>;
+
+    #[inline]
+    unsafe fn from_value(value: &'a glib::Value) -> Self {
+        skip_assert_initialized!();
+        from_glib(glib::gobject_ffi::g_value_get_enum(value.to_glib_none().0))
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl ToValue for BreakpointConditionRatioType {
+    #[inline]
+    fn to_value(&self) -> glib::Value {
+        let mut value = glib::Value::for_value_type::<Self>();
+        unsafe {
+            glib::gobject_ffi::g_value_set_enum(value.to_glib_none_mut().0, self.into_glib());
+        }
+        value
+    }
+
+    #[inline]
+    fn value_type(&self) -> glib::Type {
+        Self::static_type()
+    }
+}
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+impl From<BreakpointConditionRatioType> for glib::Value {
+    #[inline]
+    fn from(v: BreakpointConditionRatioType) -> Self {
+        skip_assert_initialized!();
+        ToValue::to_value(&v)
+    }
+}
+
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwCenteringPolicy")]

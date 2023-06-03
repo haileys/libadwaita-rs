@@ -2,6 +2,9 @@ pub mod action_row;
 pub mod application;
 pub mod application_window;
 pub mod bin;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub mod breakpoint_bin;
 pub mod combo_row;
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
@@ -22,6 +25,9 @@ pub mod prelude {
     pub use super::application::AdwApplicationImpl;
     pub use super::application_window::AdwApplicationWindowImpl;
     pub use super::bin::BinImpl;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::breakpoint_bin::BreakpointBinImpl;
     pub use super::combo_row::ComboRowImpl;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
