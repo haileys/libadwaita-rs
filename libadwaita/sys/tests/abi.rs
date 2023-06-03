@@ -535,6 +535,27 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         },
     ),
     (
+        "AdwNavigationPage",
+        Layout {
+            size: size_of::<AdwNavigationPage>(),
+            alignment: align_of::<AdwNavigationPage>(),
+        },
+    ),
+    (
+        "AdwNavigationPageClass",
+        Layout {
+            size: size_of::<AdwNavigationPageClass>(),
+            alignment: align_of::<AdwNavigationPageClass>(),
+        },
+    ),
+    (
+        "AdwNavigationViewClass",
+        Layout {
+            size: size_of::<AdwNavigationViewClass>(),
+            alignment: align_of::<AdwNavigationViewClass>(),
+        },
+    ),
+    (
         "AdwPasswordEntryRowClass",
         Layout {
             size: size_of::<AdwPasswordEntryRowClass>(),

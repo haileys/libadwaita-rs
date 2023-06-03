@@ -56,6 +56,9 @@ int main() {
     printf("%s;%zu;%zu\n", "AdwMessageDialog", sizeof(AdwMessageDialog), alignof(AdwMessageDialog));
     printf("%s;%zu;%zu\n", "AdwMessageDialogClass", sizeof(AdwMessageDialogClass), alignof(AdwMessageDialogClass));
     printf("%s;%zu;%zu\n", "AdwNavigationDirection", sizeof(AdwNavigationDirection), alignof(AdwNavigationDirection));
+    printf("%s;%zu;%zu\n", "AdwNavigationPage", sizeof(AdwNavigationPage), alignof(AdwNavigationPage));
+    printf("%s;%zu;%zu\n", "AdwNavigationPageClass", sizeof(AdwNavigationPageClass), alignof(AdwNavigationPageClass));
+    printf("%s;%zu;%zu\n", "AdwNavigationViewClass", sizeof(AdwNavigationViewClass), alignof(AdwNavigationViewClass));
     printf("%s;%zu;%zu\n", "AdwPasswordEntryRowClass", sizeof(AdwPasswordEntryRowClass), alignof(AdwPasswordEntryRowClass));
     printf("%s;%zu;%zu\n", "AdwPreferencesGroup", sizeof(AdwPreferencesGroup), alignof(AdwPreferencesGroup));
     printf("%s;%zu;%zu\n", "AdwPreferencesGroupClass", sizeof(AdwPreferencesGroupClass), alignof(AdwPreferencesGroupClass));

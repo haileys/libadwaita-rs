@@ -114,6 +114,20 @@ mod message_dialog;
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
 pub use self::message_dialog::MessageDialog;
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod navigation_page;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::navigation_page::NavigationPage;
+
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod navigation_view;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::navigation_view::NavigationView;
+
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
 mod password_entry_row;
@@ -302,6 +316,9 @@ pub mod traits {
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::message_dialog::MessageDialogExt;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::navigation_page::NavigationPageExt;
     pub use super::preferences_group::PreferencesGroupExt;
     pub use super::preferences_page::PreferencesPageExt;
     pub use super::preferences_row::PreferencesRowExt;
@@ -343,6 +360,12 @@ pub mod builders {
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::message_dialog::MessageDialogBuilder;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::navigation_page::NavigationPageBuilder;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::navigation_view::NavigationViewBuilder;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::password_entry_row::PasswordEntryRowBuilder;
