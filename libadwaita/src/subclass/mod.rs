@@ -42,6 +42,9 @@ pub mod prelude {
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::message_dialog::{MessageDialogImpl, MessageDialogImplExt};
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::navigation_page::NavigationPageImpl;
     pub use super::preferences_group::PreferencesGroupImpl;
     pub use super::preferences_page::PreferencesPageImpl;
     pub use super::preferences_row::PreferencesRowImpl;
