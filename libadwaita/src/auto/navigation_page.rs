@@ -314,7 +314,7 @@ pub trait NavigationPageExt: 'static {
 
     #[doc(alias = "adw_navigation_page_get_tag")]
     #[doc(alias = "get_tag")]
-    fn tag(&self) -> glib::GString;
+    fn tag(&self) -> Option<glib::GString>;
 
     #[doc(alias = "adw_navigation_page_get_title")]
     #[doc(alias = "get_title")]
@@ -390,7 +390,7 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    fn tag(&self) -> glib::GString {
+    fn tag(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_navigation_page_get_tag(
                 self.as_ref().to_glib_none().0,
