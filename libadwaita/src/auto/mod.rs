@@ -135,6 +135,13 @@ mod navigation_view;
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
 pub use self::navigation_view::NavigationView;
 
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+mod overlay_split_view;
+#[cfg(any(feature = "v1_4", feature = "dox"))]
+#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub use self::overlay_split_view::OverlaySplitView;
+
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
 mod password_entry_row;
@@ -376,6 +383,9 @@ pub mod builders {
     #[cfg(any(feature = "v1_4", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
     pub use super::navigation_view::NavigationViewBuilder;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub use super::overlay_split_view::OverlaySplitViewBuilder;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::password_entry_row::PasswordEntryRowBuilder;

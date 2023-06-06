@@ -7331,7 +7331,7 @@ See also [class@CarouselIndicatorDots].
                  c:type="AdwCenteringPolicy">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="144">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
+           line="145">Describes title centering behavior of a [class@HeaderBar] widget.</doc>
       <member name="loose"
               value="0"
               c:identifier="ADW_CENTERING_POLICY_LOOSE"
@@ -7339,7 +7339,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_LOOSE">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="146">Keep the title centered when possible</doc>
+             line="147">Keep the title centered when possible</doc>
       </member>
       <member name="strict"
               value="1"
@@ -7348,7 +7348,7 @@ See also [class@CarouselIndicatorDots].
               glib:name="ADW_CENTERING_POLICY_STRICT">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="147">Keep the title centered at all cost</doc>
+             line="148">Keep the title centered at all cost</doc>
       </member>
     </enumeration>
     <class name="Clamp"
@@ -12182,7 +12182,7 @@ New values may be added to this enum over time.</doc>
            glib:type-struct="HeaderBarClass">
       <doc xml:space="preserve"
            filename="src/adw-header-bar.c"
-           line="34">A title bar widget.
+           line="35">A title bar widget.
 
 &lt;picture&gt;
   &lt;source srcset="header-bar-dark.png" media="(prefers-color-scheme: dark)"&gt;
@@ -12205,7 +12205,7 @@ behavior if it's unwanted.
 
 ## Split View Integration
 
-When placed inside `AdwNavigationSplitView`,
+When placed inside `AdwNavigationSplitView` or `AdwOverlaySplitView`,
 `AdwHeaderBar` will automatically hide the title buttons other than at the
 edges of the window.
 
@@ -12294,12 +12294,12 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <constructor name="new" c:identifier="adw_header_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="782">Creates a new `AdwHeaderBar`.</doc>
+             line="823">Creates a new `AdwHeaderBar`.</doc>
         <source-position filename="src/adw-header-bar.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="787">the newly created `AdwHeaderBar`.</doc>
+               line="828">the newly created `AdwHeaderBar`.</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -12310,19 +12310,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="centering-policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1117">Gets the policy for aligning the center widget.</doc>
+             line="1158">Gets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="88"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1123">the centering policy</doc>
+               line="1164">the centering policy</doc>
           <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1119">a header bar</doc>
+                 line="1160">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12334,19 +12334,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="decoration-layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1071">Gets the decoration layout for @self.</doc>
+             line="1112">Gets the decoration layout for @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="82"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1077">the decoration layout</doc>
+               line="1118">the decoration layout</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1073">a header bar</doc>
+                 line="1114">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12359,19 +12359,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="show-back-button"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1016">Gets whether @self can show the back button.</doc>
+             line="1057">Gets whether @self can show the back button.</doc>
         <source-position filename="src/adw-header-bar.h" line="76"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1022">whether to show the back button</doc>
+               line="1063">whether to show the back button</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1018">a header bar</doc>
+                 line="1059">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12383,19 +12383,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="show-end-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="968">Gets whether to show title buttons at the end of @self.</doc>
+             line="1009">Gets whether to show title buttons at the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="70"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="974">`TRUE` if title buttons at the end are shown</doc>
+               line="1015">`TRUE` if title buttons at the end are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="970">a header bar</doc>
+                 line="1011">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12407,19 +12407,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
                    value="show-start-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="920">Gets whether to show title buttons at the start of @self.</doc>
+             line="961">Gets whether to show title buttons at the start of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="64"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="926">`TRUE` if title buttons at the start are shown</doc>
+               line="967">`TRUE` if title buttons at the start are shown</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="922">a header bar</doc>
+                 line="963">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12431,19 +12431,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
         <attribute name="org.gtk.Method.get_property" value="show-title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1162">Gets whether the title widget should be shown.</doc>
+             line="1203">Gets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="94"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="1168">whether the title widget should be shown.</doc>
+               line="1209">whether the title widget should be shown.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1164">a header bar</doc>
+                 line="1205">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12454,19 +12454,19 @@ Each of the boxes contains a `windowcontrols` subnode, see
         <attribute name="org.gtk.Method.get_property" value="title-widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="854">Gets the title widget widget of @self.</doc>
+             line="895">Gets the title widget widget of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="58"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-header-bar.c"
-               line="860">the title widget</doc>
+               line="901">the title widget</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="856">a header bar</doc>
+                 line="897">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
         </parameters>
@@ -12474,7 +12474,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="pack_end" c:identifier="adw_header_bar_pack_end">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="809">Adds @child to @self, packed with reference to the end of @self.</doc>
+             line="850">Adds @child to @self, packed with reference to the end of @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="51"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12483,13 +12483,13 @@ Each of the boxes contains a `windowcontrols` subnode, see
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="811">a header bar</doc>
+                 line="852">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="812">the widget to be added to @self</doc>
+                 line="853">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12497,7 +12497,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="pack_start" c:identifier="adw_header_bar_pack_start">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="795">Adds @child to @self, packed with reference to the start of the @self.</doc>
+             line="836">Adds @child to @self, packed with reference to the start of the @self.</doc>
         <source-position filename="src/adw-header-bar.h" line="48"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12506,13 +12506,13 @@ Each of the boxes contains a `windowcontrols` subnode, see
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="797">a header bar</doc>
+                 line="838">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="798">the widget to be added to @self</doc>
+                 line="839">the widget to be added to @self</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12520,7 +12520,7 @@ Each of the boxes contains a `windowcontrols` subnode, see
       <method name="remove" c:identifier="adw_header_bar_remove">
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="823">Removes a child from @self.
+             line="864">Removes a child from @self.
 
 The child must have been added with [method@HeaderBar.pack_start],
 [method@HeaderBar.pack_end] or [property@HeaderBar:title-widget].</doc>
@@ -12532,13 +12532,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="825">a header bar</doc>
+                 line="866">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="826">the child to remove</doc>
+                 line="867">the child to remove</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12550,7 +12550,7 @@ The child must have been added with [method@HeaderBar.pack_start],
                    value="centering-policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1133">Sets the policy for aligning the center widget.</doc>
+             line="1174">Sets the policy for aligning the center widget.</doc>
         <source-position filename="src/adw-header-bar.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12559,13 +12559,13 @@ The child must have been added with [method@HeaderBar.pack_start],
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1135">a header bar</doc>
+                 line="1176">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="centering_policy" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1136">the centering policy</doc>
+                 line="1177">the centering policy</doc>
             <type name="CenteringPolicy" c:type="AdwCenteringPolicy"/>
           </parameter>
         </parameters>
@@ -12577,7 +12577,7 @@ The child must have been added with [method@HeaderBar.pack_start],
                    value="decoration-layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1087">Sets the decoration layout for @self.
+             line="1128">Sets the decoration layout for @self.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -12597,7 +12597,7 @@ and minimize, maximize and close buttons at the end.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1089">a header bar</doc>
+                 line="1130">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="layout"
@@ -12606,7 +12606,7 @@ and minimize, maximize and close buttons at the end.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1090">a decoration layout</doc>
+                 line="1131">a decoration layout</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -12619,7 +12619,7 @@ and minimize, maximize and close buttons at the end.</doc>
                    value="show-back-button"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1034">Sets whether @self can show the back button.
+             line="1075">Sets whether @self can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView].</doc>
@@ -12631,13 +12631,13 @@ The back button will never be shown unless the header bar is placed inside an
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1036">a header bar</doc>
+                 line="1077">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_back_button" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1037">whether to show the back button</doc>
+                 line="1078">whether to show the back button</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12649,7 +12649,7 @@ The back button will never be shown unless the header bar is placed inside an
                    value="show-end-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="984">Sets whether to show title buttons at the end of @self.
+             line="1025">Sets whether to show title buttons at the end of @self.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -12664,13 +12664,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="986">a header bar</doc>
+                 line="1027">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="987">`TRUE` to show standard title buttons</doc>
+                 line="1028">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12682,7 +12682,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
                    value="show-start-title-buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="936">Sets whether to show title buttons at the start of @self.
+             line="977">Sets whether to show title buttons at the start of @self.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -12697,13 +12697,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="938">a header bar</doc>
+                 line="979">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="setting" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="939">`TRUE` to show standard title buttons</doc>
+                 line="980">`TRUE` to show standard title buttons</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12715,7 +12715,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
         <attribute name="org.gtk.Method.set_property" value="show-title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="1180">Sets whether the title widget should be shown.</doc>
+             line="1221">Sets whether the title widget should be shown.</doc>
         <source-position filename="src/adw-header-bar.h" line="96"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -12724,13 +12724,13 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1182">a header bar</doc>
+                 line="1223">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="show_title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="1183">whether the title widget is visible</doc>
+                 line="1224">whether the title widget is visible</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -12741,7 +12741,7 @@ window (e.g. a close button will not be shown if the window can't be closed).</d
         <attribute name="org.gtk.Method.set_property" value="title-widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="870">Sets the title widget for @self.
+             line="911">Sets the title widget for @self.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -12765,7 +12765,7 @@ To use a different title, use [class@WindowTitle]:
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="872">a header bar</doc>
+                 line="913">a header bar</doc>
             <type name="HeaderBar" c:type="AdwHeaderBar*"/>
           </instance-parameter>
           <parameter name="title_widget"
@@ -12774,7 +12774,7 @@ To use a different title, use [class@WindowTitle]:
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-header-bar.c"
-                 line="873">a widget to use for a title</doc>
+                 line="914">a widget to use for a title</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -12791,7 +12791,7 @@ To use a different title, use [class@WindowTitle]:
                    value="adw_header_bar_set_centering_policy"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="677">The policy for aligning the center widget.</doc>
+             line="718">The policy for aligning the center widget.</doc>
         <type name="CenteringPolicy"/>
       </property>
       <property name="decoration-layout"
@@ -12806,7 +12806,7 @@ To use a different title, use [class@WindowTitle]:
                    value="adw_header_bar_set_decoration_layout"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="656">The decoration layout for buttons.
+             line="697">The decoration layout for buttons.
 
 If this property is not set, the
 [property@Gtk.Settings:gtk-decoration-layout] setting is used.
@@ -12833,7 +12833,7 @@ and minimize, maximize and close buttons at the end.</doc>
                    value="adw_header_bar_set_show_back_button"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="641">Whether the header bar can show the back button.
+             line="682">Whether the header bar can show the back button.
 
 The back button will never be shown unless the header bar is placed inside an
 [class@NavigationView].</doc>
@@ -12851,7 +12851,7 @@ The back button will never be shown unless the header bar is placed inside an
                    value="adw_header_bar_set_show_end_title_buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="624">Whether to show title buttons at the end of the header bar.
+             line="665">Whether to show title buttons at the end of the header bar.
 
 See [property@HeaderBar:show-start-title-buttons] for the other side.
 
@@ -12873,7 +12873,7 @@ closed).</doc>
                    value="adw_header_bar_set_show_start_title_buttons"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="607">Whether to show title buttons at the start of the header bar.
+             line="648">Whether to show title buttons at the start of the header bar.
 
 See [property@HeaderBar:show-end-title-buttons] for the other side.
 
@@ -12896,7 +12896,7 @@ closed).</doc>
                    value="adw_header_bar_set_show_title"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="688">Whether the title widget should be shown.</doc>
+             line="729">Whether the title widget should be shown.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="title-widget"
@@ -12910,7 +12910,7 @@ closed).</doc>
                    value="adw_header_bar_set_title_widget"/>
         <doc xml:space="preserve"
              filename="src/adw-header-bar.c"
-             line="582">The title widget to display.
+             line="623">The title widget to display.
 
 When set to `NULL`, the header bar will display the title of the window it
 is contained in.
@@ -15996,25 +15996,25 @@ it's unwanted.
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1898">Creates a new `AdwNavigationPage`.</doc>
+             line="1905">Creates a new `AdwNavigationPage`.</doc>
         <source-position filename="src/adw-navigation-view.h" line="79"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="1905">the new created `AdwNavigationPage`</doc>
+               line="1912">the new created `AdwNavigationPage`</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1900">the child widget</doc>
+                 line="1907">the child widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1901">the page title</doc>
+                 line="1908">the page title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -16024,31 +16024,31 @@ it's unwanted.
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1922">Creates a new `AdwNavigationPage` with provided tag.</doc>
+             line="1929">Creates a new `AdwNavigationPage` with provided tag.</doc>
         <source-position filename="src/adw-navigation-view.h" line="83"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="1930">the new created `AdwNavigationPage`</doc>
+               line="1937">the new created `AdwNavigationPage`</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <parameter name="child" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1924">the child widget</doc>
+                 line="1931">the child widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1925">the page title</doc>
+                 line="1932">the page title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1926">the page tag</doc>
+                 line="1933">the page tag</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -16132,19 +16132,19 @@ is fully shown.</doc>
         <attribute name="org.gtk.Method.get_property" value="can-pop"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2146">Gets whether @self can be popped from navigation stack.</doc>
+             line="2153">Gets whether @self can be popped from navigation stack.</doc>
         <source-position filename="src/adw-navigation-view.h" line="106"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2152">whether the page can be popped from navigation stack</doc>
+               line="2159">whether the page can be popped from navigation stack</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2148">a navigation page</doc>
+                 line="2155">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
         </parameters>
@@ -16156,19 +16156,19 @@ is fully shown.</doc>
         <attribute name="org.gtk.Method.get_property" value="child"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1950">Gets the child widget of @self.</doc>
+             line="1957">Gets the child widget of @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="88"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="1956">the child widget of @self</doc>
+               line="1963">the child widget of @self</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1952">a navigation page</doc>
+                 line="1959">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
         </parameters>
@@ -16180,19 +16180,19 @@ is fully shown.</doc>
         <attribute name="org.gtk.Method.get_property" value="tag"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2009">Gets the tag of @self.</doc>
+             line="2016">Gets the tag of @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="94"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2015">the page tag</doc>
+               line="2022">the page tag</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2011">a navigation page</doc>
+                 line="2018">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
         </parameters>
@@ -16204,19 +16204,19 @@ is fully shown.</doc>
         <attribute name="org.gtk.Method.get_property" value="title"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2088">Gets the title of @self.</doc>
+             line="2095">Gets the title of @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="100"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2094">the title of @self</doc>
+               line="2101">the title of @self</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2090">a navigation page</doc>
+                 line="2097">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
         </parameters>
@@ -16228,7 +16228,7 @@ is fully shown.</doc>
         <attribute name="org.gtk.Method.set_property" value="can-pop"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2168">Sets whether @self can be popped from navigation stack.
+             line="2175">Sets whether @self can be popped from navigation stack.
 
 Set it to `FALSE` to disable shortcuts and gestures, as well as remove the
 back button from [class@HeaderBar].
@@ -16246,13 +16246,13 @@ but not shortcuts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2170">a navigation page</doc>
+                 line="2177">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
           <parameter name="can_pop" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2171">whether the page can be popped from navigation stack</doc>
+                 line="2178">whether the page can be popped from navigation stack</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -16264,7 +16264,7 @@ but not shortcuts.</doc>
         <attribute name="org.gtk.Method.set_property" value="child"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1972">Sets the child widget of @self.</doc>
+             line="1979">Sets the child widget of @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="90"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -16273,7 +16273,7 @@ but not shortcuts.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1974">a navigation page</doc>
+                 line="1981">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
           <parameter name="child"
@@ -16282,7 +16282,7 @@ but not shortcuts.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1975">the child widget</doc>
+                 line="1982">the child widget</doc>
             <type name="Gtk.Widget" c:type="GtkWidget*"/>
           </parameter>
         </parameters>
@@ -16294,7 +16294,7 @@ but not shortcuts.</doc>
         <attribute name="org.gtk.Method.set_property" value="tag"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2031">Sets the tag for @self.
+             line="2038">Sets the tag for @self.
 
 The tag can be used to retrieve the page with
 [method@NavigationView.find_page], as well as with
@@ -16312,7 +16312,7 @@ The tag also must be set to use the `navigation.push` action.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2033">a navigation page</doc>
+                 line="2040">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
           <parameter name="tag"
@@ -16321,7 +16321,7 @@ The tag also must be set to use the `navigation.push` action.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2034">the page tag</doc>
+                 line="2041">the page tag</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -16333,7 +16333,7 @@ The tag also must be set to use the `navigation.push` action.</doc>
         <attribute name="org.gtk.Method.set_property" value="title"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2110">Sets the title of @self.
+             line="2117">Sets the title of @self.
 
 It's displayed in [class@HeaderBar] instead of the window title, and used as
 the tooltip on the next page's back button, as well as by screen reader.</doc>
@@ -16345,13 +16345,13 @@ the tooltip on the next page's back button, as well as by screen reader.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2112">a navigation page</doc>
+                 line="2119">a navigation page</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </instance-parameter>
           <parameter name="title" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2113">the title</doc>
+                 line="2120">the title</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -16598,12 +16598,14 @@ puts both children inside an [class@NavigationView]. The
 [property@NavigationSplitView:show-content] controls which child is visible
 while collapsed.
 
+See also [class@OverlaySplitView].
+
 `AdwNavigationSplitView` is typically used together with an [class@Breakpoint]
 setting the `collapsed` property to `TRUE` on small widths, as follows:
 
 ```xml
 &lt;object class="AdwWindow"&gt;
-  &lt;property name="width-request"&gt;360&lt;/property&gt;
+  &lt;property name="width-request"&gt;280&lt;/property&gt;
   &lt;property name="height-request"&gt;200&lt;/property&gt;
   &lt;property name="default-width"&gt;800&lt;/property&gt;
   &lt;property name="default-height"&gt;800&lt;/property&gt;
@@ -16651,8 +16653,8 @@ The sidebar also has minimum and maximum sizes, controlled with the
 The minimum and maximum sizes are using the length unit specified with the
 [property@NavigationSplitView:sidebar-width-unit].
 
-By default, sidebar is using 30% of the total width, with 180sp as the
-minimum size and 360sp as the maximum size.
+By default, sidebar is using 25% of the total width, with 180sp as the
+minimum size and 280sp as the maximum size.
 
 ## Header Bar Integration
 
@@ -16720,12 +16722,12 @@ navigation-split-view
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="865">Creates a new `AdwNavigationSplitView`.</doc>
+             line="867">Creates a new `AdwNavigationSplitView`.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="30"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="870">the newly created `AdwNavigationSplitView`</doc>
+               line="872">the newly created `AdwNavigationSplitView`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -16736,19 +16738,19 @@ navigation-split-view
         <attribute name="org.gtk.Method.get_property" value="collapsed"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1054">Gets whether @self is collapsed.</doc>
+             line="1056">Gets whether @self is collapsed.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="45"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1060">whether @self is collapsed</doc>
+               line="1062">whether @self is collapsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1056">a navigation split view</doc>
+                 line="1058">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16760,19 +16762,19 @@ navigation-split-view
         <attribute name="org.gtk.Method.get_property" value="content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="967">Sets the content widget for @self.</doc>
+             line="969">Sets the content widget for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="39"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="973">the content widget</doc>
+               line="975">the content widget</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="969">a navigation split view</doc>
+                 line="971">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16785,19 +16787,19 @@ navigation-split-view
                    value="max-sidebar-width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1219">Gets the maximum sidebar width for @self.</doc>
+             line="1221">Gets the maximum sidebar width for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="63"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1225">the maximum width</doc>
+               line="1227">the maximum width</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1221">a navigation split view</doc>
+                 line="1223">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16810,19 +16812,19 @@ navigation-split-view
                    value="min-sidebar-width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1169">Gets the minimum sidebar width for @self.</doc>
+             line="1171">Gets the minimum sidebar width for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="57"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1175">the minimum width</doc>
+               line="1177">the minimum width</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1171">a navigation split view</doc>
+                 line="1173">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16834,19 +16836,19 @@ navigation-split-view
         <attribute name="org.gtk.Method.get_property" value="show-content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1106">Gets which page is visible when @self is collapsed.</doc>
+             line="1108">Gets which page is visible when @self is collapsed.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="51"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1112">whether to show content when collapsed</doc>
+               line="1114">whether to show content when collapsed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1108">a navigation split view</doc>
+                 line="1110">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16858,19 +16860,19 @@ navigation-split-view
         <attribute name="org.gtk.Method.get_property" value="sidebar"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="880">Gets the sidebar widget for @self.</doc>
+             line="882">Gets the sidebar widget for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="33"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="886">the sidebar widget</doc>
+               line="888">the sidebar widget</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="882">a navigation split view</doc>
+                 line="884">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16883,19 +16885,19 @@ navigation-split-view
                    value="sidebar-width-fraction"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1269">Gets the preferred sidebar width fraction for @self.</doc>
+             line="1271">Gets the preferred sidebar width fraction for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="69"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1275">the preferred width fraction</doc>
+               line="1277">the preferred width fraction</doc>
           <type name="gdouble" c:type="double"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1271">a navigation split view</doc>
+                 line="1273">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16908,19 +16910,19 @@ navigation-split-view
                    value="sidebar-width-unit"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1320">Gets the length unit for minimum and maximum sidebar widths.</doc>
+             line="1322">Gets the length unit for minimum and maximum sidebar widths.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="75"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-split-view.c"
-               line="1326">the length unit</doc>
+               line="1328">the length unit</doc>
           <type name="LengthUnit" c:type="AdwLengthUnit"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1322">a navigation split view</doc>
+                 line="1324">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
         </parameters>
@@ -16932,7 +16934,7 @@ navigation-split-view
         <attribute name="org.gtk.Method.set_property" value="collapsed"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1072">Sets whether @self is collapsed.
+             line="1074">Sets whether @self is collapsed.
 
 When collapsed, the children are put inside an [class@NavigationView],
 otherwise they are displayed side by side.
@@ -16947,13 +16949,13 @@ visible while collapsed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1074">a navigation split view</doc>
+                 line="1076">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="collapsed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1075">whether @self is collapsed</doc>
+                 line="1077">whether @self is collapsed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -16965,7 +16967,7 @@ visible while collapsed.</doc>
         <attribute name="org.gtk.Method.set_property" value="content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="985">Sets the content widget for @self.</doc>
+             line="987">Sets the content widget for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="41"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -16974,7 +16976,7 @@ visible while collapsed.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="987">a navigation split view</doc>
+                 line="989">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="content"
@@ -16983,7 +16985,7 @@ visible while collapsed.</doc>
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="988">the content widget</doc>
+                 line="990">the content widget</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -16996,7 +16998,7 @@ visible while collapsed.</doc>
                    value="max-sidebar-width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1237">Sets the maximum sidebar width for @self.
+             line="1239">Sets the maximum sidebar width for @self.
 
 Maximum width is affected by
 [property@NavigationSplitView:sidebar-width-unit].
@@ -17011,13 +17013,13 @@ minimum width exceeds it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1239">a navigation split view</doc>
+                 line="1241">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1240">the maximum width</doc>
+                 line="1242">the maximum width</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -17030,7 +17032,7 @@ minimum width exceeds it.</doc>
                    value="min-sidebar-width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1187">Sets the minimum sidebar width for @self.
+             line="1189">Sets the minimum sidebar width for @self.
 
 Minimum width is affected by
 [property@NavigationSplitView:sidebar-width-unit].
@@ -17045,13 +17047,13 @@ minimum width exceeds it.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1189">a navigation split view</doc>
+                 line="1191">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="width" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1190">the minimum width</doc>
+                 line="1192">the minimum width</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -17063,7 +17065,7 @@ minimum width exceeds it.</doc>
         <attribute name="org.gtk.Method.set_property" value="show-content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1124">Sets which page is visible when @self is collapsed.
+             line="1126">Sets which page is visible when @self is collapsed.
 
 If set to `TRUE`, the content widget will be the visible page when
 [property@NavigationSplitView:collapsed] is `TRUE`; otherwise the sidebar
@@ -17078,13 +17080,13 @@ If the split view is already collapsed, the visible page changes immediately.</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1126">a navigation split view</doc>
+                 line="1128">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="show_content" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1127">whether to show content when collapsed</doc>
+                 line="1129">whether to show content when collapsed</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -17096,7 +17098,7 @@ If the split view is already collapsed, the visible page changes immediately.</d
         <attribute name="org.gtk.Method.set_property" value="sidebar"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="898">Sets the sidebar widget for @self.</doc>
+             line="900">Sets the sidebar widget for @self.</doc>
         <source-position filename="src/adw-navigation-split-view.h" line="35"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -17105,7 +17107,7 @@ If the split view is already collapsed, the visible page changes immediately.</d
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="900">a navigation split view</doc>
+                 line="902">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="sidebar"
@@ -17114,7 +17116,7 @@ If the split view is already collapsed, the visible page changes immediately.</d
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="901">the sidebar widget</doc>
+                 line="903">the sidebar widget</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17127,7 +17129,7 @@ If the split view is already collapsed, the visible page changes immediately.</d
                    value="sidebar-width-fraction"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1287">Sets the preferred sidebar width as a fraction of the total width of @self.
+             line="1289">Sets the preferred sidebar width as a fraction of the total width of @self.
 
 The preferred width is additionally limited by
 [property@NavigationSplitView:min-sidebar-width] and
@@ -17143,13 +17145,13 @@ width exceeds the preferred width.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1289">a navigation split view</doc>
+                 line="1291">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="fraction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1290">the preferred width fraction</doc>
+                 line="1292">the preferred width fraction</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -17162,7 +17164,7 @@ width exceeds the preferred width.</doc>
                    value="sidebar-width-unit"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="1338">Sets the length unit for minimum and maximum sidebar widths.
+             line="1340">Sets the length unit for minimum and maximum sidebar widths.
 
 See [property@NavigationSplitView:min-sidebar-width] and
 [property@NavigationSplitView:max-sidebar-width].</doc>
@@ -17174,13 +17176,13 @@ See [property@NavigationSplitView:min-sidebar-width] and
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1340">a navigation split view</doc>
+                 line="1342">a navigation split view</doc>
             <type name="NavigationSplitView" c:type="AdwNavigationSplitView*"/>
           </instance-parameter>
           <parameter name="unit" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-split-view.c"
-                 line="1341">the length unit</doc>
+                 line="1343">the length unit</doc>
             <type name="LengthUnit" c:type="AdwLengthUnit"/>
           </parameter>
         </parameters>
@@ -17198,7 +17200,7 @@ See [property@NavigationSplitView:min-sidebar-width] and
                    value="adw_navigation_split_view_set_collapsed"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="705">Whether the split view is collapsed.
+             line="707">Whether the split view is collapsed.
 
 When collapsed, the children are put inside an [class@NavigationView],
 otherwise they are displayed side by side.
@@ -17219,7 +17221,7 @@ visible while collapsed.</doc>
                    value="adw_navigation_split_view_set_content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="693">The content widget.</doc>
+             line="695">The content widget.</doc>
         <type name="NavigationPage"/>
       </property>
       <property name="max-sidebar-width"
@@ -17228,14 +17230,14 @@ visible while collapsed.</doc>
                 transfer-ownership="none"
                 setter="set_max_sidebar_width"
                 getter="get_max_sidebar_width"
-                default-value="180.000000">
+                default-value="280.000000">
         <attribute name="org.gtk.Property.get"
                    value="adw_navigation_split_view_get_max_sidebar_width"/>
         <attribute name="org.gtk.Property.set"
                    value="adw_navigation_split_view_set_max_sidebar_width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="760">The maximum sidebar width.
+             line="762">The maximum sidebar width.
 
 Maximum width is affected by
 [property@NavigationSplitView:sidebar-width-unit].
@@ -17257,7 +17259,7 @@ minimum width exceeds it.</doc>
                    value="adw_navigation_split_view_set_min_sidebar_width"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="742">The minimum sidebar width.
+             line="744">The minimum sidebar width.
 
 Minimum width is affected by
 [property@NavigationSplitView:sidebar-width-unit].
@@ -17279,7 +17281,7 @@ minimum width exceeds it.</doc>
                    value="adw_navigation_split_view_set_show_content"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="723">Determines the visible page when collapsed.
+             line="725">Determines the visible page when collapsed.
 
 If set to `TRUE`, the content widget will be the visible page when
 [property@NavigationSplitView:collapsed] is `TRUE`; otherwise the sidebar
@@ -17301,7 +17303,7 @@ immediately.</doc>
                    value="adw_navigation_split_view_set_sidebar"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="681">The sidebar widget.</doc>
+             line="683">The sidebar widget.</doc>
         <type name="NavigationPage"/>
       </property>
       <property name="sidebar-width-fraction"
@@ -17310,14 +17312,14 @@ immediately.</doc>
                 transfer-ownership="none"
                 setter="set_sidebar_width_fraction"
                 getter="get_sidebar_width_fraction"
-                default-value="0.300000">
+                default-value="0.250000">
         <attribute name="org.gtk.Property.get"
                    value="adw_navigation_split_view_get_sidebar_width_fraction"/>
         <attribute name="org.gtk.Property.set"
                    value="adw_navigation_split_view_set_sidebar_width_fraction"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="778">The preferred sidebar width as a fraction of the total width.
+             line="780">The preferred sidebar width as a fraction of the total width.
 
 The preferred width is additionally limited by
 [property@NavigationSplitView:min-sidebar-width] and
@@ -17340,7 +17342,7 @@ width exceeds the preferred width.</doc>
                    value="adw_navigation_split_view_set_sidebar_width_unit"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-split-view.c"
-             line="797">The length unit for minimum and maximum sidebar widths.
+             line="799">The length unit for minimum and maximum sidebar widths.
 
 See [property@NavigationSplitView:min-sidebar-width] and
 [property@NavigationSplitView:max-sidebar-width].</doc>
@@ -17513,19 +17515,19 @@ Example of an `AdwNavigationView` UI definition:
                    version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2206">Creates a new `AdwNavigationView`.</doc>
+             line="2213">Creates a new `AdwNavigationView`.</doc>
         <source-position filename="src/adw-navigation-view.h" line="117"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2211">the new created `AdwNavigationView`</doc>
+               line="2218">the new created `AdwNavigationView`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
       <method name="add" c:identifier="adw_navigation_view_add" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2221">Permanently adds @page to @self.
+             line="2228">Permanently adds @page to @self.
 
 Any page that has been added will stay in @self even after being popped from
 the navigation stack.
@@ -17542,13 +17544,13 @@ See [method@NavigationView.remove].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2223">a navigation view</doc>
+                 line="2230">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2224">the page to add</doc>
+                 line="2231">the page to add</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17558,27 +17560,27 @@ See [method@NavigationView.remove].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2280">Finds a page in @self by its tag.
+             line="2287">Finds a page in @self by its tag.
 
 See [property@NavigationPage:tag].</doc>
         <source-position filename="src/adw-navigation-view.h" line="128"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2289">the page with the given tag</doc>
+               line="2296">the page with the given tag</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2282">a navigation view</doc>
+                 line="2289">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2283">a page tag</doc>
+                 line="2290">a page tag</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -17591,19 +17593,19 @@ See [property@NavigationPage:tag].</doc>
                    value="animate-transitions"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2737">Gets whether @self animates page transitions.</doc>
+             line="2744">Gets whether @self animates page transitions.</doc>
         <source-position filename="src/adw-navigation-view.h" line="168"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2743">whether to animate page transitions</doc>
+               line="2750">whether to animate page transitions</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2739">a navigation view</doc>
+                 line="2746">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
         </parameters>
@@ -17616,7 +17618,7 @@ See [property@NavigationPage:tag].</doc>
                    value="navigation-stack"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2782">Returns a [iface@Gio.ListModel] that contains the pages in navigation stack.
+             line="2789">Returns a [iface@Gio.ListModel] that contains the pages in navigation stack.
 
 The pages are sorted from root page to visible page.
 
@@ -17625,14 +17627,14 @@ This can be used to keep an up-to-date view.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2792">a list model for the navigation stack</doc>
+               line="2799">a list model for the navigation stack</doc>
           <type name="Gio.ListModel" c:type="GListModel*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2784">a navigation view</doc>
+                 line="2791">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
         </parameters>
@@ -17642,7 +17644,7 @@ This can be used to keep an up-to-date view.</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2698">Gets the previous page for @page.
+             line="2705">Gets the previous page for @page.
 
 If @page is in the navigation stack, returns the page popping @page will
 reveal.
@@ -17652,20 +17654,20 @@ If @page is the root page or is not in the navigation stack, returns `NULL`.</do
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2710">the previous page</doc>
+               line="2717">the previous page</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2700">a navigation view</doc>
+                 line="2707">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2701">a page in @self</doc>
+                 line="2708">a page in @self</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17677,19 +17679,19 @@ If @page is the root page or is not in the navigation stack, returns `NULL`.</do
         <attribute name="org.gtk.Method.get_property" value="visible-page"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2668">Gets the currently visible page in @self.</doc>
+             line="2675">Gets the currently visible page in @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="161"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2674">the currently visible page</doc>
+               line="2681">the currently visible page</doc>
           <type name="NavigationPage" c:type="AdwNavigationPage*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2670">a navigation view</doc>
+                 line="2677">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
         </parameters>
@@ -17697,7 +17699,7 @@ If @page is the root page or is not in the navigation stack, returns `NULL`.</do
       <method name="pop" c:identifier="adw_navigation_view_pop" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2368">Pops the visible page from the navigation stack.
+             line="2375">Pops the visible page from the navigation stack.
 
 Does nothing if the navigation stack contains less than two pages.
 
@@ -17712,14 +17714,14 @@ See [method@NavigationView.pop_to_page] and
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2384">`TRUE` if a page has been popped</doc>
+               line="2391">`TRUE` if a page has been popped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2370">a navigation view</doc>
+                 line="2377">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
         </parameters>
@@ -17729,7 +17731,7 @@ See [method@NavigationView.pop_to_page] and
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2411">Pops pages from the navigation stack until @page is visible.
+             line="2418">Pops pages from the navigation stack until @page is visible.
 
 @page must be in the navigation stack.
 
@@ -17744,20 +17746,20 @@ See [method@NavigationView.pop] and [method@NavigationView.pop_to_tag].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2428">`TRUE` if any pages have been popped</doc>
+               line="2435">`TRUE` if any pages have been popped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2413">a navigation view</doc>
+                 line="2420">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2414">the page to pop to</doc>
+                 line="2421">the page to pop to</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17767,7 +17769,7 @@ See [method@NavigationView.pop] and [method@NavigationView.pop_to_tag].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2457">Pops pages from the navigation stack until page with the tag @tag is visible.
+             line="2464">Pops pages from the navigation stack until page with the tag @tag is visible.
 
 The page must be in the navigation stack.
 
@@ -17781,20 +17783,20 @@ See [method@NavigationView.pop_to_page] and [property@NavigationPage:tag].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2473">`TRUE` if any pages have been popped</doc>
+               line="2480">`TRUE` if any pages have been popped</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2459">a navigation view</doc>
+                 line="2466">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2460">a page tag</doc>
+                 line="2467">a page tag</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -17804,7 +17806,7 @@ See [method@NavigationView.pop_to_page] and [property@NavigationPage:tag].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2303">Pushes @page onto the navigation stack.
+             line="2310">Pushes @page onto the navigation stack.
 
 If [method@NavigationView.add] hasn't been called, the page is automatically
 removed once it's popped.
@@ -17820,13 +17822,13 @@ See [method@NavigationView.push_by_tag].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2305">a navigation view</doc>
+                 line="2312">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2306">the page to push</doc>
+                 line="2313">the page to push</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17836,7 +17838,7 @@ See [method@NavigationView.push_by_tag].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2332">Pushes the page with the tag @tag onto the navigation stack.
+             line="2339">Pushes the page with the tag @tag onto the navigation stack.
 
 If [method@NavigationView.add] hasn't been called, the page is automatically
 removed once it's popped.
@@ -17852,13 +17854,13 @@ See [method@NavigationView.push] and [property@NavigationPage:tag].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2334">a navigation view</doc>
+                 line="2341">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="tag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2335">the page tag</doc>
+                 line="2342">the page tag</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -17868,7 +17870,7 @@ See [method@NavigationView.push] and [property@NavigationPage:tag].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2255">Removes @page from @self.
+             line="2262">Removes @page from @self.
 
 If @page is currently in the navigation stack, it will be removed once it's
 popped. Otherwise, it's removed immediately.
@@ -17882,13 +17884,13 @@ See [method@NavigationView.add].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2257">a navigation view</doc>
+                 line="2264">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2258">the page to remove</doc>
+                 line="2265">the page to remove</doc>
             <type name="NavigationPage" c:type="AdwNavigationPage*"/>
           </parameter>
         </parameters>
@@ -17898,7 +17900,7 @@ See [method@NavigationView.add].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2497">Replaces the current navigation stack with @pages.
+             line="2504">Replaces the current navigation stack with @pages.
 
 The last page becomes the visible page.
 
@@ -17921,13 +17923,13 @@ See [method@NavigationView.replace_with_tags].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2499">a navigation view</doc>
+                 line="2506">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2500">the new navigation stack</doc>
+                 line="2507">the new navigation stack</doc>
             <array length="1" zero-terminated="0" c:type="AdwNavigationPage**">
               <type name="NavigationPage" c:type="AdwNavigationPage*"/>
             </array>
@@ -17935,7 +17937,7 @@ See [method@NavigationView.replace_with_tags].</doc>
           <parameter name="n_pages" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2501">the number of pages in @pages</doc>
+                 line="2508">the number of pages in @pages</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -17945,7 +17947,7 @@ See [method@NavigationView.replace_with_tags].</doc>
               version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2612">Replaces the current navigation stack with pages with the tags @tags.
+             line="2619">Replaces the current navigation stack with pages with the tags @tags.
 
 The last page becomes the visible page.
 
@@ -17968,13 +17970,13 @@ See [method@NavigationView.replace] and [property@NavigationPage:tag].</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2614">a navigation view</doc>
+                 line="2621">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="tags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2615">tags of the pages in the
+                 line="2622">tags of the pages in the
   navigation stack</doc>
             <array length="1" zero-terminated="0" c:type="const char* const*">
               <type name="utf8"/>
@@ -17983,7 +17985,7 @@ See [method@NavigationView.replace] and [property@NavigationPage:tag].</doc>
           <parameter name="n_tags" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2617">the number of tags</doc>
+                 line="2624">the number of tags</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -17996,7 +17998,7 @@ See [method@NavigationView.replace] and [property@NavigationPage:tag].</doc>
                    value="animate-transitions"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="2755">Sets whether @self should animate page transitions.
+             line="2762">Sets whether @self should animate page transitions.
 
 Gesture-based transitions are always animated.</doc>
         <source-position filename="src/adw-navigation-view.h" line="170"/>
@@ -18007,13 +18009,13 @@ Gesture-based transitions are always animated.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2757">a navigation view</doc>
+                 line="2764">a navigation view</doc>
             <type name="NavigationView" c:type="AdwNavigationView*"/>
           </instance-parameter>
           <parameter name="animate_transitions" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="2758">whether to animate page transitions</doc>
+                 line="2765">whether to animate page transitions</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -18031,7 +18033,7 @@ Gesture-based transitions are always animated.</doc>
                    value="adw_navigation_view_set_animate_transitions"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1603">Whether to animate page transitions.
+             line="1610">Whether to animate page transitions.
 
 Gesture-based transitions are always animated.</doc>
         <type name="gboolean" c:type="gboolean"/>
@@ -18044,7 +18046,7 @@ Gesture-based transitions are always animated.</doc>
                    value="adw_navigation_view_get_navigation_stack"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1617">A list model that contains the pages in navigation stack.
+             line="1624">A list model that contains the pages in navigation stack.
 
 The pages are sorted from root page to visible page.
 
@@ -18059,13 +18061,13 @@ This can be used to keep an up-to-date view.</doc>
                    value="adw_navigation_view_get_visible_page"/>
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1591">The currently visible page.</doc>
+             line="1598">The currently visible page.</doc>
         <type name="NavigationPage"/>
       </property>
       <glib:signal name="get-next-page" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1708">Emitted when a push shortcut or a gesture is triggered.
+             line="1715">Emitted when a push shortcut or a gesture is triggered.
 
 To support the push shortcuts and gestures, the application is expected to
 return the page to push in the handler.
@@ -18079,14 +18081,14 @@ Instead, it should be done in the [signal@NavigationView::pushed] handler.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="1723">the page to push</doc>
+               line="1730">the page to push</doc>
           <type name="NavigationPage"/>
         </return-value>
       </glib:signal>
       <glib:signal name="popped" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1657">Emitted after @page has been popped from the navigation stack.
+             line="1664">Emitted after @page has been popped from the navigation stack.
 
 See [method@NavigationView.pop].
 
@@ -18100,7 +18102,7 @@ popped pages.</doc>
           <parameter name="page" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-navigation-view.c"
-                 line="1660">the popped page</doc>
+                 line="1667">the popped page</doc>
             <type name="NavigationPage"/>
           </parameter>
         </parameters>
@@ -18108,7 +18110,7 @@ popped pages.</doc>
       <glib:signal name="pushed" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1635">Emitted after a page has been pushed to the navigation stack.
+             line="1642">Emitted after a page has been pushed to the navigation stack.
 
 See [method@NavigationView.push].</doc>
         <return-value transfer-ownership="none">
@@ -18118,7 +18120,7 @@ See [method@NavigationView.push].</doc>
       <glib:signal name="replaced" when="last" version="1.4">
         <doc xml:space="preserve"
              filename="src/adw-navigation-view.c"
-             line="1686">Emitted after the navigation stack has been replaced.
+             line="1693">Emitted after the navigation stack has been replaced.
 
 See [method@NavigationView.replace].</doc>
         <return-value transfer-ownership="none">
@@ -18130,6 +18132,1070 @@ See [method@NavigationView.replace].</doc>
             c:type="AdwNavigationViewClass"
             glib:is-gtype-struct-for="NavigationView">
       <source-position filename="src/adw-navigation-view.h" line="114"/>
+      <field name="parent_class">
+        <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
+      </field>
+    </record>
+    <class name="OverlaySplitView"
+           c:symbol-prefix="overlay_split_view"
+           c:type="AdwOverlaySplitView"
+           version="1.4"
+           parent="Gtk.Widget"
+           final="1"
+           glib:type-name="AdwOverlaySplitView"
+           glib:get-type="adw_overlay_split_view_get_type"
+           glib:type-struct="OverlaySplitViewClass">
+      <doc xml:space="preserve"
+           filename="src/adw-overlay-split-view.c"
+           line="23">A widget presenting sidebar and content side by side or as an overlay.
+
+&lt;picture&gt;
+  &lt;source srcset="overlay-split-view-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="overlay-split-view.png" alt="overlay-split-view"&gt;
+&lt;/picture&gt;
+&lt;picture&gt;
+  &lt;source srcset="overlay-split-view-collapsed-dark.png" media="(prefers-color-scheme: dark)"&gt;
+  &lt;img src="overlay-split-view-collapsed.png" alt="overlay-split-view-collapsed"&gt;
+&lt;/picture&gt;
+
+`AdwOverlaySplitView` has two children: sidebar and content, and displays
+them side by side.
+
+When [property@OverlaySplitView:collapsed] is set to `TRUE`, the sidebar is
+instead shown as an overlay above the content widget.
+
+The sidebar can be hidden or shown using the
+[property@OverlaySplitView:show-sidebar] property.
+
+Sidebar can be displayed before or after the content, this can be controlled
+with the [property@OverlaySplitView:sidebar-position] property.
+
+Collapsing the split view automatically hides the sidebar widget, and
+uncollapsing it shows the sidebar. If this behavior is not desired, the
+[property@OverlaySplitView:pin-sidebar] property can be used to override it.
+
+`AdwOverlaySplitView` supports an edge swipe gesture for showing the sidebar,
+and a swipe from the sidebar for hiding it. Gestures are only supported on
+touchscreen, but not touchpad. Gestures can be controlled with the
+[property@OverlaySplitView:enable-show-gesture] and
+[property@OverlaySplitView:enable-hide-gesture] properties.
+
+See also [class@NavigationSplitView].
+
+`AdwOverlaySplitView` is typically used together with an [class@Breakpoint]
+setting the `collapsed` property to `TRUE` on small widths, as follows:
+
+```xml
+&lt;object class="AdwWindow"&gt;
+  &lt;property name="width-request"&gt;360&lt;/property&gt;
+  &lt;property name="height-request"&gt;200&lt;/property&gt;
+  &lt;property name="default-width"&gt;800&lt;/property&gt;
+  &lt;property name="default-height"&gt;800&lt;/property&gt;
+  &lt;child&gt;
+    &lt;object class="AdwBreakpoint"&gt;
+      &lt;condition&gt;max-width: 400sp&lt;/condition&gt;
+      &lt;setter object="split_view" property="collapsed"&gt;True&lt;/setter&gt;
+    &lt;/object&gt;
+  &lt;/child&gt;
+  &lt;property name="content"&gt;
+    &lt;object class="AdwOverlaySplitView" id="split_view"&gt;
+      &lt;property name="sidebar"&gt;
+        &lt;!-- ... --&gt;
+      &lt;/property&gt;
+      &lt;property name="content"&gt;
+        &lt;!-- ... --&gt;
+      &lt;/property&gt;
+    &lt;/object&gt;
+  &lt;/property&gt;
+&lt;/object&gt;
+```
+
+`AdwOverlaySplitView` is often used for implementing the
+[utility pane](https://developer.gnome.org/hig/patterns/containers/utility-panes.html)
+pattern.
+
+## Sizing
+
+When not collapsed, `AdwOverlaySplitView` changes the sidebar width
+depending on its own width.
+
+If possible, it tries to allocate a fraction of the total width, controlled
+with the [property@OverlaySplitView:sidebar-width-fraction] property.
+
+The sidebar also has minimum and maximum sizes, controlled with the
+[property@OverlaySplitView:min-sidebar-width] and
+[property@OverlaySplitView:max-sidebar-width] properties.
+
+The minimum and maximum sizes are using the length unit specified with the
+[property@OverlaySplitView:sidebar-width-unit].
+
+By default, sidebar is using 25% of the total width, with 180sp as the
+minimum size and 280sp as the maximum size.
+
+When collapsed, the preferred width fraction is ignored and the sidebar uses
+[property@OverlaySplitView:max-sidebar-width] when possible.
+
+## Header Bar Integration
+
+When used inside `AdwOverlaySplitView`, [class@HeaderBar] will automatically
+hide the window buttons in the middle.
+
+## `AdwOverlaySplitView` as `GtkBuildable`
+
+The `AdwOverlaySplitView` implementation of the [iface@Gtk.Buildable]
+interface supports setting the sidebar widget by specifying “sidebar” as the
+“type” attribute of a `&lt;child&gt;` element, Specifying “content” child type or
+omitting it results in setting the content widget.
+
+## CSS nodes
+
+`AdwOverlaySplitView` has a single CSS node with the name
+`overlay-split-view`.
+
+It contains two nodes with the name `widget`, containing the sidebar and
+content children.
+
+When not collapsed, they have the `.sidebar-view` and `.content-view` style
+classes respectively.
+
+```
+overlay-split-view
+├── widget.sidebar-pane
+│   ╰── [sidebar child]
+╰── widget.content-pane
+    ╰── [content child]
+```
+
+When collapsed, the one containing the sidebar child has the `.background`
+style class and the other one has no style classes.
+
+```
+overlay-split-view
+├── widget.background
+│   ╰── [sidebar child]
+╰── widget
+    ╰── [content child]
+```
+
+## Accessibility
+
+`AdwOverlaySplitView` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.</doc>
+      <source-position filename="src/adw-overlay-split-view.h" line="25"/>
+      <implements name="Swipeable"/>
+      <implements name="Gtk.Accessible"/>
+      <implements name="Gtk.Buildable"/>
+      <implements name="Gtk.ConstraintTarget"/>
+      <constructor name="new"
+                   c:identifier="adw_overlay_split_view_new"
+                   version="1.4">
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1249">Creates a new `AdwOverlaySplitView`.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="28"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1254">the newly created `AdwOverlaySplitView`</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+      </constructor>
+      <method name="get_collapsed"
+              c:identifier="adw_overlay_split_view_get_collapsed"
+              glib:get-property="collapsed"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="collapsed"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1356">Gets whether @self is collapsed.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1362">whether @self is collapsed</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1358">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_content"
+              c:identifier="adw_overlay_split_view_get_content"
+              glib:get-property="content"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="content"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1311">Gets the content widget for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="37"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1317">the content widget for @self</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1313">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enable_hide_gesture"
+              c:identifier="adw_overlay_split_view_get_enable_hide_gesture"
+              glib:get-property="enable-hide-gesture"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="enable-hide-gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1615">Gets whether @self can be closed with a swipe gesture.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="73"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1621">`TRUE` if @self can be closed with a swipe gesture</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1617">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_enable_show_gesture"
+              c:identifier="adw_overlay_split_view_get_enable_show_gesture"
+              glib:get-property="enable-show-gesture"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="enable-show-gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1568">Gets whether @self can be opened with an edge swipe gesture.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="67"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1574">`TRUE` if @self can be opened with a swipe gesture</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1570">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_max_sidebar_width"
+              c:identifier="adw_overlay_split_view_get_max_sidebar_width"
+              glib:get-property="max-sidebar-width"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="max-sidebar-width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1710">Gets the maximum sidebar width for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="85"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1716">the maximum width</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1712">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_min_sidebar_width"
+              c:identifier="adw_overlay_split_view_get_min_sidebar_width"
+              glib:get-property="min-sidebar-width"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="min-sidebar-width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1662">Gets the minimum sidebar width for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="79"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1668">the minimum width</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1664">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_pin_sidebar"
+              c:identifier="adw_overlay_split_view_get_pin_sidebar"
+              glib:get-property="pin-sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="pin-sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1521">Gets whether the sidebar widget is pinned for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="61"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1527">whether if the sidebar widget is pinned</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1523">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_show_sidebar"
+              c:identifier="adw_overlay_split_view_get_show_sidebar"
+              glib:get-property="show-sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="show-sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1485">Gets whether the sidebar widget is shown for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="55"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1491">`TRUE` if the sidebar widget is shown</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1487">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sidebar"
+              c:identifier="adw_overlay_split_view_get_sidebar"
+              glib:get-property="sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property" value="sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1264">Gets the sidebar widget for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="31"/>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1270">the sidebar widget for @self</doc>
+          <type name="Gtk.Widget" c:type="GtkWidget*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1266">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sidebar_position"
+              c:identifier="adw_overlay_split_view_get_sidebar_position"
+              glib:get-property="sidebar-position"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="sidebar-position"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1430">Gets the sidebar position for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="49"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1436">the sidebar position for @self</doc>
+          <type name="Gtk.PackType" c:type="GtkPackType"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1432">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sidebar_width_fraction"
+              c:identifier="adw_overlay_split_view_get_sidebar_width_fraction"
+              glib:get-property="sidebar-width-fraction"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="sidebar-width-fraction"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1758">Gets the preferred sidebar width fraction for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="91"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1764">the preferred width fraction</doc>
+          <type name="gdouble" c:type="double"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1760">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_sidebar_width_unit"
+              c:identifier="adw_overlay_split_view_get_sidebar_width_unit"
+              glib:get-property="sidebar-width-unit"
+              version="1.4">
+        <attribute name="org.gtk.Method.get_property"
+                   value="sidebar-width-unit"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1809">Gets the length unit for minimum and maximum sidebar widths.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="97"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="src/adw-overlay-split-view.c"
+               line="1815">the length unit</doc>
+          <type name="LengthUnit" c:type="AdwLengthUnit"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1811">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_collapsed"
+              c:identifier="adw_overlay_split_view_set_collapsed"
+              glib:set-property="collapsed"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="collapsed"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1374">Sets whether @self view is collapsed.
+
+When collapsed, the sidebar widget is presented as an overlay above the
+content widget, otherwise they are displayed side by side.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="45"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1376">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="collapsed" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1377">whether @self is collapsed</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_content"
+              c:identifier="adw_overlay_split_view_set_content"
+              glib:set-property="content"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="content"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1329">Sets the content widget for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1331">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="content"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1332">the content widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enable_hide_gesture"
+              c:identifier="adw_overlay_split_view_set_enable_hide_gesture"
+              glib:set-property="enable-hide-gesture"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="enable-hide-gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1633">Sets whether @self can be closed with a swipe gesture.
+
+Only touchscreen swipes are supported.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="75"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1635">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="enable_hide_gesture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1636">whether @self can be closed with a swipe gesture</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_enable_show_gesture"
+              c:identifier="adw_overlay_split_view_set_enable_show_gesture"
+              glib:set-property="enable-show-gesture"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="enable-show-gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1586">Sets whether @self can be opened with an edge swipe gesture.
+
+Only touchscreen swipes are supported.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="69"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1588">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="enable_show_gesture" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1589">whether @self can be opened with a swipe gesture</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_max_sidebar_width"
+              c:identifier="adw_overlay_split_view_set_max_sidebar_width"
+              glib:set-property="max-sidebar-width"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="max-sidebar-width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1728">Sets the maximum sidebar width for @self.
+
+Maximum width is affected by [property@OverlaySplitView:sidebar-width-unit].
+
+The sidebar widget can still be allocated with larger width if its own
+minimum width exceeds it.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="87"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1730">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1731">the maximum width</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_min_sidebar_width"
+              c:identifier="adw_overlay_split_view_set_min_sidebar_width"
+              glib:set-property="min-sidebar-width"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="min-sidebar-width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1680">Sets the minimum sidebar width for @self.
+
+Minimum width is affected by [property@OverlaySplitView:sidebar-width-unit].
+
+The sidebar widget can still be allocated with larger width if its own
+minimum width exceeds it.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="81"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1682">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="width" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1683">the minimum width</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pin_sidebar"
+              c:identifier="adw_overlay_split_view_set_pin_sidebar"
+              glib:set-property="pin-sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="pin-sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1539">Sets whether the sidebar widget is pinned for @self.
+
+By default, collapsing @self automatically hides the sidebar widget, and
+uncollapsing it shows the sidebar. If set to `TRUE`, sidebar visibility never
+changes on its own.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="63"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1541">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="pin_sidebar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1542">whether to pin the sidebar widget</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_show_sidebar"
+              c:identifier="adw_overlay_split_view_set_show_sidebar"
+              glib:set-property="show-sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="show-sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1503">Sets whether the sidebar widget is shown for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="57"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1505">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="show_sidebar" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1506">whether to show the sidebar widget</doc>
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sidebar"
+              c:identifier="adw_overlay_split_view_set_sidebar"
+              glib:set-property="sidebar"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property" value="sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1282">Sets the sidebar widget for @self.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="33"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1284">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="sidebar"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1285">the sidebar widget</doc>
+            <type name="Gtk.Widget" c:type="GtkWidget*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sidebar_position"
+              c:identifier="adw_overlay_split_view_set_sidebar_position"
+              glib:set-property="sidebar-position"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="sidebar-position"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1448">Sets the sidebar position for @self.
+
+If it's set to `GTK_PACK_START`, the sidebar is displayed before the content,
+if `GTK_PACK_END`, it's displayed after the content.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="51"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1450">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1451">the new position</doc>
+            <type name="Gtk.PackType" c:type="GtkPackType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sidebar_width_fraction"
+              c:identifier="adw_overlay_split_view_set_sidebar_width_fraction"
+              glib:set-property="sidebar-width-fraction"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="sidebar-width-fraction"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1776">Sets the preferred sidebar width as a fraction of the total width of @self.
+
+The preferred width is additionally limited by
+[property@OverlaySplitView:min-sidebar-width] and
+[property@OverlaySplitView:max-sidebar-width].
+
+The sidebar widget can be allocated with larger width if its own minimum
+width exceeds the preferred width.</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="93"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1778">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="fraction" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1779">the preferred width fraction</doc>
+            <type name="gdouble" c:type="double"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_sidebar_width_unit"
+              c:identifier="adw_overlay_split_view_set_sidebar_width_unit"
+              glib:set-property="sidebar-width-unit"
+              version="1.4">
+        <attribute name="org.gtk.Method.set_property"
+                   value="sidebar-width-unit"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1827">Sets the length unit for minimum and maximum sidebar widths.
+
+See [property@OverlaySplitView:min-sidebar-width] and
+[property@OverlaySplitView:max-sidebar-width].</doc>
+        <source-position filename="src/adw-overlay-split-view.h" line="99"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="self" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1829">an overlay split view</doc>
+            <type name="OverlaySplitView" c:type="AdwOverlaySplitView*"/>
+          </instance-parameter>
+          <parameter name="unit" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="src/adw-overlay-split-view.c"
+                 line="1830">the length unit</doc>
+            <type name="LengthUnit" c:type="AdwLengthUnit"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="collapsed"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_collapsed"
+                getter="get_collapsed"
+                default-value="FALSE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_collapsed"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_collapsed"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="886">Whether the split view is collapsed.
+
+When collapsed, the sidebar widget is presented as an overlay above the
+content widget, otherwise they are displayed side by side.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="content"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_content"
+                getter="get_content">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_content"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_content"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="862">The content widget.</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="enable-hide-gesture"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enable_hide_gesture"
+                getter="get_enable_hide_gesture"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_enable_hide_gesture"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_enable_hide_gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="959">Whether the sidebar can be closed with a swipe gesture.
+
+Only touchscreen swipes are supported.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="enable-show-gesture"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_enable_show_gesture"
+                getter="get_enable_show_gesture"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_enable_show_gesture"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_enable_show_gesture"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="945">Whether the sidebar can be opened with an edge swipe gesture.
+
+Only touchscreen swipes are supported.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="max-sidebar-width"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_max_sidebar_width"
+                getter="get_max_sidebar_width"
+                default-value="280.000000">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_max_sidebar_width"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_max_sidebar_width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="991">The maximum sidebar width.
+
+Maximum width is affected by
+[property@OverlaySplitView:sidebar-width-unit].
+
+The sidebar widget can still be allocated with larger width if its own
+minimum width exceeds it.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="min-sidebar-width"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_min_sidebar_width"
+                getter="get_min_sidebar_width"
+                default-value="180.000000">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_min_sidebar_width"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_min_sidebar_width"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="973">The minimum sidebar width.
+
+Minimum width is affected by
+[property@OverlaySplitView:sidebar-width-unit].
+
+The sidebar widget can still be allocated with larger width if its own
+minimum width exceeds it.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="pin-sidebar"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_pin_sidebar"
+                getter="get_pin_sidebar"
+                default-value="FALSE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_pin_sidebar"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_pin_sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="929">Whether the sidebar widget is pinned.
+
+By default, collapsing @self automatically hides the sidebar widget, and
+uncollapsing it shows the sidebar. If set to `TRUE`, sidebar visibility
+never changes on its own.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="show-sidebar"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_show_sidebar"
+                getter="get_show_sidebar"
+                default-value="TRUE">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_show_sidebar"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_show_sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="917">Whether the sidebar widget is shown.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </property>
+      <property name="sidebar"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sidebar"
+                getter="get_sidebar">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_sidebar"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_sidebar"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="874">The sidebar widget.</doc>
+        <type name="Gtk.Widget"/>
+      </property>
+      <property name="sidebar-position"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sidebar_position"
+                getter="get_sidebar_position"
+                default-value="GTK_PACK_START">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_sidebar_position"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_sidebar_position"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="901">The sidebar position.
+
+If it's set to `GTK_PACK_START`, the sidebar is displayed before the content,
+if `GTK_PACK_END`, it's displayed after the content.</doc>
+        <type name="Gtk.PackType"/>
+      </property>
+      <property name="sidebar-width-fraction"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sidebar_width_fraction"
+                getter="get_sidebar_width_fraction"
+                default-value="0.250000">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_sidebar_width_fraction"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_sidebar_width_fraction"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1009">The preferred sidebar width as a fraction of the total width.
+
+The preferred width is additionally limited by
+[property@OverlaySplitView:min-sidebar-width] and
+[property@OverlaySplitView:max-sidebar-width].
+
+The sidebar widget can be allocated with larger width if its own minimum
+width exceeds the preferred width.</doc>
+        <type name="gdouble" c:type="gdouble"/>
+      </property>
+      <property name="sidebar-width-unit"
+                version="1.4"
+                writable="1"
+                transfer-ownership="none"
+                setter="set_sidebar_width_unit"
+                getter="get_sidebar_width_unit"
+                default-value="ADW_LENGTH_UNIT_SP">
+        <attribute name="org.gtk.Property.get"
+                   value="adw_overlay_split_view_get_sidebar_width_unit"/>
+        <attribute name="org.gtk.Property.set"
+                   value="adw_overlay_split_view_set_sidebar_width_unit"/>
+        <doc xml:space="preserve"
+             filename="src/adw-overlay-split-view.c"
+             line="1028">The length unit for minimum and maximum sidebar widths.
+
+See [property@OverlaySplitView:min-sidebar-width] and
+[property@OverlaySplitView:max-sidebar-width].</doc>
+        <type name="LengthUnit"/>
+      </property>
+    </class>
+    <record name="OverlaySplitViewClass"
+            c:type="AdwOverlaySplitViewClass"
+            glib:is-gtype-struct-for="OverlaySplitView">
+      <source-position filename="src/adw-overlay-split-view.h" line="25"/>
       <field name="parent_class">
         <type name="Gtk.WidgetClass" c:type="GtkWidgetClass"/>
       </field>
@@ -24292,19 +25358,19 @@ direction.</doc>
       <constructor name="new" c:identifier="adw_swipe_tracker_new">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1312">Creates a new `AdwSwipeTracker` for @widget.</doc>
+             line="1313">Creates a new `AdwSwipeTracker` for @widget.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="26"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1318">the newly created `AdwSwipeTracker`</doc>
+               line="1319">the newly created `AdwSwipeTracker`</doc>
           <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
         </return-value>
         <parameters>
           <parameter name="swipeable" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1314">a widget to add the tracker on</doc>
+                 line="1315">a widget to add the tracker on</doc>
             <type name="Swipeable" c:type="AdwSwipeable*"/>
           </parameter>
         </parameters>
@@ -24316,19 +25382,19 @@ direction.</doc>
                    value="allow-long-swipes"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1475">Gets whether to allow swiping for more than one snap point at a time.</doc>
+             line="1476">Gets whether to allow swiping for more than one snap point at a time.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="50"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1481">whether long swipes are allowed</doc>
+               line="1482">whether long swipes are allowed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1477">a swipe tracker</doc>
+                 line="1478">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24340,19 +25406,19 @@ direction.</doc>
                    value="allow-mouse-drag"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1434">Gets whether @self can be dragged with mouse pointer.</doc>
+             line="1435">Gets whether @self can be dragged with mouse pointer.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="44"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1440">whether mouse dragging is allowed</doc>
+               line="1441">whether mouse dragging is allowed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1436">a swipe tracker</doc>
+                 line="1437">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24363,19 +25429,19 @@ direction.</doc>
         <attribute name="org.gtk.Method.get_property" value="enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1346">Gets whether @self is enabled.</doc>
+             line="1347">Gets whether @self is enabled.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="32"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1352">whether @self is enabled</doc>
+               line="1353">whether @self is enabled</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1348">a swipe tracker</doc>
+                 line="1349">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24387,19 +25453,19 @@ direction.</doc>
         <attribute name="org.gtk.Method.get_property" value="lower-overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1517">Gets whether to allow swiping past the first available snap point.</doc>
+             line="1518">Gets whether to allow swiping past the first available snap point.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="56"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1523">whether to allow swiping past the first available snap point</doc>
+               line="1524">whether to allow swiping past the first available snap point</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1519">a swipe tracker</doc>
+                 line="1520">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24410,19 +25476,19 @@ direction.</doc>
         <attribute name="org.gtk.Method.get_property" value="reversed"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1393">Gets whether @self is reversing the swipe direction.</doc>
+             line="1394">Gets whether @self is reversing the swipe direction.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="38"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1399">whether the direction is reversed</doc>
+               line="1400">whether the direction is reversed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1395">a swipe tracker</doc>
+                 line="1396">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24433,19 +25499,19 @@ direction.</doc>
         <attribute name="org.gtk.Method.get_property" value="swipeable"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1330">Get the widget @self is attached to.</doc>
+             line="1331">Get the widget @self is attached to.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="29"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1336">the swipeable widget</doc>
+               line="1337">the swipeable widget</doc>
           <type name="Swipeable" c:type="AdwSwipeable*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1332">a swipe tracker</doc>
+                 line="1333">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24457,19 +25523,19 @@ direction.</doc>
         <attribute name="org.gtk.Method.get_property" value="upper-overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1560">Gets whether to allow swiping past the last available snap point.</doc>
+             line="1561">Gets whether to allow swiping past the last available snap point.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="62"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-swipe-tracker.c"
-               line="1566">whether to allow swiping past the last available snap point</doc>
+               line="1567">whether to allow swiping past the last available snap point</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1562">a swipe tracker</doc>
+                 line="1563">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
         </parameters>
@@ -24481,7 +25547,7 @@ direction.</doc>
                    value="allow-long-swipes"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1491">Sets whether to allow swiping for more than one snap point at a time.
+             line="1492">Sets whether to allow swiping for more than one snap point at a time.
 
 If the value is `FALSE`, each swipe can only move to the adjacent snap
 points.</doc>
@@ -24493,13 +25559,13 @@ points.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1493">a swipe tracker</doc>
+                 line="1494">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="allow_long_swipes" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1494">whether to allow long swipes</doc>
+                 line="1495">whether to allow long swipes</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24511,7 +25577,7 @@ points.</doc>
                    value="allow-mouse-drag"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1450">Sets whether @self can be dragged with mouse pointer.</doc>
+             line="1451">Sets whether @self can be dragged with mouse pointer.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="46"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -24520,13 +25586,13 @@ points.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1452">a swipe tracker</doc>
+                 line="1453">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="allow_mouse_drag" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1453">whether to allow mouse dragging</doc>
+                 line="1454">whether to allow mouse dragging</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24537,7 +25603,7 @@ points.</doc>
         <attribute name="org.gtk.Method.set_property" value="enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1362">Sets whether @self is enabled.
+             line="1363">Sets whether @self is enabled.
 
 When it's not enabled, no events will be processed. Usually widgets will want
 to expose this via a property.</doc>
@@ -24549,13 +25615,13 @@ to expose this via a property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1364">a swipe tracker</doc>
+                 line="1365">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1365">whether @self is enabled</doc>
+                 line="1366">whether @self is enabled</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24567,7 +25633,7 @@ to expose this via a property.</doc>
         <attribute name="org.gtk.Method.set_property" value="lower-overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1535">Sets whether to allow swiping past the first available snap point.</doc>
+             line="1536">Sets whether to allow swiping past the first available snap point.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="58"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -24576,13 +25642,13 @@ to expose this via a property.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1537">a swipe tracker</doc>
+                 line="1538">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="overshoot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1538">whether to allow swiping past the first available snap point</doc>
+                 line="1539">whether to allow swiping past the first available snap point</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24593,7 +25659,7 @@ to expose this via a property.</doc>
         <attribute name="org.gtk.Method.set_property" value="reversed"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1409">Sets whether to reverse the swipe direction.
+             line="1410">Sets whether to reverse the swipe direction.
 
 If the swipe tracker is horizontal, it can be used for supporting RTL text
 direction.</doc>
@@ -24605,13 +25671,13 @@ direction.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1411">a swipe tracker</doc>
+                 line="1412">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="reversed" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1412">whether to reverse the swipe direction</doc>
+                 line="1413">whether to reverse the swipe direction</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24623,7 +25689,7 @@ direction.</doc>
         <attribute name="org.gtk.Method.set_property" value="upper-overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1578">Sets whether to allow swiping past the last available snap point.</doc>
+             line="1579">Sets whether to allow swiping past the last available snap point.</doc>
         <source-position filename="src/adw-swipe-tracker.h" line="64"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -24632,13 +25698,13 @@ direction.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1580">a swipe tracker</doc>
+                 line="1581">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="overshoot" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1581">whether to allow swiping past the last available snap point</doc>
+                 line="1582">whether to allow swiping past the last available snap point</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -24647,7 +25713,7 @@ direction.</doc>
               c:identifier="adw_swipe_tracker_shift_position">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1603">Moves the current progress value by @delta.
+             line="1604">Moves the current progress value by @delta.
 
 This can be used to adjust the current position if snap points move during
 the gesture.</doc>
@@ -24659,13 +25725,13 @@ the gesture.</doc>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1605">a swipe tracker</doc>
+                 line="1606">a swipe tracker</doc>
             <type name="SwipeTracker" c:type="AdwSwipeTracker*"/>
           </instance-parameter>
           <parameter name="delta" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1606">the position delta</doc>
+                 line="1607">the position delta</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
         </parameters>
@@ -24682,7 +25748,7 @@ the gesture.</doc>
                    value="adw_swipe_tracker_set_allow_long_swipes"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1167">Whether to allow swiping for more than one snap point at a time.
+             line="1168">Whether to allow swiping for more than one snap point at a time.
 
 If the value is `FALSE`, each swipe can only move to the adjacent snap
 points.</doc>
@@ -24700,7 +25766,7 @@ points.</doc>
                    value="adw_swipe_tracker_set_allow_mouse_drag"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1157">Whether to allow dragging with mouse pointer.</doc>
+             line="1158">Whether to allow dragging with mouse pointer.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="enabled"
@@ -24715,7 +25781,7 @@ points.</doc>
                    value="adw_swipe_tracker_set_enabled"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1131">Whether the swipe tracker is enabled.
+             line="1132">Whether the swipe tracker is enabled.
 
 When it's not enabled, no events will be processed. Usually widgets will
 want to expose this via a property.</doc>
@@ -24734,7 +25800,7 @@ want to expose this via a property.</doc>
                    value="adw_swipe_tracker_set_lower_overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1180">Whether to allow swiping past the first available snap point.</doc>
+             line="1181">Whether to allow swiping past the first available snap point.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="reversed"
@@ -24749,7 +25815,7 @@ want to expose this via a property.</doc>
                    value="adw_swipe_tracker_set_reversed"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1144">Whether to reverse the swipe direction.
+             line="1145">Whether to reverse the swipe direction.
 
 If the swipe tracker is horizontal, it can be used for supporting RTL text
 direction.</doc>
@@ -24764,7 +25830,7 @@ direction.</doc>
                    value="adw_swipe_tracker_get_swipeable"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1121">The widget the swipe tracker is attached to.</doc>
+             line="1122">The widget the swipe tracker is attached to.</doc>
         <type name="Swipeable"/>
       </property>
       <property name="upper-overshoot"
@@ -24780,13 +25846,13 @@ direction.</doc>
                    value="adw_swipe_tracker_set_upper_overshoot"/>
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1192">Whether to allow swiping past the last available snap point.</doc>
+             line="1193">Whether to allow swiping past the last available snap point.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <glib:signal name="begin-swipe" when="first">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1234">This signal is emitted right before a swipe will be started, after the
+             line="1235">This signal is emitted right before a swipe will be started, after the
 drag threshold has been passed.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -24795,7 +25861,7 @@ drag threshold has been passed.</doc>
       <glib:signal name="end-swipe" when="first">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1274">This signal is emitted as soon as the gesture has stopped.
+             line="1275">This signal is emitted as soon as the gesture has stopped.
 
 The user is expected to animate the deceleration from the current progress
 value to @to with an animation using @velocity as the initial velocity,
@@ -24808,13 +25874,13 @@ fit for this.</doc>
           <parameter name="velocity" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1277">the velocity of the swipe</doc>
+                 line="1278">the velocity of the swipe</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
           <parameter name="to" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1278">the progress value to animate to</doc>
+                 line="1279">the progress value to animate to</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>
@@ -24822,7 +25888,7 @@ fit for this.</doc>
       <glib:signal name="prepare" when="first">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1210">This signal is emitted when a possible swipe is detected.
+             line="1211">This signal is emitted when a possible swipe is detected.
 
 The @direction value can be used to restrict the swipe to a certain
 direction.</doc>
@@ -24833,7 +25899,7 @@ direction.</doc>
           <parameter name="direction" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1213">the direction of the swipe</doc>
+                 line="1214">the direction of the swipe</doc>
             <type name="NavigationDirection"/>
           </parameter>
         </parameters>
@@ -24841,7 +25907,7 @@ direction.</doc>
       <glib:signal name="update-swipe" when="first">
         <doc xml:space="preserve"
              filename="src/adw-swipe-tracker.c"
-             line="1253">This signal is emitted every time the progress value changes.</doc>
+             line="1254">This signal is emitted every time the progress value changes.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -24849,7 +25915,7 @@ direction.</doc>
           <parameter name="progress" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-swipe-tracker.c"
-                 line="1256">the current animation progress value</doc>
+                 line="1257">the current animation progress value</doc>
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
         </parameters>

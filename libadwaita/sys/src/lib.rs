@@ -620,6 +620,20 @@ impl ::std::fmt::Debug for AdwNavigationViewClass {
 
 #[derive(Copy, Clone)]
 #[repr(C)]
+pub struct AdwOverlaySplitViewClass {
+    pub parent_class: gtk::GtkWidgetClass,
+}
+
+impl ::std::fmt::Debug for AdwOverlaySplitViewClass {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwOverlaySplitViewClass @ {self:p}"))
+            .field("parent_class", &self.parent_class)
+            .finish()
+    }
+}
+
+#[derive(Copy, Clone)]
+#[repr(C)]
 pub struct AdwPasswordEntryRowClass {
     pub parent_class: AdwEntryRowClass,
 }
@@ -1502,6 +1516,19 @@ pub struct AdwNavigationView {
 impl ::std::fmt::Debug for AdwNavigationView {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         f.debug_struct(&format!("AdwNavigationView @ {self:p}"))
+            .finish()
+    }
+}
+
+#[repr(C)]
+pub struct AdwOverlaySplitView {
+    _data: [u8; 0],
+    _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
+}
+
+impl ::std::fmt::Debug for AdwOverlaySplitView {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        f.debug_struct(&format!("AdwOverlaySplitView @ {self:p}"))
             .finish()
     }
 }
@@ -3417,6 +3444,142 @@ extern "C" {
     pub fn adw_navigation_view_set_animate_transitions(
         self_: *mut AdwNavigationView,
         animate_transitions: gboolean,
+    );
+
+    //=========================================================================
+    // AdwOverlaySplitView
+    //=========================================================================
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_type() -> GType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_new() -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_collapsed(self_: *mut AdwOverlaySplitView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_content(
+        self_: *mut AdwOverlaySplitView,
+    ) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_enable_hide_gesture(
+        self_: *mut AdwOverlaySplitView,
+    ) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_enable_show_gesture(
+        self_: *mut AdwOverlaySplitView,
+    ) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_max_sidebar_width(
+        self_: *mut AdwOverlaySplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_min_sidebar_width(
+        self_: *mut AdwOverlaySplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_pin_sidebar(self_: *mut AdwOverlaySplitView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_show_sidebar(self_: *mut AdwOverlaySplitView) -> gboolean;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_sidebar(
+        self_: *mut AdwOverlaySplitView,
+    ) -> *mut gtk::GtkWidget;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_sidebar_position(
+        self_: *mut AdwOverlaySplitView,
+    ) -> gtk::GtkPackType;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_sidebar_width_fraction(
+        self_: *mut AdwOverlaySplitView,
+    ) -> c_double;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_get_sidebar_width_unit(
+        self_: *mut AdwOverlaySplitView,
+    ) -> AdwLengthUnit;
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_collapsed(
+        self_: *mut AdwOverlaySplitView,
+        collapsed: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_content(
+        self_: *mut AdwOverlaySplitView,
+        content: *mut gtk::GtkWidget,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_enable_hide_gesture(
+        self_: *mut AdwOverlaySplitView,
+        enable_hide_gesture: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_enable_show_gesture(
+        self_: *mut AdwOverlaySplitView,
+        enable_show_gesture: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_max_sidebar_width(
+        self_: *mut AdwOverlaySplitView,
+        width: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_min_sidebar_width(
+        self_: *mut AdwOverlaySplitView,
+        width: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_pin_sidebar(
+        self_: *mut AdwOverlaySplitView,
+        pin_sidebar: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_show_sidebar(
+        self_: *mut AdwOverlaySplitView,
+        show_sidebar: gboolean,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_sidebar(
+        self_: *mut AdwOverlaySplitView,
+        sidebar: *mut gtk::GtkWidget,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_sidebar_position(
+        self_: *mut AdwOverlaySplitView,
+        position: gtk::GtkPackType,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_sidebar_width_fraction(
+        self_: *mut AdwOverlaySplitView,
+        fraction: c_double,
+    );
+    #[cfg(any(feature = "v1_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    pub fn adw_overlay_split_view_set_sidebar_width_unit(
+        self_: *mut AdwOverlaySplitView,
+        unit: AdwLengthUnit,
     );
 
     //=========================================================================
