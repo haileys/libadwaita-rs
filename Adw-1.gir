@@ -16182,10 +16182,10 @@ is fully shown.</doc>
              filename="src/adw-navigation-view.c"
              line="2009">Gets the tag of @self.</doc>
         <source-position filename="src/adw-navigation-view.h" line="94"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-navigation-view.c"
-               line="2015">(nullable): the page tag</doc>
+               line="2015">the page tag</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -24030,10 +24030,10 @@ This can be used to query the current appearance, as requested via
 The display will be `NULL` for the style manager returned by
 [func@StyleManager.get_default].</doc>
         <source-position filename="src/adw-style-manager.h" line="41"/>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-style-manager.c"
-               line="567">(nullable): the display</doc>
+               line="567">the display</doc>
           <type name="Gdk.Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>

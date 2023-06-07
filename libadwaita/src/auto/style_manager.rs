@@ -39,7 +39,7 @@ impl StyleManager {
 
     #[doc(alias = "adw_style_manager_get_display")]
     #[doc(alias = "get_display")]
-    pub fn display(&self) -> gdk::Display {
+    pub fn display(&self) -> Option<gdk::Display> {
         unsafe { from_glib_none(ffi::adw_style_manager_get_display(self.to_glib_none().0)) }
     }
 
