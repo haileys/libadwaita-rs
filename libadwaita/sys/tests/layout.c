@@ -60,6 +60,7 @@ int main() {
     printf("%s;%zu;%zu\n", "AdwNavigationPageClass", sizeof(AdwNavigationPageClass), alignof(AdwNavigationPageClass));
     printf("%s;%zu;%zu\n", "AdwNavigationSplitViewClass", sizeof(AdwNavigationSplitViewClass), alignof(AdwNavigationSplitViewClass));
     printf("%s;%zu;%zu\n", "AdwNavigationViewClass", sizeof(AdwNavigationViewClass), alignof(AdwNavigationViewClass));
+    printf("%s;%zu;%zu\n", "AdwOverlaySplitViewClass", sizeof(AdwOverlaySplitViewClass), alignof(AdwOverlaySplitViewClass));
     printf("%s;%zu;%zu\n", "AdwPasswordEntryRowClass", sizeof(AdwPasswordEntryRowClass), alignof(AdwPasswordEntryRowClass));
     printf("%s;%zu;%zu\n", "AdwPreferencesGroup", sizeof(AdwPreferencesGroup), alignof(AdwPreferencesGroup));
     printf("%s;%zu;%zu\n", "AdwPreferencesGroupClass", sizeof(AdwPreferencesGroupClass), alignof(AdwPreferencesGroupClass));

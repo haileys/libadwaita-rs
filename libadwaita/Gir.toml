@@ -59,6 +59,7 @@ generate = [
     "Adw.NavigationPage",
     "Adw.NavigationSplitView",
     "Adw.NavigationView",
+    "Adw.OverlaySplitView",
     "Adw.PasswordEntryRow",
     "Adw.PreferencesGroup",
     "Adw.PreferencesPage",

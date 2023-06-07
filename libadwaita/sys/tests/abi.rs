@@ -563,6 +563,13 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
         },
     ),
     (
+        "AdwOverlaySplitViewClass",
+        Layout {
+            size: size_of::<AdwOverlaySplitViewClass>(),
+            alignment: align_of::<AdwOverlaySplitViewClass>(),
+        },
+    ),
+    (
         "AdwPasswordEntryRowClass",
         Layout {
             size: size_of::<AdwPasswordEntryRowClass>(),
