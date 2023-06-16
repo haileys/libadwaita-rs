@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use crate::{FoldThresholdPolicy, SqueezerPage, SqueezerTransitionType};
 use glib::{
@@ -21,6 +22,8 @@ glib::wrapper! {
 }
 
 impl Squeezer {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_new")]
     pub fn new() -> Squeezer {
         assert_initialized_main_thread!();
@@ -35,6 +38,8 @@ impl Squeezer {
         SqueezerBuilder::new()
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_add")]
     pub fn add(&self, child: &impl IsA<gtk::Widget>) -> SqueezerPage {
         unsafe {
@@ -45,18 +50,24 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_allow_none")]
     #[doc(alias = "get_allow_none")]
     pub fn allows_none(&self) -> bool {
         unsafe { from_glib(ffi::adw_squeezer_get_allow_none(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_homogeneous")]
     #[doc(alias = "get_homogeneous")]
     pub fn is_homogeneous(&self) -> bool {
         unsafe { from_glib(ffi::adw_squeezer_get_homogeneous(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_interpolate_size")]
     #[doc(alias = "get_interpolate_size")]
     pub fn is_interpolate_size(&self) -> bool {
@@ -67,6 +78,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_page")]
     #[doc(alias = "get_page")]
     pub fn page(&self, child: &impl IsA<gtk::Widget>) -> SqueezerPage {
@@ -78,12 +91,16 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_pages")]
     #[doc(alias = "get_pages")]
     pub fn pages(&self) -> gtk::SelectionModel {
         unsafe { from_glib_full(ffi::adw_squeezer_get_pages(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_switch_threshold_policy")]
     #[doc(alias = "get_switch_threshold_policy")]
     pub fn switch_threshold_policy(&self) -> FoldThresholdPolicy {
@@ -94,12 +111,16 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_transition_duration")]
     #[doc(alias = "get_transition_duration")]
     pub fn transition_duration(&self) -> u32 {
         unsafe { ffi::adw_squeezer_get_transition_duration(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_transition_running")]
     #[doc(alias = "get_transition_running")]
     pub fn is_transition_running(&self) -> bool {
@@ -110,30 +131,40 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_transition_type")]
     #[doc(alias = "get_transition_type")]
     pub fn transition_type(&self) -> SqueezerTransitionType {
         unsafe { from_glib(ffi::adw_squeezer_get_transition_type(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_visible_child")]
     #[doc(alias = "get_visible_child")]
     pub fn visible_child(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_squeezer_get_visible_child(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_xalign")]
     #[doc(alias = "get_xalign")]
     pub fn xalign(&self) -> f32 {
         unsafe { ffi::adw_squeezer_get_xalign(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_get_yalign")]
     #[doc(alias = "get_yalign")]
     pub fn yalign(&self) -> f32 {
         unsafe { ffi::adw_squeezer_get_yalign(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_remove")]
     pub fn remove(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
@@ -141,6 +172,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_allow_none")]
     pub fn set_allow_none(&self, allow_none: bool) {
         unsafe {
@@ -148,6 +181,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_homogeneous")]
     pub fn set_homogeneous(&self, homogeneous: bool) {
         unsafe {
@@ -155,6 +190,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_interpolate_size")]
     pub fn set_interpolate_size(&self, interpolate_size: bool) {
         unsafe {
@@ -165,6 +202,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_switch_threshold_policy")]
     pub fn set_switch_threshold_policy(&self, policy: FoldThresholdPolicy) {
         unsafe {
@@ -175,6 +214,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_transition_duration")]
     pub fn set_transition_duration(&self, duration: u32) {
         unsafe {
@@ -182,6 +223,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_transition_type")]
     pub fn set_transition_type(&self, transition: SqueezerTransitionType) {
         unsafe {
@@ -189,6 +232,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_xalign")]
     pub fn set_xalign(&self, xalign: f32) {
         unsafe {
@@ -196,6 +241,8 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_set_yalign")]
     pub fn set_yalign(&self, yalign: f32) {
         unsafe {
@@ -203,6 +250,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "allow-none")]
     pub fn connect_allow_none_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_allow_none_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -226,6 +274,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "homogeneous")]
     pub fn connect_homogeneous_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_homogeneous_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -249,6 +298,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "interpolate-size")]
     pub fn connect_interpolate_size_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_interpolate_size_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -272,6 +322,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "pages")]
     pub fn connect_pages_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_pages_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -295,6 +346,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "switch-threshold-policy")]
     pub fn connect_switch_threshold_policy_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -323,6 +375,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "transition-duration")]
     pub fn connect_transition_duration_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -349,6 +402,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "transition-running")]
     pub fn connect_transition_running_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -375,6 +429,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "transition-type")]
     pub fn connect_transition_type_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_transition_type_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -398,6 +453,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "visible-child")]
     pub fn connect_visible_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_visible_child_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -421,6 +477,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "xalign")]
     pub fn connect_xalign_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_xalign_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -444,6 +501,7 @@ impl Squeezer {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "yalign")]
     pub fn connect_yalign_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_yalign_trampoline<F: Fn(&Squeezer) + 'static>(
@@ -490,24 +548,28 @@ impl SqueezerBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn allow_none(self, allow_none: bool) -> Self {
         Self {
             builder: self.builder.property("allow-none", allow_none),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn homogeneous(self, homogeneous: bool) -> Self {
         Self {
             builder: self.builder.property("homogeneous", homogeneous),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn interpolate_size(self, interpolate_size: bool) -> Self {
         Self {
             builder: self.builder.property("interpolate-size", interpolate_size),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn switch_threshold_policy(self, switch_threshold_policy: FoldThresholdPolicy) -> Self {
         Self {
             builder: self
@@ -516,6 +578,7 @@ impl SqueezerBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn transition_duration(self, transition_duration: u32) -> Self {
         Self {
             builder: self
@@ -524,18 +587,21 @@ impl SqueezerBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn transition_type(self, transition_type: SqueezerTransitionType) -> Self {
         Self {
             builder: self.builder.property("transition-type", transition_type),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn xalign(self, xalign: f32) -> Self {
         Self {
             builder: self.builder.property("xalign", xalign),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn yalign(self, yalign: f32) -> Self {
         Self {
             builder: self.builder.property("yalign", yalign),

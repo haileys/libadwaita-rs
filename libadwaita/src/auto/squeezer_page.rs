@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use glib::{
     prelude::*,
@@ -20,18 +21,24 @@ glib::wrapper! {
 }
 
 impl SqueezerPage {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_page_get_child")]
     #[doc(alias = "get_child")]
     pub fn child(&self) -> gtk::Widget {
         unsafe { from_glib_none(ffi::adw_squeezer_page_get_child(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_page_get_enabled")]
     #[doc(alias = "get_enabled")]
     pub fn is_enabled(&self) -> bool {
         unsafe { from_glib(ffi::adw_squeezer_page_get_enabled(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_squeezer_page_set_enabled")]
     pub fn set_enabled(&self, enabled: bool) {
         unsafe {
@@ -39,6 +46,7 @@ impl SqueezerPage {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "enabled")]
     pub fn connect_enabled_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_enabled_trampoline<F: Fn(&SqueezerPage) + 'static>(

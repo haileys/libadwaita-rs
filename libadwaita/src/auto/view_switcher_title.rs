@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use crate::ViewStack;
 use glib::{
@@ -21,6 +22,8 @@ glib::wrapper! {
 }
 
 impl ViewSwitcherTitle {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_new")]
     pub fn new() -> ViewSwitcherTitle {
         assert_initialized_main_thread!();
@@ -35,6 +38,8 @@ impl ViewSwitcherTitle {
         ViewSwitcherTitleBuilder::new()
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_get_stack")]
     #[doc(alias = "get_stack")]
     pub fn stack(&self) -> Option<ViewStack> {
@@ -45,6 +50,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_get_subtitle")]
     #[doc(alias = "get_subtitle")]
     pub fn subtitle(&self) -> glib::GString {
@@ -55,6 +62,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_get_title")]
     #[doc(alias = "get_title")]
     pub fn title(&self) -> glib::GString {
@@ -65,6 +74,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_get_title_visible")]
     #[doc(alias = "get_title_visible")]
     pub fn is_title_visible(&self) -> bool {
@@ -75,6 +86,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_get_view_switcher_enabled")]
     #[doc(alias = "get_view_switcher_enabled")]
     pub fn is_view_switcher_enabled(&self) -> bool {
@@ -85,6 +98,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_set_stack")]
     pub fn set_stack(&self, stack: Option<&ViewStack>) {
         unsafe {
@@ -92,6 +107,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_set_subtitle")]
     pub fn set_subtitle(&self, subtitle: &str) {
         unsafe {
@@ -102,6 +119,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_set_title")]
     pub fn set_title(&self, title: &str) {
         unsafe {
@@ -109,6 +128,8 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_view_switcher_title_set_view_switcher_enabled")]
     pub fn set_view_switcher_enabled(&self, enabled: bool) {
         unsafe {
@@ -119,6 +140,7 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "stack")]
     pub fn connect_stack_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_stack_trampoline<F: Fn(&ViewSwitcherTitle) + 'static>(
@@ -142,6 +164,7 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "subtitle")]
     pub fn connect_subtitle_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_trampoline<F: Fn(&ViewSwitcherTitle) + 'static>(
@@ -165,6 +188,7 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "title")]
     pub fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<F: Fn(&ViewSwitcherTitle) + 'static>(
@@ -188,6 +212,7 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "title-visible")]
     pub fn connect_title_visible_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_visible_trampoline<
@@ -213,6 +238,7 @@ impl ViewSwitcherTitle {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "view-switcher-enabled")]
     pub fn connect_view_switcher_enabled_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -264,24 +290,28 @@ impl ViewSwitcherTitleBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn stack(self, stack: &ViewStack) -> Self {
         Self {
             builder: self.builder.property("stack", stack.clone()),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn subtitle(self, subtitle: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("subtitle", subtitle.into()),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn title(self, title: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("title", title.into()),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn view_switcher_enabled(self, view_switcher_enabled: bool) -> Self {
         Self {
             builder: self

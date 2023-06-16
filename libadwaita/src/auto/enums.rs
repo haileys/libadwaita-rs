@@ -886,6 +886,7 @@ impl From<Easing> for glib::Value {
     }
 }
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwFlapFoldPolicy")]
@@ -900,6 +901,7 @@ pub enum FlapFoldPolicy {
     __Unknown(i32),
 }
 
+#[allow(deprecated)]
 impl fmt::Display for FlapFoldPolicy {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -915,6 +917,7 @@ impl fmt::Display for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl IntoGlib for FlapFoldPolicy {
     type GlibType = ffi::AdwFlapFoldPolicy;
@@ -930,6 +933,7 @@ impl IntoGlib for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwFlapFoldPolicy> for FlapFoldPolicy {
     #[inline]
@@ -945,6 +949,7 @@ impl FromGlib<ffi::AdwFlapFoldPolicy> for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl StaticType for FlapFoldPolicy {
     #[inline]
     fn static_type() -> Type {
@@ -952,6 +957,7 @@ impl StaticType for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl glib::HasParamSpec for FlapFoldPolicy {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -962,10 +968,12 @@ impl glib::HasParamSpec for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl glib::value::ValueType for FlapFoldPolicy {
     type Type = Self;
 }
 
+#[allow(deprecated)]
 unsafe impl<'a> FromValue<'a> for FlapFoldPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
@@ -976,6 +984,7 @@ unsafe impl<'a> FromValue<'a> for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl ToValue for FlapFoldPolicy {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -992,6 +1001,7 @@ impl ToValue for FlapFoldPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl From<FlapFoldPolicy> for glib::Value {
     #[inline]
     fn from(v: FlapFoldPolicy) -> Self {
@@ -1000,6 +1010,7 @@ impl From<FlapFoldPolicy> for glib::Value {
     }
 }
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwFlapTransitionType")]
@@ -1014,6 +1025,7 @@ pub enum FlapTransitionType {
     __Unknown(i32),
 }
 
+#[allow(deprecated)]
 impl fmt::Display for FlapTransitionType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1029,6 +1041,7 @@ impl fmt::Display for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl IntoGlib for FlapTransitionType {
     type GlibType = ffi::AdwFlapTransitionType;
@@ -1044,6 +1057,7 @@ impl IntoGlib for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwFlapTransitionType> for FlapTransitionType {
     #[inline]
@@ -1059,6 +1073,7 @@ impl FromGlib<ffi::AdwFlapTransitionType> for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl StaticType for FlapTransitionType {
     #[inline]
     fn static_type() -> Type {
@@ -1066,6 +1081,7 @@ impl StaticType for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::HasParamSpec for FlapTransitionType {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1076,10 +1092,12 @@ impl glib::HasParamSpec for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::value::ValueType for FlapTransitionType {
     type Type = Self;
 }
 
+#[allow(deprecated)]
 unsafe impl<'a> FromValue<'a> for FlapTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
@@ -1090,6 +1108,7 @@ unsafe impl<'a> FromValue<'a> for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl ToValue for FlapTransitionType {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1106,6 +1125,7 @@ impl ToValue for FlapTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl From<FlapTransitionType> for glib::Value {
     #[inline]
     fn from(v: FlapTransitionType) -> Self {
@@ -1114,6 +1134,7 @@ impl From<FlapTransitionType> for glib::Value {
     }
 }
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwFoldThresholdPolicy")]
@@ -1126,6 +1147,7 @@ pub enum FoldThresholdPolicy {
     __Unknown(i32),
 }
 
+#[allow(deprecated)]
 impl fmt::Display for FoldThresholdPolicy {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1140,6 +1162,7 @@ impl fmt::Display for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl IntoGlib for FoldThresholdPolicy {
     type GlibType = ffi::AdwFoldThresholdPolicy;
@@ -1154,6 +1177,7 @@ impl IntoGlib for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwFoldThresholdPolicy> for FoldThresholdPolicy {
     #[inline]
@@ -1168,6 +1192,7 @@ impl FromGlib<ffi::AdwFoldThresholdPolicy> for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl StaticType for FoldThresholdPolicy {
     #[inline]
     fn static_type() -> Type {
@@ -1175,6 +1200,7 @@ impl StaticType for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl glib::HasParamSpec for FoldThresholdPolicy {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1185,10 +1211,12 @@ impl glib::HasParamSpec for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl glib::value::ValueType for FoldThresholdPolicy {
     type Type = Self;
 }
 
+#[allow(deprecated)]
 unsafe impl<'a> FromValue<'a> for FoldThresholdPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
@@ -1199,6 +1227,7 @@ unsafe impl<'a> FromValue<'a> for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl ToValue for FoldThresholdPolicy {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1215,6 +1244,7 @@ impl ToValue for FoldThresholdPolicy {
     }
 }
 
+#[allow(deprecated)]
 impl From<FoldThresholdPolicy> for glib::Value {
     #[inline]
     fn from(v: FoldThresholdPolicy) -> Self {
@@ -1223,6 +1253,7 @@ impl From<FoldThresholdPolicy> for glib::Value {
     }
 }
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwLeafletTransitionType")]
@@ -1237,6 +1268,7 @@ pub enum LeafletTransitionType {
     __Unknown(i32),
 }
 
+#[allow(deprecated)]
 impl fmt::Display for LeafletTransitionType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1252,6 +1284,7 @@ impl fmt::Display for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl IntoGlib for LeafletTransitionType {
     type GlibType = ffi::AdwLeafletTransitionType;
@@ -1267,6 +1300,7 @@ impl IntoGlib for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwLeafletTransitionType> for LeafletTransitionType {
     #[inline]
@@ -1282,6 +1316,7 @@ impl FromGlib<ffi::AdwLeafletTransitionType> for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl StaticType for LeafletTransitionType {
     #[inline]
     fn static_type() -> Type {
@@ -1289,6 +1324,7 @@ impl StaticType for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::HasParamSpec for LeafletTransitionType {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1299,10 +1335,12 @@ impl glib::HasParamSpec for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::value::ValueType for LeafletTransitionType {
     type Type = Self;
 }
 
+#[allow(deprecated)]
 unsafe impl<'a> FromValue<'a> for LeafletTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
@@ -1313,6 +1351,7 @@ unsafe impl<'a> FromValue<'a> for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl ToValue for LeafletTransitionType {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1329,6 +1368,7 @@ impl ToValue for LeafletTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl From<LeafletTransitionType> for glib::Value {
     #[inline]
     fn from(v: LeafletTransitionType) -> Self {
@@ -1730,6 +1770,7 @@ impl From<ResponseAppearance> for glib::Value {
     }
 }
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwSqueezerTransitionType")]
@@ -1742,6 +1783,7 @@ pub enum SqueezerTransitionType {
     __Unknown(i32),
 }
 
+#[allow(deprecated)]
 impl fmt::Display for SqueezerTransitionType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1756,6 +1798,7 @@ impl fmt::Display for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl IntoGlib for SqueezerTransitionType {
     type GlibType = ffi::AdwSqueezerTransitionType;
@@ -1770,6 +1813,7 @@ impl IntoGlib for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwSqueezerTransitionType> for SqueezerTransitionType {
     #[inline]
@@ -1784,6 +1828,7 @@ impl FromGlib<ffi::AdwSqueezerTransitionType> for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl StaticType for SqueezerTransitionType {
     #[inline]
     fn static_type() -> Type {
@@ -1791,6 +1836,7 @@ impl StaticType for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::HasParamSpec for SqueezerTransitionType {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1801,10 +1847,12 @@ impl glib::HasParamSpec for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl glib::value::ValueType for SqueezerTransitionType {
     type Type = Self;
 }
 
+#[allow(deprecated)]
 unsafe impl<'a> FromValue<'a> for SqueezerTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
@@ -1815,6 +1863,7 @@ unsafe impl<'a> FromValue<'a> for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl ToValue for SqueezerTransitionType {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1831,6 +1880,7 @@ impl ToValue for SqueezerTransitionType {
     }
 }
 
+#[allow(deprecated)]
 impl From<SqueezerTransitionType> for glib::Value {
     #[inline]
     fn from(v: SqueezerTransitionType) -> Self {
