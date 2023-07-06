@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use crate::{
     FoldThresholdPolicy, LeafletPage, LeafletTransitionType, NavigationDirection, SpringParams,
@@ -24,6 +25,8 @@ glib::wrapper! {
 }
 
 impl Leaflet {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_new")]
     pub fn new() -> Leaflet {
         assert_initialized_main_thread!();
@@ -38,6 +41,8 @@ impl Leaflet {
         LeafletBuilder::new()
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_append")]
     pub fn append(&self, child: &impl IsA<gtk::Widget>) -> LeafletPage {
         unsafe {
@@ -48,6 +53,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_adjacent_child")]
     #[doc(alias = "get_adjacent_child")]
     pub fn adjacent_child(&self, direction: NavigationDirection) -> Option<gtk::Widget> {
@@ -59,6 +66,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_can_navigate_back")]
     #[doc(alias = "get_can_navigate_back")]
     pub fn can_navigate_back(&self) -> bool {
@@ -69,6 +78,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_can_navigate_forward")]
     #[doc(alias = "get_can_navigate_forward")]
     pub fn can_navigate_forward(&self) -> bool {
@@ -79,12 +90,16 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_can_unfold")]
     #[doc(alias = "get_can_unfold")]
     pub fn can_unfold(&self) -> bool {
         unsafe { from_glib(ffi::adw_leaflet_get_can_unfold(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_child_by_name")]
     #[doc(alias = "get_child_by_name")]
     pub fn child_by_name(&self, name: &str) -> Option<gtk::Widget> {
@@ -96,6 +111,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_child_transition_params")]
     #[doc(alias = "get_child_transition_params")]
     pub fn child_transition_params(&self) -> SpringParams {
@@ -106,6 +123,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_child_transition_running")]
     #[doc(alias = "get_child_transition_running")]
     pub fn is_child_transition_running(&self) -> bool {
@@ -116,6 +135,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_fold_threshold_policy")]
     #[doc(alias = "get_fold_threshold_policy")]
     pub fn fold_threshold_policy(&self) -> FoldThresholdPolicy {
@@ -126,24 +147,32 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_folded")]
     #[doc(alias = "get_folded")]
     pub fn is_folded(&self) -> bool {
         unsafe { from_glib(ffi::adw_leaflet_get_folded(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_homogeneous")]
     #[doc(alias = "get_homogeneous")]
     pub fn is_homogeneous(&self) -> bool {
         unsafe { from_glib(ffi::adw_leaflet_get_homogeneous(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_mode_transition_duration")]
     #[doc(alias = "get_mode_transition_duration")]
     pub fn mode_transition_duration(&self) -> u32 {
         unsafe { ffi::adw_leaflet_get_mode_transition_duration(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_page")]
     #[doc(alias = "get_page")]
     pub fn page(&self, child: &impl IsA<gtk::Widget>) -> LeafletPage {
@@ -155,24 +184,32 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_pages")]
     #[doc(alias = "get_pages")]
     pub fn pages(&self) -> gtk::SelectionModel {
         unsafe { from_glib_full(ffi::adw_leaflet_get_pages(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_transition_type")]
     #[doc(alias = "get_transition_type")]
     pub fn transition_type(&self) -> LeafletTransitionType {
         unsafe { from_glib(ffi::adw_leaflet_get_transition_type(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_visible_child")]
     #[doc(alias = "get_visible_child")]
     pub fn visible_child(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_leaflet_get_visible_child(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_get_visible_child_name")]
     #[doc(alias = "get_visible_child_name")]
     pub fn visible_child_name(&self) -> Option<glib::GString> {
@@ -183,6 +220,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_insert_child_after")]
     pub fn insert_child_after(
         &self,
@@ -198,6 +237,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_navigate")]
     pub fn navigate(&self, direction: NavigationDirection) -> bool {
         unsafe {
@@ -208,6 +249,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_prepend")]
     pub fn prepend(&self, child: &impl IsA<gtk::Widget>) -> LeafletPage {
         unsafe {
@@ -218,6 +261,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_remove")]
     pub fn remove(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
@@ -225,6 +270,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_reorder_child_after")]
     pub fn reorder_child_after(
         &self,
@@ -240,6 +287,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_can_navigate_back")]
     pub fn set_can_navigate_back(&self, can_navigate_back: bool) {
         unsafe {
@@ -250,6 +299,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_can_navigate_forward")]
     pub fn set_can_navigate_forward(&self, can_navigate_forward: bool) {
         unsafe {
@@ -260,6 +311,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_can_unfold")]
     pub fn set_can_unfold(&self, can_unfold: bool) {
         unsafe {
@@ -267,6 +320,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_child_transition_params")]
     pub fn set_child_transition_params(&self, params: &SpringParams) {
         unsafe {
@@ -277,6 +332,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_fold_threshold_policy")]
     pub fn set_fold_threshold_policy(&self, policy: FoldThresholdPolicy) {
         unsafe {
@@ -284,6 +341,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_homogeneous")]
     pub fn set_homogeneous(&self, homogeneous: bool) {
         unsafe {
@@ -291,6 +350,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_mode_transition_duration")]
     pub fn set_mode_transition_duration(&self, duration: u32) {
         unsafe {
@@ -298,6 +359,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_transition_type")]
     pub fn set_transition_type(&self, transition: LeafletTransitionType) {
         unsafe {
@@ -305,6 +368,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_visible_child")]
     pub fn set_visible_child(&self, visible_child: &impl IsA<gtk::Widget>) {
         unsafe {
@@ -315,6 +380,8 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_set_visible_child_name")]
     pub fn set_visible_child_name(&self, name: &str) {
         unsafe {
@@ -322,6 +389,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "can-navigate-back")]
     pub fn connect_can_navigate_back_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -348,6 +416,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "can-navigate-forward")]
     pub fn connect_can_navigate_forward_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -374,6 +443,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "can-unfold")]
     pub fn connect_can_unfold_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_can_unfold_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -397,6 +467,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "child-transition-params")]
     pub fn connect_child_transition_params_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -425,6 +496,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "child-transition-running")]
     pub fn connect_child_transition_running_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -453,6 +525,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "fold-threshold-policy")]
     pub fn connect_fold_threshold_policy_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -479,6 +552,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "folded")]
     pub fn connect_folded_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_folded_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -502,6 +576,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "homogeneous")]
     pub fn connect_homogeneous_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_homogeneous_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -525,6 +600,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "mode-transition-duration")]
     pub fn connect_mode_transition_duration_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -553,6 +629,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "pages")]
     pub fn connect_pages_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_pages_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -576,6 +653,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "transition-type")]
     pub fn connect_transition_type_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_transition_type_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -599,6 +677,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "visible-child")]
     pub fn connect_visible_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_visible_child_trampoline<F: Fn(&Leaflet) + 'static>(
@@ -622,6 +701,7 @@ impl Leaflet {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "visible-child-name")]
     pub fn connect_visible_child_name_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -671,6 +751,7 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn can_navigate_back(self, can_navigate_back: bool) -> Self {
         Self {
             builder: self
@@ -679,6 +760,7 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn can_navigate_forward(self, can_navigate_forward: bool) -> Self {
         Self {
             builder: self
@@ -687,12 +769,14 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn can_unfold(self, can_unfold: bool) -> Self {
         Self {
             builder: self.builder.property("can-unfold", can_unfold),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn child_transition_params(self, child_transition_params: &SpringParams) -> Self {
         Self {
             builder: self
@@ -701,6 +785,7 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn fold_threshold_policy(self, fold_threshold_policy: FoldThresholdPolicy) -> Self {
         Self {
             builder: self
@@ -709,12 +794,14 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn homogeneous(self, homogeneous: bool) -> Self {
         Self {
             builder: self.builder.property("homogeneous", homogeneous),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn mode_transition_duration(self, mode_transition_duration: u32) -> Self {
         Self {
             builder: self
@@ -723,12 +810,14 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn transition_type(self, transition_type: LeafletTransitionType) -> Self {
         Self {
             builder: self.builder.property("transition-type", transition_type),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn visible_child(self, visible_child: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self
@@ -737,6 +826,7 @@ impl LeafletBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn visible_child_name(self, visible_child_name: impl Into<glib::GString>) -> Self {
         Self {
             builder: self

@@ -95,16 +95,22 @@ pub use self::enum_list_model::EnumListModel;
 mod expander_row;
 pub use self::expander_row::ExpanderRow;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod flap;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::flap::Flap;
 
 mod header_bar;
 pub use self::header_bar::HeaderBar;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod leaflet;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::leaflet::Leaflet;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod leaflet_page;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::leaflet_page::LeafletPage;
 
 #[cfg(any(feature = "v1_2", feature = "dox"))]
@@ -181,10 +187,14 @@ pub use self::split_button::SplitButton;
 mod spring_animation;
 pub use self::spring_animation::SpringAnimation;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod squeezer;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::squeezer::Squeezer;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod squeezer_page;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::squeezer_page::SqueezerPage;
 
 mod status_page;
@@ -257,7 +267,9 @@ pub use self::view_switcher::ViewSwitcher;
 mod view_switcher_bar;
 pub use self::view_switcher_bar::ViewSwitcherBar;
 
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 mod view_switcher_title;
+#[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
 pub use self::view_switcher_title::ViewSwitcherTitle;
 
 mod window;
@@ -287,9 +299,13 @@ pub use self::enums::BreakpointConditionRatioType;
 pub use self::enums::CenteringPolicy;
 pub use self::enums::ColorScheme;
 pub use self::enums::Easing;
+#[allow(deprecated)]
 pub use self::enums::FlapFoldPolicy;
+#[allow(deprecated)]
 pub use self::enums::FlapTransitionType;
+#[allow(deprecated)]
 pub use self::enums::FoldThresholdPolicy;
+#[allow(deprecated)]
 pub use self::enums::LeafletTransitionType;
 #[cfg(any(feature = "v1_4", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
@@ -298,6 +314,7 @@ pub use self::enums::NavigationDirection;
 #[cfg(any(feature = "v1_2", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
 pub use self::enums::ResponseAppearance;
+#[allow(deprecated)]
 pub use self::enums::SqueezerTransitionType;
 pub use self::enums::ToastPriority;
 #[cfg(any(feature = "v1_4", feature = "dox"))]
@@ -368,8 +385,10 @@ pub mod builders {
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
     pub use super::entry_row::EntryRowBuilder;
     pub use super::expander_row::ExpanderRowBuilder;
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub use super::flap::FlapBuilder;
     pub use super::header_bar::HeaderBarBuilder;
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub use super::leaflet::LeafletBuilder;
     #[cfg(any(feature = "v1_2", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
@@ -398,6 +417,7 @@ pub mod builders {
     pub use super::spin_row::SpinRowBuilder;
     pub use super::split_button::SplitButtonBuilder;
     pub use super::spring_animation::SpringAnimationBuilder;
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub use super::squeezer::SqueezerBuilder;
     pub use super::status_page::StatusPageBuilder;
     pub use super::swipe_tracker::SwipeTrackerBuilder;
@@ -420,6 +440,7 @@ pub mod builders {
     pub use super::view_stack::ViewStackBuilder;
     pub use super::view_switcher::ViewSwitcherBuilder;
     pub use super::view_switcher_bar::ViewSwitcherBarBuilder;
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub use super::view_switcher_title::ViewSwitcherTitleBuilder;
     pub use super::window::WindowBuilder;
     pub use super::window_title::WindowTitleBuilder;

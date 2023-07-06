@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use glib::{
     prelude::*,
@@ -20,24 +21,32 @@ glib::wrapper! {
 }
 
 impl LeafletPage {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_page_get_child")]
     #[doc(alias = "get_child")]
     pub fn child(&self) -> gtk::Widget {
         unsafe { from_glib_none(ffi::adw_leaflet_page_get_child(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_page_get_name")]
     #[doc(alias = "get_name")]
     pub fn name(&self) -> Option<glib::GString> {
         unsafe { from_glib_none(ffi::adw_leaflet_page_get_name(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_page_get_navigatable")]
     #[doc(alias = "get_navigatable")]
     pub fn is_navigatable(&self) -> bool {
         unsafe { from_glib(ffi::adw_leaflet_page_get_navigatable(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_page_set_name")]
     pub fn set_name(&self, name: Option<&str>) {
         unsafe {
@@ -45,6 +54,8 @@ impl LeafletPage {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_leaflet_page_set_navigatable")]
     pub fn set_navigatable(&self, navigatable: bool) {
         unsafe {
@@ -52,6 +63,7 @@ impl LeafletPage {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "name")]
     pub fn connect_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_name_trampoline<F: Fn(&LeafletPage) + 'static>(
@@ -75,6 +87,7 @@ impl LeafletPage {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "navigatable")]
     pub fn connect_navigatable_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_navigatable_trampoline<F: Fn(&LeafletPage) + 'static>(

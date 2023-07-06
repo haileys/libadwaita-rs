@@ -2,6 +2,7 @@
 // from
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
+#![allow(deprecated)]
 
 use crate::{FlapFoldPolicy, FlapTransitionType, FoldThresholdPolicy, SpringParams, Swipeable};
 use glib::{
@@ -21,6 +22,8 @@ glib::wrapper! {
 }
 
 impl Flap {
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_new")]
     pub fn new() -> Flap {
         assert_initialized_main_thread!();
@@ -35,36 +38,48 @@ impl Flap {
         FlapBuilder::new()
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_content")]
     #[doc(alias = "get_content")]
     pub fn content(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_flap_get_content(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_flap")]
     #[doc(alias = "get_flap")]
     pub fn flap(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_flap_get_flap(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_flap_position")]
     #[doc(alias = "get_flap_position")]
     pub fn flap_position(&self) -> gtk::PackType {
         unsafe { from_glib(ffi::adw_flap_get_flap_position(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_fold_duration")]
     #[doc(alias = "get_fold_duration")]
     pub fn fold_duration(&self) -> u32 {
         unsafe { ffi::adw_flap_get_fold_duration(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_fold_policy")]
     #[doc(alias = "get_fold_policy")]
     pub fn fold_policy(&self) -> FlapFoldPolicy {
         unsafe { from_glib(ffi::adw_flap_get_fold_policy(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_fold_threshold_policy")]
     #[doc(alias = "get_fold_threshold_policy")]
     pub fn fold_threshold_policy(&self) -> FoldThresholdPolicy {
@@ -75,66 +90,88 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_folded")]
     #[doc(alias = "get_folded")]
     pub fn is_folded(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_folded(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_locked")]
     #[doc(alias = "get_locked")]
     pub fn is_locked(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_locked(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_modal")]
     #[doc(alias = "get_modal")]
     pub fn is_modal(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_modal(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_reveal_flap")]
     #[doc(alias = "get_reveal_flap")]
     pub fn reveals_flap(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_reveal_flap(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_reveal_params")]
     #[doc(alias = "get_reveal_params")]
     pub fn reveal_params(&self) -> SpringParams {
         unsafe { from_glib_full(ffi::adw_flap_get_reveal_params(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_reveal_progress")]
     #[doc(alias = "get_reveal_progress")]
     pub fn reveal_progress(&self) -> f64 {
         unsafe { ffi::adw_flap_get_reveal_progress(self.to_glib_none().0) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_separator")]
     #[doc(alias = "get_separator")]
     pub fn separator(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_flap_get_separator(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_swipe_to_close")]
     #[doc(alias = "get_swipe_to_close")]
     pub fn is_swipe_to_close(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_swipe_to_close(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_swipe_to_open")]
     #[doc(alias = "get_swipe_to_open")]
     pub fn is_swipe_to_open(&self) -> bool {
         unsafe { from_glib(ffi::adw_flap_get_swipe_to_open(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_get_transition_type")]
     #[doc(alias = "get_transition_type")]
     pub fn transition_type(&self) -> FlapTransitionType {
         unsafe { from_glib(ffi::adw_flap_get_transition_type(self.to_glib_none().0)) }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_content")]
     pub fn set_content(&self, content: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
@@ -145,6 +182,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_flap")]
     pub fn set_flap(&self, flap: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
@@ -155,6 +194,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_flap_position")]
     pub fn set_flap_position(&self, position: gtk::PackType) {
         unsafe {
@@ -162,6 +203,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_fold_duration")]
     pub fn set_fold_duration(&self, duration: u32) {
         unsafe {
@@ -169,6 +212,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_fold_policy")]
     pub fn set_fold_policy(&self, policy: FlapFoldPolicy) {
         unsafe {
@@ -176,6 +221,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_fold_threshold_policy")]
     pub fn set_fold_threshold_policy(&self, policy: FoldThresholdPolicy) {
         unsafe {
@@ -183,6 +230,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_locked")]
     pub fn set_locked(&self, locked: bool) {
         unsafe {
@@ -190,6 +239,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_modal")]
     pub fn set_modal(&self, modal: bool) {
         unsafe {
@@ -197,6 +248,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_reveal_flap")]
     pub fn set_reveal_flap(&self, reveal_flap: bool) {
         unsafe {
@@ -204,6 +257,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_reveal_params")]
     pub fn set_reveal_params(&self, params: &SpringParams) {
         unsafe {
@@ -211,6 +266,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_separator")]
     pub fn set_separator(&self, separator: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
@@ -221,6 +278,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_swipe_to_close")]
     pub fn set_swipe_to_close(&self, swipe_to_close: bool) {
         unsafe {
@@ -228,6 +287,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_swipe_to_open")]
     pub fn set_swipe_to_open(&self, swipe_to_open: bool) {
         unsafe {
@@ -235,6 +296,8 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[allow(deprecated)]
     #[doc(alias = "adw_flap_set_transition_type")]
     pub fn set_transition_type(&self, transition_type: FlapTransitionType) {
         unsafe {
@@ -242,6 +305,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "content")]
     pub fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_content_trampoline<F: Fn(&Flap) + 'static>(
@@ -265,6 +329,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "flap")]
     pub fn connect_flap_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_flap_trampoline<F: Fn(&Flap) + 'static>(
@@ -288,6 +353,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "flap-position")]
     pub fn connect_flap_position_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_flap_position_trampoline<F: Fn(&Flap) + 'static>(
@@ -311,6 +377,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "fold-duration")]
     pub fn connect_fold_duration_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_fold_duration_trampoline<F: Fn(&Flap) + 'static>(
@@ -334,6 +401,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "fold-policy")]
     pub fn connect_fold_policy_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_fold_policy_trampoline<F: Fn(&Flap) + 'static>(
@@ -357,6 +425,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "fold-threshold-policy")]
     pub fn connect_fold_threshold_policy_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -383,6 +452,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "folded")]
     pub fn connect_folded_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_folded_trampoline<F: Fn(&Flap) + 'static>(
@@ -406,6 +476,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "locked")]
     pub fn connect_locked_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_locked_trampoline<F: Fn(&Flap) + 'static>(
@@ -429,6 +500,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "modal")]
     pub fn connect_modal_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_modal_trampoline<F: Fn(&Flap) + 'static>(
@@ -452,6 +524,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "reveal-flap")]
     pub fn connect_reveal_flap_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_reveal_flap_trampoline<F: Fn(&Flap) + 'static>(
@@ -475,6 +548,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "reveal-params")]
     pub fn connect_reveal_params_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_reveal_params_trampoline<F: Fn(&Flap) + 'static>(
@@ -498,6 +572,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "reveal-progress")]
     pub fn connect_reveal_progress_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_reveal_progress_trampoline<F: Fn(&Flap) + 'static>(
@@ -521,6 +596,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "separator")]
     pub fn connect_separator_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_separator_trampoline<F: Fn(&Flap) + 'static>(
@@ -544,6 +620,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "swipe-to-close")]
     pub fn connect_swipe_to_close_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_swipe_to_close_trampoline<F: Fn(&Flap) + 'static>(
@@ -567,6 +644,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "swipe-to-open")]
     pub fn connect_swipe_to_open_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_swipe_to_open_trampoline<F: Fn(&Flap) + 'static>(
@@ -590,6 +668,7 @@ impl Flap {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[doc(alias = "transition-type")]
     pub fn connect_transition_type_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_transition_type_trampoline<F: Fn(&Flap) + 'static>(
@@ -636,36 +715,42 @@ impl FlapBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn content(self, content: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("content", content.clone().upcast()),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn flap(self, flap: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("flap", flap.clone().upcast()),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn flap_position(self, flap_position: gtk::PackType) -> Self {
         Self {
             builder: self.builder.property("flap-position", flap_position),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn fold_duration(self, fold_duration: u32) -> Self {
         Self {
             builder: self.builder.property("fold-duration", fold_duration),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn fold_policy(self, fold_policy: FlapFoldPolicy) -> Self {
         Self {
             builder: self.builder.property("fold-policy", fold_policy),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn fold_threshold_policy(self, fold_threshold_policy: FoldThresholdPolicy) -> Self {
         Self {
             builder: self
@@ -674,24 +759,28 @@ impl FlapBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn locked(self, locked: bool) -> Self {
         Self {
             builder: self.builder.property("locked", locked),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn modal(self, modal: bool) -> Self {
         Self {
             builder: self.builder.property("modal", modal),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn reveal_flap(self, reveal_flap: bool) -> Self {
         Self {
             builder: self.builder.property("reveal-flap", reveal_flap),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn reveal_params(self, reveal_params: &SpringParams) -> Self {
         Self {
             builder: self
@@ -700,6 +789,7 @@ impl FlapBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn separator(self, separator: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self
@@ -708,18 +798,21 @@ impl FlapBuilder {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn swipe_to_close(self, swipe_to_close: bool) -> Self {
         Self {
             builder: self.builder.property("swipe-to-close", swipe_to_close),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn swipe_to_open(self, swipe_to_open: bool) -> Self {
         Self {
             builder: self.builder.property("swipe-to-open", swipe_to_open),
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     pub fn transition_type(self, transition_type: FlapTransitionType) -> Self {
         Self {
             builder: self.builder.property("transition-type", transition_type),
