@@ -198,8 +198,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "bottom-bar-height")]
     pub fn connect_bottom_bar_height_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -226,8 +226,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "bottom-bar-style")]
     pub fn connect_bottom_bar_style_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_bottom_bar_style_trampoline<F: Fn(&ToolbarView) + 'static>(
@@ -251,8 +251,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "content")]
     pub fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_content_trampoline<F: Fn(&ToolbarView) + 'static>(
@@ -276,8 +276,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "extend-content-to-bottom-edge")]
     pub fn connect_extend_content_to_bottom_edge_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -306,8 +306,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "extend-content-to-top-edge")]
     pub fn connect_extend_content_to_top_edge_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -336,8 +336,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "reveal-bottom-bars")]
     pub fn connect_reveal_bottom_bars_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -364,8 +364,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "reveal-top-bars")]
     pub fn connect_reveal_top_bars_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_reveal_top_bars_trampoline<F: Fn(&ToolbarView) + 'static>(
@@ -389,8 +389,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "top-bar-height")]
     pub fn connect_top_bar_height_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_top_bar_height_trampoline<F: Fn(&ToolbarView) + 'static>(
@@ -414,8 +414,8 @@ impl ToolbarView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "top-bar-style")]
     pub fn connect_top_bar_style_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_top_bar_style_trampoline<F: Fn(&ToolbarView) + 'static>(
@@ -440,8 +440,8 @@ impl ToolbarView {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for ToolbarView {
     fn default() -> Self {
         Self::new()
@@ -464,24 +464,24 @@ impl ToolbarViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn bottom_bar_style(self, bottom_bar_style: ToolbarStyle) -> Self {
         Self {
             builder: self.builder.property("bottom-bar-style", bottom_bar_style),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn content(self, content: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("content", content.clone().upcast()),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn extend_content_to_bottom_edge(self, extend_content_to_bottom_edge: bool) -> Self {
         Self {
             builder: self.builder.property(
@@ -491,8 +491,8 @@ impl ToolbarViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn extend_content_to_top_edge(self, extend_content_to_top_edge: bool) -> Self {
         Self {
             builder: self
@@ -501,8 +501,8 @@ impl ToolbarViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn reveal_bottom_bars(self, reveal_bottom_bars: bool) -> Self {
         Self {
             builder: self
@@ -511,16 +511,16 @@ impl ToolbarViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn reveal_top_bars(self, reveal_top_bars: bool) -> Self {
         Self {
             builder: self.builder.property("reveal-top-bars", reveal_top_bars),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn top_bar_style(self, top_bar_style: ToolbarStyle) -> Self {
         Self {
             builder: self.builder.property("top-bar-style", top_bar_style),

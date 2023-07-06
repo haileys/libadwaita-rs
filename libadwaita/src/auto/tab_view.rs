@@ -4,8 +4,8 @@
 // DO NOT EDIT
 
 use crate::TabPage;
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 use crate::TabViewShortcuts;
 use glib::{
     prelude::*,
@@ -49,8 +49,8 @@ impl TabView {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_tab_view_add_shortcuts")]
     pub fn add_shortcuts(&self, shortcuts: TabViewShortcuts) {
         unsafe {
@@ -180,8 +180,8 @@ impl TabView {
         unsafe { from_glib_none(ffi::adw_tab_view_get_selected_page(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_tab_view_get_shortcuts")]
     #[doc(alias = "get_shortcuts")]
     pub fn shortcuts(&self) -> TabViewShortcuts {
@@ -210,8 +210,8 @@ impl TabView {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_tab_view_invalidate_thumbnails")]
     pub fn invalidate_thumbnails(&self) {
         unsafe {
@@ -239,8 +239,8 @@ impl TabView {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_tab_view_remove_shortcuts")]
     pub fn remove_shortcuts(&self, shortcuts: TabViewShortcuts) {
         unsafe {
@@ -354,8 +354,8 @@ impl TabView {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_tab_view_set_shortcuts")]
     pub fn set_shortcuts(&self, shortcuts: TabViewShortcuts) {
         unsafe {
@@ -730,8 +730,8 @@ impl TabView {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "shortcuts")]
     pub fn connect_shortcuts_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_shortcuts_trampoline<F: Fn(&TabView) + 'static>(
@@ -802,8 +802,8 @@ impl TabViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn shortcuts(self, shortcuts: TabViewShortcuts) -> Self {
         Self {
             builder: self.builder.property("shortcuts", shortcuts),

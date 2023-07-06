@@ -73,8 +73,8 @@ impl ViewStack {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_view_stack_add_titled_with_icon")]
     pub fn add_titled_with_icon(
         &self,

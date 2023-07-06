@@ -3,19 +3,17 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-use bitflags::bitflags;
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-use glib::{translate::*, value::FromValue, value::ToValue, StaticType, Type};
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+use glib::{bitflags::bitflags, prelude::*, translate::*};
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 use std::fmt;
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
+#[cfg(feature = "v1_2")]
 bitflags! {
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
     #[doc(alias = "AdwTabViewShortcuts")]
     pub struct TabViewShortcuts: u32 {
         #[doc(alias = "ADW_TAB_VIEW_SHORTCUT_NONE")]
@@ -49,16 +47,16 @@ bitflags! {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl fmt::Display for TabViewShortcuts {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         <Self as fmt::Debug>::fmt(self, f)
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 #[doc(hidden)]
 impl IntoGlib for TabViewShortcuts {
     type GlibType = ffi::AdwTabViewShortcuts;
@@ -69,8 +67,8 @@ impl IntoGlib for TabViewShortcuts {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwTabViewShortcuts> for TabViewShortcuts {
     #[inline]
@@ -80,17 +78,17 @@ impl FromGlib<ffi::AdwTabViewShortcuts> for TabViewShortcuts {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl StaticType for TabViewShortcuts {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_tab_view_shortcuts_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl glib::HasParamSpec for TabViewShortcuts {
     type ParamSpec = glib::ParamSpecFlags;
     type SetValue = Self;
@@ -101,15 +99,15 @@ impl glib::HasParamSpec for TabViewShortcuts {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl glib::value::ValueType for TabViewShortcuts {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-unsafe impl<'a> FromValue<'a> for TabViewShortcuts {
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+unsafe impl<'a> glib::value::FromValue<'a> for TabViewShortcuts {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -119,8 +117,8 @@ unsafe impl<'a> FromValue<'a> for TabViewShortcuts {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl ToValue for TabViewShortcuts {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -137,8 +135,8 @@ impl ToValue for TabViewShortcuts {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl From<TabViewShortcuts> for glib::Value {
     #[inline]
     fn from(v: TabViewShortcuts) -> Self {

@@ -38,8 +38,8 @@ impl BreakpointBin {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for BreakpointBin {
     fn default() -> Self {
         Self::new()
@@ -62,8 +62,8 @@ impl BreakpointBinBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn child(self, child: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("child", child.clone().upcast()),
@@ -262,33 +262,13 @@ impl BreakpointBinBuilder {
     }
 }
 
-pub trait BreakpointBinExt: 'static {
-    #[doc(alias = "adw_breakpoint_bin_add_breakpoint")]
-    fn add_breakpoint(&self, breakpoint: Breakpoint);
-
-    #[doc(alias = "adw_breakpoint_bin_get_child")]
-    #[doc(alias = "get_child")]
-    fn child(&self) -> Option<gtk::Widget>;
-
-    #[doc(alias = "adw_breakpoint_bin_get_current_breakpoint")]
-    #[doc(alias = "get_current_breakpoint")]
-    fn current_breakpoint(&self) -> Option<Breakpoint>;
-
-    #[doc(alias = "adw_breakpoint_bin_set_child")]
-    fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "child")]
-    fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "current-breakpoint")]
-    fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::BreakpointBin>> Sealed for T {}
 }
 
-impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
+pub trait BreakpointBinExt: IsA<BreakpointBin> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_breakpoint_bin_add_breakpoint")]
     fn add_breakpoint(&self, breakpoint: Breakpoint) {
         unsafe {
             ffi::adw_breakpoint_bin_add_breakpoint(
@@ -298,6 +278,8 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 
+    #[doc(alias = "adw_breakpoint_bin_get_child")]
+    #[doc(alias = "get_child")]
     fn child(&self) -> Option<gtk::Widget> {
         unsafe {
             from_glib_none(ffi::adw_breakpoint_bin_get_child(
@@ -306,6 +288,8 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 
+    #[doc(alias = "adw_breakpoint_bin_get_current_breakpoint")]
+    #[doc(alias = "get_current_breakpoint")]
     fn current_breakpoint(&self) -> Option<Breakpoint> {
         unsafe {
             from_glib_none(ffi::adw_breakpoint_bin_get_current_breakpoint(
@@ -314,6 +298,7 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 
+    #[doc(alias = "adw_breakpoint_bin_set_child")]
     fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_breakpoint_bin_set_child(
@@ -323,8 +308,9 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "child")]
     fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_child_trampoline<P: IsA<BreakpointBin>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwBreakpointBin,
@@ -347,8 +333,9 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "current-breakpoint")]
     fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_current_breakpoint_trampoline<
             P: IsA<BreakpointBin>,
@@ -374,6 +361,8 @@ impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {
         }
     }
 }
+
+impl<O: IsA<BreakpointBin>> BreakpointBinExt for O {}
 
 impl fmt::Display for BreakpointBin {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

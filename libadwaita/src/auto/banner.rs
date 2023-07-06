@@ -88,8 +88,8 @@ impl Banner {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "button-clicked")]
     pub fn connect_button_clicked<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn button_clicked_trampoline<F: Fn(&Banner) + 'static>(
@@ -112,8 +112,8 @@ impl Banner {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "button-label")]
     pub fn connect_button_label_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_button_label_trampoline<F: Fn(&Banner) + 'static>(
@@ -137,8 +137,8 @@ impl Banner {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "revealed")]
     pub fn connect_revealed_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_revealed_trampoline<F: Fn(&Banner) + 'static>(
@@ -162,8 +162,8 @@ impl Banner {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "title")]
     pub fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<F: Fn(&Banner) + 'static>(
@@ -187,8 +187,8 @@ impl Banner {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "use-markup")]
     pub fn connect_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_use_markup_trampoline<F: Fn(&Banner) + 'static>(
@@ -213,8 +213,8 @@ impl Banner {
     }
 }
 
-#[cfg(any(feature = "v1_3", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+#[cfg(feature = "v1_3")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
 impl Default for Banner {
     fn default() -> Self {
         glib::object::Object::new::<Self>()
@@ -237,32 +237,32 @@ impl BannerBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn button_label(self, button_label: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("button-label", button_label.into()),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn revealed(self, revealed: bool) -> Self {
         Self {
             builder: self.builder.property("revealed", revealed),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn title(self, title: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("title", title.into()),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),

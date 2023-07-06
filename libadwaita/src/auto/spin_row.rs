@@ -187,8 +187,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "output")]
     pub fn connect_output<F: Fn(&Self) -> bool + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn output_trampoline<F: Fn(&SpinRow) -> bool + 'static>(
@@ -211,8 +211,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "wrapped")]
     pub fn connect_wrapped<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn wrapped_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -235,8 +235,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adjustment")]
     pub fn connect_adjustment_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_adjustment_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -260,8 +260,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "climb-rate")]
     pub fn connect_climb_rate_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_climb_rate_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -285,8 +285,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "digits")]
     pub fn connect_digits_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_digits_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -310,8 +310,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "numeric")]
     pub fn connect_numeric_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_numeric_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -335,8 +335,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "snap-to-ticks")]
     pub fn connect_snap_to_ticks_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_snap_to_ticks_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -360,8 +360,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "update-policy")]
     pub fn connect_update_policy_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_update_policy_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -385,8 +385,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "value")]
     pub fn connect_value_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_value_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -410,8 +410,8 @@ impl SpinRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "wrap")]
     pub fn connect_wrap_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_wrap_trampoline<F: Fn(&SpinRow) + 'static>(
@@ -436,8 +436,8 @@ impl SpinRow {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for SpinRow {
     fn default() -> Self {
         glib::object::Object::new::<Self>()
@@ -460,8 +460,8 @@ impl SpinRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn adjustment(self, adjustment: &impl IsA<gtk::Adjustment>) -> Self {
         Self {
             builder: self
@@ -470,56 +470,56 @@ impl SpinRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn climb_rate(self, climb_rate: f64) -> Self {
         Self {
             builder: self.builder.property("climb-rate", climb_rate),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn digits(self, digits: u32) -> Self {
         Self {
             builder: self.builder.property("digits", digits),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn numeric(self, numeric: bool) -> Self {
         Self {
             builder: self.builder.property("numeric", numeric),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn snap_to_ticks(self, snap_to_ticks: bool) -> Self {
         Self {
             builder: self.builder.property("snap-to-ticks", snap_to_ticks),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn update_policy(self, update_policy: gtk::SpinButtonUpdatePolicy) -> Self {
         Self {
             builder: self.builder.property("update-policy", update_policy),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn value(self, value: f64) -> Self {
         Self {
             builder: self.builder.property("value", value),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn wrap(self, wrap: bool) -> Self {
         Self {
             builder: self.builder.property("wrap", wrap),
@@ -553,8 +553,8 @@ impl SpinRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn subtitle_selectable(self, subtitle_selectable: bool) -> Self {
         Self {
             builder: self
@@ -575,16 +575,16 @@ impl SpinRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),

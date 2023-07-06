@@ -3,8 +3,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 use crate::LengthUnit;
 use glib::{
     prelude::*,
@@ -55,8 +55,8 @@ impl Clamp {
         unsafe { ffi::adw_clamp_get_tightening_threshold(self.to_glib_none().0) }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_clamp_get_unit")]
     #[doc(alias = "get_unit")]
     pub fn unit(&self) -> LengthUnit {
@@ -87,8 +87,8 @@ impl Clamp {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_clamp_set_unit")]
     pub fn set_unit(&self, unit: LengthUnit) {
         unsafe {
@@ -168,8 +168,8 @@ impl Clamp {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "unit")]
     pub fn connect_unit_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_unit_trampoline<F: Fn(&Clamp) + 'static>(
@@ -236,8 +236,8 @@ impl ClampBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn unit(self, unit: LengthUnit) -> Self {
         Self {
             builder: self.builder.property("unit", unit),

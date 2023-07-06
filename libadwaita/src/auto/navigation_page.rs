@@ -55,8 +55,8 @@ impl NavigationPage {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for NavigationPage {
     fn default() -> Self {
         glib::object::Object::new::<Self>()
@@ -79,32 +79,32 @@ impl NavigationPageBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn can_pop(self, can_pop: bool) -> Self {
         Self {
             builder: self.builder.property("can-pop", can_pop),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn child(self, child: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("child", child.clone().upcast()),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn tag(self, tag: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("tag", tag.into()),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn title(self, title: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("title", title.into()),
@@ -303,77 +303,14 @@ impl NavigationPageBuilder {
     }
 }
 
-pub trait NavigationPageExt: 'static {
-    #[doc(alias = "adw_navigation_page_get_can_pop")]
-    #[doc(alias = "get_can_pop")]
-    fn can_pop(&self) -> bool;
-
-    #[doc(alias = "adw_navigation_page_get_child")]
-    #[doc(alias = "get_child")]
-    fn child(&self) -> Option<gtk::Widget>;
-
-    #[doc(alias = "adw_navigation_page_get_tag")]
-    #[doc(alias = "get_tag")]
-    fn tag(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_navigation_page_get_title")]
-    #[doc(alias = "get_title")]
-    fn title(&self) -> glib::GString;
-
-    #[doc(alias = "adw_navigation_page_set_can_pop")]
-    fn set_can_pop(&self, can_pop: bool);
-
-    #[doc(alias = "adw_navigation_page_set_child")]
-    fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>);
-
-    #[doc(alias = "adw_navigation_page_set_tag")]
-    fn set_tag(&self, tag: Option<&str>);
-
-    #[doc(alias = "adw_navigation_page_set_title")]
-    fn set_title(&self, title: &str);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "hidden")]
-    fn connect_hidden<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "hiding")]
-    fn connect_hiding<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "showing")]
-    fn connect_showing<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "shown")]
-    fn connect_shown<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "can-pop")]
-    fn connect_can_pop_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "child")]
-    fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "tag")]
-    fn connect_tag_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "title")]
-    fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::NavigationPage>> Sealed for T {}
 }
 
-impl<O: IsA<NavigationPage>> NavigationPageExt for O {
+pub trait NavigationPageExt: IsA<NavigationPage> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_navigation_page_get_can_pop")]
+    #[doc(alias = "get_can_pop")]
     fn can_pop(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_navigation_page_get_can_pop(
@@ -382,6 +319,8 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_get_child")]
+    #[doc(alias = "get_child")]
     fn child(&self) -> Option<gtk::Widget> {
         unsafe {
             from_glib_none(ffi::adw_navigation_page_get_child(
@@ -390,6 +329,8 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_get_tag")]
+    #[doc(alias = "get_tag")]
     fn tag(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_navigation_page_get_tag(
@@ -398,6 +339,8 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_get_title")]
+    #[doc(alias = "get_title")]
     fn title(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_navigation_page_get_title(
@@ -406,6 +349,7 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_set_can_pop")]
     fn set_can_pop(&self, can_pop: bool) {
         unsafe {
             ffi::adw_navigation_page_set_can_pop(
@@ -415,6 +359,7 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_set_child")]
     fn set_child(&self, child: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_navigation_page_set_child(
@@ -424,12 +369,14 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_navigation_page_set_tag")]
     fn set_tag(&self, tag: Option<&str>) {
         unsafe {
             ffi::adw_navigation_page_set_tag(self.as_ref().to_glib_none().0, tag.to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_navigation_page_set_title")]
     fn set_title(&self, title: &str) {
         unsafe {
             ffi::adw_navigation_page_set_title(
@@ -439,8 +386,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "hidden")]
     fn connect_hidden<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn hidden_trampoline<P: IsA<NavigationPage>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwNavigationPage,
@@ -462,8 +410,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "hiding")]
     fn connect_hiding<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn hiding_trampoline<P: IsA<NavigationPage>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwNavigationPage,
@@ -485,8 +434,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "showing")]
     fn connect_showing<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn showing_trampoline<P: IsA<NavigationPage>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwNavigationPage,
@@ -508,8 +458,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "shown")]
     fn connect_shown<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn shown_trampoline<P: IsA<NavigationPage>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwNavigationPage,
@@ -531,8 +482,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "can-pop")]
     fn connect_can_pop_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_can_pop_trampoline<
             P: IsA<NavigationPage>,
@@ -558,8 +510,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "child")]
     fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_child_trampoline<
             P: IsA<NavigationPage>,
@@ -585,8 +538,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "tag")]
     fn connect_tag_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_tag_trampoline<P: IsA<NavigationPage>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwNavigationPage,
@@ -609,8 +563,9 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "title")]
     fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<
             P: IsA<NavigationPage>,
@@ -636,6 +591,8 @@ impl<O: IsA<NavigationPage>> NavigationPageExt for O {
         }
     }
 }
+
+impl<O: IsA<NavigationPage>> NavigationPageExt for O {}
 
 impl fmt::Display for NavigationPage {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

@@ -55,8 +55,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_header_bar_get_show_back_button")]
     #[doc(alias = "get_show_back_button")]
     pub fn shows_back_button(&self) -> bool {
@@ -87,8 +87,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_header_bar_get_show_title")]
     #[doc(alias = "get_show_title")]
     pub fn shows_title(&self) -> bool {
@@ -142,8 +142,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_header_bar_set_show_back_button")]
     pub fn set_show_back_button(&self, show_back_button: bool) {
         unsafe {
@@ -174,8 +174,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_header_bar_set_show_title")]
     pub fn set_show_title(&self, show_title: bool) {
         unsafe {
@@ -242,8 +242,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "show-back-button")]
     pub fn connect_show_back_button_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_show_back_button_trampoline<F: Fn(&HeaderBar) + 'static>(
@@ -323,8 +323,8 @@ impl HeaderBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "show-title")]
     pub fn connect_show_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_show_title_trampoline<F: Fn(&HeaderBar) + 'static>(
@@ -408,8 +408,8 @@ impl HeaderBarBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn show_back_button(self, show_back_button: bool) -> Self {
         Self {
             builder: self.builder.property("show-back-button", show_back_button),
@@ -432,8 +432,8 @@ impl HeaderBarBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn show_title(self, show_title: bool) -> Self {
         Self {
             builder: self.builder.property("show-title", show_title),

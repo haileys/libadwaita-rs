@@ -49,8 +49,8 @@ impl MessageDialog {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl Default for MessageDialog {
     fn default() -> Self {
         glib::object::Object::new::<Self>()
@@ -73,24 +73,24 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn body(self, body: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("body", body.into()),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn body_use_markup(self, body_use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("body-use-markup", body_use_markup),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn close_response(self, close_response: impl Into<glib::GString>) -> Self {
         Self {
             builder: self
@@ -99,8 +99,8 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn default_response(self, default_response: impl Into<glib::GString>) -> Self {
         Self {
             builder: self
@@ -109,8 +109,8 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn extra_child(self, extra_child: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self
@@ -119,16 +119,16 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn heading(self, heading: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("heading", heading.into()),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn heading_use_markup(self, heading_use_markup: bool) -> Self {
         Self {
             builder: self
@@ -211,8 +211,8 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_2")))]
+    #[cfg(feature = "gtk_v4_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_2")))]
     pub fn handle_menubar_accel(self, handle_menubar_accel: bool) -> Self {
         Self {
             builder: self
@@ -271,8 +271,8 @@ impl MessageDialogBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_6")))]
+    #[cfg(feature = "gtk_v4_6")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_6")))]
     pub fn titlebar(self, titlebar: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("titlebar", titlebar.clone().upcast()),
@@ -479,128 +479,13 @@ impl MessageDialogBuilder {
     }
 }
 
-pub trait MessageDialogExt: 'static {
-    #[doc(alias = "adw_message_dialog_add_response")]
-    fn add_response(&self, id: &str, label: &str);
-
-    #[doc(alias = "adw_message_dialog_get_body")]
-    #[doc(alias = "get_body")]
-    fn body(&self) -> glib::GString;
-
-    #[doc(alias = "adw_message_dialog_get_body_use_markup")]
-    #[doc(alias = "get_body_use_markup")]
-    fn is_body_use_markup(&self) -> bool;
-
-    #[doc(alias = "adw_message_dialog_get_close_response")]
-    #[doc(alias = "get_close_response")]
-    fn close_response(&self) -> glib::GString;
-
-    #[doc(alias = "adw_message_dialog_get_default_response")]
-    #[doc(alias = "get_default_response")]
-    fn default_response(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_message_dialog_get_extra_child")]
-    #[doc(alias = "get_extra_child")]
-    fn extra_child(&self) -> Option<gtk::Widget>;
-
-    #[doc(alias = "adw_message_dialog_get_heading")]
-    #[doc(alias = "get_heading")]
-    fn heading(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_message_dialog_get_heading_use_markup")]
-    #[doc(alias = "get_heading_use_markup")]
-    fn is_heading_use_markup(&self) -> bool;
-
-    #[doc(alias = "adw_message_dialog_get_response_appearance")]
-    #[doc(alias = "get_response_appearance")]
-    fn response_appearance(&self, response: &str) -> ResponseAppearance;
-
-    #[doc(alias = "adw_message_dialog_get_response_enabled")]
-    #[doc(alias = "get_response_enabled")]
-    fn is_response_enabled(&self, response: &str) -> bool;
-
-    #[doc(alias = "adw_message_dialog_has_response")]
-    fn has_response(&self, response: &str) -> bool;
-
-    #[doc(alias = "adw_message_dialog_response")]
-    fn response(&self, response: &str);
-
-    #[doc(alias = "adw_message_dialog_set_body")]
-    fn set_body(&self, body: &str);
-
-    #[doc(alias = "adw_message_dialog_set_body_use_markup")]
-    fn set_body_use_markup(&self, use_markup: bool);
-
-    #[doc(alias = "adw_message_dialog_set_close_response")]
-    fn set_close_response(&self, response: &str);
-
-    #[doc(alias = "adw_message_dialog_set_default_response")]
-    fn set_default_response(&self, response: Option<&str>);
-
-    #[doc(alias = "adw_message_dialog_set_extra_child")]
-    fn set_extra_child(&self, child: Option<&impl IsA<gtk::Widget>>);
-
-    #[doc(alias = "adw_message_dialog_set_heading")]
-    fn set_heading(&self, heading: Option<&str>);
-
-    #[doc(alias = "adw_message_dialog_set_heading_use_markup")]
-    fn set_heading_use_markup(&self, use_markup: bool);
-
-    #[doc(alias = "adw_message_dialog_set_response_appearance")]
-    fn set_response_appearance(&self, response: &str, appearance: ResponseAppearance);
-
-    #[doc(alias = "adw_message_dialog_set_response_enabled")]
-    fn set_response_enabled(&self, response: &str, enabled: bool);
-
-    #[doc(alias = "adw_message_dialog_set_response_label")]
-    fn set_response_label(&self, response: &str, label: &str);
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "response")]
-    fn connect_response<F: Fn(&Self, &str) + 'static>(
-        &self,
-        detail: Option<&str>,
-        f: F,
-    ) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "body")]
-    fn connect_body_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "body-use-markup")]
-    fn connect_body_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "close-response")]
-    fn connect_close_response_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "default-response")]
-    fn connect_default_response_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "extra-child")]
-    fn connect_extra_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "heading")]
-    fn connect_heading_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "heading-use-markup")]
-    fn connect_heading_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::MessageDialog>> Sealed for T {}
 }
 
-impl<O: IsA<MessageDialog>> MessageDialogExt for O {
+pub trait MessageDialogExt: IsA<MessageDialog> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_message_dialog_add_response")]
     fn add_response(&self, id: &str, label: &str) {
         unsafe {
             ffi::adw_message_dialog_add_response(
@@ -611,6 +496,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_body")]
+    #[doc(alias = "get_body")]
     fn body(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_message_dialog_get_body(
@@ -619,6 +506,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_body_use_markup")]
+    #[doc(alias = "get_body_use_markup")]
     fn is_body_use_markup(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_message_dialog_get_body_use_markup(
@@ -627,6 +516,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_close_response")]
+    #[doc(alias = "get_close_response")]
     fn close_response(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_message_dialog_get_close_response(
@@ -635,6 +526,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_default_response")]
+    #[doc(alias = "get_default_response")]
     fn default_response(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_message_dialog_get_default_response(
@@ -643,6 +536,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_extra_child")]
+    #[doc(alias = "get_extra_child")]
     fn extra_child(&self) -> Option<gtk::Widget> {
         unsafe {
             from_glib_none(ffi::adw_message_dialog_get_extra_child(
@@ -651,6 +546,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_heading")]
+    #[doc(alias = "get_heading")]
     fn heading(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_message_dialog_get_heading(
@@ -659,6 +556,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_heading_use_markup")]
+    #[doc(alias = "get_heading_use_markup")]
     fn is_heading_use_markup(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_message_dialog_get_heading_use_markup(
@@ -667,6 +566,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_response_appearance")]
+    #[doc(alias = "get_response_appearance")]
     fn response_appearance(&self, response: &str) -> ResponseAppearance {
         unsafe {
             from_glib(ffi::adw_message_dialog_get_response_appearance(
@@ -676,6 +577,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_get_response_enabled")]
+    #[doc(alias = "get_response_enabled")]
     fn is_response_enabled(&self, response: &str) -> bool {
         unsafe {
             from_glib(ffi::adw_message_dialog_get_response_enabled(
@@ -685,6 +588,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_has_response")]
     fn has_response(&self, response: &str) -> bool {
         unsafe {
             from_glib(ffi::adw_message_dialog_has_response(
@@ -694,6 +598,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_response")]
     fn response(&self, response: &str) {
         unsafe {
             ffi::adw_message_dialog_response(
@@ -703,12 +608,14 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_body")]
     fn set_body(&self, body: &str) {
         unsafe {
             ffi::adw_message_dialog_set_body(self.as_ref().to_glib_none().0, body.to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_body_use_markup")]
     fn set_body_use_markup(&self, use_markup: bool) {
         unsafe {
             ffi::adw_message_dialog_set_body_use_markup(
@@ -718,6 +625,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_close_response")]
     fn set_close_response(&self, response: &str) {
         unsafe {
             ffi::adw_message_dialog_set_close_response(
@@ -727,6 +635,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_default_response")]
     fn set_default_response(&self, response: Option<&str>) {
         unsafe {
             ffi::adw_message_dialog_set_default_response(
@@ -736,6 +645,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_extra_child")]
     fn set_extra_child(&self, child: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_message_dialog_set_extra_child(
@@ -745,6 +655,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_heading")]
     fn set_heading(&self, heading: Option<&str>) {
         unsafe {
             ffi::adw_message_dialog_set_heading(
@@ -754,6 +665,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_heading_use_markup")]
     fn set_heading_use_markup(&self, use_markup: bool) {
         unsafe {
             ffi::adw_message_dialog_set_heading_use_markup(
@@ -763,6 +675,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_response_appearance")]
     fn set_response_appearance(&self, response: &str, appearance: ResponseAppearance) {
         unsafe {
             ffi::adw_message_dialog_set_response_appearance(
@@ -773,6 +686,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_response_enabled")]
     fn set_response_enabled(&self, response: &str, enabled: bool) {
         unsafe {
             ffi::adw_message_dialog_set_response_enabled(
@@ -783,6 +697,7 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
+    #[doc(alias = "adw_message_dialog_set_response_label")]
     fn set_response_label(&self, response: &str, label: &str) {
         unsafe {
             ffi::adw_message_dialog_set_response_label(
@@ -793,8 +708,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "response")]
     fn connect_response<F: Fn(&Self, &str) + 'static>(
         &self,
         detail: Option<&str>,
@@ -831,8 +747,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "body")]
     fn connect_body_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_body_trampoline<P: IsA<MessageDialog>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwMessageDialog,
@@ -855,8 +772,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "body-use-markup")]
     fn connect_body_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_body_use_markup_trampoline<
             P: IsA<MessageDialog>,
@@ -882,8 +800,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "close-response")]
     fn connect_close_response_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_close_response_trampoline<
             P: IsA<MessageDialog>,
@@ -909,8 +828,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "default-response")]
     fn connect_default_response_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_default_response_trampoline<
             P: IsA<MessageDialog>,
@@ -936,8 +856,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "extra-child")]
     fn connect_extra_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_extra_child_trampoline<
             P: IsA<MessageDialog>,
@@ -963,8 +884,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "heading")]
     fn connect_heading_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_heading_trampoline<
             P: IsA<MessageDialog>,
@@ -990,8 +912,9 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "heading-use-markup")]
     fn connect_heading_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_heading_use_markup_trampoline<
             P: IsA<MessageDialog>,
@@ -1017,6 +940,8 @@ impl<O: IsA<MessageDialog>> MessageDialogExt for O {
         }
     }
 }
+
+impl<O: IsA<MessageDialog>> MessageDialogExt for O {}
 
 impl fmt::Display for MessageDialog {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

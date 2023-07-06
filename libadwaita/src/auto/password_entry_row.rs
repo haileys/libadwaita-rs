@@ -32,8 +32,8 @@ impl PasswordEntryRow {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl Default for PasswordEntryRow {
     fn default() -> Self {
         Self::new()
@@ -56,8 +56,8 @@ impl PasswordEntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn activates_default(self, activates_default: bool) -> Self {
         Self {
             builder: self
@@ -66,16 +66,16 @@ impl PasswordEntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn attributes(self, attributes: &pango::AttrList) -> Self {
         Self {
             builder: self.builder.property("attributes", attributes.clone()),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn enable_emoji_completion(self, enable_emoji_completion: bool) -> Self {
         Self {
             builder: self
@@ -84,24 +84,24 @@ impl PasswordEntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn input_hints(self, input_hints: gtk::InputHints) -> Self {
         Self {
             builder: self.builder.property("input-hints", input_hints),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn input_purpose(self, input_purpose: gtk::InputPurpose) -> Self {
         Self {
             builder: self.builder.property("input-purpose", input_purpose),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn show_apply_button(self, show_apply_button: bool) -> Self {
         Self {
             builder: self
@@ -116,16 +116,16 @@ impl PasswordEntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),

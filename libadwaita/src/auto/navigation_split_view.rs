@@ -177,8 +177,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "collapsed")]
     pub fn connect_collapsed_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_collapsed_trampoline<F: Fn(&NavigationSplitView) + 'static>(
@@ -202,8 +202,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "content")]
     pub fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_content_trampoline<F: Fn(&NavigationSplitView) + 'static>(
@@ -227,8 +227,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "max-sidebar-width")]
     pub fn connect_max_sidebar_width_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -257,8 +257,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "min-sidebar-width")]
     pub fn connect_min_sidebar_width_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -287,8 +287,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "show-content")]
     pub fn connect_show_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_show_content_trampoline<
@@ -314,8 +314,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "sidebar")]
     pub fn connect_sidebar_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_sidebar_trampoline<F: Fn(&NavigationSplitView) + 'static>(
@@ -339,8 +339,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "sidebar-width-fraction")]
     pub fn connect_sidebar_width_fraction_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -369,8 +369,8 @@ impl NavigationSplitView {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "sidebar-width-unit")]
     pub fn connect_sidebar_width_unit_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -400,8 +400,8 @@ impl NavigationSplitView {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for NavigationSplitView {
     fn default() -> Self {
         Self::new()
@@ -424,24 +424,24 @@ impl NavigationSplitViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn collapsed(self, collapsed: bool) -> Self {
         Self {
             builder: self.builder.property("collapsed", collapsed),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn content(self, content: &impl IsA<NavigationPage>) -> Self {
         Self {
             builder: self.builder.property("content", content.clone().upcast()),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn max_sidebar_width(self, max_sidebar_width: f64) -> Self {
         Self {
             builder: self
@@ -450,8 +450,8 @@ impl NavigationSplitViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn min_sidebar_width(self, min_sidebar_width: f64) -> Self {
         Self {
             builder: self
@@ -460,24 +460,24 @@ impl NavigationSplitViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn show_content(self, show_content: bool) -> Self {
         Self {
             builder: self.builder.property("show-content", show_content),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn sidebar(self, sidebar: &impl IsA<NavigationPage>) -> Self {
         Self {
             builder: self.builder.property("sidebar", sidebar.clone().upcast()),
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn sidebar_width_fraction(self, sidebar_width_fraction: f64) -> Self {
         Self {
             builder: self
@@ -486,8 +486,8 @@ impl NavigationSplitViewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn sidebar_width_unit(self, sidebar_width_unit: LengthUnit) -> Self {
         Self {
             builder: self

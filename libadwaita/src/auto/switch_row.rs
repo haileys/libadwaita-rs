@@ -48,8 +48,8 @@ impl SwitchRow {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "active")]
     pub fn connect_active_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_active_trampoline<F: Fn(&SwitchRow) + 'static>(
@@ -74,8 +74,8 @@ impl SwitchRow {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl Default for SwitchRow {
     fn default() -> Self {
         Self::new()
@@ -98,8 +98,8 @@ impl SwitchRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn active(self, active: bool) -> Self {
         Self {
             builder: self.builder.property("active", active),
@@ -133,8 +133,8 @@ impl SwitchRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn subtitle_selectable(self, subtitle_selectable: bool) -> Self {
         Self {
             builder: self
@@ -155,16 +155,16 @@ impl SwitchRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),

@@ -94,16 +94,16 @@ impl ExpanderRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn subtitle_lines(self, subtitle_lines: i32) -> Self {
         Self {
             builder: self.builder.property("subtitle-lines", subtitle_lines),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn title_lines(self, title_lines: i32) -> Self {
         Self {
             builder: self.builder.property("title-lines", title_lines),
@@ -116,16 +116,16 @@ impl ExpanderRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),
@@ -362,116 +362,15 @@ impl ExpanderRowBuilder {
     }
 }
 
-pub trait ExpanderRowExt: 'static {
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::ExpanderRow>> Sealed for T {}
+}
+
+pub trait ExpanderRowExt: IsA<ExpanderRow> + sealed::Sealed + 'static {
     #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[allow(deprecated)]
     #[doc(alias = "adw_expander_row_add_action")]
-    fn add_action(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_expander_row_add_prefix")]
-    fn add_prefix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_expander_row_add_row")]
-    fn add_row(&self, child: &impl IsA<gtk::Widget>);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_expander_row_add_suffix")]
-    fn add_suffix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_expander_row_get_enable_expansion")]
-    #[doc(alias = "get_enable_expansion")]
-    fn enables_expansion(&self) -> bool;
-
-    #[doc(alias = "adw_expander_row_get_expanded")]
-    #[doc(alias = "get_expanded")]
-    fn is_expanded(&self) -> bool;
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_expander_row_get_icon_name")]
-    #[doc(alias = "get_icon_name")]
-    fn icon_name(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_expander_row_get_show_enable_switch")]
-    #[doc(alias = "get_show_enable_switch")]
-    fn shows_enable_switch(&self) -> bool;
-
-    #[doc(alias = "adw_expander_row_get_subtitle")]
-    #[doc(alias = "get_subtitle")]
-    fn subtitle(&self) -> glib::GString;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_expander_row_get_subtitle_lines")]
-    #[doc(alias = "get_subtitle_lines")]
-    fn is_subtitle_lines(&self) -> bool;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_expander_row_get_title_lines")]
-    #[doc(alias = "get_title_lines")]
-    fn is_title_lines(&self) -> bool;
-
-    #[doc(alias = "adw_expander_row_remove")]
-    fn remove(&self, child: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_expander_row_set_enable_expansion")]
-    fn set_enable_expansion(&self, enable_expansion: bool);
-
-    #[doc(alias = "adw_expander_row_set_expanded")]
-    fn set_expanded(&self, expanded: bool);
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_expander_row_set_icon_name")]
-    fn set_icon_name(&self, icon_name: Option<&str>);
-
-    #[doc(alias = "adw_expander_row_set_show_enable_switch")]
-    fn set_show_enable_switch(&self, show_enable_switch: bool);
-
-    #[doc(alias = "adw_expander_row_set_subtitle")]
-    fn set_subtitle(&self, subtitle: &str);
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_expander_row_set_subtitle_lines")]
-    fn set_subtitle_lines(&self, subtitle_lines: i32);
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_expander_row_set_title_lines")]
-    fn set_title_lines(&self, title_lines: i32);
-
-    #[doc(alias = "enable-expansion")]
-    fn connect_enable_expansion_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "expanded")]
-    fn connect_expanded_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[doc(alias = "icon-name")]
-    fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "show-enable-switch")]
-    fn connect_show_enable_switch_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "subtitle")]
-    fn connect_subtitle_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "subtitle-lines")]
-    fn connect_subtitle_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "title-lines")]
-    fn connect_title_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-}
-
-impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
-    #[allow(deprecated)]
     fn add_action(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_expander_row_add_action(
@@ -481,6 +380,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_add_prefix")]
     fn add_prefix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_expander_row_add_prefix(
@@ -490,6 +390,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_add_row")]
     fn add_row(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_expander_row_add_row(
@@ -499,8 +400,9 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_expander_row_add_suffix")]
     fn add_suffix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_expander_row_add_suffix(
@@ -510,6 +412,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_get_enable_expansion")]
+    #[doc(alias = "get_enable_expansion")]
     fn enables_expansion(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_expander_row_get_enable_expansion(
@@ -518,6 +422,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_get_expanded")]
+    #[doc(alias = "get_expanded")]
     fn is_expanded(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_expander_row_get_expanded(
@@ -526,7 +432,10 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_expander_row_get_icon_name")]
+    #[doc(alias = "get_icon_name")]
     fn icon_name(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_expander_row_get_icon_name(
@@ -535,6 +444,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_get_show_enable_switch")]
+    #[doc(alias = "get_show_enable_switch")]
     fn shows_enable_switch(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_expander_row_get_show_enable_switch(
@@ -543,6 +454,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_get_subtitle")]
+    #[doc(alias = "get_subtitle")]
     fn subtitle(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_expander_row_get_subtitle(
@@ -551,8 +464,10 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_expander_row_get_subtitle_lines")]
+    #[doc(alias = "get_subtitle_lines")]
     fn is_subtitle_lines(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_expander_row_get_subtitle_lines(
@@ -561,8 +476,10 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_expander_row_get_title_lines")]
+    #[doc(alias = "get_title_lines")]
     fn is_title_lines(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_expander_row_get_title_lines(
@@ -571,6 +488,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_remove")]
     fn remove(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_expander_row_remove(
@@ -580,6 +498,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_set_enable_expansion")]
     fn set_enable_expansion(&self, enable_expansion: bool) {
         unsafe {
             ffi::adw_expander_row_set_enable_expansion(
@@ -589,6 +508,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_set_expanded")]
     fn set_expanded(&self, expanded: bool) {
         unsafe {
             ffi::adw_expander_row_set_expanded(
@@ -598,7 +518,9 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_expander_row_set_icon_name")]
     fn set_icon_name(&self, icon_name: Option<&str>) {
         unsafe {
             ffi::adw_expander_row_set_icon_name(
@@ -608,6 +530,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_set_show_enable_switch")]
     fn set_show_enable_switch(&self, show_enable_switch: bool) {
         unsafe {
             ffi::adw_expander_row_set_show_enable_switch(
@@ -617,6 +540,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_expander_row_set_subtitle")]
     fn set_subtitle(&self, subtitle: &str) {
         unsafe {
             ffi::adw_expander_row_set_subtitle(
@@ -626,8 +550,9 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_expander_row_set_subtitle_lines")]
     fn set_subtitle_lines(&self, subtitle_lines: i32) {
         unsafe {
             ffi::adw_expander_row_set_subtitle_lines(
@@ -637,14 +562,16 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_expander_row_set_title_lines")]
     fn set_title_lines(&self, title_lines: i32) {
         unsafe {
             ffi::adw_expander_row_set_title_lines(self.as_ref().to_glib_none().0, title_lines);
         }
     }
 
+    #[doc(alias = "enable-expansion")]
     fn connect_enable_expansion_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_enable_expansion_trampoline<
             P: IsA<ExpanderRow>,
@@ -670,6 +597,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "expanded")]
     fn connect_expanded_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_expanded_trampoline<
             P: IsA<ExpanderRow>,
@@ -695,6 +623,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
+    #[doc(alias = "icon-name")]
     fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_icon_name_trampoline<
             P: IsA<ExpanderRow>,
@@ -720,6 +650,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "show-enable-switch")]
     fn connect_show_enable_switch_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_show_enable_switch_trampoline<
             P: IsA<ExpanderRow>,
@@ -745,6 +676,7 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
+    #[doc(alias = "subtitle")]
     fn connect_subtitle_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_trampoline<
             P: IsA<ExpanderRow>,
@@ -770,8 +702,9 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "subtitle-lines")]
     fn connect_subtitle_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_lines_trampoline<
             P: IsA<ExpanderRow>,
@@ -797,8 +730,9 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "title-lines")]
     fn connect_title_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_lines_trampoline<
             P: IsA<ExpanderRow>,
@@ -824,6 +758,8 @@ impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {
         }
     }
 }
+
+impl<O: IsA<ExpanderRow>> ExpanderRowExt for O {}
 
 impl fmt::Display for ExpanderRow {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

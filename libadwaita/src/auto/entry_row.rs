@@ -38,8 +38,8 @@ impl EntryRow {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl Default for EntryRow {
     fn default() -> Self {
         Self::new()
@@ -62,8 +62,8 @@ impl EntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn activates_default(self, activates_default: bool) -> Self {
         Self {
             builder: self
@@ -72,16 +72,16 @@ impl EntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn attributes(self, attributes: &pango::AttrList) -> Self {
         Self {
             builder: self.builder.property("attributes", attributes.clone()),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn enable_emoji_completion(self, enable_emoji_completion: bool) -> Self {
         Self {
             builder: self
@@ -90,24 +90,24 @@ impl EntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn input_hints(self, input_hints: gtk::InputHints) -> Self {
         Self {
             builder: self.builder.property("input-hints", input_hints),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn input_purpose(self, input_purpose: gtk::InputPurpose) -> Self {
         Self {
             builder: self.builder.property("input-purpose", input_purpose),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn show_apply_button(self, show_apply_button: bool) -> Self {
         Self {
             builder: self
@@ -122,16 +122,16 @@ impl EntryRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),
@@ -404,108 +404,13 @@ impl EntryRowBuilder {
     }
 }
 
-pub trait EntryRowExt: 'static {
-    #[doc(alias = "adw_entry_row_add_prefix")]
-    fn add_prefix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_entry_row_add_suffix")]
-    fn add_suffix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_entry_row_get_activates_default")]
-    #[doc(alias = "get_activates_default")]
-    fn activates_default(&self) -> bool;
-
-    #[doc(alias = "adw_entry_row_get_attributes")]
-    #[doc(alias = "get_attributes")]
-    fn attributes(&self) -> Option<pango::AttrList>;
-
-    #[doc(alias = "adw_entry_row_get_enable_emoji_completion")]
-    #[doc(alias = "get_enable_emoji_completion")]
-    fn enables_emoji_completion(&self) -> bool;
-
-    #[doc(alias = "adw_entry_row_get_input_hints")]
-    #[doc(alias = "get_input_hints")]
-    fn input_hints(&self) -> gtk::InputHints;
-
-    #[doc(alias = "adw_entry_row_get_input_purpose")]
-    #[doc(alias = "get_input_purpose")]
-    fn input_purpose(&self) -> gtk::InputPurpose;
-
-    #[doc(alias = "adw_entry_row_get_show_apply_button")]
-    #[doc(alias = "get_show_apply_button")]
-    fn shows_apply_button(&self) -> bool;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_entry_row_grab_focus_without_selecting")]
-    fn grab_focus_without_selecting(&self) -> bool;
-
-    #[doc(alias = "adw_entry_row_remove")]
-    fn remove(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_entry_row_set_activates_default")]
-    fn set_activates_default(&self, activates: bool);
-
-    #[doc(alias = "adw_entry_row_set_attributes")]
-    fn set_attributes(&self, attributes: Option<&pango::AttrList>);
-
-    #[doc(alias = "adw_entry_row_set_enable_emoji_completion")]
-    fn set_enable_emoji_completion(&self, enable_emoji_completion: bool);
-
-    #[doc(alias = "adw_entry_row_set_input_hints")]
-    fn set_input_hints(&self, hints: gtk::InputHints);
-
-    #[doc(alias = "adw_entry_row_set_input_purpose")]
-    fn set_input_purpose(&self, purpose: gtk::InputPurpose);
-
-    #[doc(alias = "adw_entry_row_set_show_apply_button")]
-    fn set_show_apply_button(&self, show_apply_button: bool);
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "apply")]
-    fn connect_apply<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "entry-activated")]
-    fn connect_entry_activated<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "activates-default")]
-    fn connect_activates_default_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "attributes")]
-    fn connect_attributes_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "enable-emoji-completion")]
-    fn connect_enable_emoji_completion_notify<F: Fn(&Self) + 'static>(
-        &self,
-        f: F,
-    ) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "input-hints")]
-    fn connect_input_hints_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "input-purpose")]
-    fn connect_input_purpose_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "show-apply-button")]
-    fn connect_show_apply_button_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::EntryRow>> Sealed for T {}
 }
 
-impl<O: IsA<EntryRow>> EntryRowExt for O {
+pub trait EntryRowExt: IsA<EntryRow> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_entry_row_add_prefix")]
     fn add_prefix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_entry_row_add_prefix(
@@ -515,6 +420,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_add_suffix")]
     fn add_suffix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_entry_row_add_suffix(
@@ -524,6 +430,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_activates_default")]
+    #[doc(alias = "get_activates_default")]
     fn activates_default(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_entry_row_get_activates_default(
@@ -532,6 +440,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_attributes")]
+    #[doc(alias = "get_attributes")]
     fn attributes(&self) -> Option<pango::AttrList> {
         unsafe {
             from_glib_full(ffi::adw_entry_row_get_attributes(
@@ -540,6 +450,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_enable_emoji_completion")]
+    #[doc(alias = "get_enable_emoji_completion")]
     fn enables_emoji_completion(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_entry_row_get_enable_emoji_completion(
@@ -548,6 +460,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_input_hints")]
+    #[doc(alias = "get_input_hints")]
     fn input_hints(&self) -> gtk::InputHints {
         unsafe {
             from_glib(ffi::adw_entry_row_get_input_hints(
@@ -556,6 +470,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_input_purpose")]
+    #[doc(alias = "get_input_purpose")]
     fn input_purpose(&self) -> gtk::InputPurpose {
         unsafe {
             from_glib(ffi::adw_entry_row_get_input_purpose(
@@ -564,6 +480,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_get_show_apply_button")]
+    #[doc(alias = "get_show_apply_button")]
     fn shows_apply_button(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_entry_row_get_show_apply_button(
@@ -572,8 +490,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_entry_row_grab_focus_without_selecting")]
     fn grab_focus_without_selecting(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_entry_row_grab_focus_without_selecting(
@@ -582,6 +501,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_remove")]
     fn remove(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_entry_row_remove(
@@ -591,6 +511,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_activates_default")]
     fn set_activates_default(&self, activates: bool) {
         unsafe {
             ffi::adw_entry_row_set_activates_default(
@@ -600,6 +521,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_attributes")]
     fn set_attributes(&self, attributes: Option<&pango::AttrList>) {
         unsafe {
             ffi::adw_entry_row_set_attributes(
@@ -609,6 +531,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_enable_emoji_completion")]
     fn set_enable_emoji_completion(&self, enable_emoji_completion: bool) {
         unsafe {
             ffi::adw_entry_row_set_enable_emoji_completion(
@@ -618,12 +541,14 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_input_hints")]
     fn set_input_hints(&self, hints: gtk::InputHints) {
         unsafe {
             ffi::adw_entry_row_set_input_hints(self.as_ref().to_glib_none().0, hints.into_glib());
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_input_purpose")]
     fn set_input_purpose(&self, purpose: gtk::InputPurpose) {
         unsafe {
             ffi::adw_entry_row_set_input_purpose(
@@ -633,6 +558,7 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_entry_row_set_show_apply_button")]
     fn set_show_apply_button(&self, show_apply_button: bool) {
         unsafe {
             ffi::adw_entry_row_set_show_apply_button(
@@ -642,8 +568,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "apply")]
     fn connect_apply<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn apply_trampoline<P: IsA<EntryRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwEntryRow,
@@ -665,8 +592,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "entry-activated")]
     fn connect_entry_activated<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn entry_activated_trampoline<P: IsA<EntryRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwEntryRow,
@@ -688,8 +616,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "activates-default")]
     fn connect_activates_default_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_activates_default_trampoline<
             P: IsA<EntryRow>,
@@ -715,8 +644,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "attributes")]
     fn connect_attributes_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_attributes_trampoline<P: IsA<EntryRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwEntryRow,
@@ -739,8 +669,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "enable-emoji-completion")]
     fn connect_enable_emoji_completion_notify<F: Fn(&Self) + 'static>(
         &self,
         f: F,
@@ -769,8 +700,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "input-hints")]
     fn connect_input_hints_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_input_hints_trampoline<
             P: IsA<EntryRow>,
@@ -796,8 +728,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "input-purpose")]
     fn connect_input_purpose_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_input_purpose_trampoline<
             P: IsA<EntryRow>,
@@ -823,8 +756,9 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "show-apply-button")]
     fn connect_show_apply_button_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_show_apply_button_trampoline<
             P: IsA<EntryRow>,
@@ -850,6 +784,8 @@ impl<O: IsA<EntryRow>> EntryRowExt for O {
         }
     }
 }
+
+impl<O: IsA<EntryRow>> EntryRowExt for O {}
 
 impl fmt::Display for EntryRow {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

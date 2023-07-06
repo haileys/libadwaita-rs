@@ -60,8 +60,8 @@ impl PreferencesPageBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn description(self, description: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("description", description.into()),
@@ -278,73 +278,13 @@ impl PreferencesPageBuilder {
     }
 }
 
-pub trait PreferencesPageExt: 'static {
-    #[doc(alias = "adw_preferences_page_add")]
-    fn add(&self, group: &impl IsA<PreferencesGroup>);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_preferences_page_get_description")]
-    #[doc(alias = "get_description")]
-    fn description(&self) -> glib::GString;
-
-    #[doc(alias = "adw_preferences_page_get_icon_name")]
-    #[doc(alias = "get_icon_name")]
-    fn icon_name(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_preferences_page_get_name")]
-    #[doc(alias = "get_name")]
-    fn name(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_preferences_page_get_title")]
-    #[doc(alias = "get_title")]
-    fn title(&self) -> glib::GString;
-
-    #[doc(alias = "adw_preferences_page_get_use_underline")]
-    #[doc(alias = "get_use_underline")]
-    fn uses_underline(&self) -> bool;
-
-    #[doc(alias = "adw_preferences_page_remove")]
-    fn remove(&self, group: &impl IsA<PreferencesGroup>);
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_preferences_page_scroll_to_top")]
-    fn scroll_to_top(&self);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_preferences_page_set_description")]
-    fn set_description(&self, description: &str);
-
-    #[doc(alias = "adw_preferences_page_set_icon_name")]
-    fn set_icon_name(&self, icon_name: Option<&str>);
-
-    #[doc(alias = "adw_preferences_page_set_name")]
-    fn set_name(&self, name: Option<&str>);
-
-    #[doc(alias = "adw_preferences_page_set_title")]
-    fn set_title(&self, title: &str);
-
-    #[doc(alias = "adw_preferences_page_set_use_underline")]
-    fn set_use_underline(&self, use_underline: bool);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "description")]
-    fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "icon-name")]
-    fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "title")]
-    fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "use-underline")]
-    fn connect_use_underline_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::PreferencesPage>> Sealed for T {}
 }
 
-impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
+pub trait PreferencesPageExt: IsA<PreferencesPage> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_preferences_page_add")]
     fn add(&self, group: &impl IsA<PreferencesGroup>) {
         unsafe {
             ffi::adw_preferences_page_add(
@@ -354,8 +294,10 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_page_get_description")]
+    #[doc(alias = "get_description")]
     fn description(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_preferences_page_get_description(
@@ -364,6 +306,8 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_get_icon_name")]
+    #[doc(alias = "get_icon_name")]
     fn icon_name(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_preferences_page_get_icon_name(
@@ -372,6 +316,8 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_get_name")]
+    #[doc(alias = "get_name")]
     fn name(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_preferences_page_get_name(
@@ -380,6 +326,8 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_get_title")]
+    #[doc(alias = "get_title")]
     fn title(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_preferences_page_get_title(
@@ -388,6 +336,8 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_get_use_underline")]
+    #[doc(alias = "get_use_underline")]
     fn uses_underline(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_page_get_use_underline(
@@ -396,6 +346,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_remove")]
     fn remove(&self, group: &impl IsA<PreferencesGroup>) {
         unsafe {
             ffi::adw_preferences_page_remove(
@@ -405,16 +356,18 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_preferences_page_scroll_to_top")]
     fn scroll_to_top(&self) {
         unsafe {
             ffi::adw_preferences_page_scroll_to_top(self.as_ref().to_glib_none().0);
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_page_set_description")]
     fn set_description(&self, description: &str) {
         unsafe {
             ffi::adw_preferences_page_set_description(
@@ -424,6 +377,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_set_icon_name")]
     fn set_icon_name(&self, icon_name: Option<&str>) {
         unsafe {
             ffi::adw_preferences_page_set_icon_name(
@@ -433,6 +387,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_set_name")]
     fn set_name(&self, name: Option<&str>) {
         unsafe {
             ffi::adw_preferences_page_set_name(
@@ -442,6 +397,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_set_title")]
     fn set_title(&self, title: &str) {
         unsafe {
             ffi::adw_preferences_page_set_title(
@@ -451,6 +407,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_page_set_use_underline")]
     fn set_use_underline(&self, use_underline: bool) {
         unsafe {
             ffi::adw_preferences_page_set_use_underline(
@@ -460,8 +417,9 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "description")]
     fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_description_trampoline<
             P: IsA<PreferencesPage>,
@@ -487,6 +445,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "icon-name")]
     fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_icon_name_trampoline<
             P: IsA<PreferencesPage>,
@@ -512,6 +471,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "title")]
     fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<
             P: IsA<PreferencesPage>,
@@ -537,6 +497,7 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 
+    #[doc(alias = "use-underline")]
     fn connect_use_underline_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_use_underline_trampoline<
             P: IsA<PreferencesPage>,
@@ -562,6 +523,8 @@ impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {
         }
     }
 }
+
+impl<O: IsA<PreferencesPage>> PreferencesPageExt for O {}
 
 impl fmt::Display for PreferencesPage {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

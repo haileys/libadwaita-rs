@@ -65,16 +65,16 @@ impl PreferencesRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),
@@ -311,61 +311,14 @@ impl PreferencesRowBuilder {
     }
 }
 
-pub trait PreferencesRowExt: 'static {
-    #[doc(alias = "adw_preferences_row_get_title")]
-    #[doc(alias = "get_title")]
-    fn title(&self) -> glib::GString;
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "adw_preferences_row_get_title_selectable")]
-    #[doc(alias = "get_title_selectable")]
-    fn is_title_selectable(&self) -> bool;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "adw_preferences_row_get_use_markup")]
-    #[doc(alias = "get_use_markup")]
-    fn uses_markup(&self) -> bool;
-
-    #[doc(alias = "adw_preferences_row_get_use_underline")]
-    #[doc(alias = "get_use_underline")]
-    fn uses_underline(&self) -> bool;
-
-    #[doc(alias = "adw_preferences_row_set_title")]
-    fn set_title(&self, title: &str);
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "adw_preferences_row_set_title_selectable")]
-    fn set_title_selectable(&self, title_selectable: bool);
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "adw_preferences_row_set_use_markup")]
-    fn set_use_markup(&self, use_markup: bool);
-
-    #[doc(alias = "adw_preferences_row_set_use_underline")]
-    fn set_use_underline(&self, use_underline: bool);
-
-    #[doc(alias = "title")]
-    fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "title-selectable")]
-    fn connect_title_selectable_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-    #[doc(alias = "use-markup")]
-    fn connect_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "use-underline")]
-    fn connect_use_underline_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::PreferencesRow>> Sealed for T {}
 }
 
-impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
+pub trait PreferencesRowExt: IsA<PreferencesRow> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_preferences_row_get_title")]
+    #[doc(alias = "get_title")]
     fn title(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_preferences_row_get_title(
@@ -374,8 +327,10 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "adw_preferences_row_get_title_selectable")]
+    #[doc(alias = "get_title_selectable")]
     fn is_title_selectable(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_row_get_title_selectable(
@@ -384,8 +339,10 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "adw_preferences_row_get_use_markup")]
+    #[doc(alias = "get_use_markup")]
     fn uses_markup(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_row_get_use_markup(
@@ -394,6 +351,8 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_row_get_use_underline")]
+    #[doc(alias = "get_use_underline")]
     fn uses_underline(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_row_get_use_underline(
@@ -402,6 +361,7 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_row_set_title")]
     fn set_title(&self, title: &str) {
         unsafe {
             ffi::adw_preferences_row_set_title(
@@ -411,8 +371,9 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "adw_preferences_row_set_title_selectable")]
     fn set_title_selectable(&self, title_selectable: bool) {
         unsafe {
             ffi::adw_preferences_row_set_title_selectable(
@@ -422,8 +383,9 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "adw_preferences_row_set_use_markup")]
     fn set_use_markup(&self, use_markup: bool) {
         unsafe {
             ffi::adw_preferences_row_set_use_markup(
@@ -433,6 +395,7 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_row_set_use_underline")]
     fn set_use_underline(&self, use_underline: bool) {
         unsafe {
             ffi::adw_preferences_row_set_use_underline(
@@ -442,6 +405,7 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
+    #[doc(alias = "title")]
     fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<
             P: IsA<PreferencesRow>,
@@ -467,8 +431,9 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "title-selectable")]
     fn connect_title_selectable_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_selectable_trampoline<
             P: IsA<PreferencesRow>,
@@ -494,8 +459,9 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+    #[doc(alias = "use-markup")]
     fn connect_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_use_markup_trampoline<
             P: IsA<PreferencesRow>,
@@ -521,6 +487,7 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 
+    #[doc(alias = "use-underline")]
     fn connect_use_underline_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_use_underline_trampoline<
             P: IsA<PreferencesRow>,
@@ -546,6 +513,8 @@ impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {
         }
     }
 }
+
+impl<O: IsA<PreferencesRow>> PreferencesRowExt for O {}
 
 impl fmt::Display for PreferencesRow {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

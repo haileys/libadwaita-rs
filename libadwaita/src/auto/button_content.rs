@@ -34,8 +34,8 @@ impl ButtonContent {
         ButtonContentBuilder::new()
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_button_content_get_can_shrink")]
     #[doc(alias = "get_can_shrink")]
     pub fn can_shrink(&self) -> bool {
@@ -68,8 +68,8 @@ impl ButtonContent {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_button_content_set_can_shrink")]
     pub fn set_can_shrink(&self, can_shrink: bool) {
         unsafe {
@@ -104,8 +104,8 @@ impl ButtonContent {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "can-shrink")]
     pub fn connect_can_shrink_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_can_shrink_trampoline<F: Fn(&ButtonContent) + 'static>(
@@ -221,8 +221,8 @@ impl ButtonContentBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn can_shrink(self, can_shrink: bool) -> Self {
         Self {
             builder: self.builder.property("can-shrink", can_shrink),

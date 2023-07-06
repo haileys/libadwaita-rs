@@ -24,76 +24,16 @@ impl Animation {
     pub const NONE: Option<&'static Animation> = None;
 }
 
-pub trait AnimationExt: 'static {
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_animation_get_follow_enable_animations_setting")]
-    #[doc(alias = "get_follow_enable_animations_setting")]
-    fn follows_enable_animations_setting(&self) -> bool;
-
-    #[doc(alias = "adw_animation_get_state")]
-    #[doc(alias = "get_state")]
-    fn state(&self) -> AnimationState;
-
-    #[doc(alias = "adw_animation_get_target")]
-    #[doc(alias = "get_target")]
-    fn target(&self) -> AnimationTarget;
-
-    #[doc(alias = "adw_animation_get_value")]
-    #[doc(alias = "get_value")]
-    fn value(&self) -> f64;
-
-    #[doc(alias = "adw_animation_get_widget")]
-    #[doc(alias = "get_widget")]
-    fn widget(&self) -> gtk::Widget;
-
-    #[doc(alias = "adw_animation_pause")]
-    fn pause(&self);
-
-    #[doc(alias = "adw_animation_play")]
-    fn play(&self);
-
-    #[doc(alias = "adw_animation_reset")]
-    fn reset(&self);
-
-    #[doc(alias = "adw_animation_resume")]
-    fn resume(&self);
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_animation_set_follow_enable_animations_setting")]
-    fn set_follow_enable_animations_setting(&self, setting: bool);
-
-    #[doc(alias = "adw_animation_set_target")]
-    fn set_target(&self, target: &impl IsA<AnimationTarget>);
-
-    #[doc(alias = "adw_animation_skip")]
-    fn skip(&self);
-
-    #[doc(alias = "done")]
-    fn connect_done<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "follow-enable-animations-setting")]
-    fn connect_follow_enable_animations_setting_notify<F: Fn(&Self) + 'static>(
-        &self,
-        f: F,
-    ) -> SignalHandlerId;
-
-    #[doc(alias = "state")]
-    fn connect_state_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "target")]
-    fn connect_target_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "value")]
-    fn connect_value_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::Animation>> Sealed for T {}
 }
 
-impl<O: IsA<Animation>> AnimationExt for O {
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+pub trait AnimationExt: IsA<Animation> + sealed::Sealed + 'static {
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_animation_get_follow_enable_animations_setting")]
+    #[doc(alias = "get_follow_enable_animations_setting")]
     fn follows_enable_animations_setting(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_animation_get_follow_enable_animations_setting(
@@ -102,10 +42,14 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "adw_animation_get_state")]
+    #[doc(alias = "get_state")]
     fn state(&self) -> AnimationState {
         unsafe { from_glib(ffi::adw_animation_get_state(self.as_ref().to_glib_none().0)) }
     }
 
+    #[doc(alias = "adw_animation_get_target")]
+    #[doc(alias = "get_target")]
     fn target(&self) -> AnimationTarget {
         unsafe {
             from_glib_none(ffi::adw_animation_get_target(
@@ -114,10 +58,14 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "adw_animation_get_value")]
+    #[doc(alias = "get_value")]
     fn value(&self) -> f64 {
         unsafe { ffi::adw_animation_get_value(self.as_ref().to_glib_none().0) }
     }
 
+    #[doc(alias = "adw_animation_get_widget")]
+    #[doc(alias = "get_widget")]
     fn widget(&self) -> gtk::Widget {
         unsafe {
             from_glib_none(ffi::adw_animation_get_widget(
@@ -126,32 +74,37 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "adw_animation_pause")]
     fn pause(&self) {
         unsafe {
             ffi::adw_animation_pause(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_animation_play")]
     fn play(&self) {
         unsafe {
             ffi::adw_animation_play(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_animation_reset")]
     fn reset(&self) {
         unsafe {
             ffi::adw_animation_reset(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_animation_resume")]
     fn resume(&self) {
         unsafe {
             ffi::adw_animation_resume(self.as_ref().to_glib_none().0);
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_animation_set_follow_enable_animations_setting")]
     fn set_follow_enable_animations_setting(&self, setting: bool) {
         unsafe {
             ffi::adw_animation_set_follow_enable_animations_setting(
@@ -161,6 +114,7 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "adw_animation_set_target")]
     fn set_target(&self, target: &impl IsA<AnimationTarget>) {
         unsafe {
             ffi::adw_animation_set_target(
@@ -170,12 +124,14 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "adw_animation_skip")]
     fn skip(&self) {
         unsafe {
             ffi::adw_animation_skip(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[doc(alias = "done")]
     fn connect_done<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn done_trampoline<P: IsA<Animation>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwAnimation,
@@ -197,8 +153,9 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "follow-enable-animations-setting")]
     fn connect_follow_enable_animations_setting_notify<F: Fn(&Self) + 'static>(
         &self,
         f: F,
@@ -227,6 +184,7 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "state")]
     fn connect_state_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_state_trampoline<P: IsA<Animation>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwAnimation,
@@ -249,6 +207,7 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "target")]
     fn connect_target_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_target_trampoline<P: IsA<Animation>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwAnimation,
@@ -271,6 +230,7 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 
+    #[doc(alias = "value")]
     fn connect_value_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_value_trampoline<P: IsA<Animation>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwAnimation,
@@ -293,6 +253,8 @@ impl<O: IsA<Animation>> AnimationExt for O {
         }
     }
 }
+
+impl<O: IsA<Animation>> AnimationExt for O {}
 
 impl fmt::Display for Animation {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

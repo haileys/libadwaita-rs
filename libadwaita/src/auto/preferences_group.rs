@@ -65,8 +65,8 @@ impl PreferencesGroupBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn header_suffix(self, header_suffix: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self
@@ -273,51 +273,13 @@ impl PreferencesGroupBuilder {
     }
 }
 
-pub trait PreferencesGroupExt: 'static {
-    #[doc(alias = "adw_preferences_group_add")]
-    fn add(&self, child: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_preferences_group_get_description")]
-    #[doc(alias = "get_description")]
-    fn description(&self) -> Option<glib::GString>;
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "adw_preferences_group_get_header_suffix")]
-    #[doc(alias = "get_header_suffix")]
-    fn header_suffix(&self) -> Option<gtk::Widget>;
-
-    #[doc(alias = "adw_preferences_group_get_title")]
-    #[doc(alias = "get_title")]
-    fn title(&self) -> glib::GString;
-
-    #[doc(alias = "adw_preferences_group_remove")]
-    fn remove(&self, child: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_preferences_group_set_description")]
-    fn set_description(&self, description: Option<&str>);
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "adw_preferences_group_set_header_suffix")]
-    fn set_header_suffix(&self, suffix: Option<&impl IsA<gtk::Widget>>);
-
-    #[doc(alias = "adw_preferences_group_set_title")]
-    fn set_title(&self, title: &str);
-
-    #[doc(alias = "description")]
-    fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
-    #[doc(alias = "header-suffix")]
-    fn connect_header_suffix_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "title")]
-    fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::PreferencesGroup>> Sealed for T {}
 }
 
-impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
+pub trait PreferencesGroupExt: IsA<PreferencesGroup> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_preferences_group_add")]
     fn add(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_preferences_group_add(
@@ -327,6 +289,8 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_group_get_description")]
+    #[doc(alias = "get_description")]
     fn description(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_preferences_group_get_description(
@@ -335,8 +299,10 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "adw_preferences_group_get_header_suffix")]
+    #[doc(alias = "get_header_suffix")]
     fn header_suffix(&self) -> Option<gtk::Widget> {
         unsafe {
             from_glib_none(ffi::adw_preferences_group_get_header_suffix(
@@ -345,6 +311,8 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_group_get_title")]
+    #[doc(alias = "get_title")]
     fn title(&self) -> glib::GString {
         unsafe {
             from_glib_none(ffi::adw_preferences_group_get_title(
@@ -353,6 +321,7 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_group_remove")]
     fn remove(&self, child: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_preferences_group_remove(
@@ -362,6 +331,7 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_group_set_description")]
     fn set_description(&self, description: Option<&str>) {
         unsafe {
             ffi::adw_preferences_group_set_description(
@@ -371,8 +341,9 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "adw_preferences_group_set_header_suffix")]
     fn set_header_suffix(&self, suffix: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_preferences_group_set_header_suffix(
@@ -382,6 +353,7 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_group_set_title")]
     fn set_title(&self, title: &str) {
         unsafe {
             ffi::adw_preferences_group_set_title(
@@ -391,6 +363,7 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "description")]
     fn connect_description_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_description_trampoline<
             P: IsA<PreferencesGroup>,
@@ -416,8 +389,9 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
+    #[doc(alias = "header-suffix")]
     fn connect_header_suffix_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_header_suffix_trampoline<
             P: IsA<PreferencesGroup>,
@@ -443,6 +417,7 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 
+    #[doc(alias = "title")]
     fn connect_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_trampoline<
             P: IsA<PreferencesGroup>,
@@ -468,6 +443,8 @@ impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {
         }
     }
 }
+
+impl<O: IsA<PreferencesGroup>> PreferencesGroupExt for O {}
 
 impl fmt::Display for PreferencesGroup {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
