@@ -4,11 +4,11 @@ use glib::translate::*;
 use crate::prelude::*;
 use crate::MessageDialog;
 
-#[cfg(any(feature = "v1_3", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+#[cfg(feature = "v1_3")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
 use std::boxed::Box as Box_;
-#[cfg(any(feature = "v1_3", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+#[cfg(feature = "v1_3")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
 use std::pin::Pin;
 
 mod sealed {
@@ -37,11 +37,9 @@ pub trait MessageDialogExtManual: sealed::Sealed + IsA<MessageDialog> + 'static 
         });
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_message_dialog_choose")]
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     fn choose<P: FnOnce(glib::GString) + 'static>(
         self,
         cancellable: Option<&impl IsA<gio::Cancellable>>,
@@ -84,8 +82,8 @@ pub trait MessageDialogExtManual: sealed::Sealed + IsA<MessageDialog> + 'static 
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     fn choose_future(self) -> Pin<Box_<dyn std::future::Future<Output = glib::GString> + 'static>> {
         Box_::pin(gio::GioFuture::new(
             &self,
