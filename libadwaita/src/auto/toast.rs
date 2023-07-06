@@ -64,8 +64,8 @@ impl Toast {
         unsafe { from_glib_none(ffi::adw_toast_get_button_label(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_toast_get_custom_title")]
     #[doc(alias = "get_custom_title")]
     pub fn custom_title(&self) -> Option<gtk::Widget> {
@@ -114,8 +114,8 @@ impl Toast {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_toast_set_custom_title")]
     pub fn set_custom_title(&self, widget: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
@@ -157,8 +157,8 @@ impl Toast {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "button-clicked")]
     pub fn connect_button_clicked<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn button_clicked_trampoline<F: Fn(&Toast) + 'static>(
@@ -272,8 +272,8 @@ impl Toast {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "custom-title")]
     pub fn connect_custom_title_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_custom_title_trampoline<F: Fn(&Toast) + 'static>(
@@ -409,8 +409,8 @@ impl ToastBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn custom_title(self, custom_title: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self

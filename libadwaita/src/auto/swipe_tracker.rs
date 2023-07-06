@@ -65,8 +65,8 @@ impl SwipeTracker {
         unsafe { from_glib(ffi::adw_swipe_tracker_get_enabled(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_swipe_tracker_get_lower_overshoot")]
     #[doc(alias = "get_lower_overshoot")]
     pub fn is_lower_overshoot(&self) -> bool {
@@ -89,8 +89,8 @@ impl SwipeTracker {
         unsafe { from_glib_none(ffi::adw_swipe_tracker_get_swipeable(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_swipe_tracker_get_upper_overshoot")]
     #[doc(alias = "get_upper_overshoot")]
     pub fn is_upper_overshoot(&self) -> bool {
@@ -128,8 +128,8 @@ impl SwipeTracker {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_swipe_tracker_set_lower_overshoot")]
     pub fn set_lower_overshoot(&self, overshoot: bool) {
         unsafe {
@@ -147,8 +147,8 @@ impl SwipeTracker {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_swipe_tracker_set_upper_overshoot")]
     pub fn set_upper_overshoot(&self, overshoot: bool) {
         unsafe {
@@ -335,8 +335,8 @@ impl SwipeTracker {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "lower-overshoot")]
     pub fn connect_lower_overshoot_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_lower_overshoot_trampoline<F: Fn(&SwipeTracker) + 'static>(
@@ -383,8 +383,8 @@ impl SwipeTracker {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "upper-overshoot")]
     pub fn connect_upper_overshoot_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_upper_overshoot_trampoline<F: Fn(&SwipeTracker) + 'static>(
@@ -451,8 +451,8 @@ impl SwipeTrackerBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn lower_overshoot(self, lower_overshoot: bool) -> Self {
         Self {
             builder: self.builder.property("lower-overshoot", lower_overshoot),
@@ -473,8 +473,8 @@ impl SwipeTrackerBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn upper_overshoot(self, upper_overshoot: bool) -> Self {
         Self {
             builder: self.builder.property("upper-overshoot", upper_overshoot),

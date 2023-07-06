@@ -35,13 +35,14 @@ docs:
   stage: test
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
+    RUSTDOCFLAGS: "--cfg docsrs"
   script:
     # generate the docs
     - cargo install rustdoc-stripper
     - ./generator.py --embed-docs
     - rustup default nightly
     - eval $(./gir-rustdoc.py pre-docs)
-    - cargo doc --features dox --no-deps
+    - cargo doc --all-features --no-deps
     - mv target/doc/ docs
     # Fetch the libadwaita images
     - git clone --depth=1 https://gitlab.gnome.org/GNOME/libadwaita --no-checkout ./adw-src

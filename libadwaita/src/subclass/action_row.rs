@@ -11,14 +11,15 @@ pub trait ActionRowImpl: PreferencesRowImpl {
     }
 }
 
-pub trait ActionRowImplExt: ObjectSubclass {
-    fn parent_activate(&self);
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::ActionRowImplExt> Sealed for T {}
 }
 
-impl<T: ActionRowImpl> ActionRowImplExt for T {
+pub trait ActionRowImplExt: sealed::Sealed + ObjectSubclass {
     fn parent_activate(&self) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwActionRowClass;
             if let Some(f) = (*parent_class).activate {
                 f(self.obj().unsafe_cast_ref::<ActionRow>().to_glib_none().0)
@@ -26,6 +27,8 @@ impl<T: ActionRowImpl> ActionRowImplExt for T {
         }
     }
 }
+
+impl<T: ActionRowImpl> ActionRowImplExt for T {}
 
 unsafe impl<T: ActionRowImpl> IsSubclassable<T> for ActionRow {
     fn class_init(class: &mut glib::Class<Self>) {

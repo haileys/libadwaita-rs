@@ -34,8 +34,8 @@ impl SplitButton {
         SplitButtonBuilder::new()
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_split_button_get_can_shrink")]
     #[doc(alias = "get_can_shrink")]
     pub fn can_shrink(&self) -> bool {
@@ -54,8 +54,8 @@ impl SplitButton {
         unsafe { from_glib(ffi::adw_split_button_get_direction(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_split_button_get_dropdown_tooltip")]
     #[doc(alias = "get_dropdown_tooltip")]
     pub fn dropdown_tooltip(&self) -> glib::GString {
@@ -114,8 +114,8 @@ impl SplitButton {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_split_button_set_can_shrink")]
     pub fn set_can_shrink(&self, can_shrink: bool) {
         unsafe {
@@ -140,8 +140,8 @@ impl SplitButton {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "adw_split_button_set_dropdown_tooltip")]
     pub fn set_dropdown_tooltip(&self, tooltip: &str) {
         unsafe {
@@ -248,8 +248,8 @@ impl SplitButton {
         self.emit_by_name::<()>("clicked", &[]);
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "can-shrink")]
     pub fn connect_can_shrink_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_can_shrink_trampoline<F: Fn(&SplitButton) + 'static>(
@@ -319,8 +319,8 @@ impl SplitButton {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     #[doc(alias = "dropdown-tooltip")]
     pub fn connect_dropdown_tooltip_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_dropdown_tooltip_trampoline<F: Fn(&SplitButton) + 'static>(
@@ -482,8 +482,8 @@ impl SplitButtonBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn can_shrink(self, can_shrink: bool) -> Self {
         Self {
             builder: self.builder.property("can-shrink", can_shrink),
@@ -502,8 +502,8 @@ impl SplitButtonBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn dropdown_tooltip(self, dropdown_tooltip: impl Into<glib::GString>) -> Self {
         Self {
             builder: self

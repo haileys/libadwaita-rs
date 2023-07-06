@@ -50,15 +50,15 @@ impl SpringAnimation {
         SpringAnimationBuilder::new()
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_spring_animation_calculate_value")]
     pub fn calculate_value(&self, time: u32) -> f64 {
         unsafe { ffi::adw_spring_animation_calculate_value(self.to_glib_none().0, time) }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_spring_animation_calculate_velocity")]
     pub fn calculate_velocity(&self, time: u32) -> f64 {
         unsafe { ffi::adw_spring_animation_calculate_velocity(self.to_glib_none().0, time) }
@@ -413,8 +413,8 @@ impl SpringAnimationBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn follow_enable_animations_setting(self, follow_enable_animations_setting: bool) -> Self {
         Self {
             builder: self.builder.property(

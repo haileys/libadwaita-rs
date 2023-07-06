@@ -110,16 +110,14 @@ impl ApplicationBuilder {
     }
 }
 
-pub trait AdwApplicationExt: 'static {
-    #[doc(alias = "adw_application_get_style_manager")]
-    #[doc(alias = "get_style_manager")]
-    fn style_manager(&self) -> StyleManager;
-
-    #[doc(alias = "style-manager")]
-    fn connect_style_manager_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::Application>> Sealed for T {}
 }
 
-impl<O: IsA<Application>> AdwApplicationExt for O {
+pub trait AdwApplicationExt: IsA<Application> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_application_get_style_manager")]
+    #[doc(alias = "get_style_manager")]
     fn style_manager(&self) -> StyleManager {
         unsafe {
             from_glib_none(ffi::adw_application_get_style_manager(
@@ -128,6 +126,7 @@ impl<O: IsA<Application>> AdwApplicationExt for O {
         }
     }
 
+    #[doc(alias = "style-manager")]
     fn connect_style_manager_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_style_manager_trampoline<
             P: IsA<Application>,
@@ -153,6 +152,8 @@ impl<O: IsA<Application>> AdwApplicationExt for O {
         }
     }
 }
+
+impl<O: IsA<Application>> AdwApplicationExt for O {}
 
 impl fmt::Display for Application {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

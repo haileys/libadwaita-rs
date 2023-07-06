@@ -9,14 +9,15 @@ pub trait MessageDialogImpl: gtk::subclass::prelude::WindowImpl {
     }
 }
 
-pub trait MessageDialogImplExt: ObjectSubclass {
-    fn parent_response(&self, response: &str);
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::MessageDialogImplExt> Sealed for T {}
 }
 
-impl<T: MessageDialogImpl> MessageDialogImplExt for T {
+pub trait MessageDialogImplExt: sealed::Sealed + ObjectSubclass {
     fn parent_response(&self, response: &str) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwMessageDialogClass;
             if let Some(f) = (*parent_class).response {
                 f(
@@ -30,6 +31,8 @@ impl<T: MessageDialogImpl> MessageDialogImplExt for T {
         }
     }
 }
+
+impl<T: MessageDialogImpl> MessageDialogImplExt for T {}
 
 unsafe impl<T: MessageDialogImpl> IsSubclassable<T> for MessageDialog {
     fn class_init(class: &mut glib::Class<Self>) {

@@ -88,8 +88,8 @@ impl ActionRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn subtitle_selectable(self, subtitle_selectable: bool) -> Self {
         Self {
             builder: self
@@ -110,16 +110,16 @@ impl ActionRowBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_1", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_1")))]
+    #[cfg(feature = "v1_1")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_1")))]
     pub fn title_selectable(self, title_selectable: bool) -> Self {
         Self {
             builder: self.builder.property("title-selectable", title_selectable),
         }
     }
 
-    #[cfg(any(feature = "v1_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+    #[cfg(feature = "v1_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
     pub fn use_markup(self, use_markup: bool) -> Self {
         Self {
             builder: self.builder.property("use-markup", use_markup),
@@ -356,101 +356,20 @@ impl ActionRowBuilder {
     }
 }
 
-pub trait ActionRowExt: 'static {
-    #[doc(alias = "adw_action_row_activate")]
-    fn activate(&self);
-
-    #[doc(alias = "adw_action_row_add_prefix")]
-    fn add_prefix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_action_row_add_suffix")]
-    fn add_suffix(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_action_row_get_activatable_widget")]
-    #[doc(alias = "get_activatable_widget")]
-    fn activatable_widget(&self) -> Option<gtk::Widget>;
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_action_row_get_icon_name")]
-    #[doc(alias = "get_icon_name")]
-    fn icon_name(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_action_row_get_subtitle")]
-    #[doc(alias = "get_subtitle")]
-    fn subtitle(&self) -> Option<glib::GString>;
-
-    #[doc(alias = "adw_action_row_get_subtitle_lines")]
-    #[doc(alias = "get_subtitle_lines")]
-    fn subtitle_lines(&self) -> i32;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_action_row_get_subtitle_selectable")]
-    #[doc(alias = "get_subtitle_selectable")]
-    fn is_subtitle_selectable(&self) -> bool;
-
-    #[doc(alias = "adw_action_row_get_title_lines")]
-    #[doc(alias = "get_title_lines")]
-    fn title_lines(&self) -> i32;
-
-    #[doc(alias = "adw_action_row_remove")]
-    fn remove(&self, widget: &impl IsA<gtk::Widget>);
-
-    #[doc(alias = "adw_action_row_set_activatable_widget")]
-    fn set_activatable_widget(&self, widget: Option<&impl IsA<gtk::Widget>>);
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_action_row_set_icon_name")]
-    fn set_icon_name(&self, icon_name: Option<&str>);
-
-    #[doc(alias = "adw_action_row_set_subtitle")]
-    fn set_subtitle(&self, subtitle: &str);
-
-    #[doc(alias = "adw_action_row_set_subtitle_lines")]
-    fn set_subtitle_lines(&self, subtitle_lines: i32);
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "adw_action_row_set_subtitle_selectable")]
-    fn set_subtitle_selectable(&self, subtitle_selectable: bool);
-
-    #[doc(alias = "adw_action_row_set_title_lines")]
-    fn set_title_lines(&self, title_lines: i32);
-
-    #[doc(alias = "activated")]
-    fn connect_activated<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "activatable-widget")]
-    fn connect_activatable_widget_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
-    #[doc(alias = "icon-name")]
-    fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "subtitle")]
-    fn connect_subtitle_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "subtitle-lines")]
-    fn connect_subtitle_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
-    #[doc(alias = "subtitle-selectable")]
-    fn connect_subtitle_selectable_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "title-lines")]
-    fn connect_title_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::ActionRow>> Sealed for T {}
 }
 
-impl<O: IsA<ActionRow>> ActionRowExt for O {
+pub trait ActionRowExt: IsA<ActionRow> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_action_row_activate")]
     fn activate(&self) {
         unsafe {
             ffi::adw_action_row_activate(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[doc(alias = "adw_action_row_add_prefix")]
     fn add_prefix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_action_row_add_prefix(
@@ -460,6 +379,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_add_suffix")]
     fn add_suffix(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_action_row_add_suffix(
@@ -469,6 +389,8 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_get_activatable_widget")]
+    #[doc(alias = "get_activatable_widget")]
     fn activatable_widget(&self) -> Option<gtk::Widget> {
         unsafe {
             from_glib_none(ffi::adw_action_row_get_activatable_widget(
@@ -477,7 +399,10 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_action_row_get_icon_name")]
+    #[doc(alias = "get_icon_name")]
     fn icon_name(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_action_row_get_icon_name(
@@ -486,6 +411,8 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_get_subtitle")]
+    #[doc(alias = "get_subtitle")]
     fn subtitle(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_action_row_get_subtitle(
@@ -494,12 +421,16 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_get_subtitle_lines")]
+    #[doc(alias = "get_subtitle_lines")]
     fn subtitle_lines(&self) -> i32 {
         unsafe { ffi::adw_action_row_get_subtitle_lines(self.as_ref().to_glib_none().0) }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_action_row_get_subtitle_selectable")]
+    #[doc(alias = "get_subtitle_selectable")]
     fn is_subtitle_selectable(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_action_row_get_subtitle_selectable(
@@ -508,10 +439,13 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_get_title_lines")]
+    #[doc(alias = "get_title_lines")]
     fn title_lines(&self) -> i32 {
         unsafe { ffi::adw_action_row_get_title_lines(self.as_ref().to_glib_none().0) }
     }
 
+    #[doc(alias = "adw_action_row_remove")]
     fn remove(&self, widget: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_action_row_remove(
@@ -521,6 +455,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_set_activatable_widget")]
     fn set_activatable_widget(&self, widget: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_action_row_set_activatable_widget(
@@ -530,7 +465,9 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_action_row_set_icon_name")]
     fn set_icon_name(&self, icon_name: Option<&str>) {
         unsafe {
             ffi::adw_action_row_set_icon_name(
@@ -540,6 +477,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_set_subtitle")]
     fn set_subtitle(&self, subtitle: &str) {
         unsafe {
             ffi::adw_action_row_set_subtitle(
@@ -549,14 +487,16 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_set_subtitle_lines")]
     fn set_subtitle_lines(&self, subtitle_lines: i32) {
         unsafe {
             ffi::adw_action_row_set_subtitle_lines(self.as_ref().to_glib_none().0, subtitle_lines);
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "adw_action_row_set_subtitle_selectable")]
     fn set_subtitle_selectable(&self, subtitle_selectable: bool) {
         unsafe {
             ffi::adw_action_row_set_subtitle_selectable(
@@ -566,12 +506,14 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "adw_action_row_set_title_lines")]
     fn set_title_lines(&self, title_lines: i32) {
         unsafe {
             ffi::adw_action_row_set_title_lines(self.as_ref().to_glib_none().0, title_lines);
         }
     }
 
+    #[doc(alias = "activated")]
     fn connect_activated<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn activated_trampoline<P: IsA<ActionRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwActionRow,
@@ -593,6 +535,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "activatable-widget")]
     fn connect_activatable_widget_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_activatable_widget_trampoline<
             P: IsA<ActionRow>,
@@ -618,6 +561,8 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_3", deprecated = "Since 1.3")]
+    #[doc(alias = "icon-name")]
     fn connect_icon_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_icon_name_trampoline<P: IsA<ActionRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwActionRow,
@@ -640,6 +585,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "subtitle")]
     fn connect_subtitle_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_trampoline<P: IsA<ActionRow>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwActionRow,
@@ -662,6 +608,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "subtitle-lines")]
     fn connect_subtitle_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_lines_trampoline<
             P: IsA<ActionRow>,
@@ -687,8 +634,9 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
+    #[doc(alias = "subtitle-selectable")]
     fn connect_subtitle_selectable_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_subtitle_selectable_trampoline<
             P: IsA<ActionRow>,
@@ -714,6 +662,7 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 
+    #[doc(alias = "title-lines")]
     fn connect_title_lines_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_title_lines_trampoline<
             P: IsA<ActionRow>,
@@ -739,6 +688,8 @@ impl<O: IsA<ActionRow>> ActionRowExt for O {
         }
     }
 }
+
+impl<O: IsA<ActionRow>> ActionRowExt for O {}
 
 impl fmt::Display for ActionRow {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

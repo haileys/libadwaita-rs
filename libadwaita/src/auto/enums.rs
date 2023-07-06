@@ -3,7 +3,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-use glib::{translate::*, value::FromValue, value::ToValue, StaticType, Type};
+use glib::{prelude::*, translate::*};
 use std::fmt;
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
@@ -72,7 +72,7 @@ impl FromGlib<ffi::AdwAnimationState> for AnimationState {
 
 impl StaticType for AnimationState {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_animation_state_get_type()) }
     }
 }
@@ -91,7 +91,7 @@ impl glib::value::ValueType for AnimationState {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for AnimationState {
+unsafe impl<'a> glib::value::FromValue<'a> for AnimationState {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -125,8 +125,8 @@ impl From<AnimationState> for glib::Value {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwBreakpointConditionLengthType")]
@@ -143,8 +143,8 @@ pub enum BreakpointConditionLengthType {
     __Unknown(i32),
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl fmt::Display for BreakpointConditionLengthType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -161,8 +161,8 @@ impl fmt::Display for BreakpointConditionLengthType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl IntoGlib for BreakpointConditionLengthType {
     type GlibType = ffi::AdwBreakpointConditionLengthType;
@@ -179,8 +179,8 @@ impl IntoGlib for BreakpointConditionLengthType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwBreakpointConditionLengthType> for BreakpointConditionLengthType {
     #[inline]
@@ -197,17 +197,17 @@ impl FromGlib<ffi::AdwBreakpointConditionLengthType> for BreakpointConditionLeng
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl StaticType for BreakpointConditionLengthType {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_breakpoint_condition_length_type_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::HasParamSpec for BreakpointConditionLengthType {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -218,15 +218,15 @@ impl glib::HasParamSpec for BreakpointConditionLengthType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::value::ValueType for BreakpointConditionLengthType {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-unsafe impl<'a> FromValue<'a> for BreakpointConditionLengthType {
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> glib::value::FromValue<'a> for BreakpointConditionLengthType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -236,8 +236,8 @@ unsafe impl<'a> FromValue<'a> for BreakpointConditionLengthType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl ToValue for BreakpointConditionLengthType {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -254,8 +254,8 @@ impl ToValue for BreakpointConditionLengthType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl From<BreakpointConditionLengthType> for glib::Value {
     #[inline]
     fn from(v: BreakpointConditionLengthType) -> Self {
@@ -264,8 +264,8 @@ impl From<BreakpointConditionLengthType> for glib::Value {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwBreakpointConditionRatioType")]
@@ -278,8 +278,8 @@ pub enum BreakpointConditionRatioType {
     __Unknown(i32),
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl fmt::Display for BreakpointConditionRatioType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -294,8 +294,8 @@ impl fmt::Display for BreakpointConditionRatioType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl IntoGlib for BreakpointConditionRatioType {
     type GlibType = ffi::AdwBreakpointConditionRatioType;
@@ -310,8 +310,8 @@ impl IntoGlib for BreakpointConditionRatioType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwBreakpointConditionRatioType> for BreakpointConditionRatioType {
     #[inline]
@@ -326,17 +326,17 @@ impl FromGlib<ffi::AdwBreakpointConditionRatioType> for BreakpointConditionRatio
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl StaticType for BreakpointConditionRatioType {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_breakpoint_condition_ratio_type_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::HasParamSpec for BreakpointConditionRatioType {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -347,15 +347,15 @@ impl glib::HasParamSpec for BreakpointConditionRatioType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::value::ValueType for BreakpointConditionRatioType {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-unsafe impl<'a> FromValue<'a> for BreakpointConditionRatioType {
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> glib::value::FromValue<'a> for BreakpointConditionRatioType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -365,8 +365,8 @@ unsafe impl<'a> FromValue<'a> for BreakpointConditionRatioType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl ToValue for BreakpointConditionRatioType {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -383,8 +383,8 @@ impl ToValue for BreakpointConditionRatioType {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl From<BreakpointConditionRatioType> for glib::Value {
     #[inline]
     fn from(v: BreakpointConditionRatioType) -> Self {
@@ -449,7 +449,7 @@ impl FromGlib<ffi::AdwCenteringPolicy> for CenteringPolicy {
 
 impl StaticType for CenteringPolicy {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_centering_policy_get_type()) }
     }
 }
@@ -468,7 +468,7 @@ impl glib::value::ValueType for CenteringPolicy {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for CenteringPolicy {
+unsafe impl<'a> glib::value::FromValue<'a> for CenteringPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -573,7 +573,7 @@ impl FromGlib<ffi::AdwColorScheme> for ColorScheme {
 
 impl StaticType for ColorScheme {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_color_scheme_get_type()) }
     }
 }
@@ -592,7 +592,7 @@ impl glib::value::ValueType for ColorScheme {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for ColorScheme {
+unsafe impl<'a> glib::value::FromValue<'a> for ColorScheme {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -833,7 +833,7 @@ impl FromGlib<ffi::AdwEasing> for Easing {
 
 impl StaticType for Easing {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_easing_get_type()) }
     }
 }
@@ -852,7 +852,7 @@ impl glib::value::ValueType for Easing {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for Easing {
+unsafe impl<'a> glib::value::FromValue<'a> for Easing {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -952,7 +952,7 @@ impl FromGlib<ffi::AdwFlapFoldPolicy> for FlapFoldPolicy {
 #[allow(deprecated)]
 impl StaticType for FlapFoldPolicy {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_flap_fold_policy_get_type()) }
     }
 }
@@ -974,7 +974,7 @@ impl glib::value::ValueType for FlapFoldPolicy {
 }
 
 #[allow(deprecated)]
-unsafe impl<'a> FromValue<'a> for FlapFoldPolicy {
+unsafe impl<'a> glib::value::FromValue<'a> for FlapFoldPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1076,7 +1076,7 @@ impl FromGlib<ffi::AdwFlapTransitionType> for FlapTransitionType {
 #[allow(deprecated)]
 impl StaticType for FlapTransitionType {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_flap_transition_type_get_type()) }
     }
 }
@@ -1098,7 +1098,7 @@ impl glib::value::ValueType for FlapTransitionType {
 }
 
 #[allow(deprecated)]
-unsafe impl<'a> FromValue<'a> for FlapTransitionType {
+unsafe impl<'a> glib::value::FromValue<'a> for FlapTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1195,7 +1195,7 @@ impl FromGlib<ffi::AdwFoldThresholdPolicy> for FoldThresholdPolicy {
 #[allow(deprecated)]
 impl StaticType for FoldThresholdPolicy {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_fold_threshold_policy_get_type()) }
     }
 }
@@ -1217,7 +1217,7 @@ impl glib::value::ValueType for FoldThresholdPolicy {
 }
 
 #[allow(deprecated)]
-unsafe impl<'a> FromValue<'a> for FoldThresholdPolicy {
+unsafe impl<'a> glib::value::FromValue<'a> for FoldThresholdPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1319,7 +1319,7 @@ impl FromGlib<ffi::AdwLeafletTransitionType> for LeafletTransitionType {
 #[allow(deprecated)]
 impl StaticType for LeafletTransitionType {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_leaflet_transition_type_get_type()) }
     }
 }
@@ -1341,7 +1341,7 @@ impl glib::value::ValueType for LeafletTransitionType {
 }
 
 #[allow(deprecated)]
-unsafe impl<'a> FromValue<'a> for LeafletTransitionType {
+unsafe impl<'a> glib::value::FromValue<'a> for LeafletTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1377,8 +1377,8 @@ impl From<LeafletTransitionType> for glib::Value {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwLengthUnit")]
@@ -1393,8 +1393,8 @@ pub enum LengthUnit {
     __Unknown(i32),
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl LengthUnit {
     #[doc(alias = "adw_length_unit_from_px")]
     pub fn from_px(self, value: f64, settings: Option<&gtk::Settings>) -> f64 {
@@ -1409,8 +1409,8 @@ impl LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl fmt::Display for LengthUnit {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1426,8 +1426,8 @@ impl fmt::Display for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl IntoGlib for LengthUnit {
     type GlibType = ffi::AdwLengthUnit;
@@ -1443,8 +1443,8 @@ impl IntoGlib for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwLengthUnit> for LengthUnit {
     #[inline]
@@ -1460,17 +1460,17 @@ impl FromGlib<ffi::AdwLengthUnit> for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl StaticType for LengthUnit {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_length_unit_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::HasParamSpec for LengthUnit {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1481,15 +1481,15 @@ impl glib::HasParamSpec for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::value::ValueType for LengthUnit {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-unsafe impl<'a> FromValue<'a> for LengthUnit {
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> glib::value::FromValue<'a> for LengthUnit {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1499,8 +1499,8 @@ unsafe impl<'a> FromValue<'a> for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl ToValue for LengthUnit {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1517,8 +1517,8 @@ impl ToValue for LengthUnit {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl From<LengthUnit> for glib::Value {
     #[inline]
     fn from(v: LengthUnit) -> Self {
@@ -1583,7 +1583,7 @@ impl FromGlib<ffi::AdwNavigationDirection> for NavigationDirection {
 
 impl StaticType for NavigationDirection {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_navigation_direction_get_type()) }
     }
 }
@@ -1602,7 +1602,7 @@ impl glib::value::ValueType for NavigationDirection {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for NavigationDirection {
+unsafe impl<'a> glib::value::FromValue<'a> for NavigationDirection {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1636,8 +1636,8 @@ impl From<NavigationDirection> for glib::Value {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwResponseAppearance")]
@@ -1652,8 +1652,8 @@ pub enum ResponseAppearance {
     __Unknown(i32),
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl fmt::Display for ResponseAppearance {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -1669,8 +1669,8 @@ impl fmt::Display for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 #[doc(hidden)]
 impl IntoGlib for ResponseAppearance {
     type GlibType = ffi::AdwResponseAppearance;
@@ -1686,8 +1686,8 @@ impl IntoGlib for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwResponseAppearance> for ResponseAppearance {
     #[inline]
@@ -1703,17 +1703,17 @@ impl FromGlib<ffi::AdwResponseAppearance> for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl StaticType for ResponseAppearance {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_response_appearance_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl glib::HasParamSpec for ResponseAppearance {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -1724,15 +1724,15 @@ impl glib::HasParamSpec for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl glib::value::ValueType for ResponseAppearance {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
-unsafe impl<'a> FromValue<'a> for ResponseAppearance {
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
+unsafe impl<'a> glib::value::FromValue<'a> for ResponseAppearance {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1742,8 +1742,8 @@ unsafe impl<'a> FromValue<'a> for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl ToValue for ResponseAppearance {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -1760,8 +1760,8 @@ impl ToValue for ResponseAppearance {
     }
 }
 
-#[cfg(any(feature = "v1_2", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_2")))]
+#[cfg(feature = "v1_2")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_2")))]
 impl From<ResponseAppearance> for glib::Value {
     #[inline]
     fn from(v: ResponseAppearance) -> Self {
@@ -1831,7 +1831,7 @@ impl FromGlib<ffi::AdwSqueezerTransitionType> for SqueezerTransitionType {
 #[allow(deprecated)]
 impl StaticType for SqueezerTransitionType {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_squeezer_transition_type_get_type()) }
     }
 }
@@ -1853,7 +1853,7 @@ impl glib::value::ValueType for SqueezerTransitionType {
 }
 
 #[allow(deprecated)]
-unsafe impl<'a> FromValue<'a> for SqueezerTransitionType {
+unsafe impl<'a> glib::value::FromValue<'a> for SqueezerTransitionType {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1945,7 +1945,7 @@ impl FromGlib<ffi::AdwToastPriority> for ToastPriority {
 
 impl StaticType for ToastPriority {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_toast_priority_get_type()) }
     }
 }
@@ -1964,7 +1964,7 @@ impl glib::value::ValueType for ToastPriority {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for ToastPriority {
+unsafe impl<'a> glib::value::FromValue<'a> for ToastPriority {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -1998,8 +1998,8 @@ impl From<ToastPriority> for glib::Value {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "AdwToolbarStyle")]
@@ -2012,8 +2012,8 @@ pub enum ToolbarStyle {
     __Unknown(i32),
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl fmt::Display for ToolbarStyle {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -2028,8 +2028,8 @@ impl fmt::Display for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl IntoGlib for ToolbarStyle {
     type GlibType = ffi::AdwToolbarStyle;
@@ -2044,8 +2044,8 @@ impl IntoGlib for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 #[doc(hidden)]
 impl FromGlib<ffi::AdwToolbarStyle> for ToolbarStyle {
     #[inline]
@@ -2060,17 +2060,17 @@ impl FromGlib<ffi::AdwToolbarStyle> for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl StaticType for ToolbarStyle {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_toolbar_style_get_type()) }
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::HasParamSpec for ToolbarStyle {
     type ParamSpec = glib::ParamSpecEnum;
     type SetValue = Self;
@@ -2081,15 +2081,15 @@ impl glib::HasParamSpec for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl glib::value::ValueType for ToolbarStyle {
     type Type = Self;
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-unsafe impl<'a> FromValue<'a> for ToolbarStyle {
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+unsafe impl<'a> glib::value::FromValue<'a> for ToolbarStyle {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]
@@ -2099,8 +2099,8 @@ unsafe impl<'a> FromValue<'a> for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl ToValue for ToolbarStyle {
     #[inline]
     fn to_value(&self) -> glib::Value {
@@ -2117,8 +2117,8 @@ impl ToValue for ToolbarStyle {
     }
 }
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 impl From<ToolbarStyle> for glib::Value {
     #[inline]
     fn from(v: ToolbarStyle) -> Self {
@@ -2183,7 +2183,7 @@ impl FromGlib<ffi::AdwViewSwitcherPolicy> for ViewSwitcherPolicy {
 
 impl StaticType for ViewSwitcherPolicy {
     #[inline]
-    fn static_type() -> Type {
+    fn static_type() -> glib::Type {
         unsafe { from_glib(ffi::adw_view_switcher_policy_get_type()) }
     }
 }
@@ -2202,7 +2202,7 @@ impl glib::value::ValueType for ViewSwitcherPolicy {
     type Type = Self;
 }
 
-unsafe impl<'a> FromValue<'a> for ViewSwitcherPolicy {
+unsafe impl<'a> glib::value::FromValue<'a> for ViewSwitcherPolicy {
     type Checker = glib::value::GenericValueTypeChecker<Self>;
 
     #[inline]

@@ -4,8 +4,8 @@
 // DO NOT EDIT
 #![allow(deprecated)]
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 use crate::NavigationPage;
 use crate::{PreferencesPage, Toast, Window};
 use glib::{
@@ -175,8 +175,8 @@ impl PreferencesWindowBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_2")))]
+    #[cfg(feature = "gtk_v4_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_2")))]
     pub fn handle_menubar_accel(self, handle_menubar_accel: bool) -> Self {
         Self {
             builder: self
@@ -235,8 +235,8 @@ impl PreferencesWindowBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_6")))]
+    #[cfg(feature = "gtk_v4_6")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_6")))]
     pub fn titlebar(self, titlebar: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("titlebar", titlebar.clone().upcast()),
@@ -443,83 +443,13 @@ impl PreferencesWindowBuilder {
     }
 }
 
-pub trait PreferencesWindowExt: 'static {
-    #[doc(alias = "adw_preferences_window_add")]
-    fn add(&self, page: &impl IsA<PreferencesPage>);
-
-    #[doc(alias = "adw_preferences_window_add_toast")]
-    fn add_toast(&self, toast: Toast);
-
-    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_preferences_window_close_subpage")]
-    fn close_subpage(&self);
-
-    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_preferences_window_get_can_navigate_back")]
-    #[doc(alias = "get_can_navigate_back")]
-    fn can_navigate_back(&self) -> bool;
-
-    #[doc(alias = "adw_preferences_window_get_search_enabled")]
-    #[doc(alias = "get_search_enabled")]
-    fn is_search_enabled(&self) -> bool;
-
-    #[doc(alias = "adw_preferences_window_get_visible_page")]
-    #[doc(alias = "get_visible_page")]
-    fn visible_page(&self) -> Option<PreferencesPage>;
-
-    #[doc(alias = "adw_preferences_window_get_visible_page_name")]
-    #[doc(alias = "get_visible_page_name")]
-    fn visible_page_name(&self) -> Option<glib::GString>;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_preferences_window_pop_subpage")]
-    fn pop_subpage(&self) -> bool;
-
-    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_preferences_window_present_subpage")]
-    fn present_subpage(&self, subpage: &impl IsA<gtk::Widget>);
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_preferences_window_push_subpage")]
-    fn push_subpage(&self, page: &impl IsA<NavigationPage>);
-
-    #[doc(alias = "adw_preferences_window_remove")]
-    fn remove(&self, page: &impl IsA<PreferencesPage>);
-
-    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
-    #[allow(deprecated)]
-    #[doc(alias = "adw_preferences_window_set_can_navigate_back")]
-    fn set_can_navigate_back(&self, can_navigate_back: bool);
-
-    #[doc(alias = "adw_preferences_window_set_search_enabled")]
-    fn set_search_enabled(&self, search_enabled: bool);
-
-    #[doc(alias = "adw_preferences_window_set_visible_page")]
-    fn set_visible_page(&self, page: &impl IsA<PreferencesPage>);
-
-    #[doc(alias = "adw_preferences_window_set_visible_page_name")]
-    fn set_visible_page_name(&self, name: &str);
-
-    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
-    #[doc(alias = "can-navigate-back")]
-    fn connect_can_navigate_back_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "search-enabled")]
-    fn connect_search_enabled_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "visible-page")]
-    fn connect_visible_page_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[doc(alias = "visible-page-name")]
-    fn connect_visible_page_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::PreferencesWindow>> Sealed for T {}
 }
 
-impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
+pub trait PreferencesWindowExt: IsA<PreferencesWindow> + sealed::Sealed + 'static {
+    #[doc(alias = "adw_preferences_window_add")]
     fn add(&self, page: &impl IsA<PreferencesPage>) {
         unsafe {
             ffi::adw_preferences_window_add(
@@ -529,6 +459,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_add_toast")]
     fn add_toast(&self, toast: Toast) {
         unsafe {
             ffi::adw_preferences_window_add_toast(
@@ -538,14 +469,19 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_preferences_window_close_subpage")]
     fn close_subpage(&self) {
         unsafe {
             ffi::adw_preferences_window_close_subpage(self.as_ref().to_glib_none().0);
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_preferences_window_get_can_navigate_back")]
+    #[doc(alias = "get_can_navigate_back")]
     fn can_navigate_back(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_window_get_can_navigate_back(
@@ -554,6 +490,8 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_get_search_enabled")]
+    #[doc(alias = "get_search_enabled")]
     fn is_search_enabled(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_window_get_search_enabled(
@@ -562,6 +500,8 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_get_visible_page")]
+    #[doc(alias = "get_visible_page")]
     fn visible_page(&self) -> Option<PreferencesPage> {
         unsafe {
             from_glib_none(ffi::adw_preferences_window_get_visible_page(
@@ -570,6 +510,8 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_get_visible_page_name")]
+    #[doc(alias = "get_visible_page_name")]
     fn visible_page_name(&self) -> Option<glib::GString> {
         unsafe {
             from_glib_none(ffi::adw_preferences_window_get_visible_page_name(
@@ -578,8 +520,9 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_window_pop_subpage")]
     fn pop_subpage(&self) -> bool {
         unsafe {
             from_glib(ffi::adw_preferences_window_pop_subpage(
@@ -588,7 +531,9 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_preferences_window_present_subpage")]
     fn present_subpage(&self, subpage: &impl IsA<gtk::Widget>) {
         unsafe {
             ffi::adw_preferences_window_present_subpage(
@@ -598,8 +543,9 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_preferences_window_push_subpage")]
     fn push_subpage(&self, page: &impl IsA<NavigationPage>) {
         unsafe {
             ffi::adw_preferences_window_push_subpage(
@@ -609,6 +555,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_remove")]
     fn remove(&self, page: &impl IsA<PreferencesPage>) {
         unsafe {
             ffi::adw_preferences_window_remove(
@@ -618,7 +565,9 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
     #[allow(deprecated)]
+    #[doc(alias = "adw_preferences_window_set_can_navigate_back")]
     fn set_can_navigate_back(&self, can_navigate_back: bool) {
         unsafe {
             ffi::adw_preferences_window_set_can_navigate_back(
@@ -628,6 +577,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_set_search_enabled")]
     fn set_search_enabled(&self, search_enabled: bool) {
         unsafe {
             ffi::adw_preferences_window_set_search_enabled(
@@ -637,6 +587,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_set_visible_page")]
     fn set_visible_page(&self, page: &impl IsA<PreferencesPage>) {
         unsafe {
             ffi::adw_preferences_window_set_visible_page(
@@ -646,6 +597,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_preferences_window_set_visible_page_name")]
     fn set_visible_page_name(&self, name: &str) {
         unsafe {
             ffi::adw_preferences_window_set_visible_page_name(
@@ -655,6 +607,8 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[cfg_attr(feature = "v1_4", deprecated = "Since 1.4")]
+    #[doc(alias = "can-navigate-back")]
     fn connect_can_navigate_back_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_can_navigate_back_trampoline<
             P: IsA<PreferencesWindow>,
@@ -680,6 +634,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "search-enabled")]
     fn connect_search_enabled_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_search_enabled_trampoline<
             P: IsA<PreferencesWindow>,
@@ -705,6 +660,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "visible-page")]
     fn connect_visible_page_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_visible_page_trampoline<
             P: IsA<PreferencesWindow>,
@@ -730,6 +686,7 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 
+    #[doc(alias = "visible-page-name")]
     fn connect_visible_page_name_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_visible_page_name_trampoline<
             P: IsA<PreferencesWindow>,
@@ -755,6 +712,8 @@ impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {
         }
     }
 }
+
+impl<O: IsA<PreferencesWindow>> PreferencesWindowExt for O {}
 
 impl fmt::Display for PreferencesWindow {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

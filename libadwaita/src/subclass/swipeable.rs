@@ -29,19 +29,12 @@ pub trait SwipeableImpl: WidgetImpl {
     }
 }
 
-pub trait SwipeableImplExt: ObjectSubclass {
-    fn parent_cancel_progress(&self) -> f64;
-    fn parent_distance(&self) -> f64;
-    fn parent_progress(&self) -> f64;
-    fn parent_snap_points(&self) -> Vec<f64>;
-    fn parent_swipe_area(
-        &self,
-        navigation_direction: NavigationDirection,
-        is_drag: bool,
-    ) -> gdk::Rectangle;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::SwipeableImplExt> Sealed for T {}
 }
 
-impl<T: SwipeableImpl> SwipeableImplExt for T {
+pub trait SwipeableImplExt: sealed::Sealed + ObjectSubclass {
     fn parent_cancel_progress(&self) -> f64 {
         unsafe {
             let type_data = Self::type_data();
@@ -132,6 +125,8 @@ impl<T: SwipeableImpl> SwipeableImplExt for T {
         }
     }
 }
+
+impl<T: SwipeableImpl> SwipeableImplExt for T {}
 
 unsafe impl<T: SwipeableImpl> IsImplementable<T> for Swipeable {
     fn interface_init(iface: &mut glib::Interface<Self>) {

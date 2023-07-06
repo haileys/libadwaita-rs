@@ -3,8 +3,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(any(feature = "v1_3", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+#[cfg(feature = "v1_3")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
 use crate::TabPage;
 use crate::TabView;
 use glib::{
@@ -60,8 +60,8 @@ impl TabBar {
         unsafe { from_glib(ffi::adw_tab_bar_get_expand_tabs(self.to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_tab_bar_get_extra_drag_preferred_action")]
     #[doc(alias = "get_extra_drag_preferred_action")]
     pub fn extra_drag_preferred_action(&self) -> gdk::DragAction {
@@ -72,8 +72,8 @@ impl TabBar {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_tab_bar_get_extra_drag_preload")]
     #[doc(alias = "get_extra_drag_preload")]
     pub fn is_extra_drag_preload(&self) -> bool {
@@ -142,8 +142,8 @@ impl TabBar {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "adw_tab_bar_set_extra_drag_preload")]
     pub fn set_extra_drag_preload(&self, preload: bool) {
         unsafe {
@@ -175,8 +175,8 @@ impl TabBar {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "extra-drag-value")]
     pub fn connect_extra_drag_value<
         F: Fn(&Self, &TabPage, &glib::Value) -> gdk::DragAction + 'static,
@@ -285,8 +285,8 @@ impl TabBar {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "extra-drag-preferred-action")]
     pub fn connect_extra_drag_preferred_action_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -315,8 +315,8 @@ impl TabBar {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "extra-drag-preload")]
     pub fn connect_extra_drag_preload_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -504,8 +504,8 @@ impl TabBarBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn extra_drag_preload(self, extra_drag_preload: bool) -> Self {
         Self {
             builder: self

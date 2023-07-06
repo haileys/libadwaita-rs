@@ -61,8 +61,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_tab_overview_get_extra_drag_preferred_action")]
     #[doc(alias = "get_extra_drag_preferred_action")]
     pub fn extra_drag_preferred_action(&self) -> gdk::DragAction {
@@ -237,8 +237,8 @@ impl TabOverview {
     //    unsafe { TODO: call ffi:adw_tab_overview_setup_extra_drop_target() }
     //}
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "create-tab")]
     pub fn connect_create_tab<F: Fn(&Self) -> TabPage + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn create_tab_trampoline<F: Fn(&TabOverview) -> TabPage + 'static>(
@@ -263,8 +263,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "extra-drag-drop")]
     pub fn connect_extra_drag_drop<F: Fn(&Self, &TabPage, &glib::Value) -> bool + 'static>(
         &self,
@@ -299,8 +299,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "extra-drag-value")]
     pub fn connect_extra_drag_value<
         F: Fn(&Self, &TabPage, &glib::Value) -> gdk::DragAction + 'static,
@@ -337,8 +337,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "child")]
     pub fn connect_child_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_child_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -362,8 +362,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "enable-new-tab")]
     pub fn connect_enable_new_tab_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_enable_new_tab_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -387,8 +387,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "enable-search")]
     pub fn connect_enable_search_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_enable_search_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -412,8 +412,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "extra-drag-preferred-action")]
     pub fn connect_extra_drag_preferred_action_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -442,8 +442,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "extra-drag-preload")]
     pub fn connect_extra_drag_preload_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -470,8 +470,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "inverted")]
     pub fn connect_inverted_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_inverted_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -495,8 +495,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "open")]
     pub fn connect_open_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_open_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -520,8 +520,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "search-active")]
     pub fn connect_search_active_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_search_active_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -545,8 +545,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "secondary-menu")]
     pub fn connect_secondary_menu_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_secondary_menu_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -570,8 +570,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "show-end-title-buttons")]
     pub fn connect_show_end_title_buttons_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -600,8 +600,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "show-start-title-buttons")]
     pub fn connect_show_start_title_buttons_notify<F: Fn(&Self) + 'static>(
         &self,
@@ -630,8 +630,8 @@ impl TabOverview {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     #[doc(alias = "view")]
     pub fn connect_view_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_view_trampoline<F: Fn(&TabOverview) + 'static>(
@@ -656,8 +656,8 @@ impl TabOverview {
     }
 }
 
-#[cfg(any(feature = "v1_3", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+#[cfg(feature = "v1_3")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
 impl Default for TabOverview {
     fn default() -> Self {
         Self::new()
@@ -680,32 +680,32 @@ impl TabOverviewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn child(self, child: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("child", child.clone().upcast()),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn enable_new_tab(self, enable_new_tab: bool) -> Self {
         Self {
             builder: self.builder.property("enable-new-tab", enable_new_tab),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn enable_search(self, enable_search: bool) -> Self {
         Self {
             builder: self.builder.property("enable-search", enable_search),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn extra_drag_preload(self, extra_drag_preload: bool) -> Self {
         Self {
             builder: self
@@ -714,24 +714,24 @@ impl TabOverviewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn inverted(self, inverted: bool) -> Self {
         Self {
             builder: self.builder.property("inverted", inverted),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn open(self, open: bool) -> Self {
         Self {
             builder: self.builder.property("open", open),
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn secondary_menu(self, secondary_menu: &impl IsA<gio::MenuModel>) -> Self {
         Self {
             builder: self
@@ -740,8 +740,8 @@ impl TabOverviewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn show_end_title_buttons(self, show_end_title_buttons: bool) -> Self {
         Self {
             builder: self
@@ -750,8 +750,8 @@ impl TabOverviewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn show_start_title_buttons(self, show_start_title_buttons: bool) -> Self {
         Self {
             builder: self
@@ -760,8 +760,8 @@ impl TabOverviewBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn view(self, view: &TabView) -> Self {
         Self {
             builder: self.builder.property("view", view.clone()),

@@ -3,8 +3,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(any(feature = "v1_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 use crate::Breakpoint;
 use glib::{
     prelude::*,
@@ -142,8 +142,8 @@ impl WindowBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_2", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_2")))]
+    #[cfg(feature = "gtk_v4_2")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_2")))]
     pub fn handle_menubar_accel(self, handle_menubar_accel: bool) -> Self {
         Self {
             builder: self
@@ -202,8 +202,8 @@ impl WindowBuilder {
         }
     }
 
-    #[cfg(any(feature = "gtk_v4_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "gtk_v4_6")))]
+    #[cfg(feature = "gtk_v4_6")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "gtk_v4_6")))]
     pub fn titlebar(self, titlebar: &impl IsA<gtk::Widget>) -> Self {
         Self {
             builder: self.builder.property("titlebar", titlebar.clone().upcast()),
@@ -410,37 +410,15 @@ impl WindowBuilder {
     }
 }
 
-pub trait AdwWindowExt: 'static {
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_window_add_breakpoint")]
-    fn add_breakpoint(&self, breakpoint: Breakpoint);
-
-    #[doc(alias = "adw_window_get_content")]
-    #[doc(alias = "get_content")]
-    fn content(&self) -> Option<gtk::Widget>;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "adw_window_get_current_breakpoint")]
-    #[doc(alias = "get_current_breakpoint")]
-    fn current_breakpoint(&self) -> Option<Breakpoint>;
-
-    #[doc(alias = "adw_window_set_content")]
-    fn set_content(&self, content: Option<&impl IsA<gtk::Widget>>);
-
-    #[doc(alias = "content")]
-    fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
-
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
-    #[doc(alias = "current-breakpoint")]
-    fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId;
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::IsA<super::Window>> Sealed for T {}
 }
 
-impl<O: IsA<Window>> AdwWindowExt for O {
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+pub trait AdwWindowExt: IsA<Window> + sealed::Sealed + 'static {
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_window_add_breakpoint")]
     fn add_breakpoint(&self, breakpoint: Breakpoint) {
         unsafe {
             ffi::adw_window_add_breakpoint(
@@ -450,12 +428,16 @@ impl<O: IsA<Window>> AdwWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_window_get_content")]
+    #[doc(alias = "get_content")]
     fn content(&self) -> Option<gtk::Widget> {
         unsafe { from_glib_none(ffi::adw_window_get_content(self.as_ref().to_glib_none().0)) }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_window_get_current_breakpoint")]
+    #[doc(alias = "get_current_breakpoint")]
     fn current_breakpoint(&self) -> Option<Breakpoint> {
         unsafe {
             from_glib_none(ffi::adw_window_get_current_breakpoint(
@@ -464,6 +446,7 @@ impl<O: IsA<Window>> AdwWindowExt for O {
         }
     }
 
+    #[doc(alias = "adw_window_set_content")]
     fn set_content(&self, content: Option<&impl IsA<gtk::Widget>>) {
         unsafe {
             ffi::adw_window_set_content(
@@ -473,6 +456,7 @@ impl<O: IsA<Window>> AdwWindowExt for O {
         }
     }
 
+    #[doc(alias = "content")]
     fn connect_content_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_content_trampoline<P: IsA<Window>, F: Fn(&P) + 'static>(
             this: *mut ffi::AdwWindow,
@@ -495,8 +479,9 @@ impl<O: IsA<Window>> AdwWindowExt for O {
         }
     }
 
-    #[cfg(any(feature = "v1_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_4")))]
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "current-breakpoint")]
     fn connect_current_breakpoint_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_current_breakpoint_trampoline<
             P: IsA<Window>,
@@ -522,6 +507,8 @@ impl<O: IsA<Window>> AdwWindowExt for O {
         }
     }
 }
+
+impl<O: IsA<Window>> AdwWindowExt for O {}
 
 impl fmt::Display for Window {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

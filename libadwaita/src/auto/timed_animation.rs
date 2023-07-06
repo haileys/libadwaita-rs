@@ -371,8 +371,8 @@ impl TimedAnimationBuilder {
         }
     }
 
-    #[cfg(any(feature = "v1_3", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_3")))]
+    #[cfg(feature = "v1_3")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_3")))]
     pub fn follow_enable_animations_setting(self, follow_enable_animations_setting: bool) -> Self {
         Self {
             builder: self.builder.property(
