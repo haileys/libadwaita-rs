@@ -22,17 +22,15 @@ pub trait NavigationPageImpl: WidgetImpl {
     }
 }
 
-pub trait NavigationPageImplExt: ObjectSubclass {
-    fn parent_hidden(&self);
-    fn parent_hiding(&self);
-    fn parent_showing(&self);
-    fn parent_shown(&self);
+mod sealed {
+    pub trait Sealed {}
+    impl<T: super::NavigationPageImplExt> Sealed for T {}
 }
 
-impl<T: NavigationPageImpl> NavigationPageImplExt for T {
+pub trait NavigationPageImplExt: sealed::Sealed + ObjectSubclass {
     fn parent_hidden(&self) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwNavigationPageClass;
             if let Some(f) = (*parent_class).hidden {
                 f(self
@@ -46,7 +44,7 @@ impl<T: NavigationPageImpl> NavigationPageImplExt for T {
 
     fn parent_hiding(&self) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwNavigationPageClass;
             if let Some(f) = (*parent_class).hiding {
                 f(self
@@ -60,7 +58,7 @@ impl<T: NavigationPageImpl> NavigationPageImplExt for T {
 
     fn parent_showing(&self) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwNavigationPageClass;
             if let Some(f) = (*parent_class).showing {
                 f(self
@@ -74,7 +72,7 @@ impl<T: NavigationPageImpl> NavigationPageImplExt for T {
 
     fn parent_shown(&self) {
         unsafe {
-            let data = T::type_data();
+            let data = Self::type_data();
             let parent_class = data.as_ref().parent_class() as *mut ffi::AdwNavigationPageClass;
             if let Some(f) = (*parent_class).shown {
                 f(self
@@ -86,6 +84,8 @@ impl<T: NavigationPageImpl> NavigationPageImplExt for T {
         }
     }
 }
+
+impl<T: NavigationPageImpl> NavigationPageImplExt for T {}
 
 unsafe impl<T: NavigationPageImpl> IsSubclassable<T> for NavigationPage {
     fn class_init(class: &mut glib::Class<Self>) {
