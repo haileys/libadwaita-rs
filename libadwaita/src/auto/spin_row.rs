@@ -152,6 +152,13 @@ impl SpinRow {
         }
     }
 
+    #[doc(alias = "adw_spin_row_set_range")]
+    pub fn set_range(&self, min: f64, max: f64) {
+        unsafe {
+            ffi::adw_spin_row_set_range(self.to_glib_none().0, min, max);
+        }
+    }
+
     #[doc(alias = "adw_spin_row_set_snap_to_ticks")]
     pub fn set_snap_to_ticks(&self, snap_to_ticks: bool) {
         unsafe {

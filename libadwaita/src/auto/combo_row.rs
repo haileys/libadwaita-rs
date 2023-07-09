@@ -60,6 +60,14 @@ impl ComboRowBuilder {
         }
     }
 
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn enable_search(self, enable_search: bool) -> Self {
+        Self {
+            builder: self.builder.property("enable-search", enable_search),
+        }
+    }
+
     pub fn expression(self, expression: impl AsRef<gtk::Expression>) -> Self {
         Self {
             builder: self
@@ -401,6 +409,18 @@ mod sealed {
 }
 
 pub trait ComboRowExt: IsA<ComboRow> + sealed::Sealed + 'static {
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_combo_row_get_enable_search")]
+    #[doc(alias = "get_enable_search")]
+    fn enables_search(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_combo_row_get_enable_search(
+                self.as_ref().to_glib_none().0,
+            ))
+        }
+    }
+
     #[doc(alias = "adw_combo_row_get_expression")]
     #[doc(alias = "get_expression")]
     fn expression(&self) -> Option<gtk::Expression> {
@@ -463,6 +483,18 @@ pub trait ComboRowExt: IsA<ComboRow> + sealed::Sealed + 'static {
         }
     }
 
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_combo_row_set_enable_search")]
+    fn set_enable_search(&self, enable_search: bool) {
+        unsafe {
+            ffi::adw_combo_row_set_enable_search(
+                self.as_ref().to_glib_none().0,
+                enable_search.into_glib(),
+            );
+        }
+    }
+
     #[doc(alias = "adw_combo_row_set_expression")]
     fn set_expression(&self, expression: Option<impl AsRef<gtk::Expression>>) {
         unsafe {
@@ -517,6 +549,34 @@ pub trait ComboRowExt: IsA<ComboRow> + sealed::Sealed + 'static {
                 self.as_ref().to_glib_none().0,
                 use_subtitle.into_glib(),
             );
+        }
+    }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "enable-search")]
+    fn connect_enable_search_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_enable_search_trampoline<
+            P: IsA<ComboRow>,
+            F: Fn(&P) + 'static,
+        >(
+            this: *mut ffi::AdwComboRow,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(ComboRow::from_glib_borrow(this).unsafe_cast_ref())
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::enable-search\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_enable_search_trampoline::<Self, F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
         }
     }
 
