@@ -90,6 +90,14 @@ impl Toast {
         unsafe { from_glib_none(ffi::adw_toast_get_title(self.to_glib_none().0)) }
     }
 
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_toast_get_use_markup")]
+    #[doc(alias = "get_use_markup")]
+    pub fn uses_markup(&self) -> bool {
+        unsafe { from_glib(ffi::adw_toast_get_use_markup(self.to_glib_none().0)) }
+    }
+
     #[doc(alias = "adw_toast_set_action_name")]
     pub fn set_action_name(&self, action_name: Option<&str>) {
         unsafe {
@@ -154,6 +162,15 @@ impl Toast {
     pub fn set_title(&self, title: &str) {
         unsafe {
             ffi::adw_toast_set_title(self.to_glib_none().0, title.to_glib_none().0);
+        }
+    }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "adw_toast_set_use_markup")]
+    pub fn set_use_markup(&self, use_markup: bool) {
+        unsafe {
+            ffi::adw_toast_set_use_markup(self.to_glib_none().0, use_markup.into_glib());
         }
     }
 
@@ -365,6 +382,31 @@ impl Toast {
             )
         }
     }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "use-markup")]
+    pub fn connect_use_markup_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_use_markup_trampoline<F: Fn(&Toast) + 'static>(
+            this: *mut ffi::AdwToast,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::use-markup\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_use_markup_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
 }
 
 impl Default for Toast {
@@ -434,6 +476,14 @@ impl ToastBuilder {
     pub fn title(self, title: impl Into<glib::GString>) -> Self {
         Self {
             builder: self.builder.property("title", title.into()),
+        }
+    }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn use_markup(self, use_markup: bool) -> Self {
+        Self {
+            builder: self.builder.property("use-markup", use_markup),
         }
     }
 

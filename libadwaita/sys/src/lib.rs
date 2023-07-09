@@ -2738,6 +2738,9 @@ extern "C" {
     //=========================================================================
     pub fn adw_combo_row_get_type() -> GType;
     pub fn adw_combo_row_new() -> *mut gtk::GtkWidget;
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn adw_combo_row_get_enable_search(self_: *mut AdwComboRow) -> gboolean;
     pub fn adw_combo_row_get_expression(self_: *mut AdwComboRow) -> *mut gtk::GtkExpression;
     pub fn adw_combo_row_get_factory(self_: *mut AdwComboRow) -> *mut gtk::GtkListItemFactory;
     pub fn adw_combo_row_get_list_factory(self_: *mut AdwComboRow) -> *mut gtk::GtkListItemFactory;
@@ -2745,6 +2748,9 @@ extern "C" {
     pub fn adw_combo_row_get_selected(self_: *mut AdwComboRow) -> c_uint;
     pub fn adw_combo_row_get_selected_item(self_: *mut AdwComboRow) -> *mut gobject::GObject;
     pub fn adw_combo_row_get_use_subtitle(self_: *mut AdwComboRow) -> gboolean;
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn adw_combo_row_set_enable_search(self_: *mut AdwComboRow, enable_search: gboolean);
     pub fn adw_combo_row_set_expression(
         self_: *mut AdwComboRow,
         expression: *mut gtk::GtkExpression,
@@ -3840,6 +3846,9 @@ extern "C" {
     pub fn adw_spin_row_set_numeric(self_: *mut AdwSpinRow, numeric: gboolean);
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn adw_spin_row_set_range(self_: *mut AdwSpinRow, min: c_double, max: c_double);
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn adw_spin_row_set_snap_to_ticks(self_: *mut AdwSpinRow, snap_to_ticks: gboolean);
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
@@ -4434,6 +4443,9 @@ extern "C" {
     pub fn adw_toast_get_priority(self_: *mut AdwToast) -> AdwToastPriority;
     pub fn adw_toast_get_timeout(self_: *mut AdwToast) -> c_uint;
     pub fn adw_toast_get_title(self_: *mut AdwToast) -> *const c_char;
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn adw_toast_get_use_markup(self_: *mut AdwToast) -> gboolean;
     pub fn adw_toast_set_action_name(self_: *mut AdwToast, action_name: *const c_char);
     pub fn adw_toast_set_action_target(self_: *mut AdwToast, format_string: *const c_char, ...);
     pub fn adw_toast_set_action_target_value(
@@ -4451,6 +4463,9 @@ extern "C" {
     pub fn adw_toast_set_priority(self_: *mut AdwToast, priority: AdwToastPriority);
     pub fn adw_toast_set_timeout(self_: *mut AdwToast, timeout: c_uint);
     pub fn adw_toast_set_title(self_: *mut AdwToast, title: *const c_char);
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn adw_toast_set_use_markup(self_: *mut AdwToast, use_markup: gboolean);
 
     //=========================================================================
     // AdwToastOverlay
