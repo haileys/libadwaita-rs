@@ -10115,7 +10115,7 @@ See [property@EntryRow:show-apply-button].</doc>
            glib:type-struct="EnumListItemClass">
       <doc xml:space="preserve"
            filename="src/adw-enum-list-model.c"
-           line="44">`AdwEnumListItem` is the type of items in a [class@EnumListModel].</doc>
+           line="45">`AdwEnumListItem` is the type of items in a [class@EnumListModel].</doc>
       <source-position filename="src/adw-enum-list-model.h" line="22"/>
       <method name="get_name"
               c:identifier="adw_enum_list_item_get_name"
@@ -10123,12 +10123,12 @@ See [property@EntryRow:show-apply-button].</doc>
         <attribute name="org.gtk.Method.get_property" value="name"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="162">Gets the enum value name.</doc>
+             line="163">Gets the enum value name.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-enum-list-model.c"
-               line="167">the enum value name</doc>
+               line="168">the enum value name</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -10143,12 +10143,12 @@ See [property@EntryRow:show-apply-button].</doc>
         <attribute name="org.gtk.Method.get_property" value="nick"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="177">Gets the enum value nick.</doc>
+             line="178">Gets the enum value nick.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="31"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-enum-list-model.c"
-               line="182">the enum value nick</doc>
+               line="183">the enum value nick</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -10163,12 +10163,12 @@ See [property@EntryRow:show-apply-button].</doc>
         <attribute name="org.gtk.Method.get_property" value="value"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="147">Gets the enum value.</doc>
+             line="148">Gets the enum value.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="25"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-enum-list-model.c"
-               line="152">the enum value</doc>
+               line="153">the enum value</doc>
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
@@ -10185,7 +10185,7 @@ See [property@EntryRow:show-apply-button].</doc>
                    value="adw_enum_list_item_get_name"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="109">The enum value name.</doc>
+             line="110">The enum value name.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="nick"
@@ -10196,7 +10196,7 @@ See [property@EntryRow:show-apply-button].</doc>
                    value="adw_enum_list_item_get_nick"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="119">The enum value nick.</doc>
+             line="120">The enum value nick.</doc>
         <type name="utf8" c:type="gchar*"/>
       </property>
       <property name="value"
@@ -10207,7 +10207,7 @@ See [property@EntryRow:show-apply-button].</doc>
                    value="adw_enum_list_item_get_value"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="99">The enum value.</doc>
+             line="100">The enum value.</doc>
         <type name="gint" c:type="gint"/>
       </property>
     </class>
@@ -10229,7 +10229,7 @@ See [property@EntryRow:show-apply-button].</doc>
            glib:type-struct="EnumListModelClass">
       <doc xml:space="preserve"
            filename="src/adw-enum-list-model.c"
-           line="13">A [iface@Gio.ListModel] representing values of a given enum.
+           line="14">A [iface@Gio.ListModel] representing values of a given enum.
 
 `AdwEnumListModel` contains objects of type [class@EnumListItem].</doc>
       <source-position filename="src/adw-enum-list-model.h" line="36"/>
@@ -10237,19 +10237,19 @@ See [property@EntryRow:show-apply-button].</doc>
       <constructor name="new" c:identifier="adw_enum_list_model_new">
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="320">Creates a new `AdwEnumListModel` for @enum_type.</doc>
+             line="321">Creates a new `AdwEnumListModel` for @enum_type.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="39"/>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve"
                filename="src/adw-enum-list-model.c"
-               line="326">the newly created `AdwEnumListModel`</doc>
+               line="327">the newly created `AdwEnumListModel`</doc>
           <type name="EnumListModel" c:type="AdwEnumListModel*"/>
         </return-value>
         <parameters>
           <parameter name="enum_type" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-enum-list-model.c"
-                 line="322">the type of the enum to construct the model from</doc>
+                 line="323">the type of the enum to construct the model from</doc>
             <type name="GType" c:type="GType"/>
           </parameter>
         </parameters>
@@ -10258,7 +10258,9 @@ See [property@EntryRow:show-apply-button].</doc>
               c:identifier="adw_enum_list_model_find_position">
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="351">Finds the position of a given enum value in @self.</doc>
+             line="352">Finds the position of a given enum value in @self.
+
+If the value is not found, `GTK_INVALID_LIST_POSITION` is returned.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="45"/>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -10270,7 +10272,7 @@ See [property@EntryRow:show-apply-button].</doc>
           <parameter name="value" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-enum-list-model.c"
-                 line="353">an enum value</doc>
+                 line="354">an enum value</doc>
             <type name="gint" c:type="int"/>
           </parameter>
         </parameters>
@@ -10281,12 +10283,12 @@ See [property@EntryRow:show-apply-button].</doc>
         <attribute name="org.gtk.Method.get_property" value="enum-type"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="336">Gets the type of the enum represented by @self.</doc>
+             line="337">Gets the type of the enum represented by @self.</doc>
         <source-position filename="src/adw-enum-list-model.h" line="42"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-enum-list-model.c"
-               line="341">the enum type</doc>
+               line="342">the enum type</doc>
           <type name="GType" c:type="GType"/>
         </return-value>
         <parameters>
@@ -10304,7 +10306,7 @@ See [property@EntryRow:show-apply-button].</doc>
                    value="adw_enum_list_model_get_enum_type"/>
         <doc xml:space="preserve"
              filename="src/adw-enum-list-model.c"
-             line="268">The type of the enum represented by the model.</doc>
+             line="269">The type of the enum represented by the model.</doc>
         <type name="GType" c:type="GType"/>
       </property>
     </class>
@@ -35986,12 +35988,12 @@ You may have to adjust the breakpoint condition for your specific pages.
       <constructor name="new" c:identifier="adw_view_switcher_bar_new">
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="281">Creates a new `AdwViewSwitcherBar`.</doc>
+             line="279">Creates a new `AdwViewSwitcherBar`.</doc>
         <source-position filename="src/adw-view-switcher-bar.h" line="28"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-view-switcher-bar.c"
-               line="286">the newly created `AdwViewSwitcherBar`</doc>
+               line="284">the newly created `AdwViewSwitcherBar`</doc>
           <type name="Gtk.Widget" c:type="GtkWidget*"/>
         </return-value>
       </constructor>
@@ -36001,19 +36003,19 @@ You may have to adjust the breakpoint condition for your specific pages.
         <attribute name="org.gtk.Method.get_property" value="reveal"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="349">Gets whether @self should be revealed or hidden.</doc>
+             line="347">Gets whether @self should be revealed or hidden.</doc>
         <source-position filename="src/adw-view-switcher-bar.h" line="37"/>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve"
                filename="src/adw-view-switcher-bar.c"
-               line="355">whether @self is revealed</doc>
+               line="353">whether @self is revealed</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="351">a view switcher bar</doc>
+                 line="349">a view switcher bar</doc>
             <type name="ViewSwitcherBar" c:type="AdwViewSwitcherBar*"/>
           </instance-parameter>
         </parameters>
@@ -36024,19 +36026,19 @@ You may have to adjust the breakpoint condition for your specific pages.
         <attribute name="org.gtk.Method.get_property" value="stack"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="294">Gets the stack controlled by @self.</doc>
+             line="292">Gets the stack controlled by @self.</doc>
         <source-position filename="src/adw-view-switcher-bar.h" line="31"/>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve"
                filename="src/adw-view-switcher-bar.c"
-               line="300">the stack</doc>
+               line="298">the stack</doc>
           <type name="ViewStack" c:type="AdwViewStack*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="296">a view switcher bar</doc>
+                 line="294">a view switcher bar</doc>
             <type name="ViewSwitcherBar" c:type="AdwViewSwitcherBar*"/>
           </instance-parameter>
         </parameters>
@@ -36047,7 +36049,7 @@ You may have to adjust the breakpoint condition for your specific pages.
         <attribute name="org.gtk.Method.set_property" value="reveal"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="365">Sets whether @self should be revealed or hidden.</doc>
+             line="363">Sets whether @self should be revealed or hidden.</doc>
         <source-position filename="src/adw-view-switcher-bar.h" line="39"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -36056,13 +36058,13 @@ You may have to adjust the breakpoint condition for your specific pages.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="367">a view switcher bar</doc>
+                 line="365">a view switcher bar</doc>
             <type name="ViewSwitcherBar" c:type="AdwViewSwitcherBar*"/>
           </instance-parameter>
           <parameter name="reveal" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="368">whether to reveal @self</doc>
+                 line="366">whether to reveal @self</doc>
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
         </parameters>
@@ -36073,7 +36075,7 @@ You may have to adjust the breakpoint condition for your specific pages.
         <attribute name="org.gtk.Method.set_property" value="stack"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="310">Sets the stack controlled by @self.</doc>
+             line="308">Sets the stack controlled by @self.</doc>
         <source-position filename="src/adw-view-switcher-bar.h" line="33"/>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -36082,7 +36084,7 @@ You may have to adjust the breakpoint condition for your specific pages.
           <instance-parameter name="self" transfer-ownership="none">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="312">a view switcher bar</doc>
+                 line="310">a view switcher bar</doc>
             <type name="ViewSwitcherBar" c:type="AdwViewSwitcherBar*"/>
           </instance-parameter>
           <parameter name="stack"
@@ -36091,7 +36093,7 @@ You may have to adjust the breakpoint condition for your specific pages.
                      allow-none="1">
             <doc xml:space="preserve"
                  filename="src/adw-view-switcher-bar.c"
-                 line="313">a stack</doc>
+                 line="311">a stack</doc>
             <type name="ViewStack" c:type="AdwViewStack*"/>
           </parameter>
         </parameters>
@@ -36108,7 +36110,7 @@ You may have to adjust the breakpoint condition for your specific pages.
                    value="adw_view_switcher_bar_set_reveal"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="252">Whether the bar should be revealed or hidden.</doc>
+             line="250">Whether the bar should be revealed or hidden.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
       <property name="stack"
@@ -36122,7 +36124,7 @@ You may have to adjust the breakpoint condition for your specific pages.
                    value="adw_view_switcher_bar_set_stack"/>
         <doc xml:space="preserve"
              filename="src/adw-view-switcher-bar.c"
-             line="242">The stack the view switcher controls.</doc>
+             line="240">The stack the view switcher controls.</doc>
         <type name="ViewStack"/>
       </property>
     </class>
