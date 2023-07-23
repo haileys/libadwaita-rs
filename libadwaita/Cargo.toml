@@ -1,6 +1,6 @@
 [package]
 name = "libadwaita"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>"]
 edition = "2021"
 readme = "../README.md"
@@ -63,4 +63,4 @@ version = "0.7"
 [dependencies.ffi]
 package = "libadwaita-sys"
 path = './sys'
-version = "0.4"
+version = "0.5"
