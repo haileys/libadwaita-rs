@@ -41,32 +41,32 @@ libc = "0.2"
 [dependencies.gio]
 package = "gio-sys"
 git = "https://github.com/gtk-rs/gtk-rs-core"
-version = "0.18"
+version = "0.19"
 
 [dependencies.glib]
 package = "glib-sys"
 git = "https://github.com/gtk-rs/gtk-rs-core"
-version = "0.18"
+version = "0.19"
 
 [dependencies.gobject]
 package = "gobject-sys"
 git = "https://github.com/gtk-rs/gtk-rs-core"
-version = "0.18"
+version = "0.19"
 
 [dependencies.gtk]
 package = "gtk4-sys"
 git = "https://github.com/gtk-rs/gtk4-rs"
-version = "0.7"
+version = "0.8"
 
 [dependencies.gdk]
 package = "gdk4-sys"
 git = "https://github.com/gtk-rs/gtk4-rs"
-version = "0.7"
+version = "0.8"
 
 [dependencies.pango]
 package = "pango-sys"
 git = "https://github.com/gtk-rs/gtk-rs-core"
-version = "0.18"
+version = "0.19"
 
 [build-dependencies]
 system-deps = "6"
