@@ -340,6 +340,11 @@ status = "generate"
 generate_builder = false
 
 [[object]]
+name = "Adw.ViewStackPages"
+status = "generate"
+generate_builder = false
+
+[[object]]
 name = "Adw.Window"
 status = "generate"
 trait_name = "AdwWindowExt"

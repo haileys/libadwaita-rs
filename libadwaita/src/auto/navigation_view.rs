@@ -72,6 +72,16 @@ impl NavigationView {
         }
     }
 
+    #[doc(alias = "adw_navigation_view_get_pop_on_escape")]
+    #[doc(alias = "get_pop_on_escape")]
+    pub fn is_pop_on_escape(&self) -> bool {
+        unsafe {
+            from_glib(ffi::adw_navigation_view_get_pop_on_escape(
+                self.to_glib_none().0,
+            ))
+        }
+    }
+
     #[doc(alias = "adw_navigation_view_get_previous_page")]
     #[doc(alias = "get_previous_page")]
     pub fn previous_page(&self, page: &impl IsA<NavigationPage>) -> Option<NavigationPage> {
@@ -169,6 +179,16 @@ impl NavigationView {
             ffi::adw_navigation_view_set_animate_transitions(
                 self.to_glib_none().0,
                 animate_transitions.into_glib(),
+            );
+        }
+    }
+
+    #[doc(alias = "adw_navigation_view_set_pop_on_escape")]
+    pub fn set_pop_on_escape(&self, pop_on_escape: bool) {
+        unsafe {
+            ffi::adw_navigation_view_set_pop_on_escape(
+                self.to_glib_none().0,
+                pop_on_escape.into_glib(),
             );
         }
     }
@@ -336,6 +356,31 @@ impl NavigationView {
 
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[doc(alias = "pop-on-escape")]
+    pub fn connect_pop_on_escape_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
+        unsafe extern "C" fn notify_pop_on_escape_trampoline<F: Fn(&NavigationView) + 'static>(
+            this: *mut ffi::AdwNavigationView,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            let f: &F = &*(f as *const F);
+            f(&from_glib_borrow(this))
+        }
+        unsafe {
+            let f: Box_<F> = Box_::new(f);
+            connect_raw(
+                self.as_ptr() as *mut _,
+                b"notify::pop-on-escape\0".as_ptr() as *const _,
+                Some(transmute::<_, unsafe extern "C" fn()>(
+                    notify_pop_on_escape_trampoline::<F> as *const (),
+                )),
+                Box_::into_raw(f),
+            )
+        }
+    }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "visible-page")]
     pub fn connect_visible_page_notify<F: Fn(&Self) + 'static>(&self, f: F) -> SignalHandlerId {
         unsafe extern "C" fn notify_visible_page_trampoline<F: Fn(&NavigationView) + 'static>(
@@ -391,6 +436,14 @@ impl NavigationViewBuilder {
             builder: self
                 .builder
                 .property("animate-transitions", animate_transitions),
+        }
+    }
+
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    pub fn pop_on_escape(self, pop_on_escape: bool) -> Self {
+        Self {
+            builder: self.builder.property("pop-on-escape", pop_on_escape),
         }
     }
 
