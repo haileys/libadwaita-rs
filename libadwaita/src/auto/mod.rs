@@ -261,7 +261,11 @@ pub use self::view_stack::ViewStack;
 mod view_stack_page;
 pub use self::view_stack_page::ViewStackPage;
 
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 mod view_stack_pages;
+#[cfg(feature = "v1_4")]
+#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 pub use self::view_stack_pages::ViewStackPages;
 
 mod view_switcher;
