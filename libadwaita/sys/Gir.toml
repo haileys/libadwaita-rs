@@ -19,3 +19,10 @@ ignore = [
    "Adw.MICRO_VERSION", 
    "Adw.MINOR_VERSION"
 ]
+
+[[object]]
+name = "Adw.ViewStackPages"
+status = "generate"
+   [[object.function]]
+   name = "get_type"
+   version = "1.4"

@@ -4670,6 +4670,8 @@ extern "C" {
     //=========================================================================
     // AdwViewStackPages
     //=========================================================================
+    #[cfg(feature = "v1_4")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     pub fn adw_view_stack_pages_get_type() -> GType;
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]

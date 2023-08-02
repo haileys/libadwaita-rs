@@ -3,20 +3,13 @@
 // from gir-files (https://github.com/gtk-rs/gir-files.git)
 // DO NOT EDIT
 
-#[cfg(feature = "v1_4")]
-#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 use crate::ViewStackPage;
-#[cfg(feature = "v1_4")]
-#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
 use glib::{
     prelude::*,
     signal::{connect_raw, SignalHandlerId},
     translate::*,
 };
-use std::fmt;
-#[cfg(feature = "v1_4")]
-#[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
-use std::{boxed::Box as Box_, mem::transmute};
+use std::{boxed::Box as Box_, fmt, mem::transmute};
 
 glib::wrapper! {
     #[doc(alias = "AdwViewStackPages")]
@@ -28,8 +21,6 @@ glib::wrapper! {
 }
 
 impl ViewStackPages {
-    #[cfg(feature = "v1_4")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_view_stack_pages_get_selected_page")]
     #[doc(alias = "get_selected_page")]
     pub fn selected_page(&self) -> Option<ViewStackPage> {
@@ -40,8 +31,6 @@ impl ViewStackPages {
         }
     }
 
-    #[cfg(feature = "v1_4")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_view_stack_pages_set_selected_page")]
     pub fn set_selected_page(&self, page: &ViewStackPage) {
         unsafe {
