@@ -77,7 +77,7 @@
 //!             // add content to window
 //!             .content(&content)
 //!             .build();
-//!         window.show();
+//!         window.present();
 //!     });
 //!
 //!     application.run();
