@@ -14,6 +14,8 @@
 //! - [GTK 4 Rust bindings documentation](mod@gtk)
 //! - [Libadwaita documentation](https://gnome.pages.gitlab.gnome.org/libadwaita/)
 //! - [gtk-rs project overview](https://gtk-rs.org/)
+//! - [Report bindings related issues](https://gitlab.gnome.org/World/Rust/libadwaita-rs)
+//! - [Report upstream libadwaita issues](https://gitlab.gnome.org/GNOME/libadwaita/)
 //!
 //! # Example
 //!
