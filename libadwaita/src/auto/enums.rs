@@ -2008,6 +2008,8 @@ pub enum ToolbarStyle {
     Flat,
     #[doc(alias = "ADW_TOOLBAR_RAISED")]
     Raised,
+    #[doc(alias = "ADW_TOOLBAR_RAISED_BORDER")]
+    RaisedBorder,
     #[doc(hidden)]
     __Unknown(i32),
 }
@@ -2022,6 +2024,7 @@ impl fmt::Display for ToolbarStyle {
             match *self {
                 Self::Flat => "Flat",
                 Self::Raised => "Raised",
+                Self::RaisedBorder => "RaisedBorder",
                 _ => "Unknown",
             }
         )
@@ -2039,6 +2042,7 @@ impl IntoGlib for ToolbarStyle {
         match self {
             Self::Flat => ffi::ADW_TOOLBAR_FLAT,
             Self::Raised => ffi::ADW_TOOLBAR_RAISED,
+            Self::RaisedBorder => ffi::ADW_TOOLBAR_RAISED_BORDER,
             Self::__Unknown(value) => value,
         }
     }
@@ -2055,6 +2059,7 @@ impl FromGlib<ffi::AdwToolbarStyle> for ToolbarStyle {
         match value {
             ffi::ADW_TOOLBAR_FLAT => Self::Flat,
             ffi::ADW_TOOLBAR_RAISED => Self::Raised,
+            ffi::ADW_TOOLBAR_RAISED_BORDER => Self::RaisedBorder,
             value => Self::__Unknown(value),
         }
     }

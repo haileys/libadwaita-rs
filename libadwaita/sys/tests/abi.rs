@@ -950,6 +950,7 @@ const RUST_CONSTANTS: &[(&str, &str)] = &[
     ("(gint) ADW_TOAST_PRIORITY_NORMAL", "0"),
     ("(gint) ADW_TOOLBAR_FLAT", "0"),
     ("(gint) ADW_TOOLBAR_RAISED", "1"),
+    ("(gint) ADW_TOOLBAR_RAISED_BORDER", "2"),
     ("(gint) ADW_VIEW_SWITCHER_POLICY_NARROW", "0"),
     ("(gint) ADW_VIEW_SWITCHER_POLICY_WIDE", "1"),
 ];
