@@ -126,6 +126,7 @@ pub const ADW_TOAST_PRIORITY_HIGH: AdwToastPriority = 1;
 pub type AdwToolbarStyle = c_int;
 pub const ADW_TOOLBAR_FLAT: AdwToolbarStyle = 0;
 pub const ADW_TOOLBAR_RAISED: AdwToolbarStyle = 1;
+pub const ADW_TOOLBAR_RAISED_BORDER: AdwToolbarStyle = 2;
 
 pub type AdwViewSwitcherPolicy = c_int;
 pub const ADW_VIEW_SWITCHER_POLICY_NARROW: AdwViewSwitcherPolicy = 0;
