@@ -27,6 +27,8 @@ impl AboutWindow {
         unsafe { gtk::Widget::from_glib_none(ffi::adw_about_window_new()).unsafe_cast() }
     }
 
+    #[cfg(target_os = "linux")]
+    #[cfg_attr(docsrs, doc(cfg(target_os = "linux")))]
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
     #[doc(alias = "adw_about_window_new_from_appdata")]

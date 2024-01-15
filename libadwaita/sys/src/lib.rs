@@ -2172,6 +2172,8 @@ extern "C" {
     pub fn adw_about_window_new() -> *mut gtk::GtkWidget;
     #[cfg(feature = "v1_4")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v1_4")))]
+    #[cfg(target_os = "linux")]
+    #[cfg_attr(docsrs, doc(cfg(target_os = "linux")))]
     pub fn adw_about_window_new_from_appdata(
         resource_path: *const c_char,
         release_notes_version: *const c_char,

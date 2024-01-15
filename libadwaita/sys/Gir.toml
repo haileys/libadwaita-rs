@@ -26,3 +26,10 @@ status = "generate"
    [[object.function]]
    name = "get_type"
    version = "1.4"
+
+[[object]]
+name = "Adw.AboutWindow"
+status = "generate"
+   [[object.function]]
+   name = "new_from_appdata"
+   cfg_condition = "target_os = \"linux\""

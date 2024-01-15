@@ -25,7 +25,6 @@ external_libraries = [
 ]
 
 generate = [
-    "Adw.AboutWindow",
     "Adw.ActionRow",
     "Adw.AnimationState",
     "Adw.Avatar",
@@ -174,6 +173,13 @@ status = "generate"
     [[object.function]]
     name = "show_about_window"
     ignore = true # C only function, replaced by AboutWindow::builder
+
+[[object]]
+name = "Adw.AboutWindow"
+status = "generate"
+   [[object.function]]
+   name = "new_from_appdata"
+   cfg_condition = "target_os = \"linux\""
 
 [[object]]
 name = "Adw.Animation"
