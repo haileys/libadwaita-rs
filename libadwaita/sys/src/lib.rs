@@ -1973,7 +1973,6 @@ impl ::std::fmt::Debug for AdwSwipeable {
     }
 }
 
-#[link(name = "adwaita-1")]
 extern "C" {
 
     //=========================================================================
